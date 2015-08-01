@@ -1,1 +1,0 @@
-../../../GTFSStations/Pod/Classes/GTFS StationsTests-Bridging-Header.h
