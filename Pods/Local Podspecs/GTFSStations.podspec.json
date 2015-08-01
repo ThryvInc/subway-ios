@@ -1,0 +1,23 @@
+{
+  "name": "GTFSStations",
+  "version": "0.0.1",
+  "summary": "GTFS Stations takes GTFS data and organizes it into stations",
+  "description": "Take a look at StationManager. This will allow you to get stations and predictions within a given time of your the date you pass in.",
+  "homepage": "https://github.com/schrockblock/gtfs-stations",
+  "license": "MIT",
+  "authors": {
+    "Elliot": "ephherd@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/schrockblock/gtfs-stations.git",
+    "tag": "0.0.1"
+  },
+  "social_media_url": "https://twitter.com/schrockblock",
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*.{h,m,swift}",
+  "dependencies": {
+    "SQLite.swift": [
+
+    ]
+  }
+}

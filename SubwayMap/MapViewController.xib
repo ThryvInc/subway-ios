@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="SubwayMap" customModuleProvider="target">
+            <connections>
+                <outlet property="searchBar" destination="Dl8-TW-ujh" id="Hhr-W1-2kb"/>
+                <outlet property="searchDisplayController" destination="YsX-dO-zZG" id="981-2n-FXT"/>
+                <outlet property="tableView" destination="6iS-1s-9SW" id="lqv-R1-HhE"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6iS-1s-9SW">
+                    <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Dl8-TW-ujh">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Dl8-TW-ujh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="AAX-b3-shb"/>
+                <constraint firstAttribute="trailing" secondItem="Dl8-TW-ujh" secondAttribute="trailing" id="Ks4-hS-eIg"/>
+                <constraint firstItem="Dl8-TW-ujh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Mom-Nw-dKg"/>
+                <constraint firstItem="6iS-1s-9SW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ORL-RT-EMJ"/>
+                <constraint firstItem="6iS-1s-9SW" firstAttribute="top" secondItem="Dl8-TW-ujh" secondAttribute="bottom" id="PIF-NO-gQN"/>
+                <constraint firstAttribute="trailing" secondItem="6iS-1s-9SW" secondAttribute="trailing" id="STD-kF-Gwf"/>
+                <constraint firstAttribute="bottom" secondItem="6iS-1s-9SW" secondAttribute="bottom" id="TYe-jh-P30"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+        </view>
+        <searchDisplayController id="RVY-2Y-0lQ">
+            <connections>
+                <outlet property="delegate" destination="-1" id="zRg-zL-NtW"/>
+                <outlet property="searchContentsController" destination="-1" id="O97-XW-enH"/>
+                <outlet property="searchResultsDataSource" destination="-1" id="PNN-zA-Fh1"/>
+                <outlet property="searchResultsDelegate" destination="-1" id="JMF-SE-q3T"/>
+            </connections>
+        </searchDisplayController>
+        <searchDisplayController id="YsX-dO-zZG">
+            <connections>
+                <outlet property="delegate" destination="-1" id="f0M-Dw-bCa"/>
+                <outlet property="searchContentsController" destination="-1" id="uUq-fk-bcf"/>
+                <outlet property="searchResultsDataSource" destination="-1" id="uQG-fF-ahk"/>
+                <outlet property="searchResultsDelegate" destination="-1" id="92O-Jp-y3B"/>
+            </connections>
+        </searchDisplayController>
+    </objects>
+</document>
