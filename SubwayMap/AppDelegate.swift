@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GTFSStations
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,10 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        UINavigationBar.appearance().barTintColor = UIColor(red: 58.0/255.0, green: 58.0/255.0, blue: 58.0/255.0, alpha: 1)
+        UINavigationBar.appearance().tintColor = UIColor(red: 248.0/255.0, green: 248.0/255.0, blue: 248.0/255.0, alpha: 1)
+        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName : UIFont(name: "AvenirNext-Regular", size: 20)!, NSForegroundColorAttributeName : UIColor(red: 248.0/255.0, green: 248.0/255.0, blue: 248.0/255.0, alpha: 1)]
+        
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            DatabaseLoader.loadDb()
+        })
+        
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        let stationManager = StationManager(filename: "gtfs.db")
+        
         let mapVC = MapViewController(nibName: "MapViewController", bundle: nil)
-        mapVC.stationManager = stationManager
+        
         let navVC = UINavigationController(rootViewController: mapVC)
         window?.rootViewController = navVC;
         window?.makeKeyAndVisible()

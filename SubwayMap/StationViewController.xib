@@ -15,12 +15,18 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3xQ-WY-BR1">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3xQ-WY-BR1">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="3xQ-WY-BR1" secondAttribute="trailing" id="MYf-IT-EPA"/>
+                <constraint firstItem="3xQ-WY-BR1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="S6t-VI-IN2"/>
+                <constraint firstAttribute="bottom" secondItem="3xQ-WY-BR1" secondAttribute="bottom" id="cUe-wM-GjR"/>
+                <constraint firstItem="3xQ-WY-BR1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zPL-KU-DGu"/>
+            </constraints>
         </view>
     </objects>
 </document>

@@ -26,6 +26,12 @@
 		49D5359F1B69C44C0087D368 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5359C1B69C44C0087D368 /* MapViewController.swift */; };
 		49D535A01B69C44C0087D368 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D5359D1B69C44C0087D368 /* MapViewController.xib */; };
 		49D535A11B69C44C0087D368 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D5359D1B69C44C0087D368 /* MapViewController.xib */; };
+		49F531D71B6D4DD500A9E887 /* NYCRouteColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */; };
+		49F531D81B6D4DD500A9E887 /* NYCRouteColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */; };
+		49F531DA1B6D591C00A9E887 /* PredictionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */; };
+		49F531DB1B6D591C00A9E887 /* PredictionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */; };
+		49F531DD1B6E9E5B00A9E887 /* DatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */; };
+		49F531DE1B6E9E5B00A9E887 /* DatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */; };
 		E29EABB209C70B58A659E852 /* Pods_SubwayMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387A1DFA8D56DD71BF31F3C5 /* Pods_SubwayMap.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -57,6 +63,9 @@
 		491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PredictionTableViewCell.xib; sourceTree = "<group>"; };
 		49D5359C1B69C44C0087D368 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		49D5359D1B69C44C0087D368 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NYCRouteColorManager.swift; sourceTree = "<group>"; };
+		49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictionViewModel.swift; sourceTree = "<group>"; };
+		49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseLoader.swift; sourceTree = "<group>"; };
 		D9CAF917F88D058D59135F92 /* Pods-SubwayMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,10 +122,10 @@
 		4918311E1B672B6900EB8328 /* SubwayMap */ = {
 			isa = PBXGroup;
 			children = (
+				49F531D21B6D4C2300A9E887 /* Models */,
+				49F531D11B6D400400A9E887 /* Views */,
 				49D5359B1B69C4290087D368 /* Controllers */,
 				491831211B672B6900EB8328 /* AppDelegate.swift */,
-				491831D01B69A61700EB8328 /* PredictionTableViewCell.swift */,
-				491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */,
 				491831281B672B6900EB8328 /* Images.xcassets */,
 				4918311F1B672B6900EB8328 /* Supporting Files */,
 			);
@@ -158,6 +167,25 @@
 				49D5359D1B69C44C0087D368 /* MapViewController.xib */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		49F531D11B6D400400A9E887 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				491831D01B69A61700EB8328 /* PredictionTableViewCell.swift */,
+				491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		49F531D21B6D4C2300A9E887 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */,
+				49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */,
+				49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		97B836334132DC78385DD218 /* Pods */ = {
@@ -327,9 +355,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				491831221B672B6900EB8328 /* AppDelegate.swift in Sources */,
+				49F531DA1B6D591C00A9E887 /* PredictionViewModel.swift in Sources */,
+				49F531DD1B6E9E5B00A9E887 /* DatabaseLoader.swift in Sources */,
 				491831431B672E8C00EB8328 /* StationViewController.swift in Sources */,
 				491831D21B69A61700EB8328 /* PredictionTableViewCell.swift in Sources */,
 				49D5359E1B69C44C0087D368 /* MapViewController.swift in Sources */,
+				49F531D71B6D4DD500A9E887 /* NYCRouteColorManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,9 +369,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				491831381B672B6900EB8328 /* SubwayMapTests.swift in Sources */,
+				49F531DB1B6D591C00A9E887 /* PredictionViewModel.swift in Sources */,
+				49F531DE1B6E9E5B00A9E887 /* DatabaseLoader.swift in Sources */,
 				491831441B672E8C00EB8328 /* StationViewController.swift in Sources */,
 				491831D31B69A61700EB8328 /* PredictionTableViewCell.swift in Sources */,
 				49D5359F1B69C44C0087D368 /* MapViewController.swift in Sources */,
+				49F531D81B6D4DD500A9E887 /* NYCRouteColorManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

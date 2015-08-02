@@ -6,8 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="SubwayMap" customModuleProvider="target">
             <connections>
+                <outlet property="loadingImageView" destination="bfC-Ug-z9h" id="uoS-H5-r6R"/>
                 <outlet property="searchBar" destination="Dl8-TW-ujh" id="Hhr-W1-2kb"/>
-                <outlet property="searchDisplayController" destination="YsX-dO-zZG" id="981-2n-FXT"/>
+                <outlet property="subwayImageView" destination="4Ed-rU-LDM" id="Lxh-Iu-kaN"/>
                 <outlet property="tableView" destination="6iS-1s-9SW" id="lqv-R1-HhE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -17,42 +18,66 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6iS-1s-9SW">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Loading" translatesAutoresizingMaskIntoConstraints="NO" id="bfC-Ug-z9h">
+                    <rect key="frame" x="287" y="8" width="28" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="Wti-E1-2X1"/>
+                        <constraint firstAttribute="width" constant="28" id="a6M-6l-zxU"/>
+                    </constraints>
+                </imageView>
+                <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Stations" translatesAutoresizingMaskIntoConstraints="NO" id="Dl8-TW-ujh">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="eYz-j1-BKU"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                </searchBar>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" bounces="NO" maximumZoomScale="10" translatesAutoresizingMaskIntoConstraints="NO" id="B1O-LN-p3e">
+                    <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="subway" translatesAutoresizingMaskIntoConstraints="NO" id="4Ed-rU-LDM">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="centerX" secondItem="4Ed-rU-LDM" secondAttribute="centerX" id="0uv-gi-Iec"/>
+                        <constraint firstAttribute="centerY" secondItem="4Ed-rU-LDM" secondAttribute="centerY" id="DeS-ZG-RPl"/>
+                        <constraint firstAttribute="bottom" secondItem="4Ed-rU-LDM" secondAttribute="bottom" id="Md2-mo-iUr"/>
+                        <constraint firstItem="4Ed-rU-LDM" firstAttribute="top" secondItem="B1O-LN-p3e" secondAttribute="top" id="RDJ-V7-ltY"/>
+                        <constraint firstAttribute="trailing" secondItem="4Ed-rU-LDM" secondAttribute="trailing" id="UA7-KY-LUh"/>
+                        <constraint firstItem="4Ed-rU-LDM" firstAttribute="leading" secondItem="B1O-LN-p3e" secondAttribute="leading" id="jvz-9n-ONE"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="bpv-5M-ECq"/>
+                    </connections>
+                </scrollView>
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6iS-1s-9SW">
                     <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Dl8-TW-ujh">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                    <textInputTraits key="textInputTraits"/>
-                </searchBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="B1O-LN-p3e" firstAttribute="top" secondItem="Dl8-TW-ujh" secondAttribute="bottom" id="4yz-9i-bBu"/>
                 <constraint firstItem="Dl8-TW-ujh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="AAX-b3-shb"/>
+                <constraint firstAttribute="centerX" secondItem="bfC-Ug-z9h" secondAttribute="centerX" id="GME-Kr-X5o"/>
                 <constraint firstAttribute="trailing" secondItem="Dl8-TW-ujh" secondAttribute="trailing" id="Ks4-hS-eIg"/>
                 <constraint firstItem="Dl8-TW-ujh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Mom-Nw-dKg"/>
                 <constraint firstItem="6iS-1s-9SW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ORL-RT-EMJ"/>
                 <constraint firstItem="6iS-1s-9SW" firstAttribute="top" secondItem="Dl8-TW-ujh" secondAttribute="bottom" id="PIF-NO-gQN"/>
                 <constraint firstAttribute="trailing" secondItem="6iS-1s-9SW" secondAttribute="trailing" id="STD-kF-Gwf"/>
                 <constraint firstAttribute="bottom" secondItem="6iS-1s-9SW" secondAttribute="bottom" id="TYe-jh-P30"/>
+                <constraint firstItem="bfC-Ug-z9h" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="b4b-c3-wZp"/>
+                <constraint firstItem="B1O-LN-p3e" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bUS-9i-gxh"/>
+                <constraint firstAttribute="bottom" secondItem="B1O-LN-p3e" secondAttribute="bottom" id="u0K-D3-gkh"/>
+                <constraint firstAttribute="trailing" secondItem="B1O-LN-p3e" secondAttribute="trailing" id="wQT-xs-Xi1"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="493" y="211"/>
         </view>
-        <searchDisplayController id="RVY-2Y-0lQ">
-            <connections>
-                <outlet property="delegate" destination="-1" id="zRg-zL-NtW"/>
-                <outlet property="searchContentsController" destination="-1" id="O97-XW-enH"/>
-                <outlet property="searchResultsDataSource" destination="-1" id="PNN-zA-Fh1"/>
-                <outlet property="searchResultsDelegate" destination="-1" id="JMF-SE-q3T"/>
-            </connections>
-        </searchDisplayController>
-        <searchDisplayController id="YsX-dO-zZG">
-            <connections>
-                <outlet property="delegate" destination="-1" id="f0M-Dw-bCa"/>
-                <outlet property="searchContentsController" destination="-1" id="uUq-fk-bcf"/>
-                <outlet property="searchResultsDataSource" destination="-1" id="uQG-fF-ahk"/>
-                <outlet property="searchResultsDelegate" destination="-1" id="92O-Jp-y3B"/>
-            </connections>
-        </searchDisplayController>
     </objects>
+    <resources>
+        <image name="Loading" width="60" height="60"/>
+        <image name="subway" width="2587" height="3086"/>
+    </resources>
 </document>
