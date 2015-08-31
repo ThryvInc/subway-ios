@@ -45,6 +45,9 @@
 		49F531DE1B6E9E5B00A9E887 /* DatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */; };
 		59A4CE88EB7ED1203DE138D4 /* Pods_SubwayMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A868E11E4A809C123EF6F4E9 /* Pods_SubwayMapTests.framework */; };
 		DF4B99A0190F44320C591BFA /* Pods_SubwayMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1AD6E17ADA74144E92FD327 /* Pods_SubwayMap.framework */; };
+		8355AC6C1B94A1B2002F0527 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355AC6B1B94A1B2002F0527 /* FavoritesManager.swift */; };
+		8355AC6D1B94A1B2002F0527 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355AC6B1B94A1B2002F0527 /* FavoritesManager.swift */; };
+		8355AC6F1B94A1C8002F0527 /* FavoritesManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355AC6E1B94A1C8002F0527 /* FavoritesManagerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 
 /* Begin PBXFileReference section */
 		04DFCE702E06D194260037D2 /* Pods-SubwayMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2FEF38240487DE01F31F28D9 /* Pods_SubwayMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubwayMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		36DF562699FA113857BB7C43 /* Pods-SubwayMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests.release.xcconfig"; sourceTree = "<group>"; };
+		387A1DFA8D56DD71BF31F3C5 /* Pods_SubwayMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubwayMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4918311C1B672B6900EB8328 /* SubwayMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubwayMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		491831201B672B6900EB8328 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		491831211B672B6900EB8328 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,11 +91,13 @@
 		49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NYCRouteColorManager.swift; sourceTree = "<group>"; };
 		49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictionViewModel.swift; sourceTree = "<group>"; };
 		49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseLoader.swift; sourceTree = "<group>"; };
+<<<<<<< fde24404982395d1d7495df53085632bda315c42
 		4BB8308FBA1DFDFC7E5081B5 /* Pods-SubwayMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap.debug.xcconfig"; sourceTree = "<group>"; };
 		A13F3E14FA8E73B74979798F /* Pods-SubwayMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap.release.xcconfig"; sourceTree = "<group>"; };
 		A868E11E4A809C123EF6F4E9 /* Pods_SubwayMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubwayMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF52ACD35DF59C8247AC37A /* Pods-SubwayMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests.release.xcconfig"; sourceTree = "<group>"; };
-		F1AD6E17ADA74144E92FD327 /* Pods_SubwayMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubwayMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1AD6E17ADA74144E92FD327 /* Pods_SubwayMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubwayMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };		8355AC6B1B94A1B2002F0527 /* FavoritesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
+		8355AC6E1B94A1C8002F0527 /* FavoritesManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesManagerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +181,7 @@
 		491831341B672B6900EB8328 /* SubwayMapTests */ = {
 			isa = PBXGroup;
 			children = (
+				8355AC6E1B94A1C8002F0527 /* FavoritesManagerTests.swift */,
 				491831371B672B6900EB8328 /* SubwayMapTests.swift */,
 				491831351B672B6900EB8328 /* Supporting Files */,
 			);
@@ -222,6 +231,7 @@
 		49F531D21B6D4C2300A9E887 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8355AC6B1B94A1B2002F0527 /* FavoritesManager.swift */,
 				49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */,
 				49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */,
 				49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */,
@@ -476,6 +486,7 @@
 				49D5359E1B69C44C0087D368 /* MapViewController.swift in Sources */,
 				499EC99A1BEABE7F004A1553 /* LineViewModel.swift in Sources */,
 				49F531D71B6D4DD500A9E887 /* NYCRouteColorManager.swift in Sources */,
+				8355AC6C1B94A1B2002F0527 /* FavoritesManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,10 +500,12 @@
 				499EC9971BEAA6F8004A1553 /* LineChoiceView.swift in Sources */,
 				49F531DE1B6E9E5B00A9E887 /* DatabaseLoader.swift in Sources */,
 				491831441B672E8C00EB8328 /* StationViewController.swift in Sources */,
+				8355AC6F1B94A1C8002F0527 /* FavoritesManagerTests.swift in Sources */,
 				491831D31B69A61700EB8328 /* PredictionTableViewCell.swift in Sources */,
 				49D5359F1B69C44C0087D368 /* MapViewController.swift in Sources */,
 				499EC99B1BEABE7F004A1553 /* LineViewModel.swift in Sources */,
 				49F531D81B6D4DD500A9E887 /* NYCRouteColorManager.swift in Sources */,
+				8355AC6D1B94A1B2002F0527 /* FavoritesManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

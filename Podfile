@@ -19,5 +19,8 @@ end
 
 target 'SubwayMapTests' do
     import_pods
+    
+    pod 'Quick', '~> 0.3.1'
+    pod 'Nimble', '~> 1.0.0'
 end
 

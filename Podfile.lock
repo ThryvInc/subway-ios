@@ -5,6 +5,8 @@ PODS:
   - GTFSStations (0.0.2):
     - SQLite.swift
   - NagController (0.0.1)
+  - Nimble (1.0.0)
+  - Quick (0.3.1)
   - SBCategories (0.1.1)
   - SBTextInputView (0.2.0)
   - SQLite.swift (0.9.2)
@@ -15,6 +17,8 @@ DEPENDENCIES:
   - Fabric
   - GTFSStations (from `https://github.com/schrockblock/gtfs-stations`, branch `develop`)
   - NagController (from `https://github.com/schrockblock/nag-controller`)
+  - Nimble (~> 1.0.0)
+  - Quick (~> 0.3.1)
   - SBCategories
   - SBTextInputView (from `https://github.com/schrockblock/SBTextInputView`)
   - SQLite.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
@@ -50,6 +54,8 @@ SPEC CHECKSUMS:
   Fabric: ed41fd62173c6bdea24ab02c9d7707161eabb750
   GTFSStations: 6493dce849b1356d6168fc48172bd98eb892439c
   NagController: ea7b0c2565bd92b2312594216a784f642041ef55
+  Nimble: 8bee528e5fcc403653076545db562d2b5db7bb87
+  Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
   SBCategories: a2a126ee06eeacaac02d5e68533cd9de1b9bf1cc
   SBTextInputView: 7446058ca286fb7e195bcb1fab89fc0587cb38cd
   SQLite.swift: 5dca22dbf6634fdb9c3270fae9491830804e9b2d
