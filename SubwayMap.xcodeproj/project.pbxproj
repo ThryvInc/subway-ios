@@ -15,13 +15,14 @@
 		491831451B672E8C00EB8328 /* StationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491831421B672E8C00EB8328 /* StationViewController.xib */; };
 		491831461B672E8C00EB8328 /* StationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491831421B672E8C00EB8328 /* StationViewController.xib */; };
 		491831481B67321A00EB8328 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 491831471B67321A00EB8328 /* libsqlite3.dylib */; };
-		491831771B67476900EB8328 /* gtfs.db in Resources */ = {isa = PBXBuildFile; fileRef = 4918316A1B67476900EB8328 /* gtfs.db */; };
-		491831781B67476900EB8328 /* gtfs.db in Resources */ = {isa = PBXBuildFile; fileRef = 4918316A1B67476900EB8328 /* gtfs.db */; };
 		4918319C1B67491D00EB8328 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 491831471B67321A00EB8328 /* libsqlite3.dylib */; };
 		491831D21B69A61700EB8328 /* PredictionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831D01B69A61700EB8328 /* PredictionTableViewCell.swift */; };
 		491831D31B69A61700EB8328 /* PredictionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831D01B69A61700EB8328 /* PredictionTableViewCell.swift */; };
 		491831D41B69A61700EB8328 /* PredictionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */; };
 		491831D51B69A61700EB8328 /* PredictionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */; };
+		493DC18A1B9CD16900515F4B /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 493DC1891B9CD16900515F4B /* gtfs.db.zip */; };
+		493DC18B1B9CD16900515F4B /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 493DC1891B9CD16900515F4B /* gtfs.db.zip */; };
+		493DC1911B9D0CD700515F4B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 493DC1871B9CD10500515F4B /* libz.dylib */; };
 		49D5359E1B69C44C0087D368 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5359C1B69C44C0087D368 /* MapViewController.swift */; };
 		49D5359F1B69C44C0087D368 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5359C1B69C44C0087D368 /* MapViewController.swift */; };
 		49D535A01B69C44C0087D368 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D5359D1B69C44C0087D368 /* MapViewController.xib */; };
@@ -58,9 +59,12 @@
 		491831411B672E8C00EB8328 /* StationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
 		491831421B672E8C00EB8328 /* StationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StationViewController.xib; sourceTree = "<group>"; };
 		491831471B67321A00EB8328 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		4918316A1B67476900EB8328 /* gtfs.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = gtfs.db; sourceTree = "<group>"; };
 		491831D01B69A61700EB8328 /* PredictionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictionTableViewCell.swift; sourceTree = "<group>"; };
 		491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PredictionTableViewCell.xib; sourceTree = "<group>"; };
+		493DC1871B9CD10500515F4B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		493DC1891B9CD16900515F4B /* gtfs.db.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = gtfs.db.zip; sourceTree = "<group>"; };
+		493DC18C1B9CE01B00515F4B /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		493DC18E1B9CEF9200515F4B /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		49D5359C1B69C44C0087D368 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		49D5359D1B69C44C0087D368 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NYCRouteColorManager.swift; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				493DC1911B9D0CD700515F4B /* libz.dylib in Frameworks */,
 				491831481B67321A00EB8328 /* libsqlite3.dylib in Frameworks */,
 				E29EABB209C70B58A659E852 /* Pods_SubwayMap.framework in Frameworks */,
 			);
@@ -93,6 +98,9 @@
 		0561CA4C571669088714DF0D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				493DC18E1B9CEF9200515F4B /* libz.1.dylib */,
+				493DC18C1B9CE01B00515F4B /* libz.1.2.5.dylib */,
+				493DC1871B9CD10500515F4B /* libz.dylib */,
 				491831471B67321A00EB8328 /* libsqlite3.dylib */,
 				387A1DFA8D56DD71BF31F3C5 /* Pods_SubwayMap.framework */,
 			);
@@ -122,10 +130,10 @@
 		4918311E1B672B6900EB8328 /* SubwayMap */ = {
 			isa = PBXGroup;
 			children = (
+				491831211B672B6900EB8328 /* AppDelegate.swift */,
 				49F531D21B6D4C2300A9E887 /* Models */,
 				49F531D11B6D400400A9E887 /* Views */,
 				49D5359B1B69C4290087D368 /* Controllers */,
-				491831211B672B6900EB8328 /* AppDelegate.swift */,
 				491831281B672B6900EB8328 /* Images.xcassets */,
 				4918311F1B672B6900EB8328 /* Supporting Files */,
 			);
@@ -135,7 +143,7 @@
 		4918311F1B672B6900EB8328 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4918316A1B67476900EB8328 /* gtfs.db */,
+				493DC1891B9CD16900515F4B /* gtfs.db.zip */,
 				491831201B672B6900EB8328 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -281,11 +289,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				493DC18A1B9CD16900515F4B /* gtfs.db.zip in Resources */,
 				491831D41B69A61700EB8328 /* PredictionTableViewCell.xib in Resources */,
 				491831291B672B6900EB8328 /* Images.xcassets in Resources */,
 				491831451B672E8C00EB8328 /* StationViewController.xib in Resources */,
 				49D535A01B69C44C0087D368 /* MapViewController.xib in Resources */,
-				491831771B67476900EB8328 /* gtfs.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				491831781B67476900EB8328 /* gtfs.db in Resources */,
+				493DC18B1B9CD16900515F4B /* gtfs.db.zip in Resources */,
 				491831461B672E8C00EB8328 /* StationViewController.xib in Resources */,
 				491831D51B69A61700EB8328 /* PredictionTableViewCell.xib in Resources */,
 				49D535A11B69C44C0087D368 /* MapViewController.xib in Resources */,
@@ -501,7 +509,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "df034d6d-ca33-442a-a660-739a4ace7c16";
 				SWIFT_INCLUDE_PATHS = "/Users/ell/development/ios/apps/subway-ios/SubwayMap/";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SubwayMap/SubwayMap-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -521,7 +529,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "df034d6d-ca33-442a-a660-739a4ace7c16";
 				SWIFT_INCLUDE_PATHS = "/Users/ell/development/ios/apps/subway-ios/SubwayMap/";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SubwayMap/SubwayMap-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -541,7 +549,7 @@
 				INFOPLIST_FILE = SubwayMapTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SubwayMap/SubwayMapTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SubwayMap.app/SubwayMap";
 			};
@@ -559,7 +567,7 @@
 				INFOPLIST_FILE = SubwayMapTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SubwayMap/SubwayMapTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SubwayMap.app/SubwayMap";
 			};
 			name = Release;

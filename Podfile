@@ -6,6 +6,7 @@ target 'SubwayMap' do
     pod "GTFSStations", :git => 'https://github.com/schrockblock/gtfs-stations'
     pod 'SQLite.swift', git: 'https://github.com/stephencelis/SQLite.swift.git'
     pod "SBTextInputView", :git => 'https://github.com/schrockblock/SBTextInputView'
+    pod 'ZipArchive'
     pod 'Fabric'
     pod 'Crashlytics'
 end

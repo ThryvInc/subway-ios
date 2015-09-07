@@ -1,8 +1,8 @@
 PODS:
-  - Crashlytics (3.1.0)
-  - Fabric (1.2.8):
-    - Fabric/Base (= 1.2.8)
-  - Fabric/Base (1.2.8)
+  - Crashlytics (3.2.0)
+  - Fabric (1.4.1):
+    - Fabric/Base (= 1.4.1)
+  - Fabric/Base (1.4.1)
   - GTFSStations (0.0.1):
     - SQLite.swift
   - SBTextInputView (0.2.0)
@@ -11,6 +11,7 @@ PODS:
   - SQLite.swift/Core (0.1.0.pre)
   - SQLite.swift/Library (0.1.0.pre):
     - SQLite.swift/Core
+  - ZipArchive (1.4.0)
 
 DEPENDENCIES:
   - Crashlytics
@@ -18,6 +19,7 @@ DEPENDENCIES:
   - GTFSStations (from `https://github.com/schrockblock/gtfs-stations`)
   - SBTextInputView (from `https://github.com/schrockblock/SBTextInputView`)
   - SQLite.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
+  - ZipArchive
 
 EXTERNAL SOURCES:
   GTFSStations:
@@ -29,20 +31,21 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   GTFSStations:
-    :commit: 94b3d06db13fdba485b9a932dc50c4da5f32b168
+    :commit: 6c001e915253c9710591d92dc66e6aa0fcee39e1
     :git: https://github.com/schrockblock/gtfs-stations
   SBTextInputView:
     :commit: 6d3671ca1b934bfe904c8d943218f38d376a80a1
     :git: https://github.com/schrockblock/SBTextInputView
   SQLite.swift:
-    :commit: 89d16192bb73bf179c08c30227fbd9e52be6bf32
+    :commit: d87e05da167bdded01ae74001c5adda865346867
     :git: https://github.com/stephencelis/SQLite.swift.git
 
 SPEC CHECKSUMS:
-  Crashlytics: ef9a58a4e806b316a1748c06432f6f847ba09ac6
-  Fabric: a9eabe53915e9f1db55a84dd2838737928675878
+  Crashlytics: a29e4f820aa401482b26043dc5d78adf08ac7573
+  Fabric: 4f718eeca4c02c7d6f6f4e5f0e5f87c63aa38458
   GTFSStations: 32daf1cc7914b1c0319da972164f73e66f622a7a
   SBTextInputView: 7446058ca286fb7e195bcb1fab89fc0587cb38cd
   SQLite.swift: 62bdf79b05b2a88b94d4b8f9a3b7aa94bfedc660
+  ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
 
 COCOAPODS: 0.38.2
