@@ -22,11 +22,9 @@ class DatabaseLoader: NSObject {
     }
     
     class func loadDb() {
-        var anchorDate = NSDate()
         unzipDBToDocDirectoryIfNeeded()
         stationManager = StationManager(sourceFilePath: destinationPath)
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            println("\(NSDate().timeIntervalSinceDate(anchorDate))")
             self.isDatabaseReady = true
             NSNotificationCenter.defaultCenter().postNotificationName(self.NYCDatabaseLoadedNotification, object: nil)
         })
