@@ -1,51 +1,61 @@
 PODS:
-  - Crashlytics (3.2.0)
-  - Fabric (1.4.1):
-    - Fabric/Base (= 1.4.1)
-  - Fabric/Base (1.4.1)
+  - Crashlytics (3.3.4)
+  - Fabric (1.5.5):
+    - Fabric/Base (= 1.5.5)
+  - Fabric/Base (1.5.5)
   - GTFSStations (0.0.1):
     - SQLite.swift
+  - NagController (0.0.1)
+  - SBCategories (0.1.1)
   - SBTextInputView (0.2.0)
-  - SQLite.swift (0.1.0.pre):
-    - SQLite.swift/Library (= 0.1.0.pre)
-  - SQLite.swift/Core (0.1.0.pre)
-  - SQLite.swift/Library (0.1.0.pre):
-    - SQLite.swift/Core
+  - SQLite.swift (1.0.0.pre)
   - ZipArchive (1.4.0)
 
 DEPENDENCIES:
   - Crashlytics
   - Fabric
-  - GTFSStations (from `https://github.com/schrockblock/gtfs-stations`)
+  - GTFSStations (from `https://github.com/schrockblock/gtfs-stations`, branch `develop`)
+  - NagController (from `https://github.com/schrockblock/nag-controller`)
+  - SBCategories
   - SBTextInputView (from `https://github.com/schrockblock/SBTextInputView`)
-  - SQLite.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
+  - SQLite.swift (from `https://github.com/stephencelis/SQLite.swift.git`, branch
+    `swift-2`)
   - ZipArchive
 
 EXTERNAL SOURCES:
   GTFSStations:
+    :branch: develop
     :git: https://github.com/schrockblock/gtfs-stations
+  NagController:
+    :git: https://github.com/schrockblock/nag-controller
   SBTextInputView:
     :git: https://github.com/schrockblock/SBTextInputView
   SQLite.swift:
+    :branch: swift-2
     :git: https://github.com/stephencelis/SQLite.swift.git
 
 CHECKOUT OPTIONS:
   GTFSStations:
-    :commit: 6c001e915253c9710591d92dc66e6aa0fcee39e1
+    :commit: b03009de9a05a494b6854e7c064bc7842f313a0a
     :git: https://github.com/schrockblock/gtfs-stations
+  NagController:
+    :commit: 6f8ad14d677d63bf1d2ace4d7932368cecc74404
+    :git: https://github.com/schrockblock/nag-controller
   SBTextInputView:
-    :commit: 6d3671ca1b934bfe904c8d943218f38d376a80a1
+    :commit: 82bffa968c0c915ef16f49c8383e581a190ba042
     :git: https://github.com/schrockblock/SBTextInputView
   SQLite.swift:
-    :commit: d87e05da167bdded01ae74001c5adda865346867
+    :commit: 8bd27bcd5d0e6461620e51a651156d57c1c2c6cb
     :git: https://github.com/stephencelis/SQLite.swift.git
 
 SPEC CHECKSUMS:
-  Crashlytics: a29e4f820aa401482b26043dc5d78adf08ac7573
-  Fabric: 4f718eeca4c02c7d6f6f4e5f0e5f87c63aa38458
+  Crashlytics: 41c082440d2e14da444186fff65e79c0b4b35d4c
+  Fabric: 190bf1a6eb65f7500de1347d027d2e59a7e53db1
   GTFSStations: 32daf1cc7914b1c0319da972164f73e66f622a7a
+  NagController: 9e9566e54a17a8d7e4e0d36c7f8ed867a7dde5ff
+  SBCategories: a2a126ee06eeacaac02d5e68533cd9de1b9bf1cc
   SBTextInputView: 7446058ca286fb7e195bcb1fab89fc0587cb38cd
-  SQLite.swift: 62bdf79b05b2a88b94d4b8f9a3b7aa94bfedc660
+  SQLite.swift: 5dfee5c783b93f4c0035c0317a11c3c92cc91910
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
 
 COCOAPODS: 0.38.2

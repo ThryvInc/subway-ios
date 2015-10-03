@@ -93,15 +93,15 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
         predictionModels = Array<PredictionViewModel>()
         
         for prediction in uptown ?? Array<Prediction>() {
-            var model = PredictionViewModel(routeId: prediction.route?.objectId, direction: prediction.direction)
-            if !contains(predictionModels!, model) {
+            let model = PredictionViewModel(routeId: prediction.route?.objectId, direction: prediction.direction)
+            if !predictionModels!.contains(model) {
                 predictionModels?.append(model)
             }
         }
         
         for prediction in downtown ?? Array<Prediction>() {
-            var model = PredictionViewModel(routeId: prediction.route?.objectId, direction: prediction.direction)
-            if !contains(predictionModels!, model) {
+            let model = PredictionViewModel(routeId: prediction.route?.objectId, direction: prediction.direction)
+            if !predictionModels!.contains(model) {
                 predictionModels?.append(model)
             }
         }
@@ -114,7 +114,7 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("predCell") as! PredictionTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("predCell") as! PredictionTableViewCell
         configurePredictionCell(cell, indexPath: indexPath)
         return cell
     }

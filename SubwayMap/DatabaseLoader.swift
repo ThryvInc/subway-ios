@@ -15,7 +15,7 @@ class DatabaseLoader: NSObject {
     static var stationManager: StationManager!
     static let NYCDatabaseLoadedNotification = "NYCDatabaseLoadedNotification"
     static var documentsDirectory: String {
-        return NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+        return NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
     }
     static var destinationPath: String {
         return self.documentsDirectory + "/" + "gtfs.db"
@@ -38,7 +38,11 @@ class DatabaseLoader: NSObject {
             unzipper.UnzipOpenFile(sourcePath)
             unzipper.UnzipFileTo(documentsDirectory, overWrite: false)
             let fileUrl = NSURL(fileURLWithPath: destinationPath)
-            fileUrl?.setResourceValue(NSNumber(bool: true), forKey: NSURLIsExcludedFromBackupKey, error: &error)
+            do {
+                try fileUrl.setResourceValue(NSNumber(bool: true), forKey: NSURLIsExcludedFromBackupKey)
+            } catch var error1 as NSError {
+                error = error1
+            }
         }
     }
 }

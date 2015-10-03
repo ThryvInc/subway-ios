@@ -14,31 +14,31 @@ class NYCRouteColorManager: RouteColorManager {
     override class func colorForRouteId(routeId: String!) -> UIColor {
         var color: UIColor = UIColor.darkGrayColor()
         
-        if contains(["1","2","3"], routeId) {
+        if ["1","2","3"].contains(routeId) {
             color = UIColor(rgba: "#ED3B43")
         }
         
-        if contains(["4","5","5X","6"], routeId) {
+        if ["4","5","5X","6"].contains(routeId) {
             color = UIColor(rgba: "#00A55E")
         }
         
-        if contains(["7","7X"], routeId) {
+        if ["7","7X"].contains(routeId) {
             color = UIColor(rgba: "#A23495")
         }
         
-        if contains(["A","C","E"], routeId) {
+        if ["A","C","E"].contains(routeId) {
             color = UIColor(rgba: "#006BB7")
         }
         
-        if contains(["B","D","F","M"], routeId) {
+        if ["B","D","F","M"].contains(routeId) {
             color = UIColor(rgba: "#F58120")
         }
         
-        if contains(["N","Q","R"], routeId) {
+        if ["N","Q","R"].contains(routeId) {
             color = UIColor(rgba: "#FFD51D")
         }
         
-        if contains(["JZ"], routeId) {
+        if ["JZ"].contains(routeId) {
             color = UIColor(rgba: "#B1730E")
         }
         
@@ -54,12 +54,12 @@ extension UIColor {
         var alpha: CGFloat = 1.0
         
         if rgba.hasPrefix("#") {
-            let index   = advance(rgba.startIndex, 1)
+            let index   = rgba.startIndex.advancedBy(1)
             let hex     = rgba.substringFromIndex(index)
             let scanner = NSScanner(string: hex)
             var hexValue: CUnsignedLongLong = 0
             if scanner.scanHexLongLong(&hexValue) {
-                switch (count(hex)) {
+                switch (hex.characters.count) {
                 case 3:
                     red   = CGFloat((hexValue & 0xF00) >> 8)       / 15.0
                     green = CGFloat((hexValue & 0x0F0) >> 4)       / 15.0
@@ -79,13 +79,13 @@ extension UIColor {
                     blue  = CGFloat((hexValue & 0x0000FF00) >> 8)  / 255.0
                     alpha = CGFloat(hexValue & 0x000000FF)         / 255.0
                 default:
-                    print("Invalid RGB string, number of characters after '#' should be either 3, 4, 6 or 8")
+                    print("Invalid RGB string, number of characters after '#' should be either 3, 4, 6 or 8", terminator: "")
                 }
             } else {
-                println("Scan hex error")
+                print("Scan hex error")
             }
         } else {
-            print("Invalid RGB string, missing '#' as prefix")
+            print("Invalid RGB string, missing '#' as prefix", terminator: "")
         }
         self.init(red:red, green:green, blue:blue, alpha:alpha)
     }

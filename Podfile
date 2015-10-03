@@ -2,16 +2,22 @@
 platform :ios, '8.0'
 use_frameworks!
 
-target 'SubwayMap' do
-    pod "GTFSStations", :git => 'https://github.com/schrockblock/gtfs-stations'
-    pod 'SQLite.swift', git: 'https://github.com/stephencelis/SQLite.swift.git'
+def import_pods
+    pod "GTFSStations", :git => 'https://github.com/schrockblock/gtfs-stations', branch: 'develop'
+    pod 'SQLite.swift', git: 'https://github.com/stephencelis/SQLite.swift.git', branch: 'swift-2'
     pod "SBTextInputView", :git => 'https://github.com/schrockblock/SBTextInputView'
+    pod 'NagController', :git => 'https://github.com/schrockblock/nag-controller'
+    pod 'SBCategories'
     pod 'ZipArchive'
     pod 'Fabric'
     pod 'Crashlytics'
 end
 
-target 'SubwayMapTests' do
+target 'SubwayMap' do
+    import_pods
+end
 
+target 'SubwayMapTests' do
+    import_pods
 end
 

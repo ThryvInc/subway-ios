@@ -118,7 +118,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UISearchBarDele
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
         if let stationArray = stations {
             cell.textLabel?.text = stationArray[indexPath.row].name
         }
