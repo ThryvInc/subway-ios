@@ -9,7 +9,7 @@
 import UIKit
 import GTFSStations
 
-class PredictionViewModel: NSObject, Equatable {
+class PredictionViewModel: NSObject {
     var routeId: String!
     var direction: Direction!
     var prediction: Prediction!
@@ -40,7 +40,13 @@ class PredictionViewModel: NSObject, Equatable {
             inTheHolePrediction = relevantPredictions[2]
         }
     }
-}
-func ==(predictionVM1: PredictionViewModel, predictionVM2: PredictionViewModel) -> Bool {
-    return predictionVM1.routeId == predictionVM2.routeId && predictionVM1.direction == predictionVM2.direction
+    
+    override func isEqual(object: AnyObject?) -> Bool {
+        if let predictionVM = object as? PredictionViewModel {
+            return self.routeId == predictionVM.routeId && self.direction == predictionVM.direction
+        }else{
+            return false
+        }
+        
+    }
 }

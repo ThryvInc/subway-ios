@@ -9,10 +9,13 @@
 import UIKit
 import Fabric
 import Crashlytics
+import NagController
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, NagControllerDelegate {
+    let LastNaggedKey = "LastNaggedKey"
     var window: UIWindow?
+    var nagger: NagController!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -51,13 +54,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        var appOpens = NSUserDefaults.standardUserDefaults().integerForKey("numberOfAppOpens")
+        appOpens++
+        NSUserDefaults.standardUserDefaults().setInteger(appOpens, forKey: "numberOfAppOpens")
+        
+        if appOpens % 3 == 0 {
+            if let lastTime = lastNagged() {
+                if lastTime.isBefore(NSDate().incrementUnit(NSCalendarUnit.Day, by: -2)) {
+                    nag()
+                }
+            }else{
+                nag()
+            }
+        }
     }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    func nag() {
+        nagger = NagController()
+        nagger.delegate = self
+        nagger.ratingURLStr = "https://itunes.apple.com/us/app/subway-map-nyc/id1025535484?ls=1&mt=8"
+        nagger.startNag()
+    }
+    
+    func lastNagged() -> NSDate? {
+        return NSUserDefaults.standardUserDefaults().objectForKey(LastNaggedKey) as? NSDate
+    }
+    
+    // MARK: Nag Delegate
+    
+    func didPerformNag(eventName: String!, withResponse response: NagResponse) {
+        NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: LastNaggedKey)
+    }
 
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05EC071C262BBDDC910422C2 /* Pods_SubwayMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F53746819AB3DB51CCB29181 /* Pods_SubwayMapTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		491831221B672B6900EB8328 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831211B672B6900EB8328 /* AppDelegate.swift */; };
 		491831291B672B6900EB8328 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 491831281B672B6900EB8328 /* Images.xcassets */; };
 		491831381B672B6900EB8328 /* SubwayMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831371B672B6900EB8328 /* SubwayMapTests.swift */; };
@@ -70,7 +71,10 @@
 		49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NYCRouteColorManager.swift; sourceTree = "<group>"; };
 		49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictionViewModel.swift; sourceTree = "<group>"; };
 		49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseLoader.swift; sourceTree = "<group>"; };
+		5BDF19E3FE6F8688FCAE1511 /* Pods-SubwayMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		97BCA39D329464D6861108F3 /* Pods-SubwayMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests.release.xcconfig"; sourceTree = "<group>"; };
 		D9CAF917F88D058D59135F92 /* Pods-SubwayMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap.release.xcconfig"; sourceTree = "<group>"; };
+		F53746819AB3DB51CCB29181 /* Pods_SubwayMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubwayMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4918319C1B67491D00EB8328 /* libsqlite3.dylib in Frameworks */,
+				05EC071C262BBDDC910422C2 /* Pods_SubwayMapTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +108,7 @@
 				493DC1871B9CD10500515F4B /* libz.dylib */,
 				491831471B67321A00EB8328 /* libsqlite3.dylib */,
 				387A1DFA8D56DD71BF31F3C5 /* Pods_SubwayMap.framework */,
+				F53746819AB3DB51CCB29181 /* Pods_SubwayMapTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -201,6 +207,8 @@
 			children = (
 				34167C528EEEC3CA76FA25C0 /* Pods-SubwayMap.debug.xcconfig */,
 				D9CAF917F88D058D59135F92 /* Pods-SubwayMap.release.xcconfig */,
+				5BDF19E3FE6F8688FCAE1511 /* Pods-SubwayMapTests.debug.xcconfig */,
+				97BCA39D329464D6861108F3 /* Pods-SubwayMapTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -233,9 +241,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4918313E1B672B6900EB8328 /* Build configuration list for PBXNativeTarget "SubwayMapTests" */;
 			buildPhases = (
+				A54596C102CBF685B07FA901 /* Check Pods Manifest.lock */,
 				4918312D1B672B6900EB8328 /* Sources */,
 				4918312E1B672B6900EB8328 /* Frameworks */,
 				4918312F1B672B6900EB8328 /* Resources */,
+				912599E072164DF886890AB1 /* Embed Pods Frameworks */,
+				AF27B95EA44A6157364A4C2C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +264,8 @@
 		491831141B672B6900EB8328 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = Thryv;
 				TargetAttributes = {
@@ -337,6 +350,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		912599E072164DF886890AB1 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A54596C102CBF685B07FA901 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AF27B95EA44A6157364A4C2C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D3AEE246E10DC2F4AAA94A3A /* Copy Pods Resources */ = {
@@ -507,7 +565,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "df034d6d-ca33-442a-a660-739a4ace7c16";
+				PROVISIONING_PROFILE = "";
 				SWIFT_INCLUDE_PATHS = "/Users/ell/development/ios/apps/subway-ios/SubwayMap/";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -527,7 +585,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "df034d6d-ca33-442a-a660-739a4ace7c16";
+				PROVISIONING_PROFILE = "";
 				SWIFT_INCLUDE_PATHS = "/Users/ell/development/ios/apps/subway-ios/SubwayMap/";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 			};
@@ -535,6 +593,7 @@
 		};
 		4918313F1B672B6900EB8328 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BDF19E3FE6F8688FCAE1511 /* Pods-SubwayMapTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -558,6 +617,7 @@
 		};
 		491831401B672B6900EB8328 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97BCA39D329464D6861108F3 /* Pods-SubwayMapTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
