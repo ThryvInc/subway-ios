@@ -35,7 +35,7 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func refresh() {
         predictions = stationManager.predictions(station, time: NSDate())//timeIntervalSince1970: 1438215977))
-        predictions!.sort({ $0.secondsToArrival < $1.secondsToArrival })
+        predictions!.sortInPlace({ $0.secondsToArrival < $1.secondsToArrival })
     }
     
     func configurePredictionCell(cell: PredictionTableViewCell, indexPath: NSIndexPath) {
@@ -43,7 +43,7 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
             let model = predictionModels![indexPath.row]
             model.setupWithPredictions(preds)
             let prediction = model.prediction
-            var formatter = NSDateFormatter()
+            let formatter = NSDateFormatter()
             formatter.dateStyle = NSDateFormatterStyle.NoStyle
             formatter.timeStyle = NSDateFormatterStyle.ShortStyle
             cell.timeLabel.text = formatter.stringFromDate(prediction.timeOfArrival!).lowercaseString
@@ -51,7 +51,7 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
             
             if let route = prediction.route {
                 cell.routeLabel.text = route.objectId
-                var image = UIImage(named: "Train")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
+                let image = UIImage(named: "Train")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
                 cell.routeImage.image = image
                 cell.routeImage.tintColor = NYCRouteColorManager.colorForRouteId(route.objectId)
             }
@@ -83,10 +83,10 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var uptown = predictions!.filter({ (prediction) -> Bool in
+        let uptown = predictions!.filter({ (prediction) -> Bool in
             return prediction.direction == .Uptown
         })
-        var downtown = predictions!.filter({ (prediction) -> Bool in
+        let downtown = predictions!.filter({ (prediction) -> Bool in
             return prediction.direction == .Downtown
         })
         

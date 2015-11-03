@@ -24,6 +24,10 @@
 		493DC18A1B9CD16900515F4B /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 493DC1891B9CD16900515F4B /* gtfs.db.zip */; };
 		493DC18B1B9CD16900515F4B /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 493DC1891B9CD16900515F4B /* gtfs.db.zip */; };
 		493DC1911B9D0CD700515F4B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 493DC1871B9CD10500515F4B /* libz.dylib */; };
+		49B5C8C71BE247C200636717 /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5C8C51BE247C200636717 /* StationTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		49B5C8C81BE247C200636717 /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5C8C51BE247C200636717 /* StationTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		49B5C8C91BE247C200636717 /* StationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B5C8C61BE247C200636717 /* StationTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		49B5C8CA1BE247C200636717 /* StationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B5C8C61BE247C200636717 /* StationTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		49D5359E1B69C44C0087D368 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5359C1B69C44C0087D368 /* MapViewController.swift */; };
 		49D5359F1B69C44C0087D368 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5359C1B69C44C0087D368 /* MapViewController.swift */; };
 		49D535A01B69C44C0087D368 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D5359D1B69C44C0087D368 /* MapViewController.xib */; };
@@ -66,6 +70,8 @@
 		493DC1891B9CD16900515F4B /* gtfs.db.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = gtfs.db.zip; sourceTree = "<group>"; };
 		493DC18C1B9CE01B00515F4B /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		493DC18E1B9CEF9200515F4B /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
+		49B5C8C51BE247C200636717 /* StationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationTableViewCell.swift; sourceTree = "<group>"; };
+		49B5C8C61BE247C200636717 /* StationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StationTableViewCell.xib; sourceTree = "<group>"; };
 		49D5359C1B69C44C0087D368 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		49D5359D1B69C44C0087D368 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NYCRouteColorManager.swift; sourceTree = "<group>"; };
@@ -172,6 +178,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		498932CB1BE8441A00BD9183 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				49B5C8C51BE247C200636717 /* StationTableViewCell.swift */,
+				49B5C8C61BE247C200636717 /* StationTableViewCell.xib */,
+				491831D01B69A61700EB8328 /* PredictionTableViewCell.swift */,
+				491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		49D5359B1B69C4290087D368 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,8 +203,7 @@
 		49F531D11B6D400400A9E887 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				491831D01B69A61700EB8328 /* PredictionTableViewCell.swift */,
-				491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */,
+				498932CB1BE8441A00BD9183 /* Cells */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -306,6 +322,7 @@
 				491831D41B69A61700EB8328 /* PredictionTableViewCell.xib in Resources */,
 				491831291B672B6900EB8328 /* Images.xcassets in Resources */,
 				491831451B672E8C00EB8328 /* StationViewController.xib in Resources */,
+				49B5C8C91BE247C200636717 /* StationTableViewCell.xib in Resources */,
 				49D535A01B69C44C0087D368 /* MapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +333,7 @@
 			files = (
 				493DC18B1B9CD16900515F4B /* gtfs.db.zip in Resources */,
 				491831461B672E8C00EB8328 /* StationViewController.xib in Resources */,
+				49B5C8CA1BE247C200636717 /* StationTableViewCell.xib in Resources */,
 				491831D51B69A61700EB8328 /* PredictionTableViewCell.xib in Resources */,
 				49D535A11B69C44C0087D368 /* MapViewController.xib in Resources */,
 			);
@@ -436,6 +454,7 @@
 			files = (
 				491831221B672B6900EB8328 /* AppDelegate.swift in Sources */,
 				49F531DA1B6D591C00A9E887 /* PredictionViewModel.swift in Sources */,
+				49B5C8C71BE247C200636717 /* StationTableViewCell.swift in Sources */,
 				49F531DD1B6E9E5B00A9E887 /* DatabaseLoader.swift in Sources */,
 				491831431B672E8C00EB8328 /* StationViewController.swift in Sources */,
 				491831D21B69A61700EB8328 /* PredictionTableViewCell.swift in Sources */,
@@ -450,6 +469,7 @@
 			files = (
 				491831381B672B6900EB8328 /* SubwayMapTests.swift in Sources */,
 				49F531DB1B6D591C00A9E887 /* PredictionViewModel.swift in Sources */,
+				49B5C8C81BE247C200636717 /* StationTableViewCell.swift in Sources */,
 				49F531DE1B6E9E5B00A9E887 /* DatabaseLoader.swift in Sources */,
 				491831441B672E8C00EB8328 /* StationViewController.swift in Sources */,
 				491831D31B69A61700EB8328 /* PredictionTableViewCell.swift in Sources */,
