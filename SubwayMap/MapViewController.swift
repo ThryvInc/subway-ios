@@ -29,7 +29,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UISearchBarDele
         
         searchBar.delegate = self
         
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.registerNib(UINib(nibName: "StationTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -85,6 +85,61 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UISearchBarDele
         tableView.hidden = true
     }
     
+    func linesForStation(station: Station) -> [LineViewModel]? {
+        var lineModels = [LineViewModel]()
+        do {
+            let routeIds = try stationManager.routeIdsForStation(station)
+            
+            for routeId in routeIds {
+                let lineModel = LineViewModel()
+                lineModel.routeIds = [routeId]
+                lineModel.color = NYCRouteColorManager.colorForRouteId(routeId)
+                let lineIndex = lineModels.indexOf(lineModel)
+                if let index = lineIndex {
+                    if !lineModels[index].routeIds.contains(routeId) {
+                        lineModels[index].routeIds.append(routeId)
+                    }
+                }else{
+                    lineModels.append(lineModel)
+                }
+            }
+        }catch{
+            
+        }
+        return lineModels
+    }
+    
+    func configureCellLines(cell: StationTableViewCell, station: Station){
+        cell.stationNameLabel?.text = station.name
+        for imageView in cell.orderedLineImageViews! {
+            imageView.image = nil
+        }
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            let optionalLines = self.linesForStation(station)
+            if let lines = optionalLines {
+                dispatch_async(dispatch_get_main_queue()) {
+                    for line in lines {
+                        let image = UIImage(named: "dot")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
+                        if cell.firstLineImageView.image == nil {
+                            cell.firstLineImageView.image = image
+                            cell.firstLineImageView.tintColor = line.color
+                        }else if cell.secondLineImageView.image == nil {
+                            cell.secondLineImageView.image = image
+                            cell.secondLineImageView.tintColor = line.color
+                        }else if cell.thirdLineImageView.image == nil {
+                            cell.thirdLineImageView.image = image
+                            cell.thirdLineImageView.tintColor = line.color
+                        }else if cell.fourthLineImageView.image == nil {
+                            cell.fourthLineImageView.image = image
+                            cell.fourthLineImageView.tintColor = line.color
+                        }
+                    }
+                };
+            }
+        };
+    }
+    
     //MARK: scroll delegate
     
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
@@ -118,16 +173,17 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UISearchBarDele
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell")! as! StationTableViewCell
         if let stationArray = stations {
-            cell.textLabel?.text = stationArray[indexPath.row].name
+            let station = stationArray[indexPath.row]
+            configureCellLines(cell, station: station)
         }
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let stationArray = stations {
-            var barButton = UIBarButtonItem()
+            let barButton = UIBarButtonItem()
             barButton.title = ""
             navigationItem.backBarButtonItem = barButton
             
@@ -137,5 +193,4 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UISearchBarDele
             navigationController?.pushViewController(stationVC, animated: true)
         }
     }
-
 }

@@ -9,10 +9,16 @@
 import UIKit
 
 class StationTableViewCell: UITableViewCell {
+    @IBOutlet weak var stationNameLabel: UILabel!
+    @IBOutlet weak var firstLineImageView: UIImageView!
+    @IBOutlet weak var secondLineImageView: UIImageView!
+    @IBOutlet weak var thirdLineImageView: UIImageView!
+    @IBOutlet weak var fourthLineImageView: UIImageView!
+    var orderedLineImageViews: [UIImageView]?
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        orderedLineImageViews = [firstLineImageView, secondLineImageView, thirdLineImageView, fourthLineImageView]
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
