@@ -4,7 +4,7 @@ use_frameworks!
 
 def import_pods
     pod "GTFSStations", :git => 'https://github.com/schrockblock/gtfs-stations', branch: 'develop'
-    pod 'SQLite.swift', git: 'https://github.com/stephencelis/SQLite.swift.git', branch: 'swift-2'
+    pod 'SQLite.swift', git: 'https://github.com/stephencelis/SQLite.swift.git'
     pod "SBTextInputView", :git => 'https://github.com/schrockblock/SBTextInputView'
     pod 'NagController', :git => 'https://github.com/schrockblock/nag-controller'
     pod 'SBCategories'

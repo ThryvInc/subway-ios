@@ -10,70 +10,174 @@ import UIKit
 import GTFSStations
 import CoreGraphics
 
-class StationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class StationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, LineChoiceViewDelegate {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var lineChoice1: LineChoiceView!
+    @IBOutlet weak var lineChoice2: LineChoiceView!
+    @IBOutlet weak var lineChoice3: LineChoiceView!
+    @IBOutlet weak var lineChoice4: LineChoiceView!
     var station: Station!
     var stationManager: StationManager!
-    var predictions: Array<Prediction>?
-    var predictionModels: Array<PredictionViewModel>?
+    var predictions: [Prediction]?
+    var predictionModels: [PredictionViewModel]?
+    var filteredPredictionModels: [PredictionViewModel]?
+    var routes: [Route] = [Route]()
+    var lineModels: [LineViewModel] = [LineViewModel]()
+    var lineViews = [LineChoiceView]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        refresh()
         
-        title = station.name
+        self.edgesForExtendedLayout = UIRectEdge.None
         
         tableView.registerNib(UINib(nibName: "PredictionTableViewCell", bundle: nil), forCellReuseIdentifier: "predCell")
         tableView.dataSource = self
         tableView.delegate = self
+
+        refresh()
+        
+        title = station.name
     }
     
     override func viewDidAppear(animated: Bool) {
         refresh()
+        tableView.reloadData()
     }
     
     func refresh() {
-        predictions = stationManager.predictions(station, time: NSDate())//timeIntervalSince1970: 1438215977))
-        predictions!.sort({ $0.secondsToArrival < $1.secondsToArrival })
+        do {
+            predictions = try stationManager.predictions(station, time: NSDate())//timeIntervalSince1970: 1438215977))
+        }catch{}
+        predictions!.sortInPlace({ $0.secondsToArrival < $1.secondsToArrival })
+        
+        let uptown = predictions!.filter({ (prediction) -> Bool in
+            return prediction.direction == .Uptown
+        })
+        let downtown = predictions!.filter({ (prediction) -> Bool in
+            return prediction.direction == .Downtown
+        })
+        
+        predictionModels = [PredictionViewModel]()
+        
+        for prediction in uptown ?? [Prediction]() {
+            let model = PredictionViewModel(routeId: prediction.route?.objectId, direction: prediction.direction)
+            if !predictionModels!.contains(model) {
+                model.setupWithPredictions(predictions)
+                predictionModels?.append(model)
+            }
+        }
+        
+        for prediction in downtown ?? [Prediction]() {
+            let model = PredictionViewModel(routeId: prediction.route?.objectId, direction: prediction.direction)
+            if !predictionModels!.contains(model) {
+                model.setupWithPredictions(predictions)
+                predictionModels?.append(model)
+            }
+        }
+        
+        predictionModels?.sortInPlace {$0.prediction.secondsToArrival < $1.prediction.secondsToArrival}
+        
+        filteredPredictionModels = predictionModels
+        
+        setLines()
+    }
+    
+    func setLines() {
+        setLineModels()
+        setLineViews()
+    }
+    
+    func setLineModels(){
+        let predictionRouteIds = predictionModels!.map { $0.routeId }
+        
+        for routeId in predictionRouteIds {
+            let lineModel = LineViewModel()
+            lineModel.routeIds = [routeId]
+            lineModel.color = NYCRouteColorManager.colorForRouteId(routeId)
+            let lineIndex = lineModels.indexOf(lineModel)
+            if let index = lineIndex {
+                if !lineModels[index].routeIds.contains(routeId) {
+                    lineModels[index].routeIds.append(routeId)
+                }
+            }else{
+                lineModels.append(lineModel)
+            }
+        }
+    }
+    
+    func setLineViews(){
+        lineViews = [lineChoice1, lineChoice2, lineChoice3, lineChoice4]
+        var count = 0
+        while count < lineViews.count {
+            let lineView = lineViews[count]
+            if count < lineModels.count {
+                lineView.hidden = false
+                lineView.lineLabel.text = lineModels[count].routesString()
+                let image = UIImage(named: "dot")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
+                lineView.dotImageView.image = image
+                lineView.dotImageView.tintColor = lineModels[count].color
+            }else{
+                lineView.hidden = true
+            }
+            lineView.delegate = self
+            lineView.updateConstraints()
+            lineView.setNeedsLayout()
+            lineView.layoutIfNeeded()
+            count++
+        }
     }
     
     func configurePredictionCell(cell: PredictionTableViewCell, indexPath: NSIndexPath) {
-        if let preds = predictions {
-            let model = predictionModels![indexPath.row]
-            model.setupWithPredictions(preds)
-            let prediction = model.prediction
-            var formatter = NSDateFormatter()
-            formatter.dateStyle = NSDateFormatterStyle.NoStyle
-            formatter.timeStyle = NSDateFormatterStyle.ShortStyle
-            cell.timeLabel.text = formatter.stringFromDate(prediction.timeOfArrival!).lowercaseString
-            cell.deltaLabel.text = "\(prediction.secondsToArrival! / 60)m"
-            
-            if let route = prediction.route {
-                cell.routeLabel.text = route.objectId
-                var image = UIImage(named: "Train")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
-                cell.routeImage.image = image
-                cell.routeImage.tintColor = NYCRouteColorManager.colorForRouteId(route.objectId)
-            }
-            
-            if prediction.direction == .Uptown {
-                cell.routeImage.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-                cell.routeLabelOffset.constant = 5
-            }else{
-                cell.routeImage.transform = CGAffineTransformMakeRotation(0)
-                cell.routeLabelOffset.constant = -5
-            }
-            
-            if let nextPrediction = model.onDeckPrediction {
-                cell.onDeckLabel.text = formatter.stringFromDate(nextPrediction.timeOfArrival!).lowercaseString
-            }
-            
-            if let finalPrediction = model.inTheHolePrediction {
-                cell.inTheHoleLabel.text = formatter.stringFromDate(finalPrediction.timeOfArrival!).lowercaseString
-            }
-            
-            cell.contentView.updateConstraints();
+        let model = filteredPredictionModels![indexPath.row]
+        let prediction = model.prediction
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.NoStyle
+        formatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        cell.timeLabel.text = formatter.stringFromDate(prediction.timeOfArrival!).lowercaseString
+        cell.deltaLabel.text = "\(prediction.secondsToArrival! / 60)m"
+        
+        if let route = prediction.route {
+            cell.routeLabel.text = route.objectId
+            let image = UIImage(named: "Train")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
+            cell.routeImage.image = image
+            cell.routeImage.tintColor = NYCRouteColorManager.colorForRouteId(route.objectId)
         }
+        
+        if prediction.direction == .Uptown {
+            cell.routeImage.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+            cell.routeLabelOffset.constant = 5
+        }else{
+            cell.routeImage.transform = CGAffineTransformMakeRotation(0)
+            cell.routeLabelOffset.constant = -5
+        }
+        
+        if let nextPrediction = model.onDeckPrediction {
+            cell.onDeckLabel.text = formatter.stringFromDate(nextPrediction.timeOfArrival!).lowercaseString
+        }
+        
+        if let finalPrediction = model.inTheHolePrediction {
+            cell.inTheHoleLabel.text = formatter.stringFromDate(finalPrediction.timeOfArrival!).lowercaseString
+        }
+        
+        cell.contentView.updateConstraints();
+    }
+    
+    //MARK: line choice delegate
+    
+    func didSelectLineWithColor(color: UIColor) {
+        for lineView in lineViews {
+            if lineView.dotImageView.tintColor != color {
+                lineView.isSelected = false
+            }
+        }
+        
+        filteredPredictionModels = predictionModels?.filter({NYCRouteColorManager.colorForRouteId($0.routeId) == color})
+        tableView.reloadData()
+    }
+    
+    func didDeselectLineWithColor(color: UIColor) {
+        filteredPredictionModels = predictionModels
+        tableView.reloadData()
     }
     
     //MARK: table data source
@@ -83,30 +187,7 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var uptown = predictions!.filter({ (prediction) -> Bool in
-            return prediction.direction == .Uptown
-        })
-        var downtown = predictions!.filter({ (prediction) -> Bool in
-            return prediction.direction == .Downtown
-        })
-        
-        predictionModels = Array<PredictionViewModel>()
-        
-        for prediction in uptown ?? Array<Prediction>() {
-            let model = PredictionViewModel(routeId: prediction.route?.objectId, direction: prediction.direction)
-            if !predictionModels!.contains(model) {
-                predictionModels?.append(model)
-            }
-        }
-        
-        for prediction in downtown ?? Array<Prediction>() {
-            let model = PredictionViewModel(routeId: prediction.route?.objectId, direction: prediction.direction)
-            if !predictionModels!.contains(model) {
-                predictionModels?.append(model)
-            }
-        }
-        
-        return (predictionModels ?? Array<PredictionViewModel>()).count
+        return (filteredPredictionModels ?? [PredictionViewModel]()).count
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

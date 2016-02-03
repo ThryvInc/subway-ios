@@ -23,18 +23,22 @@ class DatabaseLoader: NSObject {
     
     class func loadDb() {
         unzipDBToDocDirectoryIfNeeded()
-        stationManager = StationManager(sourceFilePath: destinationPath)
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.isDatabaseReady = true
-            NSNotificationCenter.defaultCenter().postNotificationName(self.NYCDatabaseLoadedNotification, object: nil)
-        })
+        do {
+            stationManager = try StationManager(sourceFilePath: destinationPath)
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.isDatabaseReady = true
+                NSNotificationCenter.defaultCenter().postNotificationName(self.NYCDatabaseLoadedNotification, object: nil)
+            })
+        }catch{
+            
+        }
     }
     
     class func unzipDBToDocDirectoryIfNeeded(){
         if !NSFileManager.defaultManager().fileExistsAtPath(destinationPath) {
             let sourcePath = NSBundle.mainBundle().pathForResource("gtfs.db", ofType: "zip")
             var error: NSError?
-            var unzipper = ZipArchive()
+            let unzipper = ZipArchive()
             unzipper.UnzipOpenFile(sourcePath)
             unzipper.UnzipFileTo(documentsDirectory, overWrite: false)
             let fileUrl = NSURL(fileURLWithPath: destinationPath)

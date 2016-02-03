@@ -26,7 +26,7 @@ class PredictionViewModel: NSObject {
             return prediction.direction == self.direction && prediction.route!.objectId == self.routeId
         })
         
-        relevantPredictions.sort { $0.secondsToArrival < $1.secondsToArrival }
+        relevantPredictions.sortInPlace { $0.secondsToArrival < $1.secondsToArrival }
         
         if relevantPredictions.count > 0 {
             prediction = relevantPredictions[0]
