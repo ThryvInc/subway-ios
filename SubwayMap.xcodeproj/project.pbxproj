@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17A2CA1EBFAAF7A6ABD35509 /* Pods_LondonMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B76AEC9A4C97F17A8DE014EE /* Pods_LondonMapTests.framework */; };
 		491831221B672B6900EB8328 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831211B672B6900EB8328 /* AppDelegate.swift */; };
 		491831291B672B6900EB8328 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 491831281B672B6900EB8328 /* Images.xcassets */; };
 		491831381B672B6900EB8328 /* SubwayMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831371B672B6900EB8328 /* SubwayMapTests.swift */; };
@@ -41,17 +42,52 @@
 		49D5359F1B69C44C0087D368 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5359C1B69C44C0087D368 /* MapViewController.swift */; };
 		49D535A01B69C44C0087D368 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D5359D1B69C44C0087D368 /* MapViewController.xib */; };
 		49D535A11B69C44C0087D368 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D5359D1B69C44C0087D368 /* MapViewController.xib */; };
+		49E7C9951CADC7E3006A03F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E7C9941CADC7E3006A03F1 /* AppDelegate.swift */; };
+		49E7C99C1CADC7E3006A03F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49E7C99B1CADC7E3006A03F1 /* Assets.xcassets */; };
+		49E7C99F1CADC7E3006A03F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49E7C99D1CADC7E3006A03F1 /* LaunchScreen.storyboard */; };
+		49E7C9AA1CADC7E4006A03F1 /* LondonMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E7C9A91CADC7E4006A03F1 /* LondonMapTests.swift */; };
+		49E7C9B21CADC91A006A03F1 /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831411B672E8C00EB8328 /* StationViewController.swift */; };
+		49E7C9B31CADC91B006A03F1 /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831411B672E8C00EB8328 /* StationViewController.swift */; };
+		49E7C9B51CADC926006A03F1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5359C1B69C44C0087D368 /* MapViewController.swift */; };
+		49E7C9B81CADC930006A03F1 /* StationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491831421B672E8C00EB8328 /* StationViewController.xib */; };
+		49E7C9B91CADC930006A03F1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5359C1B69C44C0087D368 /* MapViewController.swift */; };
+		49E7C9BA1CADC930006A03F1 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D5359D1B69C44C0087D368 /* MapViewController.xib */; };
+		49E7C9BB1CADC931006A03F1 /* StationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491831421B672E8C00EB8328 /* StationViewController.xib */; };
+		49E7C9BC1CADC931006A03F1 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D5359D1B69C44C0087D368 /* MapViewController.xib */; };
+		49E7C9BD1CADC93E006A03F1 /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5C8C51BE247C200636717 /* StationTableViewCell.swift */; };
+		49E7C9BE1CADC93E006A03F1 /* StationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B5C8C61BE247C200636717 /* StationTableViewCell.xib */; };
+		49E7C9BF1CADC93E006A03F1 /* PredictionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831D01B69A61700EB8328 /* PredictionTableViewCell.swift */; };
+		49E7C9C01CADC93E006A03F1 /* PredictionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */; };
+		49E7C9C11CADC93E006A03F1 /* LineChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EC9931BEA9462004A1553 /* LineChoiceView.swift */; };
+		49E7C9C21CADC93E006A03F1 /* LineChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499EC9951BEA947C004A1553 /* LineChoiceView.xib */; };
+		49E7C9C31CADC93F006A03F1 /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5C8C51BE247C200636717 /* StationTableViewCell.swift */; };
+		49E7C9C41CADC93F006A03F1 /* StationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B5C8C61BE247C200636717 /* StationTableViewCell.xib */; };
+		49E7C9C51CADC93F006A03F1 /* PredictionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831D01B69A61700EB8328 /* PredictionTableViewCell.swift */; };
+		49E7C9C61CADC93F006A03F1 /* PredictionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */; };
+		49E7C9C71CADC93F006A03F1 /* LineChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EC9931BEA9462004A1553 /* LineChoiceView.swift */; };
+		49E7C9C81CADC93F006A03F1 /* LineChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499EC9951BEA947C004A1553 /* LineChoiceView.xib */; };
+		49E7C9C91CADC945006A03F1 /* NYCRouteColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */; };
+		49E7C9CA1CADC945006A03F1 /* PredictionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */; };
+		49E7C9CB1CADC945006A03F1 /* DatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */; };
+		49E7C9CC1CADC945006A03F1 /* LineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EC9991BEABE7F004A1553 /* LineViewModel.swift */; };
+		49E7C9CD1CADC946006A03F1 /* NYCRouteColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */; };
+		49E7C9CE1CADC946006A03F1 /* PredictionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */; };
+		49E7C9CF1CADC946006A03F1 /* DatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */; };
+		49E7C9D01CADC946006A03F1 /* LineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EC9991BEABE7F004A1553 /* LineViewModel.swift */; };
+		49E7C9D21CADCBA4006A03F1 /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 49E7C9D11CADCBA4006A03F1 /* gtfs.db.zip */; };
+		49E7C9D31CADCBAA006A03F1 /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 49E7C9D11CADCBA4006A03F1 /* gtfs.db.zip */; };
 		49F531D71B6D4DD500A9E887 /* NYCRouteColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */; };
 		49F531D81B6D4DD500A9E887 /* NYCRouteColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */; };
 		49F531DA1B6D591C00A9E887 /* PredictionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */; };
 		49F531DB1B6D591C00A9E887 /* PredictionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */; };
 		49F531DD1B6E9E5B00A9E887 /* DatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */; };
 		49F531DE1B6E9E5B00A9E887 /* DatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */; };
-		60038A17F3E80650135D1BFD /* Pods_SubwayMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D37697FA76898D291D5BE0 /* Pods_SubwayMap.framework */; };
 		8355AC6C1B94A1B2002F0527 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355AC6B1B94A1B2002F0527 /* FavoritesManager.swift */; };
 		8355AC6D1B94A1B2002F0527 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355AC6B1B94A1B2002F0527 /* FavoritesManager.swift */; };
 		8355AC6F1B94A1C8002F0527 /* FavoritesManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355AC6E1B94A1C8002F0527 /* FavoritesManagerTests.swift */; };
-		C7F879CAABEDAEDB9491B121 /* Pods_SubwayMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167DC9B12C5DC62533041B63 /* Pods_SubwayMapTests.framework */; };
+		59A4CE88EB7ED1203DE138D4 /* Pods_SubwayMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A868E11E4A809C123EF6F4E9 /* Pods_SubwayMapTests.framework */; };
+		C96F0D1A01A3B5BF519DAC38 /* Pods_LondonMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B37F3A5D07928FF0D6FC839 /* Pods_LondonMap.framework */; };
+		DF4B99A0190F44320C591BFA /* Pods_SubwayMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1AD6E17ADA74144E92FD327 /* Pods_SubwayMap.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,11 +98,20 @@
 			remoteGlobalIDString = 4918311B1B672B6900EB8328;
 			remoteInfo = SubwayMap;
 		};
+		49E7C9A61CADC7E4006A03F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 491831141B672B6900EB8328 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49E7C9911CADC7E3006A03F1;
+			remoteInfo = LondonMap;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		167DC9B12C5DC62533041B63 /* Pods_SubwayMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubwayMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		439699BB85364EF2B617A096 /* Pods-SubwayMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap.release.xcconfig"; sourceTree = "<group>"; };
+		015DC2CECE26BA0286F999C6 /* Pods-LondonMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LondonMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LondonMapTests/Pods-LondonMapTests.release.xcconfig"; sourceTree = "<group>"; };
+		04DFCE702E06D194260037D2 /* Pods-SubwayMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		112EE5395AF31AEE51502A60 /* Pods-LondonMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LondonMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LondonMap/Pods-LondonMap.debug.xcconfig"; sourceTree = "<group>"; };
+		3B37F3A5D07928FF0D6FC839 /* Pods_LondonMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LondonMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4918311C1B672B6900EB8328 /* SubwayMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubwayMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		491831201B672B6900EB8328 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		491831211B672B6900EB8328 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,15 +137,28 @@
 		49B5C8C61BE247C200636717 /* StationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StationTableViewCell.xib; sourceTree = "<group>"; };
 		49D5359C1B69C44C0087D368 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		49D5359D1B69C44C0087D368 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		49E7C9921CADC7E3006A03F1 /* LondonMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LondonMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		49E7C9941CADC7E3006A03F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		49E7C99B1CADC7E3006A03F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		49E7C99E1CADC7E3006A03F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		49E7C9A01CADC7E3006A03F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49E7C9A51CADC7E4006A03F1 /* LondonMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LondonMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		49E7C9A91CADC7E4006A03F1 /* LondonMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LondonMapTests.swift; sourceTree = "<group>"; };
+		49E7C9AB1CADC7E4006A03F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49E7C9D11CADCBA4006A03F1 /* gtfs.db.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = gtfs.db.zip; sourceTree = "<group>"; };
 		49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NYCRouteColorManager.swift; sourceTree = "<group>"; };
 		49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictionViewModel.swift; sourceTree = "<group>"; };
 		49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseLoader.swift; sourceTree = "<group>"; };
 		8355AC6B1B94A1B2002F0527 /* FavoritesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 		8355AC6E1B94A1C8002F0527 /* FavoritesManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesManagerTests.swift; sourceTree = "<group>"; };
-		8A6452C54932A2EA20A77FEA /* Pods-SubwayMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests.release.xcconfig"; sourceTree = "<group>"; };
-		CF275424296109495D025BF4 /* Pods-SubwayMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap.debug.xcconfig"; sourceTree = "<group>"; };
-		F8D37697FA76898D291D5BE0 /* Pods_SubwayMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubwayMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE8CAFD7E5DB86D08BA60F06 /* Pods-SubwayMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4BB8308FBA1DFDFC7E5081B5 /* Pods-SubwayMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap.debug.xcconfig"; sourceTree = "<group>"; };
+		688A21896DF4A8DE71CE99A4 /* Pods-LondonMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LondonMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LondonMapTests/Pods-LondonMapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A13F3E14FA8E73B74979798F /* Pods-SubwayMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap.release.xcconfig"; sourceTree = "<group>"; };
+		A868E11E4A809C123EF6F4E9 /* Pods_SubwayMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubwayMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABF52ACD35DF59C8247AC37A /* Pods-SubwayMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests.release.xcconfig"; sourceTree = "<group>"; };
+		B76AEC9A4C97F17A8DE014EE /* Pods_LondonMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LondonMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1AD6E17ADA74144E92FD327 /* Pods_SubwayMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubwayMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9A5016B78783EA2922AED64 /* Pods-LondonMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LondonMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-LondonMap/Pods-LondonMap.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +181,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		49E7C98F1CADC7E3006A03F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C96F0D1A01A3B5BF519DAC38 /* Pods_LondonMap.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49E7C9A21CADC7E4006A03F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17A2CA1EBFAAF7A6ABD35509 /* Pods_LondonMapTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -133,8 +207,10 @@
 				493DC18C1B9CE01B00515F4B /* libz.1.2.5.dylib */,
 				493DC1871B9CD10500515F4B /* libz.dylib */,
 				491831471B67321A00EB8328 /* libsqlite3.dylib */,
-				F8D37697FA76898D291D5BE0 /* Pods_SubwayMap.framework */,
-				167DC9B12C5DC62533041B63 /* Pods_SubwayMapTests.framework */,
+				F1AD6E17ADA74144E92FD327 /* Pods_SubwayMap.framework */,
+				A868E11E4A809C123EF6F4E9 /* Pods_SubwayMapTests.framework */,
+				3B37F3A5D07928FF0D6FC839 /* Pods_LondonMap.framework */,
+				B76AEC9A4C97F17A8DE014EE /* Pods_LondonMapTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -144,6 +220,8 @@
 			children = (
 				4918311E1B672B6900EB8328 /* SubwayMap */,
 				491831341B672B6900EB8328 /* SubwayMapTests */,
+				49E7C9931CADC7E3006A03F1 /* LondonMap */,
+				49E7C9A81CADC7E4006A03F1 /* LondonMapTests */,
 				4918311D1B672B6900EB8328 /* Products */,
 				0561CA4C571669088714DF0D /* Frameworks */,
 				59421B6B890CCA459AC496DC /* Pods */,
@@ -155,6 +233,8 @@
 			children = (
 				4918311C1B672B6900EB8328 /* SubwayMap.app */,
 				491831311B672B6900EB8328 /* SubwayMapTests.xctest */,
+				49E7C9921CADC7E3006A03F1 /* LondonMap.app */,
+				49E7C9A51CADC7E4006A03F1 /* LondonMapTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -223,6 +303,27 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		49E7C9931CADC7E3006A03F1 /* LondonMap */ = {
+			isa = PBXGroup;
+			children = (
+				49E7C9941CADC7E3006A03F1 /* AppDelegate.swift */,
+				49E7C9D11CADCBA4006A03F1 /* gtfs.db.zip */,
+				49E7C99B1CADC7E3006A03F1 /* Assets.xcassets */,
+				49E7C99D1CADC7E3006A03F1 /* LaunchScreen.storyboard */,
+				49E7C9A01CADC7E3006A03F1 /* Info.plist */,
+			);
+			path = LondonMap;
+			sourceTree = "<group>";
+		};
+		49E7C9A81CADC7E4006A03F1 /* LondonMapTests */ = {
+			isa = PBXGroup;
+			children = (
+				49E7C9A91CADC7E4006A03F1 /* LondonMapTests.swift */,
+				49E7C9AB1CADC7E4006A03F1 /* Info.plist */,
+			);
+			path = LondonMapTests;
+			sourceTree = "<group>";
+		};
 		49F531D11B6D400400A9E887 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,10 +349,14 @@
 		59421B6B890CCA459AC496DC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CF275424296109495D025BF4 /* Pods-SubwayMap.debug.xcconfig */,
-				439699BB85364EF2B617A096 /* Pods-SubwayMap.release.xcconfig */,
-				FE8CAFD7E5DB86D08BA60F06 /* Pods-SubwayMapTests.debug.xcconfig */,
-				8A6452C54932A2EA20A77FEA /* Pods-SubwayMapTests.release.xcconfig */,
+				4BB8308FBA1DFDFC7E5081B5 /* Pods-SubwayMap.debug.xcconfig */,
+				A13F3E14FA8E73B74979798F /* Pods-SubwayMap.release.xcconfig */,
+				04DFCE702E06D194260037D2 /* Pods-SubwayMapTests.debug.xcconfig */,
+				ABF52ACD35DF59C8247AC37A /* Pods-SubwayMapTests.release.xcconfig */,
+				112EE5395AF31AEE51502A60 /* Pods-LondonMap.debug.xcconfig */,
+				F9A5016B78783EA2922AED64 /* Pods-LondonMap.release.xcconfig */,
+				688A21896DF4A8DE71CE99A4 /* Pods-LondonMapTests.debug.xcconfig */,
+				015DC2CECE26BA0286F999C6 /* Pods-LondonMapTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -301,6 +406,48 @@
 			productReference = 491831311B672B6900EB8328 /* SubwayMapTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		49E7C9911CADC7E3006A03F1 /* LondonMap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49E7C9B01CADC7E4006A03F1 /* Build configuration list for PBXNativeTarget "LondonMap" */;
+			buildPhases = (
+				F3FF562C2A0221A7029FCF74 /* Check Pods Manifest.lock */,
+				49E7C98E1CADC7E3006A03F1 /* Sources */,
+				49E7C98F1CADC7E3006A03F1 /* Frameworks */,
+				49E7C9901CADC7E3006A03F1 /* Resources */,
+				89449AA4BF64149BBB997696 /* Embed Pods Frameworks */,
+				20E1C31ADD5BECF1ACB96736 /* Copy Pods Resources */,
+				49E7C9D41CADCDD1006A03F1 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LondonMap;
+			productName = LondonMap;
+			productReference = 49E7C9921CADC7E3006A03F1 /* LondonMap.app */;
+			productType = "com.apple.product-type.application";
+		};
+		49E7C9A41CADC7E4006A03F1 /* LondonMapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49E7C9B11CADC7E4006A03F1 /* Build configuration list for PBXNativeTarget "LondonMapTests" */;
+			buildPhases = (
+				52622591E00471E796F48BB0 /* Check Pods Manifest.lock */,
+				49E7C9A11CADC7E4006A03F1 /* Sources */,
+				49E7C9A21CADC7E4006A03F1 /* Frameworks */,
+				49E7C9A31CADC7E4006A03F1 /* Resources */,
+				1867CCDE4B7D37E55946AB51 /* Embed Pods Frameworks */,
+				86EBA52FB2EA396DA6F1E567 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49E7C9A71CADC7E4006A03F1 /* PBXTargetDependency */,
+			);
+			name = LondonMapTests;
+			productName = LondonMapTests;
+			productReference = 49E7C9A51CADC7E4006A03F1 /* LondonMapTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -319,6 +466,13 @@
 						CreatedOnToolsVersion = 6.4;
 						TestTargetID = 4918311B1B672B6900EB8328;
 					};
+					49E7C9911CADC7E3006A03F1 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					49E7C9A41CADC7E4006A03F1 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 49E7C9911CADC7E3006A03F1;
+					};
 				};
 			};
 			buildConfigurationList = 491831171B672B6900EB8328 /* Build configuration list for PBXProject "SubwayMap" */;
@@ -336,6 +490,8 @@
 			targets = (
 				4918311B1B672B6900EB8328 /* SubwayMap */,
 				491831301B672B6900EB8328 /* SubwayMapTests */,
+				49E7C9911CADC7E3006A03F1 /* LondonMap */,
+				49E7C9A41CADC7E4006A03F1 /* LondonMapTests */,
 			);
 		};
 /* End PBXProject section */
@@ -370,6 +526,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		49E7C9901CADC7E3006A03F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49E7C99F1CADC7E3006A03F1 /* LaunchScreen.storyboard in Resources */,
+				49E7C9C21CADC93E006A03F1 /* LineChoiceView.xib in Resources */,
+				49E7C99C1CADC7E3006A03F1 /* Assets.xcassets in Resources */,
+				49E7C9BA1CADC930006A03F1 /* MapViewController.xib in Resources */,
+				49E7C9D21CADCBA4006A03F1 /* gtfs.db.zip in Resources */,
+				49E7C9C01CADC93E006A03F1 /* PredictionTableViewCell.xib in Resources */,
+				49E7C9BE1CADC93E006A03F1 /* StationTableViewCell.xib in Resources */,
+				49E7C9B81CADC930006A03F1 /* StationViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49E7C9A31CADC7E4006A03F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49E7C9D31CADCBAA006A03F1 /* gtfs.db.zip in Resources */,
+				49E7C9C61CADC93F006A03F1 /* PredictionTableViewCell.xib in Resources */,
+				49E7C9C81CADC93F006A03F1 /* LineChoiceView.xib in Resources */,
+				49E7C9BB1CADC931006A03F1 /* StationViewController.xib in Resources */,
+				49E7C9C41CADC93F006A03F1 /* StationTableViewCell.xib in Resources */,
+				49E7C9BC1CADC931006A03F1 /* MapViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -388,7 +572,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		28ADBD6BF4473153AA5AF845 /* 📦 Copy Pods Resources */ = {
+		1867CCDE4B7D37E55946AB51 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LondonMapTests/Pods-LondonMapTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1E940E83F890DBB17ACA7039 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -403,7 +602,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4293D72BAEA405F00434F8DA /* 📦 Embed Pods Frameworks */ = {
+		20E1C31ADD5BECF1ACB96736 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LondonMap/Pods-LondonMap-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3AE9F43528A6E2372F84066C /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -433,7 +647,65 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		496241B51B6ECBC6007053DC /* ShellScript */ = {
+		49E7C9D41CADCDD1006A03F1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" b1bc39c835159dcffd9f2950a40007e570069713 dde132f14bcd45d54cbbb551f59876744bc3ab28f3e393f236602a2354a4994a";
+		};
+		52622591E00471E796F48BB0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		86EBA52FB2EA396DA6F1E567 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LondonMapTests/Pods-LondonMapTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89449AA4BF64149BBB997696 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LondonMap/Pods-LondonMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9117EB3C5C4CC21161C421E2 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -469,6 +741,21 @@
 			inputPaths = (
 			);
 			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F3FF562C2A0221A7029FCF74 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,6 +805,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		49E7C98E1CADC7E3006A03F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49E7C9C91CADC945006A03F1 /* NYCRouteColorManager.swift in Sources */,
+				49E7C9B21CADC91A006A03F1 /* StationViewController.swift in Sources */,
+				49E7C9CC1CADC945006A03F1 /* LineViewModel.swift in Sources */,
+				49E7C9BD1CADC93E006A03F1 /* StationTableViewCell.swift in Sources */,
+				49E7C9BF1CADC93E006A03F1 /* PredictionTableViewCell.swift in Sources */,
+				49E7C9C11CADC93E006A03F1 /* LineChoiceView.swift in Sources */,
+				49E7C9951CADC7E3006A03F1 /* AppDelegate.swift in Sources */,
+				49E7C9CA1CADC945006A03F1 /* PredictionViewModel.swift in Sources */,
+				49E7C9B91CADC930006A03F1 /* MapViewController.swift in Sources */,
+				49E7C9CB1CADC945006A03F1 /* DatabaseLoader.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49E7C9A11CADC7E4006A03F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49E7C9AA1CADC7E4006A03F1 /* LondonMapTests.swift in Sources */,
+				49E7C9CE1CADC946006A03F1 /* PredictionViewModel.swift in Sources */,
+				49E7C9C51CADC93F006A03F1 /* PredictionTableViewCell.swift in Sources */,
+				49E7C9CF1CADC946006A03F1 /* DatabaseLoader.swift in Sources */,
+				49E7C9CD1CADC946006A03F1 /* NYCRouteColorManager.swift in Sources */,
+				49E7C9B51CADC926006A03F1 /* MapViewController.swift in Sources */,
+				49E7C9C71CADC93F006A03F1 /* LineChoiceView.swift in Sources */,
+				49E7C9C31CADC93F006A03F1 /* StationTableViewCell.swift in Sources */,
+				49E7C9D01CADC946006A03F1 /* LineViewModel.swift in Sources */,
+				49E7C9B31CADC91B006A03F1 /* StationViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -526,7 +847,23 @@
 			target = 4918311B1B672B6900EB8328 /* SubwayMap */;
 			targetProxy = 491831321B672B6900EB8328 /* PBXContainerItemProxy */;
 		};
+		49E7C9A71CADC7E4006A03F1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49E7C9911CADC7E3006A03F1 /* LondonMap */;
+			targetProxy = 49E7C9A61CADC7E4006A03F1 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		49E7C99D1CADC7E3006A03F1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49E7C99E1CADC7E3006A03F1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		491831391B672B6900EB8328 /* Debug */ = {
@@ -711,6 +1048,64 @@
 			};
 			name = Release;
 		};
+		49E7C9AC1CADC7E4006A03F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 112EE5395AF31AEE51502A60 /* Pods-LondonMap.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = LondonMap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thryv.LondonMap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		49E7C9AD1CADC7E4006A03F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9A5016B78783EA2922AED64 /* Pods-LondonMap.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LondonMap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thryv.LondonMap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		49E7C9AE1CADC7E4006A03F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 688A21896DF4A8DE71CE99A4 /* Pods-LondonMapTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = LondonMapTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thryv.LondonMapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LondonMap.app/LondonMap";
+			};
+			name = Debug;
+		};
+		49E7C9AF1CADC7E4006A03F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 015DC2CECE26BA0286F999C6 /* Pods-LondonMapTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LondonMapTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thryv.LondonMapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LondonMap.app/LondonMap";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -737,6 +1132,24 @@
 			buildConfigurations = (
 				4918313F1B672B6900EB8328 /* Debug */,
 				491831401B672B6900EB8328 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49E7C9B01CADC7E4006A03F1 /* Build configuration list for PBXNativeTarget "LondonMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49E7C9AC1CADC7E4006A03F1 /* Debug */,
+				49E7C9AD1CADC7E4006A03F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49E7C9B11CADC7E4006A03F1 /* Build configuration list for PBXNativeTarget "LondonMapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49E7C9AE1CADC7E4006A03F1 /* Debug */,
+				49E7C9AF1CADC7E4006A03F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

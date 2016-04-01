@@ -24,3 +24,11 @@ target 'SubwayMapTests' do
     pod 'Nimble'
 end
 
+target 'LondonMap' do
+    import_pods
+end
+
+target 'LondonMapTests' do
+    import_pods
+end
+
