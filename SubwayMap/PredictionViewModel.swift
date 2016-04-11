@@ -21,7 +21,7 @@ class PredictionViewModel: NSObject {
         self.direction = direction
     }
     
-    func setupWithPredictions(predictions: Array<Prediction>!){
+    func setupWithPredictions(predictions: [Prediction]!){
         var relevantPredictions = predictions.filter({(prediction) -> Bool in
             return prediction.direction == self.direction && prediction.route!.objectId == self.routeId
         })

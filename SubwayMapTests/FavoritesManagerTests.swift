@@ -12,98 +12,120 @@ import GTFSStations
 
 
 class FavoritesSpec: QuickSpec {
+    var stationManager: StationManager!
+    var favoritesManager: FavoritesManager!
     override func spec() {
         describe("Favorites", { () -> Void in
-            let stationManager: StationManager! = StationManager(filename: "gtfs.db")
-            let favoritesManager: FavoritesManager! = FavoritesManager(stationManager: stationManager)
+            
+            beforeSuite({ () -> () in
+                DatabaseLoader.loadDb()
+                waitUntil(timeout: 10, action: { (done) -> Void in
+                    NSThread.sleepForTimeInterval(5)
+                    self.stationManager = DatabaseLoader.stationManager
+                    self.favoritesManager = FavoritesManager(stationManager: DatabaseLoader.stationManager)
+                    done()
+                })
+            })
+            
+            afterEach({ () -> () in
+                self.favoritesManager.clear()
+            })
             
             it("can clear all favorites") {
                 let stationName = "Astor Pl"
-                let stations: Array<Station>? = stationManager.stationsForSearchString(stationName)
+                let stations: [Station]? = self.stationManager.stationsForSearchString(stationName)
                 expect(stations).toNot(beNil())
                 expect(stations!.count == 1).to(beTruthy())
                 
-                favoritesManager.addFavorites(stations!)
-                let favorites: Array<Station>? = favoritesManager.findFavorites(nil)
+                self.favoritesManager.addFavorites(stations!)
+                let favorites: [Station]? = self.favoritesManager.findFavorites(nil)
                 expect(favorites!.count).to(beTruthy())
                 
-                favoritesManager.clear()
-                let emptyFavorites = favoritesManager.findFavorites(nil)
+                self.favoritesManager.clear()
+                let emptyFavorites = self.favoritesManager.findFavorites(nil)
                 expect(stations).toNot(beNil())
                 expect(emptyFavorites!.isEmpty).to(beTruthy())
             }
             
             it("can add a favorite") {
-                let allStations = stationManager.allStations
+                let allStations = self.stationManager.allStations
                 let station = allStations.first
-                favoritesManager.addFavorites([station!])
+                self.favoritesManager.addFavorites([station!])
                 
-                let favorites: Array<Station>? = favoritesManager.findFavorites(nil)
+                let favorites: [Station]? = self.favoritesManager.findFavorites(nil)
                 expect(favorites).toNot(beNil())
                 expect(favorites!.count).to(beTruthy())
                 expect(favorites).to(contain(station))
             }
             
             it("can remove a favorite") {
-                let stations = Array(stationManager.allStations[0...2])
+                let stations = Array(self.stationManager.allStations[0...2])
                 expect(stations.count == 3).to(beTrue())
-                favoritesManager.addFavorites(stations)
+                self.favoritesManager.addFavorites(stations)
                 
-                favoritesManager.removeFavorites([stations[1]])
-                var favorites: Array<Station>? = favoritesManager.findFavorites(nil)
+                self.favoritesManager.removeFavorites([stations[1]])
+                let favorites: [Station]? = self.favoritesManager.findFavorites(nil)
                 expect(favorites).toNot(contain(stations[1]))
             }
             
             it ("can find a favorite") {
-                favoritesManager.clear()
                 let stationName = "Astor Pl"
-                let stations: Array<Station>? = stationManager.stationsForSearchString(stationName)
+                let stations: [Station]? = self.stationManager.stationsForSearchString(stationName)
                 expect(stations).toNot(beNil())
                 expect(stations!.count == 1).to(beTruthy())
                 
-                let favorites: Array<Station>? = favoritesManager.findFavorites(stationName)
+                self.favoritesManager.addFavorites(stations!)
                 
-                expect(stations).toNot(beNil())
-                expect(stations!.count == 1).to(beTrue())
-                expect(stations![0].name == stationName).to(beTruthy())
+                let favorites: [Station]? = self.favoritesManager.findFavorites(stationName)
+                
+                expect(favorites).toNot(beNil())
+                if let favs = favorites {
+                    expect(favs.count).to(equal(1))
+                    if favs.count > 0 {
+                        expect(favs[0].name == stationName).to(beTruthy())
+                    }
+                }
             }
             
             it ("can find multiple favorites") {
-                favoritesManager.clear()
+                self.favoritesManager.clear()
                 let stationName = "Astor"
-                let stations: Array<Station>? = stationManager.stationsForSearchString(stationName)
+                let stations: [Station]? = self.stationManager.stationsForSearchString(stationName)
                 expect(stations).toNot(beNil())
                 expect(stations!.count == 3).to(beTruthy())
                 
-                favoritesManager.addFavorites(stations!)
+                self.favoritesManager.addFavorites(stations!)
 
-                let favorites: Array<Station>? = favoritesManager.findFavorites(stationName)
-                expect(stations).toNot(beNil())
-                expect(stations!.count == 3).to(beTrue())
-                
-                for stationName in ["Astor Pl", "Astoria Blvd", "Astoria - Ditmars Blvd"] {
-                    let station = favorites!.filter( { $0.name == stationName } )
-                    expect(station).toNot(beNil())
-                    expect(station.count == 1).to(beTrue())
-                    println("station: \(stationName)")
-                    expect(station[0].name == stationName).to(beTruthy())
-
+                let favorites: [Station]? = self.favoritesManager.findFavorites(stationName)
+                expect(favorites).toNot(beNil())
+                if let favs = favorites {
+                    expect(favs.count).to(equal(3))
+                    if favs.count == 3 {
+                        for stationName in ["Astor Pl", "Astoria Blvd", "Astoria - Ditmars Blvd"] {
+                            let station = favs.filter( { $0.name == stationName } )
+                            expect(station).toNot(beNil())
+                            expect(station.count == 1).to(beTrue())
+                            print("station: \(stationName)")
+                            expect(station[0].name == stationName).to(beTruthy())
+                            
+                        }
+                    }
                 }
             }
             
             it ("can save and restore favorites") {
-                favoritesManager.clear()
+                self.favoritesManager.clear()
                 let stationName = "Astor Pl"
-                let stations: Array<Station>? = stationManager.stationsForSearchString(stationName)
+                let stations: [Station]? = self.stationManager.stationsForSearchString(stationName)
                 expect(stations).toNot(beNil())
                 expect(stations!.count == 1).to(beTruthy())
                 
-                favoritesManager.addFavorites(stations!)
+                self.favoritesManager.addFavorites(stations!)
                 
-                let newFavoritesManager: FavoritesManager! = FavoritesManager(stationManager: stationManager)
+                let newFavoritesManager: FavoritesManager! = FavoritesManager(stationManager: self.stationManager)
                 
 
-                let favorites: Array<Station>? = newFavoritesManager.findFavorites(stationName)
+                let favorites: [Station]? = newFavoritesManager.findFavorites(stationName)
                 
                 expect(favorites).toNot(beNil())
                 expect(favorites!.count == 1).to(beTrue())

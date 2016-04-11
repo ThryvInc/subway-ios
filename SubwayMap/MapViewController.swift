@@ -16,7 +16,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UISearchBarDele
     @IBOutlet weak var subwayImageView: UIImageView!
     @IBOutlet weak var loadingImageView: UIImageView!
     var stationManager: StationManager!
-    var stations: Array<Station>?
+    var stations: [Station]?
     var loading = false
 
     override func viewDidLoad() {
@@ -26,20 +26,43 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UISearchBarDele
         
         title = "SUBWAY:NYC"
         navigationController?.navigationBar.barStyle = UIBarStyle.Black
-        
+        setupFavoritesButton()
         searchBar.delegate = self
         
         tableView.registerNib(UINib(nibName: "StationTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.tableFooterView = UIView() //removes cell separators between empty cells
         
         if !DatabaseLoader.isDatabaseReady {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "databaseLoaded", name: DatabaseLoader.NYCDatabaseLoadedNotification, object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.databaseLoaded), name: DatabaseLoader.NYCDatabaseLoadedNotification, object: nil)
             searchBar.alpha = 0
             startLoading()
         }else{
             databaseLoaded()
         }
+    }
+    
+    func setupFavoritesButton() {
+        let favButton = UIButton()
+        favButton.frame = CGRectMake(0, 0, 30, 30)
+        favButton.setImage(UIImage(named: "Hover")?.imageWithRenderingMode(.AlwaysOriginal), forState: .Normal)
+        favButton.setImage(UIImage(named: "Pressed")?.imageWithRenderingMode(.AlwaysOriginal), forState: UIControlState.Selected.union(.Highlighted))
+        favButton.addTarget(self, action: #selector(MapViewController.openFavorites), forControlEvents: .TouchUpInside)
+        
+        let favBarButton = UIBarButtonItem()
+        favBarButton.customView = favButton
+        self.navigationItem.rightBarButtonItem = favBarButton
+    }
+    
+    func openFavorites() {
+        let barButton = UIBarButtonItem()
+        barButton.title = ""
+        navigationItem.backBarButtonItem = barButton
+        
+        let favoritesVC = FavoritesViewController(nibName: "FavoritesViewController", bundle: nil)
+        favoritesVC.stationManager = stationManager
+        navigationController?.pushViewController(favoritesVC, animated: true)
     }
     
     deinit {
@@ -169,7 +192,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UISearchBarDele
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (stations ?? Array<Station>()).count
+        return (stations ?? [Station]()).count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

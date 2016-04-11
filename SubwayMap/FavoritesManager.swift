@@ -10,8 +10,9 @@ import Foundation
 import GTFSStations
 
 class FavoritesManager: NSObject {
-    var favoriteIds: Array<String>
+    var favoriteIds: [String]!
     var stationManager: StationManager
+    var stations: [Station]?
     
     private let defaultsKey = "favorite_stations"
     
@@ -19,7 +20,7 @@ class FavoritesManager: NSObject {
         self.stationManager = stationManager
         self.favoriteIds = []
 
-        if let names = NSUserDefaults.standardUserDefaults().stringArrayForKey(defaultsKey) as? Array<String> {
+        if let names = NSUserDefaults.standardUserDefaults().stringArrayForKey(defaultsKey) as [String]! {
             self.favoriteIds = names
         }
         
@@ -27,20 +28,20 @@ class FavoritesManager: NSObject {
     }
     
     // add stations to favorites list
-    func addFavorites(stations: Array<Station>) {
+    func addFavorites(stations: [Station]) {
         for station in stations {
-            if !contains(favoriteIds, station.objectId) {
-                favoriteIds.append(station.objectId)
+            if !favoriteIds.contains(station.name) {
+                favoriteIds.append(station.name)
             }
         }
         sync()
     }
     
     // remove stations from favorites list
-    func removeFavorites(stations: Array<Station>) {
+    func removeFavorites(stations: [Station]) {
         for station in stations {
-            if contains(favoriteIds, station.objectId) {
-                favoriteIds = favoriteIds.filter( { $0 != station.objectId } )
+            if favoriteIds.contains(station.name) {
+                favoriteIds = favoriteIds.filter( { $0 != station.name } )
             }
         }
         sync()
@@ -53,12 +54,29 @@ class FavoritesManager: NSObject {
     }
     
     // find favorites by substring
-    func findFavorites(name: String?) -> Array<Station>? {
+    func findFavorites(name: String?) -> [Station]? {
         if name != nil {
-            return stationManager.stationsForSearchString(name)!.filter({contains(self.favoriteIds, $0.objectId)})
+            return stationManager.stationsForSearchString(name)!.filter({self.favoriteIds.contains($0.name)})
         } else {
-            return stationManager.allStations.filter({contains(self.favoriteIds, $0.objectId)})
+            return stationManager.allStations.filter({self.favoriteIds.contains($0.name)})
         }
+    }
+    
+    // get all favorites
+    func favoriteStations() -> [Station]? {
+        return findFavorites(nil)
+    }
+    
+    //check if current station exists in favorites
+    func isFavorite(name: String?) -> Bool {
+        let stations: [Station]? = findFavorites(name)
+        var isInArray: Bool = false
+        for station in stations! {
+            if station.name == name {
+                isInArray = true
+            }
+        }
+        return isInArray
     }
 
     // flush out user defaults

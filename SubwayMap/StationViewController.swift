@@ -24,6 +24,7 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
     var routes: [Route] = [Route]()
     var lineModels: [LineViewModel] = [LineViewModel]()
     var lineViews = [LineChoiceView]()
+    var favManager: FavoritesManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +38,44 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
         refresh()
         
         title = station.name
+        favManager = FavoritesManager(stationManager: stationManager)
+        setupFavoritesButton()
     }
     
     override func viewDidAppear(animated: Bool) {
         refresh()
         tableView.reloadData()
+    }
+    
+    func setupFavoritesButton() {
+        let favButton = UIButton()
+        favButton.frame = CGRectMake(0, 0, 30, 30)
+        
+        if favManager.isFavorite(station.name){
+            favButton.setImage(UIImage(named: "Star_pressed")?.imageWithRenderingMode(.AlwaysOriginal), forState: .Normal)
+        } else {
+            favButton.setImage(UIImage(named: "Star")?.imageWithRenderingMode(.AlwaysOriginal), forState: .Normal)
+        }
+        
+        favButton.addTarget(self, action: #selector(StationViewController.toggleFavoriteStation), forControlEvents: .TouchUpInside)
+        
+        let favBarButton = UIBarButtonItem()
+        favBarButton.customView = favButton
+        self.navigationItem.rightBarButtonItem = favBarButton
+    }
+
+    func toggleFavoriteStation() {
+        if favManager.isFavorite(station.name) {
+            favManager.removeFavorites([self.station])
+        } else {
+            favManager.addFavorites([station])
+        }
+        setupFavoritesButton()
+    }
+
+    @IBAction func favoriteThisStation() {
+        favManager.addFavorites([station])
+        setupFavoritesButton()
     }
     
     func refresh() {
@@ -123,7 +157,7 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
             lineView.updateConstraints()
             lineView.setNeedsLayout()
             lineView.layoutIfNeeded()
-            count++
+            count += 1
         }
     }
     
