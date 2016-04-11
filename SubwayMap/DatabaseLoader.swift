@@ -44,7 +44,7 @@ class DatabaseLoader: NSObject {
             let fileUrl = NSURL(fileURLWithPath: destinationPath)
             do {
                 try fileUrl.setResourceValue(NSNumber(bool: true), forKey: NSURLIsExcludedFromBackupKey)
-            } catch var error1 as NSError {
+            } catch let error1 as NSError {
                 error = error1
             }
         }

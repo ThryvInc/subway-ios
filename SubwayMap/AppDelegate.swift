@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NagControllerDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         var appOpens = NSUserDefaults.standardUserDefaults().integerForKey("numberOfAppOpens")
-        appOpens++
+        appOpens += 1
         NSUserDefaults.standardUserDefaults().setInteger(appOpens, forKey: "numberOfAppOpens")
         
         if appOpens % 3 == 0 {
