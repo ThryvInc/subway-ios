@@ -29,8 +29,8 @@ class DatabaseLoader: NSObject {
                 self.isDatabaseReady = true
                 NSNotificationCenter.defaultCenter().postNotificationName(self.NYCDatabaseLoadedNotification, object: nil)
             })
-        }catch{
-            
+        }catch let error as NSError{
+            print(error.debugDescription)
         }
     }
     

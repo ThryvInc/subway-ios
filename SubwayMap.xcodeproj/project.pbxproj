@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040A66810F4E41605E5419B7 /* Pods_ParisMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB549E7B009880A37CA0209E /* Pods_ParisMapTests.framework */; };
+		0CDF3190616FAAED404D1CEC /* Pods_ParisMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A9689CCE39D395F8EA995EA /* Pods_ParisMap.framework */; };
 		17A2CA1EBFAAF7A6ABD35509 /* Pods_LondonMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B76AEC9A4C97F17A8DE014EE /* Pods_LondonMapTests.framework */; };
 		491831221B672B6900EB8328 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831211B672B6900EB8328 /* AppDelegate.swift */; };
 		491831291B672B6900EB8328 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 491831281B672B6900EB8328 /* Images.xcassets */; };
@@ -24,6 +26,40 @@
 		493DC18A1B9CD16900515F4B /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 493DC1891B9CD16900515F4B /* gtfs.db.zip */; };
 		493DC18B1B9CD16900515F4B /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 493DC1891B9CD16900515F4B /* gtfs.db.zip */; };
 		493DC1911B9D0CD700515F4B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 493DC1871B9CD10500515F4B /* libz.dylib */; };
+		4943C4CB1CE117ED004AAED5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4943C4CA1CE117ED004AAED5 /* Assets.xcassets */; };
+		4943C4CE1CE117ED004AAED5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4943C4CC1CE117ED004AAED5 /* LaunchScreen.storyboard */; };
+		4943C4D91CE117ED004AAED5 /* ParisMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4943C4D81CE117ED004AAED5 /* ParisMapTests.swift */; };
+		4943C4E21CE11969004AAED5 /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 4943C4E11CE11969004AAED5 /* gtfs.db.zip */; };
+		4943C4E31CE11A34004AAED5 /* NYCRouteColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */; };
+		4943C4E41CE11A34004AAED5 /* PredictionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */; };
+		4943C4E51CE11A34004AAED5 /* DatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */; };
+		4943C4E61CE11A34004AAED5 /* LineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EC9991BEABE7F004A1553 /* LineViewModel.swift */; };
+		4943C4EB1CE11A39004AAED5 /* NYCRouteColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */; };
+		4943C4EC1CE11A39004AAED5 /* PredictionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */; };
+		4943C4ED1CE11A39004AAED5 /* DatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */; };
+		4943C4EE1CE11A39004AAED5 /* LineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EC9991BEABE7F004A1553 /* LineViewModel.swift */; };
+		4943C4EF1CE11A41004AAED5 /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5C8C51BE247C200636717 /* StationTableViewCell.swift */; };
+		4943C4F01CE11A41004AAED5 /* StationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B5C8C61BE247C200636717 /* StationTableViewCell.xib */; };
+		4943C4F11CE11A41004AAED5 /* PredictionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831D01B69A61700EB8328 /* PredictionTableViewCell.swift */; };
+		4943C4F21CE11A41004AAED5 /* PredictionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */; };
+		4943C4F31CE11A41004AAED5 /* LineChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EC9931BEA9462004A1553 /* LineChoiceView.swift */; };
+		4943C4F41CE11A41004AAED5 /* LineChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499EC9951BEA947C004A1553 /* LineChoiceView.xib */; };
+		4943C4F51CE11A42004AAED5 /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5C8C51BE247C200636717 /* StationTableViewCell.swift */; };
+		4943C4F61CE11A42004AAED5 /* StationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B5C8C61BE247C200636717 /* StationTableViewCell.xib */; };
+		4943C4F71CE11A42004AAED5 /* PredictionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831D01B69A61700EB8328 /* PredictionTableViewCell.swift */; };
+		4943C4F81CE11A42004AAED5 /* PredictionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */; };
+		4943C4F91CE11A42004AAED5 /* LineChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EC9931BEA9462004A1553 /* LineChoiceView.swift */; };
+		4943C4FA1CE11A42004AAED5 /* LineChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499EC9951BEA947C004A1553 /* LineChoiceView.xib */; };
+		4943C4FB1CE11A48004AAED5 /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831411B672E8C00EB8328 /* StationViewController.swift */; };
+		4943C4FC1CE11A48004AAED5 /* StationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491831421B672E8C00EB8328 /* StationViewController.xib */; };
+		4943C4FD1CE11A48004AAED5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5359C1B69C44C0087D368 /* MapViewController.swift */; };
+		4943C4FE1CE11A48004AAED5 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D5359D1B69C44C0087D368 /* MapViewController.xib */; };
+		4943C4FF1CE11A49004AAED5 /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831411B672E8C00EB8328 /* StationViewController.swift */; };
+		4943C5001CE11A49004AAED5 /* StationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491831421B672E8C00EB8328 /* StationViewController.xib */; };
+		4943C5011CE11A49004AAED5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5359C1B69C44C0087D368 /* MapViewController.swift */; };
+		4943C5021CE11A49004AAED5 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D5359D1B69C44C0087D368 /* MapViewController.xib */; };
+		4943C5081CE12067004AAED5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4943C5071CE12067004AAED5 /* AppDelegate.swift */; };
+		4943C50A1CE121BB004AAED5 /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 4943C4E11CE11969004AAED5 /* gtfs.db.zip */; };
 		499EC9941BEA9462004A1553 /* LineChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EC9931BEA9462004A1553 /* LineChoiceView.swift */; };
 		499EC9961BEA947C004A1553 /* LineChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499EC9951BEA947C004A1553 /* LineChoiceView.xib */; };
 		499EC9971BEAA6F8004A1553 /* LineChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EC9931BEA9462004A1553 /* LineChoiceView.swift */; };
@@ -98,6 +134,13 @@
 			remoteGlobalIDString = 4918311B1B672B6900EB8328;
 			remoteInfo = SubwayMap;
 		};
+		4943C4D51CE117ED004AAED5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 491831141B672B6900EB8328 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4943C4C01CE117ED004AAED5;
+			remoteInfo = ParisMap;
+		};
 		49E7C9A61CADC7E4006A03F1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 491831141B672B6900EB8328 /* Project object */;
@@ -111,7 +154,9 @@
 		015DC2CECE26BA0286F999C6 /* Pods-LondonMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LondonMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LondonMapTests/Pods-LondonMapTests.release.xcconfig"; sourceTree = "<group>"; };
 		04DFCE702E06D194260037D2 /* Pods-SubwayMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		112EE5395AF31AEE51502A60 /* Pods-LondonMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LondonMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LondonMap/Pods-LondonMap.debug.xcconfig"; sourceTree = "<group>"; };
+		2A9689CCE39D395F8EA995EA /* Pods_ParisMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParisMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B37F3A5D07928FF0D6FC839 /* Pods_LondonMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LondonMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		435C7F5B388798A902867F15 /* Pods-ParisMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParisMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParisMap/Pods-ParisMap.debug.xcconfig"; sourceTree = "<group>"; };
 		4918311C1B672B6900EB8328 /* SubwayMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubwayMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		491831201B672B6900EB8328 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		491831211B672B6900EB8328 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +173,15 @@
 		493DC1891B9CD16900515F4B /* gtfs.db.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = gtfs.db.zip; sourceTree = "<group>"; };
 		493DC18C1B9CE01B00515F4B /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		493DC18E1B9CEF9200515F4B /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
+		4943C4C11CE117ED004AAED5 /* ParisMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParisMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4943C4CA1CE117ED004AAED5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4943C4CD1CE117ED004AAED5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4943C4CF1CE117ED004AAED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4943C4D41CE117ED004AAED5 /* ParisMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParisMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4943C4D81CE117ED004AAED5 /* ParisMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParisMapTests.swift; sourceTree = "<group>"; };
+		4943C4DA1CE117ED004AAED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4943C4E11CE11969004AAED5 /* gtfs.db.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = gtfs.db.zip; sourceTree = "<group>"; };
+		4943C5071CE12067004AAED5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		499EC9931BEA9462004A1553 /* LineChoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChoiceView.swift; sourceTree = "<group>"; };
 		499EC9951BEA947C004A1553 /* LineChoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LineChoiceView.xib; sourceTree = "<group>"; };
 		499EC9991BEABE7F004A1553 /* LineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineViewModel.swift; sourceTree = "<group>"; };
@@ -157,6 +211,10 @@
 		A868E11E4A809C123EF6F4E9 /* Pods_SubwayMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubwayMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF52ACD35DF59C8247AC37A /* Pods-SubwayMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests.release.xcconfig"; sourceTree = "<group>"; };
 		B76AEC9A4C97F17A8DE014EE /* Pods_LondonMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LondonMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2A17F5C5698DA906064F938 /* Pods-ParisMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParisMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParisMapTests/Pods-ParisMapTests.release.xcconfig"; sourceTree = "<group>"; };
+		CA4D85B28B878BCCDA291701 /* Pods-ParisMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParisMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParisMap/Pods-ParisMap.release.xcconfig"; sourceTree = "<group>"; };
+		EB549E7B009880A37CA0209E /* Pods_ParisMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParisMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFDE53F8BA701D38BFB44D16 /* Pods-ParisMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParisMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParisMapTests/Pods-ParisMapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F1AD6E17ADA74144E92FD327 /* Pods_SubwayMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubwayMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9A5016B78783EA2922AED64 /* Pods-LondonMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LondonMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-LondonMap/Pods-LondonMap.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,6 +236,22 @@
 			files = (
 				4918319C1B67491D00EB8328 /* libsqlite3.dylib in Frameworks */,
 				C7F879CAABEDAEDB9491B121 /* Pods_SubwayMapTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4943C4BE1CE117ED004AAED5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CDF3190616FAAED404D1CEC /* Pods_ParisMap.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4943C4D11CE117ED004AAED5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				040A66810F4E41605E5419B7 /* Pods_ParisMapTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +285,8 @@
 				A868E11E4A809C123EF6F4E9 /* Pods_SubwayMapTests.framework */,
 				3B37F3A5D07928FF0D6FC839 /* Pods_LondonMap.framework */,
 				B76AEC9A4C97F17A8DE014EE /* Pods_LondonMapTests.framework */,
+				2A9689CCE39D395F8EA995EA /* Pods_ParisMap.framework */,
+				EB549E7B009880A37CA0209E /* Pods_ParisMapTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -222,6 +298,8 @@
 				491831341B672B6900EB8328 /* SubwayMapTests */,
 				49E7C9931CADC7E3006A03F1 /* LondonMap */,
 				49E7C9A81CADC7E4006A03F1 /* LondonMapTests */,
+				4943C4C21CE117ED004AAED5 /* ParisMap */,
+				4943C4D71CE117ED004AAED5 /* ParisMapTests */,
 				4918311D1B672B6900EB8328 /* Products */,
 				0561CA4C571669088714DF0D /* Frameworks */,
 				59421B6B890CCA459AC496DC /* Pods */,
@@ -235,6 +313,8 @@
 				491831311B672B6900EB8328 /* SubwayMapTests.xctest */,
 				49E7C9921CADC7E3006A03F1 /* LondonMap.app */,
 				49E7C9A51CADC7E4006A03F1 /* LondonMapTests.xctest */,
+				4943C4C11CE117ED004AAED5 /* ParisMap.app */,
+				4943C4D41CE117ED004AAED5 /* ParisMapTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -277,6 +357,27 @@
 				491831361B672B6900EB8328 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4943C4C21CE117ED004AAED5 /* ParisMap */ = {
+			isa = PBXGroup;
+			children = (
+				4943C5071CE12067004AAED5 /* AppDelegate.swift */,
+				4943C4E11CE11969004AAED5 /* gtfs.db.zip */,
+				4943C4CA1CE117ED004AAED5 /* Assets.xcassets */,
+				4943C4CC1CE117ED004AAED5 /* LaunchScreen.storyboard */,
+				4943C4CF1CE117ED004AAED5 /* Info.plist */,
+			);
+			path = ParisMap;
+			sourceTree = "<group>";
+		};
+		4943C4D71CE117ED004AAED5 /* ParisMapTests */ = {
+			isa = PBXGroup;
+			children = (
+				4943C4D81CE117ED004AAED5 /* ParisMapTests.swift */,
+				4943C4DA1CE117ED004AAED5 /* Info.plist */,
+			);
+			path = ParisMapTests;
 			sourceTree = "<group>";
 		};
 		498932CB1BE8441A00BD9183 /* Cells */ = {
@@ -357,6 +458,10 @@
 				F9A5016B78783EA2922AED64 /* Pods-LondonMap.release.xcconfig */,
 				688A21896DF4A8DE71CE99A4 /* Pods-LondonMapTests.debug.xcconfig */,
 				015DC2CECE26BA0286F999C6 /* Pods-LondonMapTests.release.xcconfig */,
+				435C7F5B388798A902867F15 /* Pods-ParisMap.debug.xcconfig */,
+				CA4D85B28B878BCCDA291701 /* Pods-ParisMap.release.xcconfig */,
+				EFDE53F8BA701D38BFB44D16 /* Pods-ParisMapTests.debug.xcconfig */,
+				C2A17F5C5698DA906064F938 /* Pods-ParisMapTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -404,6 +509,48 @@
 			name = SubwayMapTests;
 			productName = SubwayMapTests;
 			productReference = 491831311B672B6900EB8328 /* SubwayMapTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4943C4C01CE117ED004AAED5 /* ParisMap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4943C4DB1CE117ED004AAED5 /* Build configuration list for PBXNativeTarget "ParisMap" */;
+			buildPhases = (
+				B216514E301DC55B853323BC /* Check Pods Manifest.lock */,
+				4943C4BD1CE117ED004AAED5 /* Sources */,
+				4943C4BE1CE117ED004AAED5 /* Frameworks */,
+				4943C4BF1CE117ED004AAED5 /* Resources */,
+				AAB41CE04ADBA35FBA308791 /* Embed Pods Frameworks */,
+				3F8FF1FAA835F7B464EB52AB /* Copy Pods Resources */,
+				4943C5091CE120FA004AAED5 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ParisMap;
+			productName = ParisMap;
+			productReference = 4943C4C11CE117ED004AAED5 /* ParisMap.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4943C4D31CE117ED004AAED5 /* ParisMapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4943C4DE1CE117ED004AAED5 /* Build configuration list for PBXNativeTarget "ParisMapTests" */;
+			buildPhases = (
+				D69D7077D87A5C5FBC382F86 /* Check Pods Manifest.lock */,
+				4943C4D01CE117ED004AAED5 /* Sources */,
+				4943C4D11CE117ED004AAED5 /* Frameworks */,
+				4943C4D21CE117ED004AAED5 /* Resources */,
+				A51D2616E9E587906C596A0D /* Embed Pods Frameworks */,
+				103181F1BD606FBBB1ED3116 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4943C4D61CE117ED004AAED5 /* PBXTargetDependency */,
+			);
+			name = ParisMapTests;
+			productName = ParisMapTests;
+			productReference = 4943C4D41CE117ED004AAED5 /* ParisMapTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		49E7C9911CADC7E3006A03F1 /* LondonMap */ = {
@@ -455,8 +602,8 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = Thryv;
 				TargetAttributes = {
 					4918311B1B672B6900EB8328 = {
@@ -465,6 +612,13 @@
 					491831301B672B6900EB8328 = {
 						CreatedOnToolsVersion = 6.4;
 						TestTargetID = 4918311B1B672B6900EB8328;
+					};
+					4943C4C01CE117ED004AAED5 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					4943C4D31CE117ED004AAED5 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 4943C4C01CE117ED004AAED5;
 					};
 					49E7C9911CADC7E3006A03F1 = {
 						CreatedOnToolsVersion = 7.2;
@@ -492,6 +646,8 @@
 				491831301B672B6900EB8328 /* SubwayMapTests */,
 				49E7C9911CADC7E3006A03F1 /* LondonMap */,
 				49E7C9A41CADC7E4006A03F1 /* LondonMapTests */,
+				4943C4C01CE117ED004AAED5 /* ParisMap */,
+				4943C4D31CE117ED004AAED5 /* ParisMapTests */,
 			);
 		};
 /* End PBXProject section */
@@ -526,6 +682,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4943C4BF1CE117ED004AAED5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4943C4FC1CE11A48004AAED5 /* StationViewController.xib in Resources */,
+				4943C4E21CE11969004AAED5 /* gtfs.db.zip in Resources */,
+				4943C4CE1CE117ED004AAED5 /* LaunchScreen.storyboard in Resources */,
+				4943C4FE1CE11A48004AAED5 /* MapViewController.xib in Resources */,
+				4943C4F01CE11A41004AAED5 /* StationTableViewCell.xib in Resources */,
+				4943C4F41CE11A41004AAED5 /* LineChoiceView.xib in Resources */,
+				4943C4CB1CE117ED004AAED5 /* Assets.xcassets in Resources */,
+				4943C4F21CE11A41004AAED5 /* PredictionTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4943C4D21CE117ED004AAED5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4943C50A1CE121BB004AAED5 /* gtfs.db.zip in Resources */,
+				4943C4FA1CE11A42004AAED5 /* LineChoiceView.xib in Resources */,
+				4943C4F81CE11A42004AAED5 /* PredictionTableViewCell.xib in Resources */,
+				4943C4F61CE11A42004AAED5 /* StationTableViewCell.xib in Resources */,
+				4943C5021CE11A49004AAED5 /* MapViewController.xib in Resources */,
+				4943C5001CE11A49004AAED5 /* StationViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		49E7C9901CADC7E3006A03F1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -557,7 +741,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		01440720A2CBBD7056237279 /* 📦 Embed Pods Frameworks */ = {
+		103181F1BD606FBBB1ED3116 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ParisMapTests/Pods-ParisMapTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		14899B7A9205975B46573639 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -632,7 +831,35 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		491FC0553F2F248C0DCB9836 /* 📦 Copy Pods Resources */ = {
+		3F8FF1FAA835F7B464EB52AB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ParisMap/Pods-ParisMap-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4943C5091CE120FA004AAED5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" b1bc39c835159dcffd9f2950a40007e570069713 dde132f14bcd45d54cbbb551f59876744bc3ab28f3e393f236602a2354a4994a";
+		};
+		496241B51B6ECBC6007053DC /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -748,6 +975,66 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		A51D2616E9E587906C596A0D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ParisMapTests/Pods-ParisMapTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAB41CE04ADBA35FBA308791 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ParisMap/Pods-ParisMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B216514E301DC55B853323BC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D69D7077D87A5C5FBC382F86 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		F3FF562C2A0221A7029FCF74 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -805,6 +1092,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4943C4BD1CE117ED004AAED5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4943C5081CE12067004AAED5 /* AppDelegate.swift in Sources */,
+				4943C4E51CE11A34004AAED5 /* DatabaseLoader.swift in Sources */,
+				4943C4EF1CE11A41004AAED5 /* StationTableViewCell.swift in Sources */,
+				4943C4F11CE11A41004AAED5 /* PredictionTableViewCell.swift in Sources */,
+				4943C4E31CE11A34004AAED5 /* NYCRouteColorManager.swift in Sources */,
+				4943C4FD1CE11A48004AAED5 /* MapViewController.swift in Sources */,
+				4943C4F31CE11A41004AAED5 /* LineChoiceView.swift in Sources */,
+				4943C4E61CE11A34004AAED5 /* LineViewModel.swift in Sources */,
+				4943C4E41CE11A34004AAED5 /* PredictionViewModel.swift in Sources */,
+				4943C4FB1CE11A48004AAED5 /* StationViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4943C4D01CE117ED004AAED5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4943C4FF1CE11A49004AAED5 /* StationViewController.swift in Sources */,
+				4943C4EB1CE11A39004AAED5 /* NYCRouteColorManager.swift in Sources */,
+				4943C4EC1CE11A39004AAED5 /* PredictionViewModel.swift in Sources */,
+				4943C5011CE11A49004AAED5 /* MapViewController.swift in Sources */,
+				4943C4F51CE11A42004AAED5 /* StationTableViewCell.swift in Sources */,
+				4943C4D91CE117ED004AAED5 /* ParisMapTests.swift in Sources */,
+				4943C4F71CE11A42004AAED5 /* PredictionTableViewCell.swift in Sources */,
+				4943C4F91CE11A42004AAED5 /* LineChoiceView.swift in Sources */,
+				4943C4EE1CE11A39004AAED5 /* LineViewModel.swift in Sources */,
+				4943C4ED1CE11A39004AAED5 /* DatabaseLoader.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		49E7C98E1CADC7E3006A03F1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -847,6 +1168,11 @@
 			target = 4918311B1B672B6900EB8328 /* SubwayMap */;
 			targetProxy = 491831321B672B6900EB8328 /* PBXContainerItemProxy */;
 		};
+		4943C4D61CE117ED004AAED5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4943C4C01CE117ED004AAED5 /* ParisMap */;
+			targetProxy = 4943C4D51CE117ED004AAED5 /* PBXContainerItemProxy */;
+		};
 		49E7C9A71CADC7E4006A03F1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 49E7C9911CADC7E3006A03F1 /* LondonMap */;
@@ -855,6 +1181,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4943C4CC1CE117ED004AAED5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4943C4CD1CE117ED004AAED5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		49E7C99D1CADC7E3006A03F1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1048,6 +1382,68 @@
 			};
 			name = Release;
 		};
+		4943C4DC1CE117ED004AAED5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 435C7F5B388798A902867F15 /* Pods-ParisMap.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = ParisMap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thryv.ParisMap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4943C4DD1CE117ED004AAED5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA4D85B28B878BCCDA291701 /* Pods-ParisMap.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = ParisMap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thryv.ParisMap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4943C4DF1CE117ED004AAED5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFDE53F8BA701D38BFB44D16 /* Pods-ParisMapTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = ParisMapTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thryv.ParisMapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParisMap.app/ParisMap";
+			};
+			name = Debug;
+		};
+		4943C4E01CE117ED004AAED5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2A17F5C5698DA906064F938 /* Pods-ParisMapTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = ParisMapTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thryv.ParisMapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParisMap.app/ParisMap";
+			};
+			name = Release;
+		};
 		49E7C9AC1CADC7E4006A03F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 112EE5395AF31AEE51502A60 /* Pods-LondonMap.debug.xcconfig */;
@@ -1132,6 +1528,24 @@
 			buildConfigurations = (
 				4918313F1B672B6900EB8328 /* Debug */,
 				491831401B672B6900EB8328 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4943C4DB1CE117ED004AAED5 /* Build configuration list for PBXNativeTarget "ParisMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4943C4DC1CE117ED004AAED5 /* Debug */,
+				4943C4DD1CE117ED004AAED5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4943C4DE1CE117ED004AAED5 /* Build configuration list for PBXNativeTarget "ParisMapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4943C4DF1CE117ED004AAED5 /* Debug */,
+				4943C4E01CE117ED004AAED5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

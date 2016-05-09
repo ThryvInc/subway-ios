@@ -32,3 +32,11 @@ target 'LondonMapTests' do
     import_pods
 end
 
+target 'ParisMap' do
+    import_pods
+end
+
+target 'ParisMapTests' do
+    import_pods
+end
+

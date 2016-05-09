@@ -46,7 +46,7 @@ CHECKOUT OPTIONS:
     :commit: 82bffa968c0c915ef16f49c8383e581a190ba042
     :git: https://github.com/schrockblock/SBTextInputView
   SQLite.swift:
-    :commit: ccf43925aacf9fcc6130639247b3e7578a1c727a
+    :commit: d93f37b596a8a2ba11abf09385b658f9a380fdce
     :git: https://github.com/stephencelis/SQLite.swift.git
 
 SPEC CHECKSUMS:
@@ -61,6 +61,6 @@ SPEC CHECKSUMS:
   SQLite.swift: 6a6e4b034efc317ce4e203b6af2d3024fee2b570
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
 
-PODFILE CHECKSUM: 65194079fec1ad787e4ef1eda8295c7960811759
+PODFILE CHECKSUM: 2e0e36c6a2e8349a262a470319876d92073e5ae7
 
 COCOAPODS: 1.0.0.beta.5
