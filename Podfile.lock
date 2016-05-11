@@ -46,12 +46,12 @@ CHECKOUT OPTIONS:
     :commit: 82bffa968c0c915ef16f49c8383e581a190ba042
     :git: https://github.com/schrockblock/SBTextInputView
   SQLite.swift:
-    :commit: ccf43925aacf9fcc6130639247b3e7578a1c727a
+    :commit: d93f37b596a8a2ba11abf09385b658f9a380fdce
     :git: https://github.com/stephencelis/SQLite.swift.git
 
 SPEC CHECKSUMS:
   Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
-  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
+  Fabric: ed41fd62173c6bdea24ab02c9d7707161eabb750
   GTFSStations: 6493dce849b1356d6168fc48172bd98eb892439c
   NagController: ea7b0c2565bd92b2312594216a784f642041ef55
   Nimble: 72bcc3e2f02242e6bfaaf8d9412ca7bfe3d8b417
@@ -61,6 +61,6 @@ SPEC CHECKSUMS:
   SQLite.swift: 6a6e4b034efc317ce4e203b6af2d3024fee2b570
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
 
-PODFILE CHECKSUM: 4aa83c83fd9f234f32a4477d7e2a0ac4fcc863e6
+PODFILE CHECKSUM: 2e0e36c6a2e8349a262a470319876d92073e5ae7
 
 COCOAPODS: 1.0.0.beta.5
