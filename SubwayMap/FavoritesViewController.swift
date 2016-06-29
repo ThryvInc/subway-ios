@@ -21,15 +21,20 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         
         self.edgesForExtendedLayout = UIRectEdge.None
         
+        title = "FAVORITES"
+        favManager = FavoritesManager(stationManager: stationManager)
+        stations = favManager.favoriteStations()
+        
         tableView.registerNib(UINib(nibName: "StationTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableView.dataSource = self
         tableView.delegate = self
-        
-        title = "FAVORITES"
-        favManager = FavoritesManager(stationManager: stationManager)
-        self.stations = favManager.favoriteStations()
-        tableView.reloadData()
         tableView.tableFooterView = UIView()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        favManager = FavoritesManager(stationManager: stationManager)
+        stations = favManager.favoriteStations()
+        tableView.reloadData()
     }
     
     func configureCellLines(cell: StationTableViewCell, station: Station){
@@ -37,6 +42,54 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         for imageView in cell.orderedLineImageViews! {
             imageView.image = nil
         }
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            let optionalLines = self.linesForStation(station)
+            if let lines = optionalLines {
+                dispatch_async(dispatch_get_main_queue()) {
+                    for line in lines {
+                        let image = UIImage(named: "Grey")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
+                        if cell.firstLineImageView.image == nil {
+                            cell.firstLineImageView.image = image
+                            cell.firstLineImageView.tintColor = line.color
+                        }else if cell.secondLineImageView.image == nil {
+                            cell.secondLineImageView.image = image
+                            cell.secondLineImageView.tintColor = line.color
+                        }else if cell.thirdLineImageView.image == nil {
+                            cell.thirdLineImageView.image = image
+                            cell.thirdLineImageView.tintColor = line.color
+                        }else if cell.fourthLineImageView.image == nil {
+                            cell.fourthLineImageView.image = image
+                            cell.fourthLineImageView.tintColor = line.color
+                        }
+                    }
+                };
+            }
+        }
+    }
+    
+    func linesForStation(station: Station) -> [LineViewModel]? {
+        var lineModels = [LineViewModel]()
+        do {
+            let routeIds = try stationManager.routeIdsForStation(station)
+            
+            for routeId in routeIds {
+                let lineModel = LineViewModel()
+                lineModel.routeIds = [routeId]
+                lineModel.color = NYCRouteColorManager.colorForRouteId(routeId)
+                let lineIndex = lineModels.indexOf(lineModel)
+                if let index = lineIndex {
+                    if !lineModels[index].routeIds.contains(routeId) {
+                        lineModels[index].routeIds.append(routeId)
+                    }
+                }else{
+                    lineModels.append(lineModel)
+                }
+            }
+        }catch{
+            
+        }
+        return lineModels
     }
     
     //MARK: table data source
@@ -54,8 +107,6 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell")! as! StationTableViewCell
-        let station = self.stations![indexPath.row]
-        configureCellLines(cell, station: station)
         if let stationArray = stations {
             let station = stationArray[indexPath.row]
             configureCellLines(cell, station: station)
@@ -64,6 +115,8 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         let station = self.stations![indexPath.row]
         let barButton = UIBarButtonItem()
         barButton.title = ""

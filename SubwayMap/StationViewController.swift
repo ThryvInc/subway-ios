@@ -52,9 +52,9 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
         favButton.frame = CGRectMake(0, 0, 30, 30)
         
         if favManager.isFavorite(station.name){
-            favButton.setImage(UIImage(named: "Star_pressed")?.imageWithRenderingMode(.AlwaysOriginal), forState: .Normal)
+            favButton.setImage(UIImage(named: "STARyellow")?.imageWithRenderingMode(.AlwaysOriginal), forState: .Normal)
         } else {
-            favButton.setImage(UIImage(named: "Star")?.imageWithRenderingMode(.AlwaysOriginal), forState: .Normal)
+            favButton.setImage(UIImage(named: "STARgrey")?.imageWithRenderingMode(.AlwaysOriginal), forState: .Normal)
         }
         
         favButton.addTarget(self, action: #selector(StationViewController.toggleFavoriteStation), forControlEvents: .TouchUpInside)
@@ -147,7 +147,7 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
             if count < lineModels.count {
                 lineView.hidden = false
                 lineView.lineLabel.text = lineModels[count].routesString()
-                let image = UIImage(named: "dot")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
+                let image = UIImage(named: "Grey")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
                 lineView.dotImageView.image = image
                 lineView.dotImageView.tintColor = lineModels[count].color
             }else{

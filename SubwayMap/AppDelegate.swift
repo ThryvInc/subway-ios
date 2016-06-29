@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NagControllerDelegate {
         
         let mapVC = MapViewController(nibName: "MapViewController", bundle: nil)
         
-        let navVC = UINavigationController(rootViewController: mapVC)
+        let navVC = AdNavigationController(rootViewController: mapVC)
         window?.rootViewController = navVC;
         window?.makeKeyAndVisible()
         return true

@@ -46,8 +46,8 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UISearchBarDele
     func setupFavoritesButton() {
         let favButton = UIButton()
         favButton.frame = CGRectMake(0, 0, 30, 30)
-        favButton.setImage(UIImage(named: "Hover")?.imageWithRenderingMode(.AlwaysOriginal), forState: .Normal)
-        favButton.setImage(UIImage(named: "Pressed")?.imageWithRenderingMode(.AlwaysOriginal), forState: UIControlState.Selected.union(.Highlighted))
+        favButton.setImage(UIImage(named: "STARgrey")?.imageWithRenderingMode(.AlwaysOriginal), forState: .Normal)
+        favButton.setImage(UIImage(named: "STARyellow")?.imageWithRenderingMode(.AlwaysOriginal), forState: UIControlState.Selected.union(.Highlighted))
         favButton.addTarget(self, action: #selector(MapViewController.openFavorites), forControlEvents: .TouchUpInside)
         
         let favBarButton = UIBarButtonItem()
@@ -143,7 +143,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UISearchBarDele
             if let lines = optionalLines {
                 dispatch_async(dispatch_get_main_queue()) {
                     for line in lines {
-                        let image = UIImage(named: "dot")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
+                        let image = UIImage(named: "Grey")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
                         if cell.firstLineImageView.image == nil {
                             cell.firstLineImageView.image = image
                             cell.firstLineImageView.tintColor = line.color

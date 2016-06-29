@@ -10,6 +10,7 @@ def import_pods
     pod 'SBCategories'
     pod 'ZipArchive'
     pod 'Fabric'
+    pod 'Google-Mobile-Ads-SDK'
     pod 'Crashlytics'
 end
 

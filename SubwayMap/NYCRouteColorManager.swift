@@ -18,7 +18,7 @@ class NYCRouteColorManager: RouteColorManager {
             color = UIColor(rgba: "#ED3B43")
         }
         
-        if ["4","5","5X","6"].contains(routeId) {
+        if ["4","5","5X","6","6X"].contains(routeId) {
             color = UIColor(rgba: "#00A55E")
         }
         
