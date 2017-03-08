@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import GTFSStations
+import SubwayStations
 import CoreGraphics
 
 class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -19,36 +19,36 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.edgesForExtendedLayout = UIRectEdge.None
+        self.edgesForExtendedLayout = UIRectEdge()
         
         title = "FAVORITES"
         favManager = FavoritesManager(stationManager: stationManager)
         stations = favManager.favoriteStations()
         
-        tableView.registerNib(UINib(nibName: "StationTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        tableView.register(UINib(nibName: "StationTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         favManager = FavoritesManager(stationManager: stationManager)
         stations = favManager.favoriteStations()
         tableView.reloadData()
     }
     
-    func configureCellLines(cell: StationTableViewCell, station: Station){
+    func configureCellLines(_ cell: StationTableViewCell, station: Station){
         cell.stationNameLabel?.text = station.name
         for imageView in cell.orderedLineImageViews! {
             imageView.image = nil
         }
-        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            let optionalLines = self.linesForStation(station)
+        let priority = DispatchQueue.GlobalQueuePriority.default
+        DispatchQueue.global(priority: priority).async {
+            let optionalLines = self.stationManager.linesForStation(station)
             if let lines = optionalLines {
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     for line in lines {
-                        let image = UIImage(named: "Grey")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
+                        let image = UIImage(named: "Grey")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate);
                         if cell.firstLineImageView.image == nil {
                             cell.firstLineImageView.image = image
                             cell.firstLineImageView.tintColor = line.color
@@ -68,45 +68,21 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-    func linesForStation(station: Station) -> [LineViewModel]? {
-        var lineModels = [LineViewModel]()
-        do {
-            let routeIds = try stationManager.routeIdsForStation(station)
-            
-            for routeId in routeIds {
-                let lineModel = LineViewModel()
-                lineModel.routeIds = [routeId]
-                lineModel.color = NYCRouteColorManager.colorForRouteId(routeId)
-                let lineIndex = lineModels.indexOf(lineModel)
-                if let index = lineIndex {
-                    if !lineModels[index].routeIds.contains(routeId) {
-                        lineModels[index].routeIds.append(routeId)
-                    }
-                }else{
-                    lineModels.append(lineModel)
-                }
-            }
-        }catch{
-            
-        }
-        return lineModels
-    }
-    
     //MARK: table data source
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.stations!.count
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell")! as! StationTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")! as! StationTableViewCell
         if let stationArray = stations {
             let station = stationArray[indexPath.row]
             configureCellLines(cell, station: station)
@@ -114,8 +90,8 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
         let station = self.stations![indexPath.row]
         let barButton = UIBarButtonItem()

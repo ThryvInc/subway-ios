@@ -1,16 +1,21 @@
 PODS:
-  - Crashlytics (3.7.0):
+  - Crashlytics (3.8.4):
     - Fabric (~> 1.6.3)
-  - Fabric (1.6.7)
-  - Google-Mobile-Ads-SDK (7.8.0)
-  - GTFSStations (0.0.2):
+  - Fabric (1.6.11)
+  - Google-Mobile-Ads-SDK (7.18.0)
+  - GTFSStations (0.0.3):
+    - SQLite.swift
+  - GTFSStationsParis (0.0.2):
     - SQLite.swift
   - NagController (0.0.1)
-  - Nimble (4.0.0)
-  - Quick (0.9.1)
+  - Nimble (6.0.1)
+  - Quick (1.1.0)
   - SBCategories (0.1.1)
   - SBTextInputView (0.2.0)
-  - SQLite.swift (0.10.1)
+  - SQLite.swift (0.11.2):
+    - SQLite.swift/standard (= 0.11.2)
+  - SQLite.swift/standard (0.11.2)
+  - SubwayStations (0.1.0)
   - ZipArchive (1.4.0)
 
 DEPENDENCIES:
@@ -18,52 +23,61 @@ DEPENDENCIES:
   - Fabric
   - Google-Mobile-Ads-SDK
   - GTFSStations (from `https://github.com/schrockblock/gtfs-stations`, branch `develop`)
+  - GTFSStationsParis (from `https://github.com/schrockblock/gtfs-stations-paris`)
   - NagController (from `https://github.com/schrockblock/nag-controller`)
   - Nimble
   - Quick
   - SBCategories
   - SBTextInputView (from `https://github.com/schrockblock/SBTextInputView`)
-  - SQLite.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
+  - SQLite.swift
+  - SubwayStations (from `https://github.com/schrockblock/subway-stations`)
   - ZipArchive
 
 EXTERNAL SOURCES:
   GTFSStations:
     :branch: develop
     :git: https://github.com/schrockblock/gtfs-stations
+  GTFSStationsParis:
+    :git: https://github.com/schrockblock/gtfs-stations-paris
   NagController:
     :git: https://github.com/schrockblock/nag-controller
   SBTextInputView:
     :git: https://github.com/schrockblock/SBTextInputView
-  SQLite.swift:
-    :git: https://github.com/stephencelis/SQLite.swift.git
+  SubwayStations:
+    :git: https://github.com/schrockblock/subway-stations
 
 CHECKOUT OPTIONS:
   GTFSStations:
-    :commit: 99a9a9b45c6e941027e5a5e4a72573bc95f2be03
+    :commit: 6756785664450ab0148ed35a86d35112be6409c4
     :git: https://github.com/schrockblock/gtfs-stations
+  GTFSStationsParis:
+    :commit: 2c36efd0add182799f6dc2f37ce2aa33100b9a9a
+    :git: https://github.com/schrockblock/gtfs-stations-paris
   NagController:
     :commit: 6f8ad14d677d63bf1d2ace4d7932368cecc74404
     :git: https://github.com/schrockblock/nag-controller
   SBTextInputView:
     :commit: 82bffa968c0c915ef16f49c8383e581a190ba042
     :git: https://github.com/schrockblock/SBTextInputView
-  SQLite.swift:
-    :commit: d93f37b596a8a2ba11abf09385b658f9a380fdce
-    :git: https://github.com/stephencelis/SQLite.swift.git
+  SubwayStations:
+    :commit: 54b25f00b1b37f869e857996a2ef39bc47866592
+    :git: https://github.com/schrockblock/subway-stations
 
 SPEC CHECKSUMS:
-  Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
-  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
-  Google-Mobile-Ads-SDK: 36b88dd2373f0ee4583e65971cb07b6965c29eef
-  GTFSStations: 6493dce849b1356d6168fc48172bd98eb892439c
+  Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  Google-Mobile-Ads-SDK: 658065b4cb5a299bea254c4d24bf7786b6d3e75d
+  GTFSStations: 61d8bab008b84cb85bcf6fe119bc4e7a43c5f7da
+  GTFSStationsParis: fbf785d96617bf258c8cfa4b8e0ecaa5375f7ae5
   NagController: ea7b0c2565bd92b2312594216a784f642041ef55
-  Nimble: 72bcc3e2f02242e6bfaaf8d9412ca7bfe3d8b417
-  Quick: a5221fc21788b6aeda934805e68b061839bc3165
+  Nimble: 1527fd1bd2b4cf0636251a36bc8ab37e81da8347
+  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
   SBCategories: a2a126ee06eeacaac02d5e68533cd9de1b9bf1cc
   SBTextInputView: 7446058ca286fb7e195bcb1fab89fc0587cb38cd
-  SQLite.swift: 6a6e4b034efc317ce4e203b6af2d3024fee2b570
+  SQLite.swift: 670c3e9e0a806bbfd56a3de5d530768dc0e6fe7c
+  SubwayStations: e119c62429dc58b95345ecd3d1d02b1f2f5ed545
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
 
-PODFILE CHECKSUM: e331fd020f173c112e47feb46e52f4cb6943b02e
+PODFILE CHECKSUM: 5823b84882101eeff929b18db4d37b2e7fb7ad5b
 
-COCOAPODS: 1.0.0.beta.2
+COCOAPODS: 1.2.0

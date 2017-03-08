@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		040A66810F4E41605E5419B7 /* Pods_ParisMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB549E7B009880A37CA0209E /* Pods_ParisMapTests.framework */; };
-		0CDF3190616FAAED404D1CEC /* Pods_ParisMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A9689CCE39D395F8EA995EA /* Pods_ParisMap.framework */; };
-		17A2CA1EBFAAF7A6ABD35509 /* Pods_LondonMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B76AEC9A4C97F17A8DE014EE /* Pods_LondonMapTests.framework */; };
-		1CF961C669DFC13C7204F3A3 /* Pods_SubwayMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1AD6E17ADA74144E92FD327 /* Pods_SubwayMap.framework */; };
-		2FCDC266840653C3473ADB3A /* Pods_SubwayMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A868E11E4A809C123EF6F4E9 /* Pods_SubwayMapTests.framework */; };
+		06984090335CCA5CD6605834 /* Pods_ParisMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CD089FFBDFA904BD0D109E /* Pods_ParisMapTests.framework */; };
+		490C57601D2E7CAC00087ABD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 490C575F1D2E7CAC00087ABD /* LaunchScreen.storyboard */; };
+		490C57611D2E87BC00087ABD /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B5C8BA1BE1AB8D00636717 /* FavoritesViewController.xib */; };
+		490C57621D2E87BD00087ABD /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B5C8BA1BE1AB8D00636717 /* FavoritesViewController.xib */; };
 		491831221B672B6900EB8328 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831211B672B6900EB8328 /* AppDelegate.swift */; };
 		491831291B672B6900EB8328 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 491831281B672B6900EB8328 /* Images.xcassets */; };
 		491831381B672B6900EB8328 /* SubwayMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831371B672B6900EB8328 /* SubwayMapTests.swift */; };
@@ -25,20 +24,21 @@
 		491831D31B69A61700EB8328 /* PredictionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831D01B69A61700EB8328 /* PredictionTableViewCell.swift */; };
 		491831D41B69A61700EB8328 /* PredictionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */; };
 		491831D51B69A61700EB8328 /* PredictionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */; };
+		493173031D26D0B5007DDDCE /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5C8B91BE1AB8D00636717 /* FavoritesViewController.swift */; };
+		493173041D26D0B6007DDDCE /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5C8B91BE1AB8D00636717 /* FavoritesViewController.swift */; };
+		493173051D26D0C5007DDDCE /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355AC6B1B94A1B2002F0527 /* FavoritesManager.swift */; };
+		493173061D26D0C5007DDDCE /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355AC6B1B94A1B2002F0527 /* FavoritesManager.swift */; };
+		493173081D26D153007DDDCE /* DatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493173071D26D153007DDDCE /* DatabaseLoader.swift */; };
 		493DC18A1B9CD16900515F4B /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 493DC1891B9CD16900515F4B /* gtfs.db.zip */; };
 		493DC18B1B9CD16900515F4B /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 493DC1891B9CD16900515F4B /* gtfs.db.zip */; };
 		493DC1911B9D0CD700515F4B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 493DC1871B9CD10500515F4B /* libz.dylib */; };
-		4943C4CB1CE117ED004AAED5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4943C4CA1CE117ED004AAED5 /* Assets.xcassets */; };
+		4943C4CB1CE117ED004AAED5 /* ParisAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4943C4CA1CE117ED004AAED5 /* ParisAssets.xcassets */; };
 		4943C4CE1CE117ED004AAED5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4943C4CC1CE117ED004AAED5 /* LaunchScreen.storyboard */; };
 		4943C4D91CE117ED004AAED5 /* ParisMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4943C4D81CE117ED004AAED5 /* ParisMapTests.swift */; };
 		4943C4E21CE11969004AAED5 /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 4943C4E11CE11969004AAED5 /* gtfs.db.zip */; };
-		4943C4E31CE11A34004AAED5 /* NYCRouteColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */; };
 		4943C4E41CE11A34004AAED5 /* PredictionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */; };
-		4943C4E51CE11A34004AAED5 /* DatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */; };
 		4943C4E61CE11A34004AAED5 /* LineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EC9991BEABE7F004A1553 /* LineViewModel.swift */; };
-		4943C4EB1CE11A39004AAED5 /* NYCRouteColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */; };
 		4943C4EC1CE11A39004AAED5 /* PredictionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */; };
-		4943C4ED1CE11A39004AAED5 /* DatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */; };
 		4943C4EE1CE11A39004AAED5 /* LineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EC9991BEABE7F004A1553 /* LineViewModel.swift */; };
 		4943C4EF1CE11A41004AAED5 /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5C8C51BE247C200636717 /* StationTableViewCell.swift */; };
 		4943C4F01CE11A41004AAED5 /* StationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B5C8C61BE247C200636717 /* StationTableViewCell.xib */; };
@@ -68,6 +68,8 @@
 		4997B0291CE180DF00FA0020 /* AdNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4997B0251CE180DF00FA0020 /* AdNavigationController.xib */; };
 		4997B02A1CE180DF00FA0020 /* AdNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4997B0251CE180DF00FA0020 /* AdNavigationController.xib */; };
 		4997B02B1CE180DF00FA0020 /* AdNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4997B0251CE180DF00FA0020 /* AdNavigationController.xib */; };
+		4998FB661D281F6B00A990F3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4998FB651D281F6B00A990F3 /* libz.tbd */; };
+		4998FB681D281F8C00A990F3 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4998FB671D281F8C00A990F3 /* libsqlite3.tbd */; };
 		499EC9941BEA9462004A1553 /* LineChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EC9931BEA9462004A1553 /* LineChoiceView.swift */; };
 		499EC9961BEA947C004A1553 /* LineChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499EC9951BEA947C004A1553 /* LineChoiceView.xib */; };
 		499EC9971BEAA6F8004A1553 /* LineChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EC9931BEA9462004A1553 /* LineChoiceView.swift */; };
@@ -110,26 +112,24 @@
 		49E7C9C61CADC93F006A03F1 /* PredictionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */; };
 		49E7C9C71CADC93F006A03F1 /* LineChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EC9931BEA9462004A1553 /* LineChoiceView.swift */; };
 		49E7C9C81CADC93F006A03F1 /* LineChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499EC9951BEA947C004A1553 /* LineChoiceView.xib */; };
-		49E7C9C91CADC945006A03F1 /* NYCRouteColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */; };
 		49E7C9CA1CADC945006A03F1 /* PredictionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */; };
-		49E7C9CB1CADC945006A03F1 /* DatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */; };
 		49E7C9CC1CADC945006A03F1 /* LineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EC9991BEABE7F004A1553 /* LineViewModel.swift */; };
-		49E7C9CD1CADC946006A03F1 /* NYCRouteColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */; };
 		49E7C9CE1CADC946006A03F1 /* PredictionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */; };
-		49E7C9CF1CADC946006A03F1 /* DatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */; };
 		49E7C9D01CADC946006A03F1 /* LineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EC9991BEABE7F004A1553 /* LineViewModel.swift */; };
 		49E7C9D21CADCBA4006A03F1 /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 49E7C9D11CADCBA4006A03F1 /* gtfs.db.zip */; };
 		49E7C9D31CADCBAA006A03F1 /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 49E7C9D11CADCBA4006A03F1 /* gtfs.db.zip */; };
-		49F531D71B6D4DD500A9E887 /* NYCRouteColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */; };
-		49F531D81B6D4DD500A9E887 /* NYCRouteColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */; };
 		49F531DA1B6D591C00A9E887 /* PredictionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */; };
 		49F531DB1B6D591C00A9E887 /* PredictionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */; };
 		49F531DD1B6E9E5B00A9E887 /* DatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */; };
 		49F531DE1B6E9E5B00A9E887 /* DatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */; };
+		5DB602B08EF3C5932A2ED5DE /* Pods_LondonMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4922E5D66C502FE67E8E121 /* Pods_LondonMap.framework */; };
 		8355AC6C1B94A1B2002F0527 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355AC6B1B94A1B2002F0527 /* FavoritesManager.swift */; };
 		8355AC6D1B94A1B2002F0527 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355AC6B1B94A1B2002F0527 /* FavoritesManager.swift */; };
 		8355AC6F1B94A1C8002F0527 /* FavoritesManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355AC6E1B94A1C8002F0527 /* FavoritesManagerTests.swift */; };
-		C96F0D1A01A3B5BF519DAC38 /* Pods_LondonMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B37F3A5D07928FF0D6FC839 /* Pods_LondonMap.framework */; };
+		8CB08151405D225BFB7BB00B /* Pods_SubwayMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE7524C2A8311FAC28FF14A /* Pods_SubwayMapTests.framework */; };
+		B1A105ECA5B6096F139C161D /* Pods_ParisMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13E8128D103AEA5707F2F348 /* Pods_ParisMap.framework */; };
+		D8617A70C5C865003C3A9E86 /* Pods_LondonMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2EE1311001A28F500F5B38 /* Pods_LondonMapTests.framework */; };
+		F1705684A31FC01BE37D6D6E /* Pods_SubwayMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2708DA9923CFD4F92D7DC0E9 /* Pods_SubwayMap.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,12 +157,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		015DC2CECE26BA0286F999C6 /* Pods-LondonMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LondonMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LondonMapTests/Pods-LondonMapTests.release.xcconfig"; sourceTree = "<group>"; };
-		04DFCE702E06D194260037D2 /* Pods-SubwayMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests.debug.xcconfig"; sourceTree = "<group>"; };
-		112EE5395AF31AEE51502A60 /* Pods-LondonMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LondonMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LondonMap/Pods-LondonMap.debug.xcconfig"; sourceTree = "<group>"; };
-		2A9689CCE39D395F8EA995EA /* Pods_ParisMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParisMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B37F3A5D07928FF0D6FC839 /* Pods_LondonMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LondonMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		435C7F5B388798A902867F15 /* Pods-ParisMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParisMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParisMap/Pods-ParisMap.debug.xcconfig"; sourceTree = "<group>"; };
+		0F268EF27EE469F1419438F9 /* Pods-ParisMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParisMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParisMap/Pods-ParisMap.release.xcconfig"; sourceTree = "<group>"; };
+		1391682420EA05FAF81C67BB /* Pods-LondonMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LondonMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LondonMap/Pods-LondonMap.debug.xcconfig"; sourceTree = "<group>"; };
+		13D8FF54D305EC9E43793D75 /* Pods-LondonMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LondonMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-LondonMap/Pods-LondonMap.release.xcconfig"; sourceTree = "<group>"; };
+		13E8128D103AEA5707F2F348 /* Pods_ParisMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParisMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C6F8BB9275883FE22191B27 /* Pods-LondonMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LondonMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LondonMapTests/Pods-LondonMapTests.release.xcconfig"; sourceTree = "<group>"; };
+		2708DA9923CFD4F92D7DC0E9 /* Pods_SubwayMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubwayMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C7D7B9C0B1F6563BC57322B /* Pods-ParisMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParisMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParisMap/Pods-ParisMap.debug.xcconfig"; sourceTree = "<group>"; };
+		490C575F1D2E7CAC00087ABD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4918311C1B672B6900EB8328 /* SubwayMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubwayMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		491831201B672B6900EB8328 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		491831211B672B6900EB8328 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,12 +177,13 @@
 		491831471B67321A00EB8328 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		491831D01B69A61700EB8328 /* PredictionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictionTableViewCell.swift; sourceTree = "<group>"; };
 		491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PredictionTableViewCell.xib; sourceTree = "<group>"; };
+		493173071D26D153007DDDCE /* DatabaseLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseLoader.swift; sourceTree = "<group>"; };
 		493DC1871B9CD10500515F4B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		493DC1891B9CD16900515F4B /* gtfs.db.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = gtfs.db.zip; sourceTree = "<group>"; };
 		493DC18C1B9CE01B00515F4B /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		493DC18E1B9CEF9200515F4B /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		4943C4C11CE117ED004AAED5 /* ParisMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParisMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4943C4CA1CE117ED004AAED5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4943C4CA1CE117ED004AAED5 /* ParisAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ParisAssets.xcassets; sourceTree = "<group>"; };
 		4943C4CD1CE117ED004AAED5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4943C4CF1CE117ED004AAED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4943C4D41CE117ED004AAED5 /* ParisMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParisMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,6 +193,8 @@
 		4943C5071CE12067004AAED5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4997B0241CE180DF00FA0020 /* AdNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdNavigationController.swift; sourceTree = "<group>"; };
 		4997B0251CE180DF00FA0020 /* AdNavigationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdNavigationController.xib; sourceTree = "<group>"; };
+		4998FB651D281F6B00A990F3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		4998FB671D281F8C00A990F3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		499EC9931BEA9462004A1553 /* LineChoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChoiceView.swift; sourceTree = "<group>"; };
 		499EC9951BEA947C004A1553 /* LineChoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LineChoiceView.xib; sourceTree = "<group>"; };
 		499EC9991BEABE7F004A1553 /* LineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineViewModel.swift; sourceTree = "<group>"; };
@@ -208,23 +213,21 @@
 		49E7C9A91CADC7E4006A03F1 /* LondonMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LondonMapTests.swift; sourceTree = "<group>"; };
 		49E7C9AB1CADC7E4006A03F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49E7C9D11CADCBA4006A03F1 /* gtfs.db.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = gtfs.db.zip; sourceTree = "<group>"; };
-		49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NYCRouteColorManager.swift; sourceTree = "<group>"; };
 		49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictionViewModel.swift; sourceTree = "<group>"; };
 		49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseLoader.swift; sourceTree = "<group>"; };
-		4BB8308FBA1DFDFC7E5081B5 /* Pods-SubwayMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap.debug.xcconfig"; sourceTree = "<group>"; };
-		688A21896DF4A8DE71CE99A4 /* Pods-LondonMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LondonMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LondonMapTests/Pods-LondonMapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4E19F8E405E0990AED1756E4 /* Pods-SubwayMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		52FCBEB0A83024F292CE0B23 /* Pods-SubwayMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap.release.xcconfig"; sourceTree = "<group>"; };
+		6CE7524C2A8311FAC28FF14A /* Pods_SubwayMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubwayMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D2EE1311001A28F500F5B38 /* Pods_LondonMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LondonMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70CB2F2D159777F129B631D2 /* Pods-ParisMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParisMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParisMapTests/Pods-ParisMapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7E8064FF4F8A9085A8324E86 /* Pods-SubwayMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests.release.xcconfig"; sourceTree = "<group>"; };
 		8355AC6B1B94A1B2002F0527 /* FavoritesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 		8355AC6E1B94A1C8002F0527 /* FavoritesManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesManagerTests.swift; sourceTree = "<group>"; };
-		A13F3E14FA8E73B74979798F /* Pods-SubwayMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap.release.xcconfig"; sourceTree = "<group>"; };
-		A868E11E4A809C123EF6F4E9 /* Pods_SubwayMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubwayMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABF52ACD35DF59C8247AC37A /* Pods-SubwayMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests.release.xcconfig"; sourceTree = "<group>"; };
-		B76AEC9A4C97F17A8DE014EE /* Pods_LondonMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LondonMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2A17F5C5698DA906064F938 /* Pods-ParisMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParisMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParisMapTests/Pods-ParisMapTests.release.xcconfig"; sourceTree = "<group>"; };
-		CA4D85B28B878BCCDA291701 /* Pods-ParisMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParisMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParisMap/Pods-ParisMap.release.xcconfig"; sourceTree = "<group>"; };
-		EB549E7B009880A37CA0209E /* Pods_ParisMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParisMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFDE53F8BA701D38BFB44D16 /* Pods-ParisMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParisMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParisMapTests/Pods-ParisMapTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F1AD6E17ADA74144E92FD327 /* Pods_SubwayMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubwayMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9A5016B78783EA2922AED64 /* Pods-LondonMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LondonMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-LondonMap/Pods-LondonMap.release.xcconfig"; sourceTree = "<group>"; };
+		96CD089FFBDFA904BD0D109E /* Pods_ParisMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParisMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FBD8447FB34153DDE4796B6 /* Pods-SubwayMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SubwayMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap.debug.xcconfig"; sourceTree = "<group>"; };
+		B4922E5D66C502FE67E8E121 /* Pods_LondonMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LondonMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8497038A24C3CA18172D517 /* Pods-LondonMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LondonMapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LondonMapTests/Pods-LondonMapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F5F2E51ED2F2D936BBA16784 /* Pods-ParisMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParisMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParisMapTests/Pods-ParisMapTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,7 +237,7 @@
 			files = (
 				493DC1911B9D0CD700515F4B /* libz.dylib in Frameworks */,
 				491831481B67321A00EB8328 /* libsqlite3.dylib in Frameworks */,
-				1CF961C669DFC13C7204F3A3 /* Pods_SubwayMap.framework in Frameworks */,
+				F1705684A31FC01BE37D6D6E /* Pods_SubwayMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,7 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4918319C1B67491D00EB8328 /* libsqlite3.dylib in Frameworks */,
-				2FCDC266840653C3473ADB3A /* Pods_SubwayMapTests.framework in Frameworks */,
+				8CB08151405D225BFB7BB00B /* Pods_SubwayMapTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +254,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CDF3190616FAAED404D1CEC /* Pods_ParisMap.framework in Frameworks */,
+				4998FB681D281F8C00A990F3 /* libsqlite3.tbd in Frameworks */,
+				4998FB661D281F6B00A990F3 /* libz.tbd in Frameworks */,
+				B1A105ECA5B6096F139C161D /* Pods_ParisMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +264,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				040A66810F4E41605E5419B7 /* Pods_ParisMapTests.framework in Frameworks */,
+				06984090335CCA5CD6605834 /* Pods_ParisMapTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,7 +272,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C96F0D1A01A3B5BF519DAC38 /* Pods_LondonMap.framework in Frameworks */,
+				5DB602B08EF3C5932A2ED5DE /* Pods_LondonMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +280,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17A2CA1EBFAAF7A6ABD35509 /* Pods_LondonMapTests.framework in Frameworks */,
+				D8617A70C5C865003C3A9E86 /* Pods_LondonMapTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,16 +290,18 @@
 		0561CA4C571669088714DF0D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4998FB671D281F8C00A990F3 /* libsqlite3.tbd */,
+				4998FB651D281F6B00A990F3 /* libz.tbd */,
 				493DC18E1B9CEF9200515F4B /* libz.1.dylib */,
 				493DC18C1B9CE01B00515F4B /* libz.1.2.5.dylib */,
 				493DC1871B9CD10500515F4B /* libz.dylib */,
 				491831471B67321A00EB8328 /* libsqlite3.dylib */,
-				F1AD6E17ADA74144E92FD327 /* Pods_SubwayMap.framework */,
-				A868E11E4A809C123EF6F4E9 /* Pods_SubwayMapTests.framework */,
-				3B37F3A5D07928FF0D6FC839 /* Pods_LondonMap.framework */,
-				B76AEC9A4C97F17A8DE014EE /* Pods_LondonMapTests.framework */,
-				2A9689CCE39D395F8EA995EA /* Pods_ParisMap.framework */,
-				EB549E7B009880A37CA0209E /* Pods_ParisMapTests.framework */,
+				B4922E5D66C502FE67E8E121 /* Pods_LondonMap.framework */,
+				6D2EE1311001A28F500F5B38 /* Pods_LondonMapTests.framework */,
+				13E8128D103AEA5707F2F348 /* Pods_ParisMap.framework */,
+				96CD089FFBDFA904BD0D109E /* Pods_ParisMapTests.framework */,
+				2708DA9923CFD4F92D7DC0E9 /* Pods_SubwayMap.framework */,
+				6CE7524C2A8311FAC28FF14A /* Pods_SubwayMapTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -310,7 +317,7 @@
 				4943C4D71CE117ED004AAED5 /* ParisMapTests */,
 				4918311D1B672B6900EB8328 /* Products */,
 				0561CA4C571669088714DF0D /* Frameworks */,
-				59421B6B890CCA459AC496DC /* Pods */,
+				7A0CFB5C0CE726EFFCE71AC0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -345,6 +352,7 @@
 			children = (
 				493DC1891B9CD16900515F4B /* gtfs.db.zip */,
 				491831201B672B6900EB8328 /* Info.plist */,
+				490C575F1D2E7CAC00087ABD /* LaunchScreen.storyboard */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -371,8 +379,9 @@
 			isa = PBXGroup;
 			children = (
 				4943C5071CE12067004AAED5 /* AppDelegate.swift */,
+				493173071D26D153007DDDCE /* DatabaseLoader.swift */,
 				4943C4E11CE11969004AAED5 /* gtfs.db.zip */,
-				4943C4CA1CE117ED004AAED5 /* Assets.xcassets */,
+				4943C4CA1CE117ED004AAED5 /* ParisAssets.xcassets */,
 				4943C4CC1CE117ED004AAED5 /* LaunchScreen.storyboard */,
 				4943C4CF1CE117ED004AAED5 /* Info.plist */,
 			);
@@ -449,7 +458,6 @@
 			isa = PBXGroup;
 			children = (
 				8355AC6B1B94A1B2002F0527 /* FavoritesManager.swift */,
-				49F531D61B6D4DD500A9E887 /* NYCRouteColorManager.swift */,
 				49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */,
 				49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */,
 				499EC9991BEABE7F004A1553 /* LineViewModel.swift */,
@@ -457,21 +465,21 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		59421B6B890CCA459AC496DC /* Pods */ = {
+		7A0CFB5C0CE726EFFCE71AC0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4BB8308FBA1DFDFC7E5081B5 /* Pods-SubwayMap.debug.xcconfig */,
-				A13F3E14FA8E73B74979798F /* Pods-SubwayMap.release.xcconfig */,
-				04DFCE702E06D194260037D2 /* Pods-SubwayMapTests.debug.xcconfig */,
-				ABF52ACD35DF59C8247AC37A /* Pods-SubwayMapTests.release.xcconfig */,
-				112EE5395AF31AEE51502A60 /* Pods-LondonMap.debug.xcconfig */,
-				F9A5016B78783EA2922AED64 /* Pods-LondonMap.release.xcconfig */,
-				688A21896DF4A8DE71CE99A4 /* Pods-LondonMapTests.debug.xcconfig */,
-				015DC2CECE26BA0286F999C6 /* Pods-LondonMapTests.release.xcconfig */,
-				435C7F5B388798A902867F15 /* Pods-ParisMap.debug.xcconfig */,
-				CA4D85B28B878BCCDA291701 /* Pods-ParisMap.release.xcconfig */,
-				EFDE53F8BA701D38BFB44D16 /* Pods-ParisMapTests.debug.xcconfig */,
-				C2A17F5C5698DA906064F938 /* Pods-ParisMapTests.release.xcconfig */,
+				1391682420EA05FAF81C67BB /* Pods-LondonMap.debug.xcconfig */,
+				13D8FF54D305EC9E43793D75 /* Pods-LondonMap.release.xcconfig */,
+				B8497038A24C3CA18172D517 /* Pods-LondonMapTests.debug.xcconfig */,
+				1C6F8BB9275883FE22191B27 /* Pods-LondonMapTests.release.xcconfig */,
+				3C7D7B9C0B1F6563BC57322B /* Pods-ParisMap.debug.xcconfig */,
+				0F268EF27EE469F1419438F9 /* Pods-ParisMap.release.xcconfig */,
+				70CB2F2D159777F129B631D2 /* Pods-ParisMapTests.debug.xcconfig */,
+				F5F2E51ED2F2D936BBA16784 /* Pods-ParisMapTests.release.xcconfig */,
+				9FBD8447FB34153DDE4796B6 /* Pods-SubwayMap.debug.xcconfig */,
+				52FCBEB0A83024F292CE0B23 /* Pods-SubwayMap.release.xcconfig */,
+				4E19F8E405E0990AED1756E4 /* Pods-SubwayMapTests.debug.xcconfig */,
+				7E8064FF4F8A9085A8324E86 /* Pods-SubwayMapTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -483,14 +491,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4918313B1B672B6900EB8328 /* Build configuration list for PBXNativeTarget "SubwayMap" */;
 			buildPhases = (
-				2B057B206F02E4D4E19E8712 /* Check Pods Manifest.lock */,
-				BAA175B62B0F0268B373EF6C /* 📦 Check Pods Manifest.lock */,
+				C515B349ED10C6AEC7C1AE38 /* [CP] Check Pods Manifest.lock */,
 				491831181B672B6900EB8328 /* Sources */,
 				491831191B672B6900EB8328 /* Frameworks */,
 				4918311A1B672B6900EB8328 /* Resources */,
-				496241B51B6ECBC6007053DC /* 📦 Copy Pods Resources */,
-				8E1B7CF16C4A4BAC103FEB48 /* Embed Pods Frameworks */,
-				D42B9BAB99BAA3650FD821FA /* Copy Pods Resources */,
+				ABD3BC40C24B5AFEEE47C224 /* [CP] Embed Pods Frameworks */,
+				2319A97D9572A197F61A88F8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -505,13 +511,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4918313E1B672B6900EB8328 /* Build configuration list for PBXNativeTarget "SubwayMapTests" */;
 			buildPhases = (
-				35DE0FFA5E66C45E8D9BD55F /* Check Pods Manifest.lock */,
-				E137DD5EB100A724A1E2DEC5 /* 📦 Check Pods Manifest.lock */,
+				17524328AC7054C5CBDE7C8B /* [CP] Check Pods Manifest.lock */,
 				4918312D1B672B6900EB8328 /* Sources */,
 				4918312E1B672B6900EB8328 /* Frameworks */,
 				4918312F1B672B6900EB8328 /* Resources */,
-				6803C00A6B4DDC15A9BA1226 /* Embed Pods Frameworks */,
-				64CB278D1BBB1F97873E7C1F /* Copy Pods Resources */,
+				AF14163CD0295B3A10615F40 /* [CP] Embed Pods Frameworks */,
+				0F3BCBFA065E84D578E72A27 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -527,13 +532,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4943C4DB1CE117ED004AAED5 /* Build configuration list for PBXNativeTarget "ParisMap" */;
 			buildPhases = (
-				B216514E301DC55B853323BC /* Check Pods Manifest.lock */,
+				51DDB063630B60FCCC26323A /* [CP] Check Pods Manifest.lock */,
 				4943C4BD1CE117ED004AAED5 /* Sources */,
 				4943C4BE1CE117ED004AAED5 /* Frameworks */,
 				4943C4BF1CE117ED004AAED5 /* Resources */,
-				AAB41CE04ADBA35FBA308791 /* Embed Pods Frameworks */,
-				3F8FF1FAA835F7B464EB52AB /* Copy Pods Resources */,
 				4943C5091CE120FA004AAED5 /* ShellScript */,
+				A49A3640850B7DB4C120E41D /* [CP] Embed Pods Frameworks */,
+				87A378444A00D551E59CC9AD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -548,12 +553,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4943C4DE1CE117ED004AAED5 /* Build configuration list for PBXNativeTarget "ParisMapTests" */;
 			buildPhases = (
-				D69D7077D87A5C5FBC382F86 /* Check Pods Manifest.lock */,
+				8A64EC7BFB73A5B54E077967 /* [CP] Check Pods Manifest.lock */,
 				4943C4D01CE117ED004AAED5 /* Sources */,
 				4943C4D11CE117ED004AAED5 /* Frameworks */,
 				4943C4D21CE117ED004AAED5 /* Resources */,
-				A51D2616E9E587906C596A0D /* Embed Pods Frameworks */,
-				103181F1BD606FBBB1ED3116 /* Copy Pods Resources */,
+				6A4CB817463E7249E7A913DF /* [CP] Embed Pods Frameworks */,
+				DDFAC0C1825B3333AD5E6B3A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -569,13 +574,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49E7C9B01CADC7E4006A03F1 /* Build configuration list for PBXNativeTarget "LondonMap" */;
 			buildPhases = (
-				F3FF562C2A0221A7029FCF74 /* Check Pods Manifest.lock */,
+				7EEAD8AC2D7172251A55F1D2 /* [CP] Check Pods Manifest.lock */,
 				49E7C98E1CADC7E3006A03F1 /* Sources */,
 				49E7C98F1CADC7E3006A03F1 /* Frameworks */,
 				49E7C9901CADC7E3006A03F1 /* Resources */,
-				89449AA4BF64149BBB997696 /* Embed Pods Frameworks */,
-				20E1C31ADD5BECF1ACB96736 /* Copy Pods Resources */,
 				49E7C9D41CADCDD1006A03F1 /* ShellScript */,
+				4885A2977C5F144E04D54631 /* [CP] Embed Pods Frameworks */,
+				1229E6D169AADA2ACA998074 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -590,12 +595,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49E7C9B11CADC7E4006A03F1 /* Build configuration list for PBXNativeTarget "LondonMapTests" */;
 			buildPhases = (
-				52622591E00471E796F48BB0 /* Check Pods Manifest.lock */,
+				B2AF7BF67373658B466A05E4 /* [CP] Check Pods Manifest.lock */,
 				49E7C9A11CADC7E4006A03F1 /* Sources */,
 				49E7C9A21CADC7E4006A03F1 /* Frameworks */,
 				49E7C9A31CADC7E4006A03F1 /* Resources */,
-				1867CCDE4B7D37E55946AB51 /* Embed Pods Frameworks */,
-				86EBA52FB2EA396DA6F1E567 /* Copy Pods Resources */,
+				86067D060EB8521DB576DF35 /* [CP] Embed Pods Frameworks */,
+				C8A96AB25C8A154BB8351606 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -615,21 +620,25 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Thryv;
 				TargetAttributes = {
 					4918311B1B672B6900EB8328 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0810;
 					};
 					491831301B672B6900EB8328 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0810;
 						TestTargetID = 4918311B1B672B6900EB8328;
 					};
 					4943C4C01CE117ED004AAED5 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 					};
 					4943C4D31CE117ED004AAED5 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = 4943C4C01CE117ED004AAED5;
 					};
 					49E7C9911CADC7E3006A03F1 = {
@@ -672,6 +681,7 @@
 				493DC18A1B9CD16900515F4B /* gtfs.db.zip in Resources */,
 				491831D41B69A61700EB8328 /* PredictionTableViewCell.xib in Resources */,
 				491831291B672B6900EB8328 /* Images.xcassets in Resources */,
+				490C57601D2E7CAC00087ABD /* LaunchScreen.storyboard in Resources */,
 				491831451B672E8C00EB8328 /* StationViewController.xib in Resources */,
 				49B5C8C91BE247C200636717 /* StationTableViewCell.xib in Resources */,
 				49B5C8BD1BE1AB8D00636717 /* FavoritesViewController.xib in Resources */,
@@ -705,8 +715,9 @@
 				4943C4FE1CE11A48004AAED5 /* MapViewController.xib in Resources */,
 				4943C4F01CE11A41004AAED5 /* StationTableViewCell.xib in Resources */,
 				4943C4F41CE11A41004AAED5 /* LineChoiceView.xib in Resources */,
-				4943C4CB1CE117ED004AAED5 /* Assets.xcassets in Resources */,
+				4943C4CB1CE117ED004AAED5 /* ParisAssets.xcassets in Resources */,
 				4943C4F21CE11A41004AAED5 /* PredictionTableViewCell.xib in Resources */,
+				490C57621D2E87BD00087ABD /* FavoritesViewController.xib in Resources */,
 				4997B02B1CE180DF00FA0020 /* AdNavigationController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -736,6 +747,7 @@
 				49E7C9C01CADC93E006A03F1 /* PredictionTableViewCell.xib in Resources */,
 				49E7C9BE1CADC93E006A03F1 /* StationTableViewCell.xib in Resources */,
 				49E7C9B81CADC930006A03F1 /* StationViewController.xib in Resources */,
+				490C57611D2E87BC00087ABD /* FavoritesViewController.xib in Resources */,
 				4997B02A1CE180DF00FA0020 /* AdNavigationController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -756,44 +768,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		103181F1BD606FBBB1ED3116 /* Copy Pods Resources */ = {
+		0F3BCBFA065E84D578E72A27 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ParisMapTests/Pods-ParisMapTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1867CCDE4B7D37E55946AB51 /* Embed Pods Frameworks */ = {
+		1229E6D169AADA2ACA998074 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LondonMapTests/Pods-LondonMapTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		20E1C31ADD5BECF1ACB96736 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -801,49 +798,49 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LondonMap/Pods-LondonMap-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2B057B206F02E4D4E19E8712 /* Check Pods Manifest.lock */ = {
+		17524328AC7054C5CBDE7C8B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		35DE0FFA5E66C45E8D9BD55F /* Check Pods Manifest.lock */ = {
+		2319A97D9572A197F61A88F8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3F8FF1FAA835F7B464EB52AB /* Copy Pods Resources */ = {
+		4885A2977C5F144E04D54631 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ParisMap/Pods-ParisMap-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LondonMap/Pods-LondonMap-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4943C5091CE120FA004AAED5 /* ShellScript */ = {
@@ -859,21 +856,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" b1bc39c835159dcffd9f2950a40007e570069713 dde132f14bcd45d54cbbb551f59876744bc3ab28f3e393f236602a2354a4994a";
 		};
-		496241B51B6ECBC6007053DC /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		49E7C9D41CADCDD1006A03F1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -887,104 +869,29 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" b1bc39c835159dcffd9f2950a40007e570069713 dde132f14bcd45d54cbbb551f59876744bc3ab28f3e393f236602a2354a4994a";
 		};
-		52622591E00471E796F48BB0 /* Check Pods Manifest.lock */ = {
+		51DDB063630B60FCCC26323A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		64CB278D1BBB1F97873E7C1F /* Copy Pods Resources */ = {
+		6A4CB817463E7249E7A913DF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6803C00A6B4DDC15A9BA1226 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		86EBA52FB2EA396DA6F1E567 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LondonMapTests/Pods-LondonMapTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		89449AA4BF64149BBB997696 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LondonMap/Pods-LondonMap-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8E1B7CF16C4A4BAC103FEB48 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A51D2616E9E587906C596A0D /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -992,14 +899,74 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ParisMapTests/Pods-ParisMapTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AAB41CE04ADBA35FBA308791 /* Embed Pods Frameworks */ = {
+		7EEAD8AC2D7172251A55F1D2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		86067D060EB8521DB576DF35 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LondonMapTests/Pods-LondonMapTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87A378444A00D551E59CC9AD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ParisMap/Pods-ParisMap-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A64EC7BFB73A5B54E077967 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A49A3640850B7DB4C120E41D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1007,94 +974,94 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ParisMap/Pods-ParisMap-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B216514E301DC55B853323BC /* Check Pods Manifest.lock */ = {
+		ABD3BC40C24B5AFEEE47C224 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BAA175B62B0F0268B373EF6C /* 📦 Check Pods Manifest.lock */ = {
+		AF14163CD0295B3A10615F40 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D42B9BAB99BAA3650FD821FA /* Copy Pods Resources */ = {
+		B2AF7BF67373658B466A05E4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		D69D7077D87A5C5FBC382F86 /* Check Pods Manifest.lock */ = {
+		C515B349ED10C6AEC7C1AE38 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		E137DD5EB100A724A1E2DEC5 /* 📦 Check Pods Manifest.lock */ = {
+		C8A96AB25C8A154BB8351606 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LondonMapTests/Pods-LondonMapTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F3FF562C2A0221A7029FCF74 /* Check Pods Manifest.lock */ = {
+		DDFAC0C1825B3333AD5E6B3A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ParisMapTests/Pods-ParisMapTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1115,7 +1082,6 @@
 				491831D21B69A61700EB8328 /* PredictionTableViewCell.swift in Sources */,
 				49D5359E1B69C44C0087D368 /* MapViewController.swift in Sources */,
 				499EC99A1BEABE7F004A1553 /* LineViewModel.swift in Sources */,
-				49F531D71B6D4DD500A9E887 /* NYCRouteColorManager.swift in Sources */,
 				8355AC6C1B94A1B2002F0527 /* FavoritesManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1134,7 +1100,6 @@
 				491831D31B69A61700EB8328 /* PredictionTableViewCell.swift in Sources */,
 				49D5359F1B69C44C0087D368 /* MapViewController.swift in Sources */,
 				499EC99B1BEABE7F004A1553 /* LineViewModel.swift in Sources */,
-				49F531D81B6D4DD500A9E887 /* NYCRouteColorManager.swift in Sources */,
 				49B5C8BC1BE1AB8D00636717 /* FavoritesViewController.swift in Sources */,
 				8355AC6D1B94A1B2002F0527 /* FavoritesManager.swift in Sources */,
 			);
@@ -1145,12 +1110,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4943C5081CE12067004AAED5 /* AppDelegate.swift in Sources */,
-				4943C4E51CE11A34004AAED5 /* DatabaseLoader.swift in Sources */,
 				4943C4EF1CE11A41004AAED5 /* StationTableViewCell.swift in Sources */,
 				4943C4F11CE11A41004AAED5 /* PredictionTableViewCell.swift in Sources */,
+				493173081D26D153007DDDCE /* DatabaseLoader.swift in Sources */,
 				4997B0281CE180DF00FA0020 /* AdNavigationController.swift in Sources */,
-				4943C4E31CE11A34004AAED5 /* NYCRouteColorManager.swift in Sources */,
 				4943C4FD1CE11A48004AAED5 /* MapViewController.swift in Sources */,
+				493173031D26D0B5007DDDCE /* FavoritesViewController.swift in Sources */,
+				493173061D26D0C5007DDDCE /* FavoritesManager.swift in Sources */,
 				4943C4F31CE11A41004AAED5 /* LineChoiceView.swift in Sources */,
 				4943C4E61CE11A34004AAED5 /* LineViewModel.swift in Sources */,
 				4943C4E41CE11A34004AAED5 /* PredictionViewModel.swift in Sources */,
@@ -1163,7 +1129,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4943C4FF1CE11A49004AAED5 /* StationViewController.swift in Sources */,
-				4943C4EB1CE11A39004AAED5 /* NYCRouteColorManager.swift in Sources */,
 				4943C4EC1CE11A39004AAED5 /* PredictionViewModel.swift in Sources */,
 				4943C5011CE11A49004AAED5 /* MapViewController.swift in Sources */,
 				4943C4F51CE11A42004AAED5 /* StationTableViewCell.swift in Sources */,
@@ -1171,7 +1136,6 @@
 				4943C4F71CE11A42004AAED5 /* PredictionTableViewCell.swift in Sources */,
 				4943C4F91CE11A42004AAED5 /* LineChoiceView.swift in Sources */,
 				4943C4EE1CE11A39004AAED5 /* LineViewModel.swift in Sources */,
-				4943C4ED1CE11A39004AAED5 /* DatabaseLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1179,17 +1143,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49E7C9C91CADC945006A03F1 /* NYCRouteColorManager.swift in Sources */,
 				49E7C9B21CADC91A006A03F1 /* StationViewController.swift in Sources */,
 				49E7C9CC1CADC945006A03F1 /* LineViewModel.swift in Sources */,
 				49E7C9BD1CADC93E006A03F1 /* StationTableViewCell.swift in Sources */,
 				4997B0271CE180DF00FA0020 /* AdNavigationController.swift in Sources */,
 				49E7C9BF1CADC93E006A03F1 /* PredictionTableViewCell.swift in Sources */,
 				49E7C9C11CADC93E006A03F1 /* LineChoiceView.swift in Sources */,
+				493173041D26D0B6007DDDCE /* FavoritesViewController.swift in Sources */,
+				493173051D26D0C5007DDDCE /* FavoritesManager.swift in Sources */,
 				49E7C9951CADC7E3006A03F1 /* AppDelegate.swift in Sources */,
 				49E7C9CA1CADC945006A03F1 /* PredictionViewModel.swift in Sources */,
 				49E7C9B91CADC930006A03F1 /* MapViewController.swift in Sources */,
-				49E7C9CB1CADC945006A03F1 /* DatabaseLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1200,8 +1164,6 @@
 				49E7C9AA1CADC7E4006A03F1 /* LondonMapTests.swift in Sources */,
 				49E7C9CE1CADC946006A03F1 /* PredictionViewModel.swift in Sources */,
 				49E7C9C51CADC93F006A03F1 /* PredictionTableViewCell.swift in Sources */,
-				49E7C9CF1CADC946006A03F1 /* DatabaseLoader.swift in Sources */,
-				49E7C9CD1CADC946006A03F1 /* NYCRouteColorManager.swift in Sources */,
 				49E7C9B51CADC926006A03F1 /* MapViewController.swift in Sources */,
 				49E7C9C71CADC93F006A03F1 /* LineChoiceView.swift in Sources */,
 				49E7C9C31CADC93F006A03F1 /* StationTableViewCell.swift in Sources */,
@@ -1264,8 +1226,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1310,8 +1274,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1330,18 +1296,19 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		4918313C1B672B6900EB8328 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4BB8308FBA1DFDFC7E5081B5 /* Pods-SubwayMap.debug.xcconfig */;
+			baseConfigurationReference = 9FBD8447FB34153DDE4796B6 /* Pods-SubwayMap.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Todd Elliot Schrock (RY2U2EZS76)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$CONFIGURATION_BUILD_DIR/GTFSStations\"",
@@ -1358,22 +1325,23 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thryv.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "75c8dfb7-f570-49ec-a5ed-60510550dc1e";
 				SWIFT_INCLUDE_PATHS = "/Users/ell/development/ios/apps/subway-ios/SubwayMap/";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		4918313D1B672B6900EB8328 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A13F3E14FA8E73B74979798F /* Pods-SubwayMap.release.xcconfig */;
+			baseConfigurationReference = 52FCBEB0A83024F292CE0B23 /* Pods-SubwayMap.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Todd Elliot Schrock (PE7EQ66NRS)";
 				INFOPLIST_FILE = SubwayMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1384,13 +1352,15 @@
 				SWIFT_INCLUDE_PATHS = "/Users/ell/development/ios/apps/subway-ios/SubwayMap/";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		4918313F1B672B6900EB8328 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04DFCE702E06D194260037D2 /* Pods-SubwayMapTests.debug.xcconfig */;
+			baseConfigurationReference = 4E19F8E405E0990AED1756E4 /* Pods-SubwayMapTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1408,14 +1378,16 @@
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SubwayMap.app/SubwayMap";
 			};
 			name = Debug;
 		};
 		491831401B672B6900EB8328 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ABF52ACD35DF59C8247AC37A /* Pods-SubwayMapTests.release.xcconfig */;
+			baseConfigurationReference = 7E8064FF4F8A9085A8324E86 /* Pods-SubwayMapTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1428,44 +1400,52 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SubwayMap.app/SubwayMap";
 			};
 			name = Release;
 		};
 		4943C4DC1CE117ED004AAED5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 435C7F5B388798A902867F15 /* Pods-ParisMap.debug.xcconfig */;
+			baseConfigurationReference = 3C7D7B9C0B1F6563BC57322B /* Pods-ParisMap.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = ParisMap/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thryv.ParisMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		4943C4DD1CE117ED004AAED5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA4D85B28B878BCCDA291701 /* Pods-ParisMap.release.xcconfig */;
+			baseConfigurationReference = 0F268EF27EE469F1419438F9 /* Pods-ParisMap.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				INFOPLIST_FILE = ParisMap/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thryv.ParisMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b079c4b1-ca22-422a-84ce-77cbbbddc126";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		4943C4DF1CE117ED004AAED5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFDE53F8BA701D38BFB44D16 /* Pods-ParisMapTests.debug.xcconfig */;
+			baseConfigurationReference = 70CB2F2D159777F129B631D2 /* Pods-ParisMapTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1475,14 +1455,16 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thryv.ParisMapTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParisMap.app/ParisMap";
 			};
 			name = Debug;
 		};
 		4943C4E01CE117ED004AAED5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2A17F5C5698DA906064F938 /* Pods-ParisMapTests.release.xcconfig */;
+			baseConfigurationReference = F5F2E51ED2F2D936BBA16784 /* Pods-ParisMapTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = ParisMapTests/Info.plist;
@@ -1490,14 +1472,16 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thryv.ParisMapTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParisMap.app/ParisMap";
 			};
 			name = Release;
 		};
 		49E7C9AC1CADC7E4006A03F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 112EE5395AF31AEE51502A60 /* Pods-LondonMap.debug.xcconfig */;
+			baseConfigurationReference = 1391682420EA05FAF81C67BB /* Pods-LondonMap.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
@@ -1511,8 +1495,9 @@
 		};
 		49E7C9AD1CADC7E4006A03F1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9A5016B78783EA2922AED64 /* Pods-LondonMap.release.xcconfig */;
+			baseConfigurationReference = 13D8FF54D305EC9E43793D75 /* Pods-LondonMap.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LondonMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
@@ -1524,8 +1509,9 @@
 		};
 		49E7C9AE1CADC7E4006A03F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 688A21896DF4A8DE71CE99A4 /* Pods-LondonMapTests.debug.xcconfig */;
+			baseConfigurationReference = B8497038A24C3CA18172D517 /* Pods-LondonMapTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
@@ -1540,8 +1526,9 @@
 		};
 		49E7C9AF1CADC7E4006A03F1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 015DC2CECE26BA0286F999C6 /* Pods-LondonMapTests.release.xcconfig */;
+			baseConfigurationReference = 1C6F8BB9275883FE22191B27 /* Pods-LondonMapTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = LondonMapTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;

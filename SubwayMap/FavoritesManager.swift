@@ -7,20 +7,20 @@
 //
 
 import Foundation
-import GTFSStations
+import SubwayStations
 
 class FavoritesManager: NSObject {
     var favoriteIds: [String]!
     var stationManager: StationManager
     var stations: [Station]?
     
-    private let defaultsKey = "favorite_stations"
+    fileprivate let defaultsKey = "favorite_stations"
     
     init(stationManager: StationManager) {
         self.stationManager = stationManager
         self.favoriteIds = []
 
-        if let names = NSUserDefaults.standardUserDefaults().stringArrayForKey(defaultsKey) as [String]! {
+        if let names = UserDefaults.standard.stringArray(forKey: defaultsKey) as [String]! {
             self.favoriteIds = names
         }
         
@@ -28,7 +28,7 @@ class FavoritesManager: NSObject {
     }
     
     // add stations to favorites list
-    func addFavorites(stations: [Station]) {
+    func addFavorites(_ stations: [Station]) {
         for station in stations {
             if !favoriteIds.contains(station.name) {
                 favoriteIds.append(station.name)
@@ -38,7 +38,7 @@ class FavoritesManager: NSObject {
     }
     
     // remove stations from favorites list
-    func removeFavorites(stations: [Station]) {
+    func removeFavorites(_ stations: [Station]) {
         for station in stations {
             if favoriteIds.contains(station.name) {
                 favoriteIds = favoriteIds.filter( { $0 != station.name } )
@@ -49,12 +49,12 @@ class FavoritesManager: NSObject {
     
     // clear all favorites
     func clear() {
-        favoriteIds.removeAll(keepCapacity: true)
+        favoriteIds.removeAll(keepingCapacity: true)
         sync()
     }
     
     // find favorites by substring
-    func findFavorites(name: String?) -> [Station]? {
+    func findFavorites(_ name: String?) -> [Station]? {
         if name != nil {
             return stationManager.stationsForSearchString(name)!.filter({self.favoriteIds.contains($0.name)})
         } else {
@@ -68,7 +68,7 @@ class FavoritesManager: NSObject {
     }
     
     //check if current station exists in favorites
-    func isFavorite(name: String?) -> Bool {
+    func isFavorite(_ name: String?) -> Bool {
         let stations: [Station]? = findFavorites(name)
         var isInArray: Bool = false
         for station in stations! {
@@ -80,9 +80,9 @@ class FavoritesManager: NSObject {
     }
 
     // flush out user defaults
-    private func sync() {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(favoriteIds, forKey: defaultsKey)
+    fileprivate func sync() {
+        let defaults = UserDefaults.standard
+        defaults.set(favoriteIds, forKey: defaultsKey)
         defaults.synchronize()
     }
 }

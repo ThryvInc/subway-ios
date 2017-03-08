@@ -8,6 +8,7 @@
 
 import UIKit
 import GTFSStations
+import SubwayStations
 import ZipArchive
 
 class DatabaseLoader: NSObject {
@@ -15,7 +16,7 @@ class DatabaseLoader: NSObject {
     static var stationManager: StationManager!
     static let NYCDatabaseLoadedNotification = "NYCDatabaseLoadedNotification"
     static var documentsDirectory: String {
-        return NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
+        return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] 
     }
     static var destinationPath: String {
         return self.documentsDirectory + "/" + "gtfs.db"
@@ -24,10 +25,10 @@ class DatabaseLoader: NSObject {
     class func loadDb() {
         unzipDBToDocDirectoryIfNeeded()
         do {
-            stationManager = try StationManager(sourceFilePath: destinationPath)
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            stationManager = try NYCStationManager(sourceFilePath: destinationPath)
+            DispatchQueue.main.async (execute: { () -> Void in
                 self.isDatabaseReady = true
-                NSNotificationCenter.defaultCenter().postNotificationName(self.NYCDatabaseLoadedNotification, object: nil)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: self.NYCDatabaseLoadedNotification), object: nil)
             })
         }catch let error as NSError{
             print(error.debugDescription)
@@ -35,15 +36,15 @@ class DatabaseLoader: NSObject {
     }
     
     class func unzipDBToDocDirectoryIfNeeded(){
-        if !NSFileManager.defaultManager().fileExistsAtPath(destinationPath) {
-            let sourcePath = NSBundle.mainBundle().pathForResource("gtfs.db", ofType: "zip")
+        if !FileManager.default.fileExists(atPath: destinationPath) {
+            let sourcePath = Bundle.main.path(forResource: "gtfs.db", ofType: "zip")
             var error: NSError?
             let unzipper = ZipArchive()
-            unzipper.UnzipOpenFile(sourcePath)
-            unzipper.UnzipFileTo(documentsDirectory, overWrite: false)
-            let fileUrl = NSURL(fileURLWithPath: destinationPath)
+            unzipper.unzipOpenFile(sourcePath)
+            unzipper.unzipFile(to: documentsDirectory, overWrite: false)
+            let fileUrl = URL(fileURLWithPath: destinationPath)
             do {
-                try fileUrl.setResourceValue(NSNumber(bool: true), forKey: NSURLIsExcludedFromBackupKey)
+                try (fileUrl as NSURL).setResourceValue(NSNumber(value: true as Bool), forKey: URLResourceKey.isExcludedFromBackupKey)
             } catch let error1 as NSError {
                 error = error1
             }

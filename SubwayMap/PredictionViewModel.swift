@@ -7,7 +7,20 @@
 //
 
 import UIKit
-import GTFSStations
+import SubwayStations
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 class PredictionViewModel: NSObject {
     var routeId: String!
@@ -21,12 +34,12 @@ class PredictionViewModel: NSObject {
         self.direction = direction
     }
     
-    func setupWithPredictions(predictions: [Prediction]!){
+    func setupWithPredictions(_ predictions: [Prediction]!){
         var relevantPredictions = predictions.filter({(prediction) -> Bool in
             return prediction.direction == self.direction && prediction.route!.objectId == self.routeId
         })
         
-        relevantPredictions.sortInPlace { $0.secondsToArrival < $1.secondsToArrival }
+        relevantPredictions.sort { $0.secondsToArrival < $1.secondsToArrival }
         
         if relevantPredictions.count > 0 {
             prediction = relevantPredictions[0]
@@ -41,7 +54,7 @@ class PredictionViewModel: NSObject {
         }
     }
     
-    override func isEqual(object: AnyObject?) -> Bool {
+    override func isEqual(_ object: Any?) -> Bool {
         if let predictionVM = object as? PredictionViewModel {
             return self.routeId == predictionVM.routeId && self.direction == predictionVM.direction
         }else{
