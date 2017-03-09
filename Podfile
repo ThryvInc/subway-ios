@@ -1,19 +1,21 @@
-# Uncomment this line to define a global platform for your project
+source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
 def import_pods
-    pod "GTFSStations", :git => 'https://github.com/schrockblock/gtfs-stations', branch: 'develop'
-    pod 'SQLite.swift', git: 'https://github.com/stephencelis/SQLite.swift.git'
+    pod 'SQLite.swift'
     pod "SBTextInputView", :git => 'https://github.com/schrockblock/SBTextInputView'
     pod 'NagController', :git => 'https://github.com/schrockblock/nag-controller'
+    pod 'SubwayStations', git: 'https://github.com/schrockblock/subway-stations'
     pod 'SBCategories'
     pod 'ZipArchive'
     pod 'Fabric'
+    pod 'Google-Mobile-Ads-SDK'
     pod 'Crashlytics'
 end
 
 target 'SubwayMap' do
+    pod "GTFSStations", :git => 'https://github.com/schrockblock/gtfs-stations', branch: 'develop'
     import_pods
 end
 
@@ -33,6 +35,7 @@ target 'LondonMapTests' do
 end
 
 target 'ParisMap' do
+    pod "GTFSStationsParis", :git => 'https://github.com/schrockblock/gtfs-stations-paris'
     import_pods
 end
 

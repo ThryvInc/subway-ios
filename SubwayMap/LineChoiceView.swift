@@ -9,8 +9,8 @@
 import UIKit
 
 protocol LineChoiceViewDelegate {
-    func didSelectLineWithColor(color: UIColor)
-    func didDeselectLineWithColor(color: UIColor)
+    func didSelectLineWithColor(_ color: UIColor)
+    func didDeselectLineWithColor(_ color: UIColor)
 }
 
 class LineChoiceView: UIView {
@@ -19,7 +19,7 @@ class LineChoiceView: UIView {
     @IBOutlet weak var backgroundView: UILabel!
     @IBOutlet weak var dotImageView: UIImageView!
     @IBOutlet weak var lineLabel: UILabel!
-    private var _isSelected: Bool = false
+    fileprivate var _isSelected: Bool = false
     var isSelected: Bool {
         set(shouldBeSelected) {
             _isSelected = shouldBeSelected
@@ -43,14 +43,14 @@ class LineChoiceView: UIView {
     }
     
     func setupXib(){
-        NSBundle.mainBundle().loadNibNamed("LineChoiceView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("LineChoiceView", owner: self, options: nil)
         addSubview(self.view)
         
         translatesAutoresizingMaskIntoConstraints = false
         view.translatesAutoresizingMaskIntoConstraints = false
         
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[view]-0-|", options: NSLayoutFormatOptions.AlignmentMask, metrics: nil, views: ["view" : view]))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[view]-0-|", options: NSLayoutFormatOptions.AlignmentMask, metrics: nil, views: ["view" : view]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: NSLayoutFormatOptions.alignmentMask, metrics: nil, views: ["view" : view]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutFormatOptions.alignmentMask, metrics: nil, views: ["view" : view]))
         
         clipsToBounds = true
         view.clipsToBounds = true
@@ -60,17 +60,17 @@ class LineChoiceView: UIView {
     
     func setupView(){
         if isSelected {
-            lineLabel.textColor = UIColor.darkGrayColor()
+            lineLabel.textColor = UIColor.darkGray
             
             backgroundView.layer.borderWidth = 0
-            backgroundView.backgroundColor = UIColor.whiteColor()
+            backgroundView.backgroundColor = UIColor.white
         }else{
-            lineLabel.textColor = UIColor.whiteColor()
+            lineLabel.textColor = UIColor.white
             
-            backgroundView.layer.borderColor = UIColor.lightGrayColor().CGColor
+            backgroundView.layer.borderColor = UIColor.lightGray.cgColor
             backgroundView.layer.borderWidth = 2
             backgroundView.layer.cornerRadius = view.bounds.size.height / 2
-            backgroundView.backgroundColor = UIColor.clearColor()
+            backgroundView.backgroundColor = UIColor.clear
         }
         backgroundView.clipsToBounds = true
     }

@@ -7,8 +7,21 @@
 //
 
 import UIKit
-import GTFSStations
+import SubwayStations
 import CoreGraphics
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 class StationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, LineChoiceViewDelegate {
     @IBOutlet weak var tableView: UITableView!
@@ -16,6 +29,7 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var lineChoice2: LineChoiceView!
     @IBOutlet weak var lineChoice3: LineChoiceView!
     @IBOutlet weak var lineChoice4: LineChoiceView!
+    @IBOutlet weak var loadingImageView: UIImageView!
     var station: Station!
     var stationManager: StationManager!
     var predictions: [Prediction]?
@@ -25,39 +39,38 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
     var lineModels: [LineViewModel] = [LineViewModel]()
     var lineViews = [LineChoiceView]()
     var favManager: FavoritesManager!
+    var loading = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.edgesForExtendedLayout = UIRectEdge.None
+        self.edgesForExtendedLayout = UIRectEdge()
         
-        tableView.registerNib(UINib(nibName: "PredictionTableViewCell", bundle: nil), forCellReuseIdentifier: "predCell")
+        tableView.register(UINib(nibName: "PredictionTableViewCell", bundle: nil), forCellReuseIdentifier: "predCell")
         tableView.dataSource = self
         tableView.delegate = self
-
-        refresh()
+        tableView.tableFooterView = UIView() //removes cell separators between empty cells
         
         title = station.name
         favManager = FavoritesManager(stationManager: stationManager)
         setupFavoritesButton()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         refresh()
-        tableView.reloadData()
     }
     
     func setupFavoritesButton() {
         let favButton = UIButton()
-        favButton.frame = CGRectMake(0, 0, 30, 30)
+        favButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         
         if favManager.isFavorite(station.name){
-            favButton.setImage(UIImage(named: "Star_pressed")?.imageWithRenderingMode(.AlwaysOriginal), forState: .Normal)
+            favButton.setImage(UIImage(named: "STARyellow")?.withRenderingMode(.alwaysOriginal), for: UIControlState())
         } else {
-            favButton.setImage(UIImage(named: "Star")?.imageWithRenderingMode(.AlwaysOriginal), forState: .Normal)
+            favButton.setImage(UIImage(named: "STARgrey")?.withRenderingMode(.alwaysOriginal), for: UIControlState())
         }
         
-        favButton.addTarget(self, action: #selector(StationViewController.toggleFavoriteStation), forControlEvents: .TouchUpInside)
+        favButton.addTarget(self, action: #selector(StationViewController.toggleFavoriteStation), for: .touchUpInside)
         
         let favBarButton = UIBarButtonItem()
         favBarButton.customView = favButton
@@ -78,17 +91,59 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
         setupFavoritesButton()
     }
     
+    func startLoading() {
+        if !loading {
+            loading = true
+            spinLoadingImage(UIViewAnimationOptions.curveLinear)
+        }
+    }
+    
+    func stopLoading() {
+        loading = false
+        UIView.animate(withDuration: 0.5, animations: { () -> Void in
+            self.loadingImageView.alpha = 0
+        })
+    }
+    
+    func spinLoadingImage(_ animOptions: UIViewAnimationOptions) {
+        self.loadingImageView.alpha = 1
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: animOptions, animations: {
+            self.loadingImageView.transform = self.loadingImageView.transform.rotated(by: CGFloat(M_PI))
+            return
+            }, completion: { finished in
+                if finished {
+                    if self.loading {
+                        self.spinLoadingImage(UIViewAnimationOptions.curveLinear)
+                    }else if animOptions != UIViewAnimationOptions.curveEaseOut{
+                        self.spinLoadingImage(UIViewAnimationOptions.curveEaseOut)
+                        self.stopLoading()
+                    }
+                }
+        })
+    }
+    
     func refresh() {
-        do {
-            predictions = try stationManager.predictions(station, time: NSDate())//timeIntervalSince1970: 1438215977))
-        }catch{}
-        predictions!.sortInPlace({ $0.secondsToArrival < $1.secondsToArrival })
+        startLoading()
+        hideLineViews()
+        DispatchQueue.global( priority: DispatchQueue.GlobalQueuePriority.default).async(execute: { () -> Void in
+            self.refreshSynchronous()
+            DispatchQueue.main.async(execute: { () -> Void in
+                self.stopLoading()
+                self.setLines()
+                self.tableView.reloadData()
+            })
+        })
+    }
+    
+    func refreshSynchronous() {
+        predictions = stationManager.predictions(station, time: Date())//timeIntervalSince1970: 1438215977))
+        predictions!.sort(by: { $0.secondsToArrival < $1.secondsToArrival })
         
         let uptown = predictions!.filter({ (prediction) -> Bool in
-            return prediction.direction == .Uptown
+            return prediction.direction == .uptown
         })
         let downtown = predictions!.filter({ (prediction) -> Bool in
-            return prediction.direction == .Downtown
+            return prediction.direction == .downtown
         })
         
         predictionModels = [PredictionViewModel]()
@@ -109,34 +164,14 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
         
-        predictionModels?.sortInPlace {$0.prediction.secondsToArrival < $1.prediction.secondsToArrival}
+        predictionModels?.sort {$0.prediction.secondsToArrival < $1.prediction.secondsToArrival}
         
         filteredPredictionModels = predictionModels
-        
-        setLines()
     }
     
     func setLines() {
-        setLineModels()
+        lineModels = stationManager.linesForStation(station)!
         setLineViews()
-    }
-    
-    func setLineModels(){
-        let predictionRouteIds = predictionModels!.map { $0.routeId }
-        
-        for routeId in predictionRouteIds {
-            let lineModel = LineViewModel()
-            lineModel.routeIds = [routeId]
-            lineModel.color = NYCRouteColorManager.colorForRouteId(routeId)
-            let lineIndex = lineModels.indexOf(lineModel)
-            if let index = lineIndex {
-                if !lineModels[index].routeIds.contains(routeId) {
-                    lineModels[index].routeIds.append(routeId)
-                }
-            }else{
-                lineModels.append(lineModel)
-            }
-        }
     }
     
     func setLineViews(){
@@ -145,13 +180,13 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
         while count < lineViews.count {
             let lineView = lineViews[count]
             if count < lineModels.count {
-                lineView.hidden = false
+                lineView.isHidden = false
                 lineView.lineLabel.text = lineModels[count].routesString()
-                let image = UIImage(named: "dot")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
+                let image = UIImage(named: "Grey")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate);
                 lineView.dotImageView.image = image
                 lineView.dotImageView.tintColor = lineModels[count].color
             }else{
-                lineView.hidden = true
+                lineView.isHidden = true
             }
             lineView.delegate = self
             lineView.updateConstraints()
@@ -161,36 +196,43 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func configurePredictionCell(cell: PredictionTableViewCell, indexPath: NSIndexPath) {
+    func hideLineViews() {
+        lineViews = [lineChoice1, lineChoice2, lineChoice3, lineChoice4]
+        for lineChoice in lineViews {
+            lineChoice.isHidden = true
+        }
+    }
+    
+    func configurePredictionCell(_ cell: PredictionTableViewCell, indexPath: IndexPath) {
         let model = filteredPredictionModels![indexPath.row]
         let prediction = model.prediction
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = NSDateFormatterStyle.NoStyle
-        formatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        cell.timeLabel.text = formatter.stringFromDate(prediction.timeOfArrival!).lowercaseString
-        cell.deltaLabel.text = "\(prediction.secondsToArrival! / 60)m"
+        let formatter = DateFormatter()
+        formatter.dateStyle = DateFormatter.Style.none
+        formatter.timeStyle = DateFormatter.Style.short
+        cell.timeLabel.text = formatter.string(from: (prediction?.timeOfArrival!)!).lowercased()
+        cell.deltaLabel.text = "\((prediction?.secondsToArrival!)! / 60)m"
         
-        if let route = prediction.route {
+        if let route = prediction?.route {
             cell.routeLabel.text = route.objectId
-            let image = UIImage(named: "Train")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
+            let image = UIImage(named: "Train")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate);
             cell.routeImage.image = image
-            cell.routeImage.tintColor = NYCRouteColorManager.colorForRouteId(route.objectId)
+            cell.routeImage.tintColor = AppDelegate.colorManager().colorForRouteId(route.objectId)
         }
         
-        if prediction.direction == .Uptown {
-            cell.routeImage.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+        if prediction?.direction == .uptown {
+            cell.routeImage.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
             cell.routeLabelOffset.constant = 5
         }else{
-            cell.routeImage.transform = CGAffineTransformMakeRotation(0)
+            cell.routeImage.transform = CGAffineTransform(rotationAngle: 0)
             cell.routeLabelOffset.constant = -5
         }
         
         if let nextPrediction = model.onDeckPrediction {
-            cell.onDeckLabel.text = formatter.stringFromDate(nextPrediction.timeOfArrival!).lowercaseString
+            cell.onDeckLabel.text = formatter.string(from: nextPrediction.timeOfArrival!).lowercased()
         }
         
         if let finalPrediction = model.inTheHolePrediction {
-            cell.inTheHoleLabel.text = formatter.stringFromDate(finalPrediction.timeOfArrival!).lowercaseString
+            cell.inTheHoleLabel.text = formatter.string(from: finalPrediction.timeOfArrival!).lowercased()
         }
         
         cell.contentView.updateConstraints();
@@ -198,38 +240,38 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
     
     //MARK: line choice delegate
     
-    func didSelectLineWithColor(color: UIColor) {
+    func didSelectLineWithColor(_ color: UIColor) {
         for lineView in lineViews {
             if lineView.dotImageView.tintColor != color {
                 lineView.isSelected = false
             }
         }
         
-        filteredPredictionModels = predictionModels?.filter({NYCRouteColorManager.colorForRouteId($0.routeId) == color})
+        filteredPredictionModels = predictionModels?.filter({AppDelegate.colorManager().colorForRouteId($0.routeId) == color})
         tableView.reloadData()
     }
     
-    func didDeselectLineWithColor(color: UIColor) {
+    func didDeselectLineWithColor(_ color: UIColor) {
         filteredPredictionModels = predictionModels
         tableView.reloadData()
     }
     
     //MARK: table data source
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (filteredPredictionModels ?? [PredictionViewModel]()).count
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("predCell") as! PredictionTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "predCell") as! PredictionTableViewCell
         configurePredictionCell(cell, indexPath: indexPath)
         return cell
     }

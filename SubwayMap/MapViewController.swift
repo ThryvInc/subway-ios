@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import GTFSStations
+import SubwayStations
 import SBTextInputView
 
 class MapViewController: UIViewController, UIScrollViewDelegate, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
@@ -22,20 +22,20 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UISearchBarDele
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        edgesForExtendedLayout = UIRectEdge.None
+        edgesForExtendedLayout = UIRectEdge()
         
-        title = "SUBWAY:NYC"
-        navigationController?.navigationBar.barStyle = UIBarStyle.Black
+        title = Bundle.main.infoDictionary!["AppTitle"] as? String
+        navigationController?.navigationBar.barStyle = UIBarStyle.black
         setupFavoritesButton()
         searchBar.delegate = self
         
-        tableView.registerNib(UINib(nibName: "StationTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        tableView.register(UINib(nibName: "StationTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView() //removes cell separators between empty cells
         
         if !DatabaseLoader.isDatabaseReady {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MapViewController.databaseLoaded), name: DatabaseLoader.NYCDatabaseLoadedNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.databaseLoaded), name: NSNotification.Name(rawValue: DatabaseLoader.NYCDatabaseLoadedNotification), object: nil)
             searchBar.alpha = 0
             startLoading()
         }else{
@@ -45,10 +45,10 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UISearchBarDele
     
     func setupFavoritesButton() {
         let favButton = UIButton()
-        favButton.frame = CGRectMake(0, 0, 30, 30)
-        favButton.setImage(UIImage(named: "Hover")?.imageWithRenderingMode(.AlwaysOriginal), forState: .Normal)
-        favButton.setImage(UIImage(named: "Pressed")?.imageWithRenderingMode(.AlwaysOriginal), forState: UIControlState.Selected.union(.Highlighted))
-        favButton.addTarget(self, action: #selector(MapViewController.openFavorites), forControlEvents: .TouchUpInside)
+        favButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        favButton.setImage(UIImage(named: "STARgrey")?.withRenderingMode(.alwaysOriginal), for: UIControlState())
+        favButton.setImage(UIImage(named: "STARyellow")?.withRenderingMode(.alwaysOriginal), for: UIControlState.selected.union(.highlighted))
+        favButton.addTarget(self, action: #selector(MapViewController.openFavorites), for: .touchUpInside)
         
         let favBarButton = UIBarButtonItem()
         favBarButton.customView = favButton
@@ -66,14 +66,14 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UISearchBarDele
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     func databaseLoaded() {
         stationManager = DatabaseLoader.stationManager
         
         loading = false
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
+        UIView.animate(withDuration: 0.5, animations: { () -> Void in
             self.searchBar.alpha = 1
             self.loadingImageView.alpha = 0
         })
@@ -82,20 +82,20 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UISearchBarDele
     func startLoading() {
         if !loading {
             loading = true
-            spinLoadingImage(UIViewAnimationOptions.CurveLinear)
+            spinLoadingImage(UIViewAnimationOptions.curveLinear)
         }
     }
     
-    func spinLoadingImage(animOptions: UIViewAnimationOptions) {
-        UIView.animateWithDuration(1.5, delay: 0.0, options: animOptions, animations: {
-            self.loadingImageView.transform = CGAffineTransformRotate(self.loadingImageView.transform, CGFloat(M_PI))
+    func spinLoadingImage(_ animOptions: UIViewAnimationOptions) {
+        UIView.animate(withDuration: 1.5, delay: 0.0, options: animOptions, animations: {
+            self.loadingImageView.transform = self.loadingImageView.transform.rotated(by: CGFloat(M_PI))
             return
             }, completion: { finished in
                 if finished {
                     if self.loading {
-                        self.spinLoadingImage(UIViewAnimationOptions.CurveLinear)
-                    }else if animOptions != UIViewAnimationOptions.CurveEaseOut{
-                        self.spinLoadingImage(UIViewAnimationOptions.CurveEaseOut)
+                        self.spinLoadingImage(UIViewAnimationOptions.curveLinear)
+                    }else if animOptions != UIViewAnimationOptions.curveEaseOut{
+                        self.spinLoadingImage(UIViewAnimationOptions.curveEaseOut)
                     }
                 }
         })
@@ -105,98 +105,78 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UISearchBarDele
         searchBar.resignFirstResponder()
         searchBar.text = ""
         searchBar.setShowsCancelButton(false, animated: true)
-        tableView.hidden = true
+        tableView.isHidden = true
     }
     
-    func linesForStation(station: Station) -> [LineViewModel]? {
-        var lineModels = [LineViewModel]()
-        do {
-            let routeIds = try stationManager.routeIdsForStation(station)
-            
-            for routeId in routeIds {
-                let lineModel = LineViewModel()
-                lineModel.routeIds = [routeId]
-                lineModel.color = NYCRouteColorManager.colorForRouteId(routeId)
-                let lineIndex = lineModels.indexOf(lineModel)
-                if let index = lineIndex {
-                    if !lineModels[index].routeIds.contains(routeId) {
-                        lineModels[index].routeIds.append(routeId)
-                    }
-                }else{
-                    lineModels.append(lineModel)
-                }
-            }
-        }catch{
-            
-        }
-        return lineModels
-    }
-    
-    func configureCellLines(cell: StationTableViewCell, station: Station){
+    func configureCellLines(_ cell: StationTableViewCell, station: Station){
         cell.stationNameLabel?.text = station.name
         for imageView in cell.orderedLineImageViews! {
             imageView.image = nil
         }
-        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            let optionalLines = self.linesForStation(station)
-            if let lines = optionalLines {
-                dispatch_async(dispatch_get_main_queue()) {
-                    for line in lines {
-                        let image = UIImage(named: "dot")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
-                        if cell.firstLineImageView.image == nil {
-                            cell.firstLineImageView.image = image
-                            cell.firstLineImageView.tintColor = line.color
-                        }else if cell.secondLineImageView.image == nil {
-                            cell.secondLineImageView.image = image
-                            cell.secondLineImageView.tintColor = line.color
-                        }else if cell.thirdLineImageView.image == nil {
-                            cell.thirdLineImageView.image = image
-                            cell.thirdLineImageView.tintColor = line.color
-                        }else if cell.fourthLineImageView.image == nil {
-                            cell.fourthLineImageView.image = image
-                            cell.fourthLineImageView.tintColor = line.color
-                        }
+        if let shouldShowLines = Bundle.main.infoDictionary!["ShowLines"] as? Bool {
+            if shouldShowLines {
+                let priority = DispatchQueue.GlobalQueuePriority.default
+                DispatchQueue.global(priority: priority).async {
+                    let optionalLines = self.stationManager.linesForStation(station)
+                    if let lines = optionalLines {
+                        DispatchQueue.main.async {
+                            for line in lines {
+                                let image = UIImage(named: "Grey")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate);
+                                if cell.firstLineImageView.image == nil {
+                                    cell.firstLineImageView.image = image
+                                    cell.firstLineImageView.tintColor = line.color
+                                }else if cell.secondLineImageView.image == nil {
+                                    cell.secondLineImageView.image = image
+                                    cell.secondLineImageView.tintColor = line.color
+                                }else if cell.thirdLineImageView.image == nil {
+                                    cell.thirdLineImageView.image = image
+                                    cell.thirdLineImageView.tintColor = line.color
+                                }else if cell.fourthLineImageView.image == nil {
+                                    cell.fourthLineImageView.image = image
+                                    cell.fourthLineImageView.tintColor = line.color
+                                }
+                            }
+                        };
                     }
                 };
             }
-        };
+        }
     }
     
     //MARK: scroll delegate
     
-    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return subwayImageView
     }
     
     //MARK: search bar delegate
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        tableView.hidden = false
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        tableView.isHidden = false
         stations = stationManager.stationsForSearchString(searchText)
         tableView.reloadData()
     }
     
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         dismissKeyboard()
     }
     
     //MARK: table data source
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (stations ?? [Station]()).count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell")! as! StationTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")! as! StationTableViewCell
         if let stationArray = stations {
             let station = stationArray[indexPath.row]
             configureCellLines(cell, station: station)
@@ -204,7 +184,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UISearchBarDele
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let stationArray = stations {
             let barButton = UIBarButtonItem()
             barButton.title = ""
@@ -215,5 +195,6 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UISearchBarDele
             stationVC.station = stationArray[indexPath.row]
             navigationController?.pushViewController(stationVC, animated: true)
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

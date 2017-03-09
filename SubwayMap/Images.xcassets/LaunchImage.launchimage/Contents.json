@@ -29,9 +29,9 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
+      "filename" : "Default5.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
-      "filename" : "Default5.png",
       "scale" : "2x"
     },
     {
