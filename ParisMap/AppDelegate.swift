@@ -9,15 +9,13 @@
 import UIKit
 import Fabric
 import Crashlytics
-import NagController
+import SBNag_swift
 import GTFSStationsParis
 import SubwayStations
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, NagControllerDelegate {
-    let LastNaggedKey = "LastNaggedKey"
+class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var nagger: NagController!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -31,19 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NagControllerDelegate {
         DispatchQueue.global( priority: DispatchQueue.GlobalQueuePriority.default).async(execute: { () -> Void in
             DatabaseLoader.loadDb()
         })
-        var appOpens = UserDefaults.standard.integer(forKey: "numberOfAppOpens")
-        appOpens += 1
-        UserDefaults.standard.set(appOpens, forKey: "numberOfAppOpens")
-        
-        if appOpens % 3 == 0 {
-            if let lastTime = lastNagged() {
-                if lastTime.isBefore(Date().increment(NSCalendar.Unit.day, amount: -2)!) {
-                    nag()
-                }
-            }else{
-                nag()
-            }
-        }
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
@@ -70,6 +55,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NagControllerDelegate {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
+        let nag = SBNagService()
+        
+        let rateNagtion = SBNagtion()
+        rateNagtion.defaultsKey = "rate"
+        rateNagtion.title = "Sorry to interrupt..."
+        rateNagtion.message = "...but would you mind rating this app?"
+        rateNagtion.noText = "Nope, I'll never rate this app"
+        rateNagtion.yesAction = { () in
+            UIApplication.shared.openURL(URL(string: "https://itunes.apple.com/us/app/metro-paris-plan-du-metro/id1132267822?ls=1&mt=8")!)
+        }
+        
+        nag.nagtions.append(rateNagtion)
+        nag.startCountDown()
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
@@ -78,23 +76,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NagControllerDelegate {
     
     class func colorManager() -> RouteColorManager {
         return PARRouteColorManager()
-    }
-    
-    func nag() {
-        nagger = NagController()
-        nagger.delegate = self
-        nagger.ratingURLStr = "https://itunes.apple.com/us/app/metro-paris-plan-du-metro/id1132267822?ls=1&mt=8"
-        nagger.startNag()
-    }
-    
-    func lastNagged() -> Date? {
-        return UserDefaults.standard.object(forKey: LastNaggedKey) as? Date
-    }
-    
-    // MARK: Nag Delegate
-    
-    func didPerformNag(_ eventName: String!, with response: NagResponse) {
-        UserDefaults.standard.set(Date(), forKey: LastNaggedKey)
     }
     
 }

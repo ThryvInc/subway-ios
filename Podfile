@@ -3,10 +3,8 @@ platform :ios, '8.0'
 use_frameworks!
 
 def import_pods
-    pod 'SQLite.swift'
-    pod "SBTextInputView", :git => 'https://github.com/schrockblock/SBTextInputView'
-    pod 'NagController', :git => 'https://github.com/schrockblock/nag-controller'
-    pod 'SubwayStations', git: 'https://github.com/schrockblock/subway-stations'
+    pod "SBTextInputView"
+    pod "SBNag.swift"
     pod 'SBCategories'
     pod 'ZipArchive'
     pod 'Fabric'
