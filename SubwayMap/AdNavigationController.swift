@@ -20,7 +20,6 @@ class AdNavigationController: UINavigationController, GADBannerViewDelegate {
         bannerView.adUnitID = Bundle.main.infoDictionary!["AdUnitId"] as? String
         bannerView.rootViewController = self
         bannerView.delegate = self
-        bannerView.backgroundColor = UIColor.blue
         
         view.addSubview(bannerView)
         bannerView.translatesAutoresizingMaskIntoConstraints = false

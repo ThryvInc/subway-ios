@@ -1,25 +1,25 @@
 PODS:
-  - Crashlytics (3.8.4):
-    - Fabric (~> 1.6.3)
-  - Fabric (1.6.11)
-  - Google-Mobile-Ads-SDK (7.18.0)
-  - GTFSStations (0.0.4):
+  - Crashlytics (3.9.0):
+    - Fabric (~> 1.7.0)
+  - Fabric (1.7.0)
+  - Google-Mobile-Ads-SDK (7.24.1)
+  - GTFSStations (0.2.0):
     - SQLite.swift
     - SubwayStations
   - GTFSStationsParis (0.0.3):
     - SQLite.swift
     - SubwayStations
-  - Nimble (6.0.1)
-  - Quick (1.1.0)
+  - Nimble (7.0.2)
+  - Quick (1.2.0)
   - SBCategories (0.1.1)
-  - SBNag.swift (0.0.1):
+  - SBNag.swift (0.0.2):
     - SwiftDate
   - SBTextInputView (0.2.1)
-  - SQLite.swift (0.11.2):
-    - SQLite.swift/standard (= 0.11.2)
-  - SQLite.swift/standard (0.11.2)
-  - SubwayStations (0.1.0)
-  - SwiftDate (4.0.13)
+  - SQLite.swift (0.11.4):
+    - SQLite.swift/standard (= 0.11.4)
+  - SQLite.swift/standard (0.11.4)
+  - SubwayStations (0.2.0)
+  - SwiftDate (4.4.1)
   - ZipArchive (1.4.0)
 
 DEPENDENCIES:
@@ -44,28 +44,28 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   GTFSStations:
-    :commit: fb5da6eeb8a0b85d1b812c41fa9eed4ceeb97a6b
+    :commit: 60331650d5540ec38dbcef6db3df6f8f7661045f
     :git: https://github.com/schrockblock/gtfs-stations
   GTFSStationsParis:
     :commit: a5b36b7eca9a7757a0135a2d2e4eb95f7864ef4f
     :git: https://github.com/schrockblock/gtfs-stations-paris
 
 SPEC CHECKSUMS:
-  Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
-  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
-  Google-Mobile-Ads-SDK: 658065b4cb5a299bea254c4d24bf7786b6d3e75d
-  GTFSStations: a24e98c0ea62876beb06197039ced33ef7d5e72c
+  Crashlytics: 64aad5dd97249dd3ff94b979fea140144590cdd3
+  Fabric: e6be012366472553807dada21243c5ab8d904151
+  Google-Mobile-Ads-SDK: ed8004a7265b424568dc84f3d2bbe3ea3fff958f
+  GTFSStations: aa4650ea77958a01a5805cd0654fb741bd8634fb
   GTFSStationsParis: c23d511f4a4e395fc488826a0b4126300c7b2f6f
-  Nimble: 1527fd1bd2b4cf0636251a36bc8ab37e81da8347
-  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
+  Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   SBCategories: a2a126ee06eeacaac02d5e68533cd9de1b9bf1cc
-  SBNag.swift: 93672898a49c2571fa414a97414b1cc56fe2f669
+  SBNag.swift: 57ae1aa7799765e2452aaa02f97ee1aca0ed396d
   SBTextInputView: 5123a3992aea198a13a514d1721c70a2a3bd57ac
-  SQLite.swift: 670c3e9e0a806bbfd56a3de5d530768dc0e6fe7c
-  SubwayStations: 3d26bc8393463c92f2743f9558992bd98d84bb9f
-  SwiftDate: 8ec416bb1b5129d1f35e8efaed720421f41d42df
+  SQLite.swift: 3e3bee21da701b5b9f87c4a672cb54f233505692
+  SubwayStations: f2e328b057494e750aabc1ebd6538ed60a086998
+  SwiftDate: a70a534d4feed03b2a2b575e36bef82dc2286a8d
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
 
 PODFILE CHECKSUM: 11f13590e5f7bc6fd72eb4bd79b2933775eba2e6
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

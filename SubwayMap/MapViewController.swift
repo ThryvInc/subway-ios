@@ -33,6 +33,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UISearchBarDele
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView() //removes cell separators between empty cells
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, 216, 0)
         
         if !DatabaseLoader.isDatabaseReady {
             NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.databaseLoaded), name: NSNotification.Name(rawValue: DatabaseLoader.NYCDatabaseLoadedNotification), object: nil)
@@ -120,6 +121,10 @@ class MapViewController: UIViewController, UIScrollViewDelegate, UISearchBarDele
                     let optionalLines = self.stationManager.linesForStation(station)
                     if let lines = optionalLines {
                         DispatchQueue.main.async {
+                            cell.firstLineImageView.image = nil
+                            cell.secondLineImageView.image = nil
+                            cell.thirdLineImageView.image = nil
+                            cell.fourthLineImageView.image = nil
                             for line in lines {
                                 let image = UIImage(named: "Grey")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate);
                                 if cell.firstLineImageView.image == nil {
