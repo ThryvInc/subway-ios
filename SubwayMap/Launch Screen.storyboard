@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Bold</string>
+            <string>AvenirNext-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="W3e-Ly-QUO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GGd-ub-dMC">
+                                <rect key="frame" x="125" y="243" width="125.5" height="27.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NYC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKf-IS-3PF">
+                                        <rect key="frame" x="83" y="0.0" width="42.5" height="27.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUBWAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CD8-bM-cm5">
+                                        <rect key="frame" x="0.0" y="0.0" width="83" height="27.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                        <color key="textColor" red="0.93333333330000001" green="0.01176470588" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="CD8-bM-cm5" firstAttribute="centerY" secondItem="GGd-ub-dMC" secondAttribute="centerY" id="3LC-q4-Lca"/>
+                                    <constraint firstItem="CD8-bM-cm5" firstAttribute="leading" secondItem="GGd-ub-dMC" secondAttribute="leading" id="6ml-Vb-4TX"/>
+                                    <constraint firstItem="CD8-bM-cm5" firstAttribute="top" secondItem="GGd-ub-dMC" secondAttribute="top" id="ElD-tW-dIU"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZKf-IS-3PF" secondAttribute="trailing" id="iMC-4o-bTS"/>
+                                    <constraint firstAttribute="bottom" secondItem="CD8-bM-cm5" secondAttribute="bottom" id="tBv-gf-NA6"/>
+                                    <constraint firstItem="ZKf-IS-3PF" firstAttribute="leading" secondItem="CD8-bM-cm5" secondAttribute="trailing" id="x7C-fh-Ymw"/>
+                                    <constraint firstItem="ZKf-IS-3PF" firstAttribute="centerY" secondItem="GGd-ub-dMC" secondAttribute="centerY" id="yf5-Jb-8w1"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fore_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="LaV-1E-NFI">
+                                <rect key="frame" x="47.5" y="107" width="284" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="LVa-Vt-99P"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="W3e-Ly-QUO" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="2Pq-ar-Rru"/>
+                            <constraint firstItem="GGd-ub-dMC" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="2Rg-67-pJn"/>
+                            <constraint firstAttribute="bottom" secondItem="W3e-Ly-QUO" secondAttribute="bottom" id="Bbq-IH-U0c"/>
+                            <constraint firstItem="LaV-1E-NFI" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="87" id="FtY-ft-gzV"/>
+                            <constraint firstItem="LaV-1E-NFI" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" constant="2" id="fwa-ch-tWZ"/>
+                            <constraint firstAttribute="top" secondItem="W3e-Ly-QUO" secondAttribute="top" id="kE0-ha-zxi"/>
+                            <constraint firstItem="GGd-ub-dMC" firstAttribute="top" secondItem="LaV-1E-NFI" secondAttribute="bottom" constant="8" id="plf-gl-k4q"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="W3e-Ly-QUO" secondAttribute="trailing" id="xeA-kv-xJa"/>
+                            <constraint firstItem="W3e-Ly-QUO" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="zMy-wc-pfR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="750" height="1334"/>
+        <image name="fore_shadow" width="284" height="275"/>
+    </resources>
+</document>

@@ -1,15 +1,15 @@
 PODS:
-  - Crashlytics (3.9.0):
-    - Fabric (~> 1.7.0)
-  - Fabric (1.7.0)
-  - Google-Mobile-Ads-SDK (7.24.1)
-  - GTFSStations (0.2.0):
+  - Crashlytics (3.10.1):
+    - Fabric (~> 1.7.5)
+  - Fabric (1.7.6)
+  - Google-Mobile-Ads-SDK (7.30.0)
+  - GTFSStations (0.3.0):
     - SQLite.swift
     - SubwayStations
   - GTFSStationsParis (0.0.3):
     - SQLite.swift
     - SubwayStations
-  - Nimble (7.0.2)
+  - Nimble (7.1.0)
   - Quick (1.2.0)
   - SBCategories (0.1.1)
   - SBNag.swift (0.0.2):
@@ -19,7 +19,7 @@ PODS:
     - SQLite.swift/standard (= 0.11.4)
   - SQLite.swift/standard (0.11.4)
   - SubwayStations (0.2.0)
-  - SwiftDate (4.4.1)
+  - SwiftDate (4.5.1)
   - ZipArchive (1.4.0)
 
 DEPENDENCIES:
@@ -44,28 +44,28 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   GTFSStations:
-    :commit: 60331650d5540ec38dbcef6db3df6f8f7661045f
+    :commit: dd05faabde776d41d30d8f34443cf57c8cde8bfd
     :git: https://github.com/schrockblock/gtfs-stations
   GTFSStationsParis:
     :commit: a5b36b7eca9a7757a0135a2d2e4eb95f7864ef4f
     :git: https://github.com/schrockblock/gtfs-stations-paris
 
 SPEC CHECKSUMS:
-  Crashlytics: 64aad5dd97249dd3ff94b979fea140144590cdd3
-  Fabric: e6be012366472553807dada21243c5ab8d904151
-  Google-Mobile-Ads-SDK: ed8004a7265b424568dc84f3d2bbe3ea3fff958f
-  GTFSStations: aa4650ea77958a01a5805cd0654fb741bd8634fb
+  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
+  Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
+  Google-Mobile-Ads-SDK: 7404f68120ae8682afeb5af001fbf4aad731c78e
+  GTFSStations: e0b9a7654b7a77592452c4f3c37662da1d321145
   GTFSStationsParis: c23d511f4a4e395fc488826a0b4126300c7b2f6f
-  Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
+  Nimble: 9c6651c3021af6de54c3ed90a4a0a87d548f7359
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   SBCategories: a2a126ee06eeacaac02d5e68533cd9de1b9bf1cc
   SBNag.swift: 57ae1aa7799765e2452aaa02f97ee1aca0ed396d
   SBTextInputView: 5123a3992aea198a13a514d1721c70a2a3bd57ac
   SQLite.swift: 3e3bee21da701b5b9f87c4a672cb54f233505692
   SubwayStations: f2e328b057494e750aabc1ebd6538ed60a086998
-  SwiftDate: a70a534d4feed03b2a2b575e36bef82dc2286a8d
+  SwiftDate: 7b56d42a221f582047287deb256b23fc5ed49a60
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
 
 PODFILE CHECKSUM: 11f13590e5f7bc6fd72eb4bd79b2933775eba2e6
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.4.0

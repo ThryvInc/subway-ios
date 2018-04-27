@@ -44,6 +44,8 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = UIColor.primaryDark()
+        
         self.edgesForExtendedLayout = UIRectEdge()
         
         tableView.register(UINib(nibName: "PredictionTableViewCell", bundle: nil), forCellReuseIdentifier: "predCell")

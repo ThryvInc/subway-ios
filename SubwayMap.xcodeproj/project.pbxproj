@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		06984090335CCA5CD6605834 /* Pods_ParisMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CD089FFBDFA904BD0D109E /* Pods_ParisMapTests.framework */; };
-		490C57601D2E7CAC00087ABD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 490C575F1D2E7CAC00087ABD /* LaunchScreen.storyboard */; };
 		490C57611D2E87BC00087ABD /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B5C8BA1BE1AB8D00636717 /* FavoritesViewController.xib */; };
 		490C57621D2E87BD00087ABD /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B5C8BA1BE1AB8D00636717 /* FavoritesViewController.xib */; };
 		491831221B672B6900EB8328 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831211B672B6900EB8328 /* AppDelegate.swift */; };
@@ -24,13 +23,14 @@
 		491831D31B69A61700EB8328 /* PredictionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831D01B69A61700EB8328 /* PredictionTableViewCell.swift */; };
 		491831D41B69A61700EB8328 /* PredictionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */; };
 		491831D51B69A61700EB8328 /* PredictionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */; };
+		492E7281207EF19200514AC4 /* PDFTouchConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492E7280207EF19200514AC4 /* PDFTouchConverter.swift */; };
+		492E7283207EF58600514AC4 /* Two.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492E7282207EF58600514AC4 /* Two.swift */; };
 		493173031D26D0B5007DDDCE /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5C8B91BE1AB8D00636717 /* FavoritesViewController.swift */; };
 		493173041D26D0B6007DDDCE /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5C8B91BE1AB8D00636717 /* FavoritesViewController.swift */; };
 		493173051D26D0C5007DDDCE /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355AC6B1B94A1B2002F0527 /* FavoritesManager.swift */; };
 		493173061D26D0C5007DDDCE /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355AC6B1B94A1B2002F0527 /* FavoritesManager.swift */; };
 		493173081D26D153007DDDCE /* DatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493173071D26D153007DDDCE /* DatabaseLoader.swift */; };
-		493DC18A1B9CD16900515F4B /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 493DC1891B9CD16900515F4B /* gtfs.db.zip */; };
-		493DC18B1B9CD16900515F4B /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 493DC1891B9CD16900515F4B /* gtfs.db.zip */; };
+		493318F520939875006A7151 /* VersionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493318F420939875006A7151 /* VersionChecker.swift */; };
 		493DC1911B9D0CD700515F4B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 493DC1871B9CD10500515F4B /* libz.dylib */; };
 		4943C4CB1CE117ED004AAED5 /* ParisAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4943C4CA1CE117ED004AAED5 /* ParisAssets.xcassets */; };
 		4943C4CE1CE117ED004AAED5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4943C4CC1CE117ED004AAED5 /* LaunchScreen.storyboard */; };
@@ -62,6 +62,10 @@
 		4943C5021CE11A49004AAED5 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D5359D1B69C44C0087D368 /* MapViewController.xib */; };
 		4943C5081CE12067004AAED5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4943C5071CE12067004AAED5 /* AppDelegate.swift */; };
 		4943C50A1CE121BB004AAED5 /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 4943C4E11CE11969004AAED5 /* gtfs.db.zip */; };
+		4978C344208C358600E4ECA7 /* RoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4978C342208C358600E4ECA7 /* RoutesViewController.swift */; };
+		4978C345208C358600E4ECA7 /* RoutesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4978C343208C358600E4ECA7 /* RoutesViewController.xib */; };
+		4978C348208C362A00E4ECA7 /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4978C346208C362A00E4ECA7 /* RouteViewController.swift */; };
+		4978C349208C362A00E4ECA7 /* RouteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4978C347208C362A00E4ECA7 /* RouteViewController.xib */; };
 		4997B0261CE180DF00FA0020 /* AdNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997B0241CE180DF00FA0020 /* AdNavigationController.swift */; };
 		4997B0271CE180DF00FA0020 /* AdNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997B0241CE180DF00FA0020 /* AdNavigationController.swift */; };
 		4997B0281CE180DF00FA0020 /* AdNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997B0241CE180DF00FA0020 /* AdNavigationController.swift */; };
@@ -84,6 +88,25 @@
 		49B5C8C81BE247C200636717 /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5C8C51BE247C200636717 /* StationTableViewCell.swift */; };
 		49B5C8C91BE247C200636717 /* StationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B5C8C61BE247C200636717 /* StationTableViewCell.xib */; };
 		49B5C8CA1BE247C200636717 /* StationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B5C8C61BE247C200636717 /* StationTableViewCell.xib */; };
+		49BD7C192075CF8A00BC7343 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BD7C182075CF8A00BC7343 /* UIColor+Hex.swift */; };
+		49BD7C1A2075CF8A00BC7343 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BD7C182075CF8A00BC7343 /* UIColor+Hex.swift */; };
+		49BD7C1B2075CF8A00BC7343 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BD7C182075CF8A00BC7343 /* UIColor+Hex.swift */; };
+		49BD7C1E2075D1AB00BC7343 /* PDFMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BD7C1C2075D1AB00BC7343 /* PDFMapViewController.swift */; };
+		49BD7C1F2075D1AB00BC7343 /* PDFMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BD7C1C2075D1AB00BC7343 /* PDFMapViewController.swift */; };
+		49BD7C202075D1AB00BC7343 /* PDFMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BD7C1C2075D1AB00BC7343 /* PDFMapViewController.swift */; };
+		49BD7C212075D1AB00BC7343 /* PDFMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49BD7C1D2075D1AB00BC7343 /* PDFMapViewController.xib */; };
+		49BD7C222075D1AB00BC7343 /* PDFMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49BD7C1D2075D1AB00BC7343 /* PDFMapViewController.xib */; };
+		49BD7C232075D1AB00BC7343 /* PDFMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49BD7C1D2075D1AB00BC7343 /* PDFMapViewController.xib */; };
+		49BD7C292075D74800BC7343 /* nav.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 49BD7C282075D74800BC7343 /* nav.db.zip */; };
+		49BD7C2A2075D74800BC7343 /* nav.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 49BD7C282075D74800BC7343 /* nav.db.zip */; };
+		49BD7C2B2075D74800BC7343 /* nav.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 49BD7C282075D74800BC7343 /* nav.db.zip */; };
+		49BD7C2D2075D75300BC7343 /* subway.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 49BD7C2C2075D75300BC7343 /* subway.pdf */; };
+		49BD7C2E2075D75300BC7343 /* subway.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 49BD7C2C2075D75300BC7343 /* subway.pdf */; };
+		49BD7C2F2075D75300BC7343 /* subway.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 49BD7C2C2075D75300BC7343 /* subway.pdf */; };
+		49BD7C312075D7BA00BC7343 /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 49BD7C302075D7B900BC7343 /* gtfs.db.zip */; };
+		49BD7C322075D7BA00BC7343 /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 49BD7C302075D7B900BC7343 /* gtfs.db.zip */; };
+		49BD7C332075D7BA00BC7343 /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 49BD7C302075D7B900BC7343 /* gtfs.db.zip */; };
+		49BD7C352077087500BC7343 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49BD7C342077087500BC7343 /* Launch Screen.storyboard */; };
 		49D5359E1B69C44C0087D368 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5359C1B69C44C0087D368 /* MapViewController.swift */; };
 		49D5359F1B69C44C0087D368 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5359C1B69C44C0087D368 /* MapViewController.swift */; };
 		49D535A01B69C44C0087D368 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D5359D1B69C44C0087D368 /* MapViewController.xib */; };
@@ -164,7 +187,6 @@
 		1C6F8BB9275883FE22191B27 /* Pods-LondonMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LondonMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LondonMapTests/Pods-LondonMapTests.release.xcconfig"; sourceTree = "<group>"; };
 		2708DA9923CFD4F92D7DC0E9 /* Pods_SubwayMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SubwayMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C7D7B9C0B1F6563BC57322B /* Pods-ParisMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParisMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParisMap/Pods-ParisMap.debug.xcconfig"; sourceTree = "<group>"; };
-		490C575F1D2E7CAC00087ABD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4918311C1B672B6900EB8328 /* SubwayMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubwayMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		491831201B672B6900EB8328 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		491831211B672B6900EB8328 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -177,9 +199,11 @@
 		491831471B67321A00EB8328 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		491831D01B69A61700EB8328 /* PredictionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictionTableViewCell.swift; sourceTree = "<group>"; };
 		491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PredictionTableViewCell.xib; sourceTree = "<group>"; };
+		492E7280207EF19200514AC4 /* PDFTouchConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFTouchConverter.swift; sourceTree = "<group>"; };
+		492E7282207EF58600514AC4 /* Two.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Two.swift; sourceTree = "<group>"; };
 		493173071D26D153007DDDCE /* DatabaseLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseLoader.swift; sourceTree = "<group>"; };
+		493318F420939875006A7151 /* VersionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionChecker.swift; sourceTree = "<group>"; };
 		493DC1871B9CD10500515F4B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		493DC1891B9CD16900515F4B /* gtfs.db.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = gtfs.db.zip; sourceTree = "<group>"; };
 		493DC18C1B9CE01B00515F4B /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		493DC18E1B9CEF9200515F4B /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		4943C4C11CE117ED004AAED5 /* ParisMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParisMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,6 +215,10 @@
 		4943C4DA1CE117ED004AAED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4943C4E11CE11969004AAED5 /* gtfs.db.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = gtfs.db.zip; sourceTree = "<group>"; };
 		4943C5071CE12067004AAED5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4978C342208C358600E4ECA7 /* RoutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesViewController.swift; sourceTree = "<group>"; };
+		4978C343208C358600E4ECA7 /* RoutesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoutesViewController.xib; sourceTree = "<group>"; };
+		4978C346208C362A00E4ECA7 /* RouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
+		4978C347208C362A00E4ECA7 /* RouteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RouteViewController.xib; sourceTree = "<group>"; };
 		4997B0241CE180DF00FA0020 /* AdNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdNavigationController.swift; sourceTree = "<group>"; };
 		4997B0251CE180DF00FA0020 /* AdNavigationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdNavigationController.xib; sourceTree = "<group>"; };
 		4998FB651D281F6B00A990F3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -202,6 +230,13 @@
 		49B5C8BA1BE1AB8D00636717 /* FavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 		49B5C8C51BE247C200636717 /* StationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationTableViewCell.swift; sourceTree = "<group>"; };
 		49B5C8C61BE247C200636717 /* StationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StationTableViewCell.xib; sourceTree = "<group>"; };
+		49BD7C182075CF8A00BC7343 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		49BD7C1C2075D1AB00BC7343 /* PDFMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFMapViewController.swift; sourceTree = "<group>"; };
+		49BD7C1D2075D1AB00BC7343 /* PDFMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PDFMapViewController.xib; sourceTree = "<group>"; };
+		49BD7C282075D74800BC7343 /* nav.db.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = nav.db.zip; sourceTree = "<group>"; };
+		49BD7C2C2075D75300BC7343 /* subway.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = subway.pdf; sourceTree = "<group>"; };
+		49BD7C302075D7B900BC7343 /* gtfs.db.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = gtfs.db.zip; sourceTree = "<group>"; };
+		49BD7C342077087500BC7343 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		49D5359C1B69C44C0087D368 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		49D5359D1B69C44C0087D368 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		49E7C9921CADC7E3006A03F1 /* LondonMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LondonMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -350,9 +385,11 @@
 		4918311F1B672B6900EB8328 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				493DC1891B9CD16900515F4B /* gtfs.db.zip */,
+				49BD7C2C2075D75300BC7343 /* subway.pdf */,
+				49BD7C302075D7B900BC7343 /* gtfs.db.zip */,
+				49BD7C282075D74800BC7343 /* nav.db.zip */,
 				491831201B672B6900EB8328 /* Info.plist */,
-				490C575F1D2E7CAC00087ABD /* LaunchScreen.storyboard */,
+				49BD7C342077087500BC7343 /* Launch Screen.storyboard */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -415,10 +452,16 @@
 				491831421B672E8C00EB8328 /* StationViewController.xib */,
 				49D5359C1B69C44C0087D368 /* MapViewController.swift */,
 				49D5359D1B69C44C0087D368 /* MapViewController.xib */,
+				49BD7C1C2075D1AB00BC7343 /* PDFMapViewController.swift */,
+				49BD7C1D2075D1AB00BC7343 /* PDFMapViewController.xib */,
 				49B5C8B91BE1AB8D00636717 /* FavoritesViewController.swift */,
 				49B5C8BA1BE1AB8D00636717 /* FavoritesViewController.xib */,
 				4997B0241CE180DF00FA0020 /* AdNavigationController.swift */,
 				4997B0251CE180DF00FA0020 /* AdNavigationController.xib */,
+				4978C342208C358600E4ECA7 /* RoutesViewController.swift */,
+				4978C343208C358600E4ECA7 /* RoutesViewController.xib */,
+				4978C346208C362A00E4ECA7 /* RouteViewController.swift */,
+				4978C347208C362A00E4ECA7 /* RouteViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -461,6 +504,10 @@
 				49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */,
 				49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */,
 				499EC9991BEABE7F004A1553 /* LineViewModel.swift */,
+				49BD7C182075CF8A00BC7343 /* UIColor+Hex.swift */,
+				492E7280207EF19200514AC4 /* PDFTouchConverter.swift */,
+				492E7282207EF58600514AC4 /* Two.swift */,
+				493318F420939875006A7151 /* VersionChecker.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -681,16 +728,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				493DC18A1B9CD16900515F4B /* gtfs.db.zip in Resources */,
+				49BD7C212075D1AB00BC7343 /* PDFMapViewController.xib in Resources */,
+				4978C349208C362A00E4ECA7 /* RouteViewController.xib in Resources */,
 				491831D41B69A61700EB8328 /* PredictionTableViewCell.xib in Resources */,
+				49BD7C292075D74800BC7343 /* nav.db.zip in Resources */,
 				491831291B672B6900EB8328 /* Images.xcassets in Resources */,
-				490C57601D2E7CAC00087ABD /* LaunchScreen.storyboard in Resources */,
+				49BD7C2D2075D75300BC7343 /* subway.pdf in Resources */,
+				49BD7C352077087500BC7343 /* Launch Screen.storyboard in Resources */,
 				491831451B672E8C00EB8328 /* StationViewController.xib in Resources */,
 				49B5C8C91BE247C200636717 /* StationTableViewCell.xib in Resources */,
+				4978C345208C358600E4ECA7 /* RoutesViewController.xib in Resources */,
 				49B5C8BD1BE1AB8D00636717 /* FavoritesViewController.xib in Resources */,
 				49D535A01B69C44C0087D368 /* MapViewController.xib in Resources */,
 				499EC9961BEA947C004A1553 /* LineChoiceView.xib in Resources */,
 				4997B0291CE180DF00FA0020 /* AdNavigationController.xib in Resources */,
+				49BD7C312075D7BA00BC7343 /* gtfs.db.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,7 +750,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				493DC18B1B9CD16900515F4B /* gtfs.db.zip in Resources */,
 				491831461B672E8C00EB8328 /* StationViewController.xib in Resources */,
 				49B5C8CA1BE247C200636717 /* StationTableViewCell.xib in Resources */,
 				499EC9981BEAA701004A1553 /* LineChoiceView.xib in Resources */,
@@ -712,10 +763,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49BD7C332075D7BA00BC7343 /* gtfs.db.zip in Resources */,
+				49BD7C232075D1AB00BC7343 /* PDFMapViewController.xib in Resources */,
 				4943C4FC1CE11A48004AAED5 /* StationViewController.xib in Resources */,
 				4943C4E21CE11969004AAED5 /* gtfs.db.zip in Resources */,
+				49BD7C2B2075D74800BC7343 /* nav.db.zip in Resources */,
 				4943C4CE1CE117ED004AAED5 /* LaunchScreen.storyboard in Resources */,
 				4943C4FE1CE11A48004AAED5 /* MapViewController.xib in Resources */,
+				49BD7C2F2075D75300BC7343 /* subway.pdf in Resources */,
 				4943C4F01CE11A41004AAED5 /* StationTableViewCell.xib in Resources */,
 				4943C4F41CE11A41004AAED5 /* LineChoiceView.xib in Resources */,
 				4943C4CB1CE117ED004AAED5 /* ParisAssets.xcassets in Resources */,
@@ -742,10 +797,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49BD7C322075D7BA00BC7343 /* gtfs.db.zip in Resources */,
+				49BD7C222075D1AB00BC7343 /* PDFMapViewController.xib in Resources */,
 				49E7C99F1CADC7E3006A03F1 /* LaunchScreen.storyboard in Resources */,
 				49E7C9C21CADC93E006A03F1 /* LineChoiceView.xib in Resources */,
+				49BD7C2A2075D74800BC7343 /* nav.db.zip in Resources */,
 				49E7C99C1CADC7E3006A03F1 /* Assets.xcassets in Resources */,
 				49E7C9BA1CADC930006A03F1 /* MapViewController.xib in Resources */,
+				49BD7C2E2075D75300BC7343 /* subway.pdf in Resources */,
 				49E7C9D21CADCBA4006A03F1 /* gtfs.db.zip in Resources */,
 				49E7C9C01CADC93E006A03F1 /* PredictionTableViewCell.xib in Resources */,
 				49E7C9BE1CADC93E006A03F1 /* StationTableViewCell.xib in Resources */,
@@ -807,13 +866,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SubwayMapTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2319A97D9572A197F61A88F8 /* [CP] Copy Pods Resources */ = {
@@ -837,9 +899,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LondonMap/Pods-LondonMap-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
+				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
+				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+				"${BUILT_PRODUCTS_DIR}/ZipArchive/ZipArchive.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZipArchive.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -878,13 +951,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ParisMap-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6A4CB817463E7249E7A913DF /* [CP] Embed Pods Frameworks */ = {
@@ -893,9 +969,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ParisMapTests/Pods-ParisMapTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
+				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
+				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+				"${BUILT_PRODUCTS_DIR}/ZipArchive/ZipArchive.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZipArchive.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -908,13 +995,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LondonMap-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		86067D060EB8521DB576DF35 /* [CP] Embed Pods Frameworks */ = {
@@ -923,9 +1013,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LondonMapTests/Pods-LondonMapTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
+				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
+				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+				"${BUILT_PRODUCTS_DIR}/ZipArchive/ZipArchive.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZipArchive.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -953,13 +1054,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ParisMapTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A49A3640850B7DB4C120E41D /* [CP] Embed Pods Frameworks */ = {
@@ -968,9 +1072,26 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ParisMap/Pods-ParisMap-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
+				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
+				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+				"${BUILT_PRODUCTS_DIR}/SubwayStations/SubwayStations.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+				"${BUILT_PRODUCTS_DIR}/ZipArchive/ZipArchive.framework",
+				"${BUILT_PRODUCTS_DIR}/GTFSStationsParis/GTFSStationsParis.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SubwayStations.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZipArchive.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTFSStationsParis.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -983,9 +1104,26 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTFSStations/GTFSStations.framework",
+				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
+				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
+				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+				"${BUILT_PRODUCTS_DIR}/SubwayStations/SubwayStations.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+				"${BUILT_PRODUCTS_DIR}/ZipArchive/ZipArchive.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTFSStations.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SubwayStations.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZipArchive.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -998,9 +1136,24 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
+				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
+				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+				"${BUILT_PRODUCTS_DIR}/ZipArchive/ZipArchive.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZipArchive.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1013,13 +1166,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LondonMapTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C515B349ED10C6AEC7C1AE38 /* [CP] Check Pods Manifest.lock */ = {
@@ -1028,13 +1184,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SubwayMap-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C8A96AB25C8A154BB8351606 /* [CP] Copy Pods Resources */ = {
@@ -1080,12 +1239,19 @@
 				49B5C8C71BE247C200636717 /* StationTableViewCell.swift in Sources */,
 				4997B0261CE180DF00FA0020 /* AdNavigationController.swift in Sources */,
 				49F531DD1B6E9E5B00A9E887 /* DatabaseLoader.swift in Sources */,
+				49BD7C1E2075D1AB00BC7343 /* PDFMapViewController.swift in Sources */,
 				491831431B672E8C00EB8328 /* StationViewController.swift in Sources */,
 				499EC9941BEA9462004A1553 /* LineChoiceView.swift in Sources */,
 				491831D21B69A61700EB8328 /* PredictionTableViewCell.swift in Sources */,
+				49BD7C192075CF8A00BC7343 /* UIColor+Hex.swift in Sources */,
 				49D5359E1B69C44C0087D368 /* MapViewController.swift in Sources */,
+				493318F520939875006A7151 /* VersionChecker.swift in Sources */,
 				499EC99A1BEABE7F004A1553 /* LineViewModel.swift in Sources */,
 				8355AC6C1B94A1B2002F0527 /* FavoritesManager.swift in Sources */,
+				4978C348208C362A00E4ECA7 /* RouteViewController.swift in Sources */,
+				492E7283207EF58600514AC4 /* Two.swift in Sources */,
+				4978C344208C358600E4ECA7 /* RoutesViewController.swift in Sources */,
+				492E7281207EF19200514AC4 /* PDFTouchConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1118,9 +1284,11 @@
 				493173081D26D153007DDDCE /* DatabaseLoader.swift in Sources */,
 				4997B0281CE180DF00FA0020 /* AdNavigationController.swift in Sources */,
 				4943C4FD1CE11A48004AAED5 /* MapViewController.swift in Sources */,
+				49BD7C202075D1AB00BC7343 /* PDFMapViewController.swift in Sources */,
 				493173031D26D0B5007DDDCE /* FavoritesViewController.swift in Sources */,
 				493173061D26D0C5007DDDCE /* FavoritesManager.swift in Sources */,
 				4943C4F31CE11A41004AAED5 /* LineChoiceView.swift in Sources */,
+				49BD7C1B2075CF8A00BC7343 /* UIColor+Hex.swift in Sources */,
 				4943C4E61CE11A34004AAED5 /* LineViewModel.swift in Sources */,
 				4943C4E41CE11A34004AAED5 /* PredictionViewModel.swift in Sources */,
 				4943C4FB1CE11A48004AAED5 /* StationViewController.swift in Sources */,
@@ -1151,10 +1319,12 @@
 				49E7C9BD1CADC93E006A03F1 /* StationTableViewCell.swift in Sources */,
 				4997B0271CE180DF00FA0020 /* AdNavigationController.swift in Sources */,
 				49E7C9BF1CADC93E006A03F1 /* PredictionTableViewCell.swift in Sources */,
+				49BD7C1F2075D1AB00BC7343 /* PDFMapViewController.swift in Sources */,
 				49E7C9C11CADC93E006A03F1 /* LineChoiceView.swift in Sources */,
 				493173041D26D0B6007DDDCE /* FavoritesViewController.swift in Sources */,
 				493173051D26D0C5007DDDCE /* FavoritesManager.swift in Sources */,
 				49E7C9951CADC7E3006A03F1 /* AppDelegate.swift in Sources */,
+				49BD7C1A2075CF8A00BC7343 /* UIColor+Hex.swift in Sources */,
 				49E7C9CA1CADC945006A03F1 /* PredictionViewModel.swift in Sources */,
 				49E7C9B91CADC930006A03F1 /* MapViewController.swift in Sources */,
 			);
@@ -1326,7 +1496,7 @@
 					"\"${PODS_ROOT}/Fabric/iOS\"",
 				);
 				INFOPLIST_FILE = SubwayMap/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thryv.$(PRODUCT_NAME:rfc1034identifier)";
@@ -1354,7 +1524,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HK6WSAR793;
 				INFOPLIST_FILE = SubwayMap/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thryv.$(PRODUCT_NAME:rfc1034identifier)";

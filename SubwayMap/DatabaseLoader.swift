@@ -36,18 +36,31 @@ class DatabaseLoader: NSObject {
     }
     
     class func unzipDBToDocDirectoryIfNeeded(){
-        if !FileManager.default.fileExists(atPath: destinationPath) {
-            let sourcePath = Bundle.main.path(forResource: "gtfs.db", ofType: "zip")
-            var error: NSError?
-            let unzipper = ZipArchive()
-            unzipper.unzipOpenFile(sourcePath)
-            unzipper.unzipFile(to: documentsDirectory, overWrite: false)
-            let fileUrl = URL(fileURLWithPath: destinationPath)
-            do {
-                try (fileUrl as NSURL).setResourceValue(NSNumber(value: true as Bool), forKey: URLResourceKey.isExcludedFromBackupKey)
-            } catch let error1 as NSError {
-                error = error1
-            }
+        var shouldUnzip = !FileManager.default.fileExists(atPath: destinationPath)
+        if let storedVersion = UserDefaults.standard.string(forKey: "version") {
+            shouldUnzip = shouldUnzip || VersionChecker.isNewVersion(version: storedVersion)
+        } else {
+            shouldUnzip = true
         }
+        
+        if shouldUnzip {
+            unzipDBToDocDirectory()
+        }
+    }
+    
+    class func unzipDBToDocDirectory(){
+        let sourcePath = Bundle.main.path(forResource: "gtfs.db", ofType: "zip")
+        var error: NSError?
+        let unzipper = ZipArchive()
+        unzipper.unzipOpenFile(sourcePath)
+        unzipper.unzipFile(to: documentsDirectory, overWrite: true)
+        let fileUrl = URL(fileURLWithPath: destinationPath)
+        do {
+            try (fileUrl as NSURL).setResourceValue(NSNumber(value: true as Bool), forKey: URLResourceKey.isExcludedFromBackupKey)
+        } catch let error1 as NSError {
+            error = error1
+        }
+        
+        UserDefaults.standard.set(VersionChecker.bundleVersion(), forKey: "version")
     }
 }
