@@ -1,13 +1,24 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoutesViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoutesViewController" customModule="SubwayMap" customModuleProvider="target">
             <connections>
+                <outlet property="fromSearchBar" destination="1DM-bR-pRt" id="QpQ-2e-1ak"/>
+                <outlet property="goButton" destination="vac-tO-oAD" id="GuF-Uq-Zob"/>
+                <outlet property="goButtonWidthConstraint" destination="72s-xM-J2V" id="zpe-rV-gNh"/>
+                <outlet property="spinner" destination="Dxi-VI-iQv" id="Dz9-RE-h9I"/>
+                <outlet property="tableTopConstraint" destination="zVT-nc-MZV" id="jnc-Y2-bfM"/>
+                <outlet property="tableView" destination="S6Q-fB-Wd2" id="j0G-hn-h6v"/>
+                <outlet property="toSearchBar" destination="QFr-dN-TVV" id="fkE-iT-3f7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,8 +26,56 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vac-tO-oAD">
+                    <rect key="frame" x="156" y="147" width="63" height="36"/>
+                    <color key="backgroundColor" red="0.87450980389999999" green="0.01176470588" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="63" id="72s-xM-J2V"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                    <state key="normal" title="Go!">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="goPressed" destination="-1" eventType="touchUpInside" id="ABC-Hb-jqJ"/>
+                    </connections>
+                </button>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Dxi-VI-iQv">
+                    <rect key="frame" x="177.5" y="155" width="20" height="20"/>
+                </activityIndicatorView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S6Q-fB-Wd2">
+                    <rect key="frame" x="0.0" y="132" width="375" height="535"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <searchBar contentMode="redraw" placeholder="From station" translatesAutoresizingMaskIntoConstraints="NO" id="1DM-bR-pRt">
+                    <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <searchBar contentMode="redraw" placeholder="To station" translatesAutoresizingMaskIntoConstraints="NO" id="QFr-dN-TVV">
+                    <rect key="frame" x="0.0" y="76" width="375" height="56"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="S6Q-fB-Wd2" secondAttribute="trailing" id="JyU-k7-niO"/>
+                <constraint firstItem="vac-tO-oAD" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="VFJ-Jo-gWr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="S6Q-fB-Wd2" secondAttribute="bottom" id="W4B-0v-Lo5"/>
+                <constraint firstItem="S6Q-fB-Wd2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hZw-fj-OXI"/>
+                <constraint firstItem="vac-tO-oAD" firstAttribute="top" secondItem="QFr-dN-TVV" secondAttribute="bottom" constant="15" id="jOn-P2-FSY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1DM-bR-pRt" secondAttribute="trailing" id="khC-Zq-poC"/>
+                <constraint firstItem="1DM-bR-pRt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="nyh-Tt-rri"/>
+                <constraint firstItem="Dxi-VI-iQv" firstAttribute="centerY" secondItem="vac-tO-oAD" secondAttribute="centerY" id="rzd-Ln-Ij5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="QFr-dN-TVV" secondAttribute="trailing" id="sNy-kV-CAo"/>
+                <constraint firstItem="QFr-dN-TVV" firstAttribute="top" secondItem="1DM-bR-pRt" secondAttribute="bottom" id="xhF-gt-aYs"/>
+                <constraint firstItem="QFr-dN-TVV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="yBQ-Ue-SwG"/>
+                <constraint firstItem="Dxi-VI-iQv" firstAttribute="centerX" secondItem="vac-tO-oAD" secondAttribute="centerX" id="yb4-Dz-kiI"/>
+                <constraint firstItem="1DM-bR-pRt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ypJ-fu-Y7i"/>
+                <constraint firstItem="S6Q-fB-Wd2" firstAttribute="top" secondItem="QFr-dN-TVV" secondAttribute="bottom" id="zVT-nc-MZV"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="-690.39999999999998" y="121.88905547226388"/>
         </view>
     </objects>
 </document>

@@ -49,8 +49,8 @@ class LineChoiceView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         view.translatesAutoresizingMaskIntoConstraints = false
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: NSLayoutFormatOptions.alignmentMask, metrics: nil, views: ["view" : view]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutFormatOptions.alignmentMask, metrics: nil, views: ["view" : view]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: NSLayoutConstraint.FormatOptions.alignmentMask, metrics: nil, views: ["view" : view]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutConstraint.FormatOptions.alignmentMask, metrics: nil, views: ["view" : view]))
         
         clipsToBounds = true
         view.clipsToBounds = true

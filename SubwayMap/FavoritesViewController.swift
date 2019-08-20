@@ -48,7 +48,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
             if let lines = optionalLines {
                 DispatchQueue.main.async {
                     for line in lines {
-                        let image = UIImage(named: "Grey")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate);
+                        let image = UIImage(named: "Grey")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate);
                         if cell.firstLineImageView.image == nil {
                             cell.firstLineImageView.image = image
                             cell.firstLineImageView.tintColor = line.color

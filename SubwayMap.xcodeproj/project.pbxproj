@@ -23,6 +23,14 @@
 		491831D31B69A61700EB8328 /* PredictionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491831D01B69A61700EB8328 /* PredictionTableViewCell.swift */; };
 		491831D41B69A61700EB8328 /* PredictionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */; };
 		491831D51B69A61700EB8328 /* PredictionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */; };
+		49184D9920D2C98900D65C16 /* ChooseTrainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49184D9720D2C98900D65C16 /* ChooseTrainViewController.swift */; };
+		49184D9A20D2C98900D65C16 /* ChooseTrainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49184D9820D2C98900D65C16 /* ChooseTrainViewController.xib */; };
+		49184D9D20D2C9B600D65C16 /* ChooseDirectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49184D9B20D2C9B600D65C16 /* ChooseDirectionViewController.swift */; };
+		49184D9E20D2C9B600D65C16 /* ChooseDirectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49184D9C20D2C9B600D65C16 /* ChooseDirectionViewController.xib */; };
+		49184DA120D2EF2700D65C16 /* RouteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49184D9F20D2EF2700D65C16 /* RouteCollectionViewCell.swift */; };
+		49184DA220D2EF2700D65C16 /* RouteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49184DA020D2EF2700D65C16 /* RouteCollectionViewCell.xib */; };
+		49184DA420D2F42700D65C16 /* RouteCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49184DA320D2F42600D65C16 /* RouteCollectionViewDataSource.swift */; };
+		49184DA620D3035E00D65C16 /* ChooseTrainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49184DA520D3035E00D65C16 /* ChooseTrainViewModel.swift */; };
 		492E7281207EF19200514AC4 /* PDFTouchConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492E7280207EF19200514AC4 /* PDFTouchConverter.swift */; };
 		492E7283207EF58600514AC4 /* Two.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492E7282207EF58600514AC4 /* Two.swift */; };
 		493173031D26D0B5007DDDCE /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5C8B91BE1AB8D00636717 /* FavoritesViewController.swift */; };
@@ -31,6 +39,32 @@
 		493173061D26D0C5007DDDCE /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355AC6B1B94A1B2002F0527 /* FavoritesManager.swift */; };
 		493173081D26D153007DDDCE /* DatabaseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493173071D26D153007DDDCE /* DatabaseLoader.swift */; };
 		493318F520939875006A7151 /* VersionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493318F420939875006A7151 /* VersionChecker.swift */; };
+		4933848F21FA7D8F006C179E /* RouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933848D21FA7D8F006C179E /* RouteTableViewCell.swift */; };
+		4933849021FA7D8F006C179E /* RouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933848D21FA7D8F006C179E /* RouteTableViewCell.swift */; };
+		4933849121FA7D8F006C179E /* RouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933848D21FA7D8F006C179E /* RouteTableViewCell.swift */; };
+		4933849221FA7D8F006C179E /* RouteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4933848E21FA7D8F006C179E /* RouteTableViewCell.xib */; };
+		4933849321FA7D8F006C179E /* RouteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4933848E21FA7D8F006C179E /* RouteTableViewCell.xib */; };
+		4933849421FA7D8F006C179E /* RouteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4933848E21FA7D8F006C179E /* RouteTableViewCell.xib */; };
+		493384A021FB88A4006C179E /* RouteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933849F21FB88A4006C179E /* RouteItem.swift */; };
+		493384A121FB88A4006C179E /* RouteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933849F21FB88A4006C179E /* RouteItem.swift */; };
+		493384A221FB88A4006C179E /* RouteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933849F21FB88A4006C179E /* RouteItem.swift */; };
+		493384A421FB948E006C179E /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493384A321FB948E006C179E /* Functions.swift */; };
+		493384A521FB948E006C179E /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493384A321FB948E006C179E /* Functions.swift */; };
+		493384A621FB948E006C179E /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493384A321FB948E006C179E /* Functions.swift */; };
+		493384A921FB99C3006C179E /* StationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493384A821FB99C3006C179E /* StationItem.swift */; };
+		493384AA21FB99C3006C179E /* StationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493384A821FB99C3006C179E /* StationItem.swift */; };
+		493384AB21FB99C3006C179E /* StationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493384A821FB99C3006C179E /* StationItem.swift */; };
+		493384AE21FBA17B006C179E /* MultiModelTableViewDataSourceSection+Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493384AD21FBA17B006C179E /* MultiModelTableViewDataSourceSection+Items.swift */; };
+		493384AF21FBA17B006C179E /* MultiModelTableViewDataSourceSection+Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493384AD21FBA17B006C179E /* MultiModelTableViewDataSourceSection+Items.swift */; };
+		493384B021FBA17B006C179E /* MultiModelTableViewDataSourceSection+Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493384AD21FBA17B006C179E /* MultiModelTableViewDataSourceSection+Items.swift */; };
+		493384B221FBA384006C179E /* ChooseTrainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49184DA520D3035E00D65C16 /* ChooseTrainViewModel.swift */; };
+		493384B321FBA384006C179E /* ChooseTrainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49184DA520D3035E00D65C16 /* ChooseTrainViewModel.swift */; };
+		493384B421FBA384006C179E /* ChooseTrainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49184DA520D3035E00D65C16 /* ChooseTrainViewModel.swift */; };
+		493384B521FBA384006C179E /* ChooseTrainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49184DA520D3035E00D65C16 /* ChooseTrainViewModel.swift */; };
+		493384B621FBA384006C179E /* ChooseTrainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49184DA520D3035E00D65C16 /* ChooseTrainViewModel.swift */; };
+		493384B821FBA467006C179E /* StationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493384B721FBA467006C179E /* StationSearchViewController.swift */; };
+		493384B921FBA467006C179E /* StationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493384B721FBA467006C179E /* StationSearchViewController.swift */; };
+		493384BA21FBA467006C179E /* StationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493384B721FBA467006C179E /* StationSearchViewController.swift */; };
 		493DC1911B9D0CD700515F4B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 493DC1871B9CD10500515F4B /* libz.dylib */; };
 		4943C4CB1CE117ED004AAED5 /* ParisAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4943C4CA1CE117ED004AAED5 /* ParisAssets.xcassets */; };
 		4943C4CE1CE117ED004AAED5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4943C4CC1CE117ED004AAED5 /* LaunchScreen.storyboard */; };
@@ -62,6 +96,12 @@
 		4943C5021CE11A49004AAED5 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D5359D1B69C44C0087D368 /* MapViewController.xib */; };
 		4943C5081CE12067004AAED5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4943C5071CE12067004AAED5 /* AppDelegate.swift */; };
 		4943C50A1CE121BB004AAED5 /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 4943C4E11CE11969004AAED5 /* gtfs.db.zip */; };
+		4952BC3220D83BBA00426179 /* VisitsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4952BC3120D83BBA00426179 /* VisitsResponse.swift */; };
+		4954BA4120D6CFA200D5F5A7 /* GetVisitsCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4954BA4020D6CFA200D5F5A7 /* GetVisitsCall.swift */; };
+		4954BA4320D6CFBE00D5F5A7 /* ReportVisitCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4954BA4220D6CFBE00D5F5A7 /* ReportVisitCall.swift */; };
+		4954BA4520D748E700D5F5A7 /* NYCServerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4954BA4420D748E700D5F5A7 /* NYCServerConfiguration.swift */; };
+		4954BA4720D7521600D5F5A7 /* Visit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4954BA4620D7521600D5F5A7 /* Visit.swift */; };
+		4954BA4920D7583F00D5F5A7 /* UuidProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4954BA4820D7583F00D5F5A7 /* UuidProvider.swift */; };
 		4978C344208C358600E4ECA7 /* RoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4978C342208C358600E4ECA7 /* RoutesViewController.swift */; };
 		4978C345208C358600E4ECA7 /* RoutesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4978C343208C358600E4ECA7 /* RoutesViewController.xib */; };
 		4978C348208C362A00E4ECA7 /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4978C346208C362A00E4ECA7 /* RouteViewController.swift */; };
@@ -80,6 +120,7 @@
 		499EC9981BEAA701004A1553 /* LineChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499EC9951BEA947C004A1553 /* LineChoiceView.xib */; };
 		499EC99A1BEABE7F004A1553 /* LineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EC9991BEABE7F004A1553 /* LineViewModel.swift */; };
 		499EC99B1BEABE7F004A1553 /* LineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499EC9991BEABE7F004A1553 /* LineViewModel.swift */; };
+		49AFF6AD20D6C102001CD7C3 /* NYCDirectionNameProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AFF6AC20D6C102001CD7C3 /* NYCDirectionNameProvider.swift */; };
 		49B5C8BB1BE1AB8D00636717 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5C8B91BE1AB8D00636717 /* FavoritesViewController.swift */; };
 		49B5C8BC1BE1AB8D00636717 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5C8B91BE1AB8D00636717 /* FavoritesViewController.swift */; };
 		49B5C8BD1BE1AB8D00636717 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B5C8BA1BE1AB8D00636717 /* FavoritesViewController.xib */; };
@@ -199,10 +240,25 @@
 		491831471B67321A00EB8328 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		491831D01B69A61700EB8328 /* PredictionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictionTableViewCell.swift; sourceTree = "<group>"; };
 		491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PredictionTableViewCell.xib; sourceTree = "<group>"; };
+		49184D9720D2C98900D65C16 /* ChooseTrainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTrainViewController.swift; sourceTree = "<group>"; };
+		49184D9820D2C98900D65C16 /* ChooseTrainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseTrainViewController.xib; sourceTree = "<group>"; };
+		49184D9B20D2C9B600D65C16 /* ChooseDirectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDirectionViewController.swift; sourceTree = "<group>"; };
+		49184D9C20D2C9B600D65C16 /* ChooseDirectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseDirectionViewController.xib; sourceTree = "<group>"; };
+		49184D9F20D2EF2700D65C16 /* RouteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCollectionViewCell.swift; sourceTree = "<group>"; };
+		49184DA020D2EF2700D65C16 /* RouteCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RouteCollectionViewCell.xib; sourceTree = "<group>"; };
+		49184DA320D2F42600D65C16 /* RouteCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		49184DA520D3035E00D65C16 /* ChooseTrainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTrainViewModel.swift; sourceTree = "<group>"; };
 		492E7280207EF19200514AC4 /* PDFTouchConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFTouchConverter.swift; sourceTree = "<group>"; };
 		492E7282207EF58600514AC4 /* Two.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Two.swift; sourceTree = "<group>"; };
 		493173071D26D153007DDDCE /* DatabaseLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseLoader.swift; sourceTree = "<group>"; };
 		493318F420939875006A7151 /* VersionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionChecker.swift; sourceTree = "<group>"; };
+		4933848D21FA7D8F006C179E /* RouteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTableViewCell.swift; sourceTree = "<group>"; };
+		4933848E21FA7D8F006C179E /* RouteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RouteTableViewCell.xib; sourceTree = "<group>"; };
+		4933849F21FB88A4006C179E /* RouteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteItem.swift; sourceTree = "<group>"; };
+		493384A321FB948E006C179E /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		493384A821FB99C3006C179E /* StationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationItem.swift; sourceTree = "<group>"; };
+		493384AD21FBA17B006C179E /* MultiModelTableViewDataSourceSection+Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MultiModelTableViewDataSourceSection+Items.swift"; sourceTree = "<group>"; };
+		493384B721FBA467006C179E /* StationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSearchViewController.swift; sourceTree = "<group>"; };
 		493DC1871B9CD10500515F4B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		493DC18C1B9CE01B00515F4B /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		493DC18E1B9CEF9200515F4B /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
@@ -215,6 +271,12 @@
 		4943C4DA1CE117ED004AAED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4943C4E11CE11969004AAED5 /* gtfs.db.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = gtfs.db.zip; sourceTree = "<group>"; };
 		4943C5071CE12067004AAED5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4952BC3120D83BBA00426179 /* VisitsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsResponse.swift; sourceTree = "<group>"; };
+		4954BA4020D6CFA200D5F5A7 /* GetVisitsCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVisitsCall.swift; sourceTree = "<group>"; };
+		4954BA4220D6CFBE00D5F5A7 /* ReportVisitCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportVisitCall.swift; sourceTree = "<group>"; };
+		4954BA4420D748E700D5F5A7 /* NYCServerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCServerConfiguration.swift; sourceTree = "<group>"; };
+		4954BA4620D7521600D5F5A7 /* Visit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visit.swift; sourceTree = "<group>"; };
+		4954BA4820D7583F00D5F5A7 /* UuidProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UuidProvider.swift; sourceTree = "<group>"; };
 		4978C342208C358600E4ECA7 /* RoutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesViewController.swift; sourceTree = "<group>"; };
 		4978C343208C358600E4ECA7 /* RoutesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoutesViewController.xib; sourceTree = "<group>"; };
 		4978C346208C362A00E4ECA7 /* RouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +288,7 @@
 		499EC9931BEA9462004A1553 /* LineChoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChoiceView.swift; sourceTree = "<group>"; };
 		499EC9951BEA947C004A1553 /* LineChoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LineChoiceView.xib; sourceTree = "<group>"; };
 		499EC9991BEABE7F004A1553 /* LineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineViewModel.swift; sourceTree = "<group>"; };
+		49AFF6AC20D6C102001CD7C3 /* NYCDirectionNameProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCDirectionNameProvider.swift; sourceTree = "<group>"; };
 		49B5C8B91BE1AB8D00636717 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		49B5C8BA1BE1AB8D00636717 /* FavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 		49B5C8C51BE247C200636717 /* StationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationTableViewCell.swift; sourceTree = "<group>"; };
@@ -373,6 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				491831211B672B6900EB8328 /* AppDelegate.swift */,
+				49AFF6AE20D6CF5F001CD7C3 /* Network */,
 				49F531D21B6D4C2300A9E887 /* Models */,
 				49F531D11B6D400400A9E887 /* Views */,
 				49D5359B1B69C4290087D368 /* Controllers */,
@@ -412,6 +476,33 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4933849521FA91B7006C179E /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				4933849F21FB88A4006C179E /* RouteItem.swift */,
+				493384A821FB99C3006C179E /* StationItem.swift */,
+			);
+			name = Items;
+			sourceTree = "<group>";
+		};
+		493384AC21FBA153006C179E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				493384AD21FBA17B006C179E /* MultiModelTableViewDataSourceSection+Items.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		493384B121FBA378006C179E /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				499EC9991BEABE7F004A1553 /* LineViewModel.swift */,
+				49184DA520D3035E00D65C16 /* ChooseTrainViewModel.swift */,
+				49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */,
+			);
+			name = "View Models";
+			sourceTree = "<group>";
+		};
 		4943C4C21CE117ED004AAED5 /* ParisMap */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,13 +532,26 @@
 				49B5C8C61BE247C200636717 /* StationTableViewCell.xib */,
 				491831D01B69A61700EB8328 /* PredictionTableViewCell.swift */,
 				491831D11B69A61700EB8328 /* PredictionTableViewCell.xib */,
+				4933848D21FA7D8F006C179E /* RouteTableViewCell.swift */,
+				4933848E21FA7D8F006C179E /* RouteTableViewCell.xib */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		49AFF6AE20D6CF5F001CD7C3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4954BA4020D6CFA200D5F5A7 /* GetVisitsCall.swift */,
+				4954BA4220D6CFBE00D5F5A7 /* ReportVisitCall.swift */,
+				4954BA4420D748E700D5F5A7 /* NYCServerConfiguration.swift */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 		49D5359B1B69C4290087D368 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				493384B721FBA467006C179E /* StationSearchViewController.swift */,
 				491831411B672E8C00EB8328 /* StationViewController.swift */,
 				491831421B672E8C00EB8328 /* StationViewController.xib */,
 				49D5359C1B69C44C0087D368 /* MapViewController.swift */,
@@ -462,6 +566,10 @@
 				4978C343208C358600E4ECA7 /* RoutesViewController.xib */,
 				4978C346208C362A00E4ECA7 /* RouteViewController.swift */,
 				4978C347208C362A00E4ECA7 /* RouteViewController.xib */,
+				49184D9720D2C98900D65C16 /* ChooseTrainViewController.swift */,
+				49184D9820D2C98900D65C16 /* ChooseTrainViewController.xib */,
+				49184D9B20D2C9B600D65C16 /* ChooseDirectionViewController.swift */,
+				49184D9C20D2C9B600D65C16 /* ChooseDirectionViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -493,6 +601,8 @@
 				498932CB1BE8441A00BD9183 /* Cells */,
 				499EC9931BEA9462004A1553 /* LineChoiceView.swift */,
 				499EC9951BEA947C004A1553 /* LineChoiceView.xib */,
+				49184D9F20D2EF2700D65C16 /* RouteCollectionViewCell.swift */,
+				49184DA020D2EF2700D65C16 /* RouteCollectionViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -500,14 +610,21 @@
 		49F531D21B6D4C2300A9E887 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				493384B121FBA378006C179E /* View Models */,
+				493384AC21FBA153006C179E /* Extensions */,
+				4933849521FA91B7006C179E /* Items */,
 				8355AC6B1B94A1B2002F0527 /* FavoritesManager.swift */,
-				49F531D91B6D591C00A9E887 /* PredictionViewModel.swift */,
 				49F531DC1B6E9E5B00A9E887 /* DatabaseLoader.swift */,
-				499EC9991BEABE7F004A1553 /* LineViewModel.swift */,
 				49BD7C182075CF8A00BC7343 /* UIColor+Hex.swift */,
 				492E7280207EF19200514AC4 /* PDFTouchConverter.swift */,
 				492E7282207EF58600514AC4 /* Two.swift */,
 				493318F420939875006A7151 /* VersionChecker.swift */,
+				49184DA320D2F42600D65C16 /* RouteCollectionViewDataSource.swift */,
+				49AFF6AC20D6C102001CD7C3 /* NYCDirectionNameProvider.swift */,
+				4954BA4620D7521600D5F5A7 /* Visit.swift */,
+				4954BA4820D7583F00D5F5A7 /* UuidProvider.swift */,
+				4952BC3120D83BBA00426179 /* VisitsResponse.swift */,
+				493384A321FB948E006C179E /* Functions.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -667,18 +784,18 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Thryv;
 				TargetAttributes = {
 					4918311B1B672B6900EB8328 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = HK6WSAR793;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
 					491831301B672B6900EB8328 = {
 						CreatedOnToolsVersion = 6.4;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0940;
 						TestTargetID = 4918311B1B672B6900EB8328;
 					};
 					4943C4C01CE117ED004AAED5 = {
@@ -732,16 +849,20 @@
 				4978C349208C362A00E4ECA7 /* RouteViewController.xib in Resources */,
 				491831D41B69A61700EB8328 /* PredictionTableViewCell.xib in Resources */,
 				49BD7C292075D74800BC7343 /* nav.db.zip in Resources */,
+				4933849221FA7D8F006C179E /* RouteTableViewCell.xib in Resources */,
 				491831291B672B6900EB8328 /* Images.xcassets in Resources */,
 				49BD7C2D2075D75300BC7343 /* subway.pdf in Resources */,
 				49BD7C352077087500BC7343 /* Launch Screen.storyboard in Resources */,
 				491831451B672E8C00EB8328 /* StationViewController.xib in Resources */,
 				49B5C8C91BE247C200636717 /* StationTableViewCell.xib in Resources */,
 				4978C345208C358600E4ECA7 /* RoutesViewController.xib in Resources */,
+				49184D9E20D2C9B600D65C16 /* ChooseDirectionViewController.xib in Resources */,
 				49B5C8BD1BE1AB8D00636717 /* FavoritesViewController.xib in Resources */,
 				49D535A01B69C44C0087D368 /* MapViewController.xib in Resources */,
+				49184D9A20D2C98900D65C16 /* ChooseTrainViewController.xib in Resources */,
 				499EC9961BEA947C004A1553 /* LineChoiceView.xib in Resources */,
 				4997B0291CE180DF00FA0020 /* AdNavigationController.xib in Resources */,
+				49184DA220D2EF2700D65C16 /* RouteCollectionViewCell.xib in Resources */,
 				49BD7C312075D7BA00BC7343 /* gtfs.db.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -777,6 +898,7 @@
 				4943C4F21CE11A41004AAED5 /* PredictionTableViewCell.xib in Resources */,
 				490C57621D2E87BD00087ABD /* FavoritesViewController.xib in Resources */,
 				4997B02B1CE180DF00FA0020 /* AdNavigationController.xib in Resources */,
+				4933849421FA7D8F006C179E /* RouteTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -811,6 +933,7 @@
 				49E7C9B81CADC930006A03F1 /* StationViewController.xib in Resources */,
 				490C57611D2E87BC00087ABD /* FavoritesViewController.xib in Resources */,
 				4997B02A1CE180DF00FA0020 /* AdNavigationController.xib in Resources */,
+				4933849321FA7D8F006C179E /* RouteTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -900,18 +1023,48 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LondonMap/Pods-LondonMap-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FunkyNetwork/FunkyNetwork.framework",
+				"${BUILT_PRODUCTS_DIR}/ISO8601DateFormatter/ISO8601DateFormatter.framework",
+				"${BUILT_PRODUCTS_DIR}/MultiModelTableViewDataSource/MultiModelTableViewDataSource.framework",
+				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
+				"${BUILT_PRODUCTS_DIR}/Prelude/Prelude.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
 				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+				"${BUILT_PRODUCTS_DIR}/SSPullToRefresh/SSPullToRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+				"${BUILT_PRODUCTS_DIR}/ThryvUXComponents/ThryvUXComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/ZipArchive/ZipArchive.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudinary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FunkyNetwork.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ISO8601DateFormatter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MultiModelTableViewDataSource.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prelude.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSPullToRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ThryvUXComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZipArchive.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -970,18 +1123,48 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ParisMapTests/Pods-ParisMapTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FunkyNetwork/FunkyNetwork.framework",
+				"${BUILT_PRODUCTS_DIR}/ISO8601DateFormatter/ISO8601DateFormatter.framework",
+				"${BUILT_PRODUCTS_DIR}/MultiModelTableViewDataSource/MultiModelTableViewDataSource.framework",
+				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
+				"${BUILT_PRODUCTS_DIR}/Prelude/Prelude.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
 				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+				"${BUILT_PRODUCTS_DIR}/SSPullToRefresh/SSPullToRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+				"${BUILT_PRODUCTS_DIR}/ThryvUXComponents/ThryvUXComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/ZipArchive/ZipArchive.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudinary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FunkyNetwork.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ISO8601DateFormatter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MultiModelTableViewDataSource.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prelude.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSPullToRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ThryvUXComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZipArchive.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1014,18 +1197,48 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LondonMapTests/Pods-LondonMapTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FunkyNetwork/FunkyNetwork.framework",
+				"${BUILT_PRODUCTS_DIR}/ISO8601DateFormatter/ISO8601DateFormatter.framework",
+				"${BUILT_PRODUCTS_DIR}/MultiModelTableViewDataSource/MultiModelTableViewDataSource.framework",
+				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
+				"${BUILT_PRODUCTS_DIR}/Prelude/Prelude.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
 				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+				"${BUILT_PRODUCTS_DIR}/SSPullToRefresh/SSPullToRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+				"${BUILT_PRODUCTS_DIR}/ThryvUXComponents/ThryvUXComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/ZipArchive/ZipArchive.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudinary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FunkyNetwork.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ISO8601DateFormatter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MultiModelTableViewDataSource.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prelude.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSPullToRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ThryvUXComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZipArchive.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1073,23 +1286,51 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ParisMap/Pods-ParisMap-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FunkyNetwork/FunkyNetwork.framework",
+				"${BUILT_PRODUCTS_DIR}/ISO8601DateFormatter/ISO8601DateFormatter.framework",
+				"${BUILT_PRODUCTS_DIR}/MultiModelTableViewDataSource/MultiModelTableViewDataSource.framework",
+				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
+				"${BUILT_PRODUCTS_DIR}/Prelude/Prelude.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
 				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+				"${BUILT_PRODUCTS_DIR}/SSPullToRefresh/SSPullToRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/SubwayStations/SubwayStations.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+				"${BUILT_PRODUCTS_DIR}/ThryvUXComponents/ThryvUXComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/ZipArchive/ZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/GTFSStationsParis/GTFSStationsParis.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudinary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FunkyNetwork.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ISO8601DateFormatter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MultiModelTableViewDataSource.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prelude.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSPullToRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SubwayStations.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ThryvUXComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTFSStationsParis.framework",
 			);
@@ -1105,24 +1346,52 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SubwayMap/Pods-SubwayMap-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FunkyNetwork/FunkyNetwork.framework",
 				"${BUILT_PRODUCTS_DIR}/GTFSStations/GTFSStations.framework",
+				"${BUILT_PRODUCTS_DIR}/ISO8601DateFormatter/ISO8601DateFormatter.framework",
+				"${BUILT_PRODUCTS_DIR}/MultiModelTableViewDataSource/MultiModelTableViewDataSource.framework",
+				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
+				"${BUILT_PRODUCTS_DIR}/Prelude/Prelude.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
 				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+				"${BUILT_PRODUCTS_DIR}/SSPullToRefresh/SSPullToRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/SubwayStations/SubwayStations.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+				"${BUILT_PRODUCTS_DIR}/ThryvUXComponents/ThryvUXComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/ZipArchive/ZipArchive.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudinary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FunkyNetwork.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTFSStations.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ISO8601DateFormatter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MultiModelTableViewDataSource.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prelude.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSPullToRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SubwayStations.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ThryvUXComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZipArchive.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1137,20 +1406,50 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Cloudinary/Cloudinary.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FunkyNetwork/FunkyNetwork.framework",
+				"${BUILT_PRODUCTS_DIR}/ISO8601DateFormatter/ISO8601DateFormatter.framework",
+				"${BUILT_PRODUCTS_DIR}/MultiModelTableViewDataSource/MultiModelTableViewDataSource.framework",
+				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
+				"${BUILT_PRODUCTS_DIR}/Prelude/Prelude.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
 				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+				"${BUILT_PRODUCTS_DIR}/SSPullToRefresh/SSPullToRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+				"${BUILT_PRODUCTS_DIR}/ThryvUXComponents/ThryvUXComponents.framework",
 				"${BUILT_PRODUCTS_DIR}/ZipArchive/ZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cloudinary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FunkyNetwork.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ISO8601DateFormatter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MultiModelTableViewDataSource.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prelude.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSPullToRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ThryvUXComponents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
@@ -1233,25 +1532,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49184DA120D2EF2700D65C16 /* RouteCollectionViewCell.swift in Sources */,
+				4954BA4920D7583F00D5F5A7 /* UuidProvider.swift in Sources */,
+				49184DA420D2F42700D65C16 /* RouteCollectionViewDataSource.swift in Sources */,
+				493384AE21FBA17B006C179E /* MultiModelTableViewDataSourceSection+Items.swift in Sources */,
+				4954BA4120D6CFA200D5F5A7 /* GetVisitsCall.swift in Sources */,
+				49184D9920D2C98900D65C16 /* ChooseTrainViewController.swift in Sources */,
+				493384A921FB99C3006C179E /* StationItem.swift in Sources */,
+				4933848F21FA7D8F006C179E /* RouteTableViewCell.swift in Sources */,
 				491831221B672B6900EB8328 /* AppDelegate.swift in Sources */,
 				49B5C8BB1BE1AB8D00636717 /* FavoritesViewController.swift in Sources */,
 				49F531DA1B6D591C00A9E887 /* PredictionViewModel.swift in Sources */,
 				49B5C8C71BE247C200636717 /* StationTableViewCell.swift in Sources */,
 				4997B0261CE180DF00FA0020 /* AdNavigationController.swift in Sources */,
+				493384A421FB948E006C179E /* Functions.swift in Sources */,
+				49184DA620D3035E00D65C16 /* ChooseTrainViewModel.swift in Sources */,
 				49F531DD1B6E9E5B00A9E887 /* DatabaseLoader.swift in Sources */,
 				49BD7C1E2075D1AB00BC7343 /* PDFMapViewController.swift in Sources */,
 				491831431B672E8C00EB8328 /* StationViewController.swift in Sources */,
 				499EC9941BEA9462004A1553 /* LineChoiceView.swift in Sources */,
 				491831D21B69A61700EB8328 /* PredictionTableViewCell.swift in Sources */,
 				49BD7C192075CF8A00BC7343 /* UIColor+Hex.swift in Sources */,
+				4952BC3220D83BBA00426179 /* VisitsResponse.swift in Sources */,
+				493384B821FBA467006C179E /* StationSearchViewController.swift in Sources */,
+				4954BA4720D7521600D5F5A7 /* Visit.swift in Sources */,
+				4954BA4520D748E700D5F5A7 /* NYCServerConfiguration.swift in Sources */,
 				49D5359E1B69C44C0087D368 /* MapViewController.swift in Sources */,
 				493318F520939875006A7151 /* VersionChecker.swift in Sources */,
 				499EC99A1BEABE7F004A1553 /* LineViewModel.swift in Sources */,
+				49184D9D20D2C9B600D65C16 /* ChooseDirectionViewController.swift in Sources */,
+				4954BA4320D6CFBE00D5F5A7 /* ReportVisitCall.swift in Sources */,
 				8355AC6C1B94A1B2002F0527 /* FavoritesManager.swift in Sources */,
 				4978C348208C362A00E4ECA7 /* RouteViewController.swift in Sources */,
 				492E7283207EF58600514AC4 /* Two.swift in Sources */,
 				4978C344208C358600E4ECA7 /* RoutesViewController.swift in Sources */,
+				493384A021FB88A4006C179E /* RouteItem.swift in Sources */,
 				492E7281207EF19200514AC4 /* PDFTouchConverter.swift in Sources */,
+				49AFF6AD20D6C102001CD7C3 /* NYCDirectionNameProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1270,6 +1587,7 @@
 				49D5359F1B69C44C0087D368 /* MapViewController.swift in Sources */,
 				499EC99B1BEABE7F004A1553 /* LineViewModel.swift in Sources */,
 				49B5C8BC1BE1AB8D00636717 /* FavoritesViewController.swift in Sources */,
+				493384B221FBA384006C179E /* ChooseTrainViewModel.swift in Sources */,
 				8355AC6D1B94A1B2002F0527 /* FavoritesManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1283,12 +1601,19 @@
 				4943C4F11CE11A41004AAED5 /* PredictionTableViewCell.swift in Sources */,
 				493173081D26D153007DDDCE /* DatabaseLoader.swift in Sources */,
 				4997B0281CE180DF00FA0020 /* AdNavigationController.swift in Sources */,
+				493384AB21FB99C3006C179E /* StationItem.swift in Sources */,
 				4943C4FD1CE11A48004AAED5 /* MapViewController.swift in Sources */,
 				49BD7C202075D1AB00BC7343 /* PDFMapViewController.swift in Sources */,
+				493384B021FBA17B006C179E /* MultiModelTableViewDataSourceSection+Items.swift in Sources */,
 				493173031D26D0B5007DDDCE /* FavoritesViewController.swift in Sources */,
+				493384A221FB88A4006C179E /* RouteItem.swift in Sources */,
 				493173061D26D0C5007DDDCE /* FavoritesManager.swift in Sources */,
 				4943C4F31CE11A41004AAED5 /* LineChoiceView.swift in Sources */,
+				493384A621FB948E006C179E /* Functions.swift in Sources */,
+				4933849121FA7D8F006C179E /* RouteTableViewCell.swift in Sources */,
 				49BD7C1B2075CF8A00BC7343 /* UIColor+Hex.swift in Sources */,
+				493384B421FBA384006C179E /* ChooseTrainViewModel.swift in Sources */,
+				493384BA21FBA467006C179E /* StationSearchViewController.swift in Sources */,
 				4943C4E61CE11A34004AAED5 /* LineViewModel.swift in Sources */,
 				4943C4E41CE11A34004AAED5 /* PredictionViewModel.swift in Sources */,
 				4943C4FB1CE11A48004AAED5 /* StationViewController.swift in Sources */,
@@ -1304,6 +1629,7 @@
 				4943C5011CE11A49004AAED5 /* MapViewController.swift in Sources */,
 				4943C4F51CE11A42004AAED5 /* StationTableViewCell.swift in Sources */,
 				4943C4D91CE117ED004AAED5 /* ParisMapTests.swift in Sources */,
+				493384B621FBA384006C179E /* ChooseTrainViewModel.swift in Sources */,
 				4943C4F71CE11A42004AAED5 /* PredictionTableViewCell.swift in Sources */,
 				4943C4F91CE11A42004AAED5 /* LineChoiceView.swift in Sources */,
 				4943C4EE1CE11A39004AAED5 /* LineViewModel.swift in Sources */,
@@ -1314,17 +1640,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				493384B321FBA384006C179E /* ChooseTrainViewModel.swift in Sources */,
 				49E7C9B21CADC91A006A03F1 /* StationViewController.swift in Sources */,
 				49E7C9CC1CADC945006A03F1 /* LineViewModel.swift in Sources */,
 				49E7C9BD1CADC93E006A03F1 /* StationTableViewCell.swift in Sources */,
+				493384AF21FBA17B006C179E /* MultiModelTableViewDataSourceSection+Items.swift in Sources */,
+				493384A521FB948E006C179E /* Functions.swift in Sources */,
+				493384AA21FB99C3006C179E /* StationItem.swift in Sources */,
 				4997B0271CE180DF00FA0020 /* AdNavigationController.swift in Sources */,
 				49E7C9BF1CADC93E006A03F1 /* PredictionTableViewCell.swift in Sources */,
 				49BD7C1F2075D1AB00BC7343 /* PDFMapViewController.swift in Sources */,
 				49E7C9C11CADC93E006A03F1 /* LineChoiceView.swift in Sources */,
 				493173041D26D0B6007DDDCE /* FavoritesViewController.swift in Sources */,
 				493173051D26D0C5007DDDCE /* FavoritesManager.swift in Sources */,
+				493384B921FBA467006C179E /* StationSearchViewController.swift in Sources */,
+				493384A121FB88A4006C179E /* RouteItem.swift in Sources */,
 				49E7C9951CADC7E3006A03F1 /* AppDelegate.swift in Sources */,
 				49BD7C1A2075CF8A00BC7343 /* UIColor+Hex.swift in Sources */,
+				4933849021FA7D8F006C179E /* RouteTableViewCell.swift in Sources */,
 				49E7C9CA1CADC945006A03F1 /* PredictionViewModel.swift in Sources */,
 				49E7C9B91CADC930006A03F1 /* MapViewController.swift in Sources */,
 			);
@@ -1339,6 +1672,7 @@
 				49E7C9C51CADC93F006A03F1 /* PredictionTableViewCell.swift in Sources */,
 				49E7C9B51CADC926006A03F1 /* MapViewController.swift in Sources */,
 				49E7C9C71CADC93F006A03F1 /* LineChoiceView.swift in Sources */,
+				493384B521FBA384006C179E /* ChooseTrainViewModel.swift in Sources */,
 				49E7C9C31CADC93F006A03F1 /* StationTableViewCell.swift in Sources */,
 				49E7C9D01CADC946006A03F1 /* LineViewModel.swift in Sources */,
 				49E7C9B31CADC91B006A03F1 /* StationViewController.swift in Sources */,
@@ -1394,14 +1728,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1442,14 +1784,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1481,7 +1831,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Todd Elliot Schrock (RY2U2EZS76)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HK6WSAR793;
@@ -1507,7 +1857,7 @@
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1519,7 +1869,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Thryv Inc (HK6WSAR793)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HK6WSAR793;
@@ -1534,7 +1884,7 @@
 				SWIFT_INCLUDE_PATHS = "/Users/ell/development/ios/apps/subway-ios/SubwayMap/";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1561,7 +1911,7 @@
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SubwayMap.app/SubwayMap";
 			};
 			name = Debug;
@@ -1583,7 +1933,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SubwayMap.app/SubwayMap";
 			};
 			name = Release;
@@ -1599,13 +1949,13 @@
 				DEVELOPMENT_TEAM = PE7EQ66NRS;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = ParisMap/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thryv.ParisMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "44078ad6-5743-4019-805e-610e889d88b0";
 				PROVISIONING_PROFILE_SPECIFIER = Wildcard;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1619,12 +1969,12 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				INFOPLIST_FILE = ParisMap/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thryv.ParisMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "bc5ba302-539f-4cfb-b9a9-0a8b51e07575";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1643,7 +1993,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thryv.ParisMapTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParisMap.app/ParisMap";
 			};
 			name = Debug;
@@ -1660,7 +2010,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thryv.ParisMapTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParisMap.app/ParisMap";
 			};
 			name = Release;
@@ -1674,7 +2024,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = LondonMap/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thryv.LondonMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1688,7 +2038,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LondonMap/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thryv.LondonMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";

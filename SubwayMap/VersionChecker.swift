@@ -14,11 +14,11 @@ class VersionChecker {
         let bundleComponents = bundleVersion.components(separatedBy: ".")
         let versionCompenents = version.components(separatedBy: ".")
         if bundleComponents.count == versionCompenents.count {
-            for i in 0...bundleComponents.count {
+            for i in 0...bundleComponents.count - 1 {
                 let bundleComponent = Int(bundleComponents[i]) ?? 0
                 let versionComponent = Int(versionCompenents[i]) ?? 0
                 
-                if versionComponent > bundleComponent {
+                if versionComponent < bundleComponent {
                     return true
                 }
             }

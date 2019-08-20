@@ -1,5 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, '10.0'
 use_frameworks!
 
 def import_pods
@@ -10,6 +10,8 @@ def import_pods
     pod 'Fabric'
     pod 'Google-Mobile-Ads-SDK'
     pod 'Crashlytics'
+    pod 'SQLite.swift', '0.11.4'
+    pod 'ThryvUXComponents', git: 'https://github.com/ThryvInc/thryv-ux-components'
 end
 
 target 'SubwayMap' do

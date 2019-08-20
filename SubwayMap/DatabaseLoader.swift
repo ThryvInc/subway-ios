@@ -14,6 +14,7 @@ import ZipArchive
 class DatabaseLoader: NSObject {
     static var isDatabaseReady: Bool = false
     static var stationManager: StationManager!
+    static var navManager: StationManager!
     static let NYCDatabaseLoadedNotification = "NYCDatabaseLoadedNotification"
     static var documentsDirectory: String {
         return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] 
@@ -21,35 +22,54 @@ class DatabaseLoader: NSObject {
     static var destinationPath: String {
         return self.documentsDirectory + "/" + "gtfs.db"
     }
+    static var navDbDestinationPath: String {
+        return self.documentsDirectory + "/" + "nav.db"
+    }
     
     class func loadDb() {
         unzipDBToDocDirectoryIfNeeded()
         do {
             stationManager = try NYCStationManager(sourceFilePath: destinationPath)
+            navManager = try NYCStationManager(sourceFilePath: navDbDestinationPath)
             DispatchQueue.main.async (execute: { () -> Void in
                 self.isDatabaseReady = true
                 NotificationCenter.default.post(name: Notification.Name(rawValue: self.NYCDatabaseLoadedNotification), object: nil)
             })
-        }catch let error as NSError{
+        }catch let error as NSError {
             print(error.debugDescription)
         }
     }
     
     class func unzipDBToDocDirectoryIfNeeded(){
-        var shouldUnzip = !FileManager.default.fileExists(atPath: destinationPath)
-        if let storedVersion = UserDefaults.standard.string(forKey: "version") {
+        if shouldUnzip(defaultsKey: "version", path: destinationPath) {
+            unzipScheduleToDocDirectory()
+        }
+        if shouldUnzip(defaultsKey: "nav_version", path: navDbDestinationPath) {
+            unzipNavToDocDirectory()
+        }
+    }
+    
+    class func shouldUnzip(defaultsKey: String, path: String) -> Bool {
+        var shouldUnzip = !FileManager.default.fileExists(atPath: path)
+        if let storedVersion = UserDefaults.standard.string(forKey: defaultsKey) {
             shouldUnzip = shouldUnzip || VersionChecker.isNewVersion(version: storedVersion)
         } else {
             shouldUnzip = true
         }
         
-        if shouldUnzip {
-            unzipDBToDocDirectory()
-        }
+        return shouldUnzip
     }
     
-    class func unzipDBToDocDirectory(){
-        let sourcePath = Bundle.main.path(forResource: "gtfs.db", ofType: "zip")
+    class func unzipScheduleToDocDirectory() {
+        unzipDBToDocDirectory(resourceName: "gtfs.db", destination: destinationPath, defaultsKey: "version")
+    }
+    
+    class func unzipNavToDocDirectory() {
+        unzipDBToDocDirectory(resourceName: "nav.db", destination: navDbDestinationPath, defaultsKey: "nav_version")
+    }
+    
+    class func unzipDBToDocDirectory(resourceName: String, destination: String, defaultsKey: String){
+        let sourcePath = Bundle.main.path(forResource: resourceName, ofType: "zip")
         var error: NSError?
         let unzipper = ZipArchive()
         unzipper.unzipOpenFile(sourcePath)
@@ -61,6 +81,6 @@ class DatabaseLoader: NSObject {
             error = error1
         }
         
-        UserDefaults.standard.set(VersionChecker.bundleVersion(), forKey: "version")
+        UserDefaults.standard.set(VersionChecker.bundleVersion(), forKey: defaultsKey)
     }
 }

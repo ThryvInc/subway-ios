@@ -12,14 +12,14 @@ class PredictionTableViewCell: UITableViewCell {
     @IBOutlet weak var routeImage: UIImageView!
     @IBOutlet weak var routeLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var onDeckLabel: UILabel!
-    @IBOutlet weak var inTheHoleLabel: UILabel!
     @IBOutlet weak var deltaLabel: UILabel!
-    @IBOutlet weak var routeLabelOffset: NSLayoutConstraint!
-
+    @IBOutlet weak var visitImageView: UIImageView!
+    @IBOutlet weak var visitLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        routeLabel.layer.cornerRadius = 18
+        routeLabel.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -21,13 +21,13 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   }
 }
 
-
 class PredictionViewModel: NSObject {
     var routeId: String!
     var direction: Direction!
     var prediction: Prediction!
     var onDeckPrediction: Prediction?
     var inTheHolePrediction: Prediction?
+    var visits: [Visit]?
    
     init(routeId: String!, direction: Direction!) {
         self.routeId = routeId
@@ -36,7 +36,7 @@ class PredictionViewModel: NSObject {
     
     func setupWithPredictions(_ predictions: [Prediction]!){
         var relevantPredictions = predictions.filter({(prediction) -> Bool in
-            return prediction.direction == self.direction && prediction.route!.objectId == self.routeId
+            return prediction.direction!.rawValue == self.direction!.rawValue && prediction.route!.objectId == self.routeId
         })
         
         relevantPredictions.sort { $0.secondsToArrival < $1.secondsToArrival }
