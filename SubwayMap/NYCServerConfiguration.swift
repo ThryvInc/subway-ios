@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FunkyNetwork
+import FunNet
 
 class NYCServerConfiguration: NSObject {
     static let production = ServerConfiguration(host: "nyc-subway.herokuapp.com", apiRoute: "api/v3")

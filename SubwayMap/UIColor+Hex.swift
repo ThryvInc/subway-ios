@@ -8,16 +8,16 @@
 
 import UIKit
 
-extension UIColor {
-    open static func primary() -> UIColor {
+public extension UIColor {
+    static func primary() -> UIColor {
         return uicolorFromHex(rgbValue: 0x4d55a2)
     }
     
-    open static func primaryDark() -> UIColor {
+    static func primaryDark() -> UIColor {
         return uicolorFromHex(rgbValue: 0x333972)
     }
     
-    open static func accent() -> UIColor {
+    static func accent() -> UIColor {
         return uicolorFromHex(rgbValue: 0xdf03a6)
     }
     

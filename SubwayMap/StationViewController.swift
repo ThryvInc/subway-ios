@@ -6,10 +6,12 @@
 //  Copyright (c) 2015 Thryv. All rights reserved.
 //
 
-import UIKit
+import LUX
+import LithoOperators
 import SubwayStations
 import GTFSStations
 import CoreGraphics
+import Combine
 
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
@@ -58,7 +60,7 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
     var lineViews = [LineChoiceView]()
     var favManager: FavoritesManager!
     var loading = false
-    var visitsCall: GetVisitsCall?
+    var visitsCall: CombineNetCall?
     var visits: [Visit]? {
         didSet {
             if let visits = visits {
@@ -76,16 +78,21 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
     }
+    private var cancelBag = Set<AnyCancellable?>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let routeIds = nycStationManager?.routeIdsForStation(station)
         let filters = "current_station_ids=\(station.stops.map{ $0.objectId }.joined(separator: ","))&route_ids=\(routeIds!.joined(separator: ","))&after=\(DateFormatter.iso8601Full.string(from: Calendar.current.date(byAdding: .minute, value: -5, to: Date())!.addingTimeInterval(TimeInterval(TimeZone.current.secondsFromGMT()))))"
-        visitsCall = GetVisitsCall(filters: filters)
-        visitsCall?.visitsSignal.observeValues { visits in
+        visitsCall = getVisitsCall(filters: filters)
+        let visitsPub: AnyPublisher<[Visit], Never>? = unwrappedModelPublisher(from: visitsCall?.responder?.$data.eraseToAnyPublisher(), ^\VisitsResponse.visits)
+        cancelBag.insert(visitsPub?.sink { (visits) in
             self.visits = visits
-        }
+        })
+//        visitsCall?.visitsSignal.observeValues { visits in
+//            self.visits = visits
+//        }
         visitsCall?.fire()
         
         view.backgroundColor = UIColor.primaryDark()

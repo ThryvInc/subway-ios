@@ -6,8 +6,9 @@
 //  Copyright © 2018 Thryv. All rights reserved.
 //
 
-import UIKit
+import LUX
 import SubwayStations
+import Combine
 
 class ChooseDirectionViewController: UIViewController {
     @IBOutlet weak var leftImageView: UIImageView!
@@ -18,7 +19,8 @@ class ChooseDirectionViewController: UIViewController {
     var station: Station!
     var stationManager: StationManager!
     var routeId: String!
-    var reportCall: ReportVisitCall?
+    var reportCall: CombineNetCall?
+    private var cancelBag = Set<AnyCancellable?>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,8 +61,8 @@ class ChooseDirectionViewController: UIViewController {
         visit.directionId = direction
         visit.routeId = routeId
         visit.stationId = station.stops.first?.objectId
-        reportCall = ReportVisitCall(visit: visit)
-        reportCall?.httpResponseSignal.observeValues({ (_) in
+        reportCall = reportVisitCall(visit: visit)
+        cancelBag.insert(reportCall?.responder?.$httpResponse.sink { _ in
             self.thankYou()
         })
         reportCall?.fire()

@@ -20,7 +20,7 @@ class FavoritesManager: NSObject {
         self.stationManager = stationManager
         self.favoriteIds = []
 
-        if let names = UserDefaults.standard.stringArray(forKey: defaultsKey) as [String]! {
+        if let names = UserDefaults.standard.stringArray(forKey: defaultsKey) {
             self.favoriteIds = names
         }
         

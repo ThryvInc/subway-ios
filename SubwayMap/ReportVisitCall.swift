@@ -6,14 +6,22 @@
 //  Copyright © 2018 Thryv. All rights reserved.
 //
 
-import UIKit
-import FunkyNetwork
+import LUX
+import FunNet
+import Combine
+import LithoOperators
+import Prelude
 
-class ReportVisitCall: JsonNetworkCall {
-    
-    init(configuration: ServerConfigurationProtocol = NYCServerConfiguration.current, stubHolder: StubHolderProtocol? = nil, visit: Visit) {
-        let data = try? JSONEncoder().encode(visit)
-        super.init(configuration: configuration, httpMethod: "POST", endpoint: "visits", postData: data, stubHolder: stubHolder)
-    }
-
+func reportVisitCall(_ serverConfig: ServerConfigurationProtocol = NYCServerConfiguration.current, visit: Visit) -> CombineNetCall {
+    var endpoint = Endpoint()
+    endpoint.path = "visits"
+    endpoint /> setToPost
+    endpoint /> addJsonHeaders
+    endpoint.postData = LUXJsonProvider.encode(VisitWrapper(visit: visit))
+    return CombineNetCall(configuration: serverConfig, endpoint)
 }
+
+struct VisitWrapper {
+    let visit: Visit
+}
+extension VisitWrapper: Codable {}

@@ -12,6 +12,7 @@ import SubwayStations
 import SBTextInputView
 import MultiModelTableViewDataSource
 import Prelude
+import PlaygroundVCHelpers
 
 class PDFMapViewController: StationSearchViewController, UITableViewDelegate {
     @IBOutlet weak var pdfView: PDFView!
@@ -55,6 +56,7 @@ class PDFMapViewController: StationSearchViewController, UITableViewDelegate {
         pdfView.documentView?.addGestureRecognizer(doubleTap)
         
         setupFavoritesButton()
+        setupVisitsButton()
         
         tableView.delegate = self
         tableView.tableFooterView = UIView() //removes cell separators between empty cells
@@ -93,6 +95,30 @@ class PDFMapViewController: StationSearchViewController, UITableViewDelegate {
         }
     }
     
+    func setupVisitsButton() {
+        let visitsButton = UIButton()
+        visitsButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        visitsButton.setImage(UIImage(named: "eye_white")?.withRenderingMode(.alwaysOriginal), for: UIControl.State())
+        visitsButton.addTarget(self, action: #selector(PDFMapViewController.openVisits), for: .touchUpInside)
+        
+        let visitsBarButton = UIBarButtonItem()
+        visitsBarButton.customView = visitsButton
+        if var items = self.navigationItem.rightBarButtonItems {
+            items.append(visitsBarButton)
+            self.navigationItem.rightBarButtonItems = items
+        }
+    }
+    
+    @objc func openVisits() {
+        let barButton = UIBarButtonItem()
+        barButton.title = ""
+        navigationItem.backBarButtonItem = barButton
+        
+        let visitsVC = userReportsVC(stationManager)
+//        visits.stationManager = stationManager
+        navigationController?.pushViewController(visitsVC, animated: true)
+    }
+    
     func setupFavoritesButton() {
         let favButton = UIButton()
         favButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
@@ -102,7 +128,7 @@ class PDFMapViewController: StationSearchViewController, UITableViewDelegate {
         
         let favBarButton = UIBarButtonItem()
         favBarButton.customView = favButton
-        self.navigationItem.rightBarButtonItem = favBarButton
+        self.navigationItem.rightBarButtonItems = [favBarButton]
     }
     
     @objc func openFavorites() {

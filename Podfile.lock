@@ -1,24 +1,10 @@
 PODS:
-  - Alamofire (4.8.1)
-  - Bolts (1.9.0):
-    - Bolts/AppLinks (= 1.9.0)
-    - Bolts/Tasks (= 1.9.0)
-  - Bolts/AppLinks (1.9.0):
-    - Bolts/Tasks
-  - Bolts/Tasks (1.9.0)
-  - Cloudinary (2.6.1):
-    - Alamofire (~> 4.8.1)
   - Crashlytics (3.12.0):
     - Fabric (~> 1.9.0)
   - Fabric (1.9.0)
-  - FBSDKCoreKit (4.40.0):
-    - Bolts (~> 1.9)
-  - FBSDKLoginKit (4.40.0):
-    - FBSDKCoreKit
-  - FunkyNetwork (0.1.10):
+  - FunNet (0.0.1):
+    - LithoOperators
     - OHHTTPStubs/Swift
-    - Prelude (~> 3.0)
-    - ReactiveSwift
   - Google-Mobile-Ads-SDK (7.38.0)
   - GTFSStations (0.4.0):
     - SQLite.swift
@@ -27,26 +13,33 @@ PODS:
     - SQLite.swift
     - SubwayStations
   - ISO8601DateFormatter (0.8)
-  - MultiModelTableViewDataSource (0.0.3)
+  - LithoOperators (0.0.8):
+    - Prelude
+  - LUX (0.0.3):
+    - FunNet
+    - ISO8601DateFormatter
+    - MultiModelTableViewDataSource
+    - Prelude (~> 3.0)
+    - SSPullToRefresh
+    - THUXAuth
+  - MultiModelTableViewDataSource (0.0.8)
   - Nimble (7.3.3)
-  - OHHTTPStubs/Core (6.1.0)
-  - OHHTTPStubs/Default (6.1.0):
+  - OHHTTPStubs/Core (8.0.0)
+  - OHHTTPStubs/Default (8.0.0):
     - OHHTTPStubs/Core
     - OHHTTPStubs/JSON
     - OHHTTPStubs/NSURLSession
     - OHHTTPStubs/OHPathHelpers
-  - OHHTTPStubs/JSON (6.1.0):
+  - OHHTTPStubs/JSON (8.0.0):
     - OHHTTPStubs/Core
-  - OHHTTPStubs/NSURLSession (6.1.0):
+  - OHHTTPStubs/NSURLSession (8.0.0):
     - OHHTTPStubs/Core
-  - OHHTTPStubs/OHPathHelpers (6.1.0)
-  - OHHTTPStubs/Swift (6.1.0):
+  - OHHTTPStubs/OHPathHelpers (8.0.0)
+  - OHHTTPStubs/Swift (8.0.0):
     - OHHTTPStubs/Default
+  - PlaygroundVCHelpers (0.0.2)
   - Prelude (3.0.0)
   - Quick (1.3.4)
-  - ReactiveSwift (4.0.0):
-    - Result (~> 4.0)
-  - Result (4.1.0)
   - SBCategories (0.1.1)
   - SBNag.swift (0.0.2):
     - SwiftDate
@@ -57,71 +50,104 @@ PODS:
   - SSPullToRefresh (1.3.0)
   - SubwayStations (0.2.2)
   - SwiftDate (5.1.0)
-  - ThryvUXComponents (0.0.1):
-    - Cloudinary
-    - FBSDKLoginKit
-    - FunkyNetwork
-    - ISO8601DateFormatter
-    - MultiModelTableViewDataSource
-    - Prelude (~> 3.0)
-    - SSPullToRefresh
+  - THUXAuth (0.1.0)
   - ZipArchive (1.4.0)
 
 DEPENDENCIES:
   - Crashlytics
   - Fabric
+  - FunNet (from `https://github.com/schrockblock/funnet`)
   - Google-Mobile-Ads-SDK
   - GTFSStations (from `https://github.com/schrockblock/gtfs-stations`, branch `develop`)
   - GTFSStationsParis (from `https://github.com/schrockblock/gtfs-stations-paris`)
+  - LithoOperators (from `https://github.com/ThryvInc/LithoOperators`)
+  - LUX (from `https://github.com/ThryvInc/LUX`)
   - Nimble
+  - PlaygroundVCHelpers (from `https://github.com/ThryvInc/playground-vc-helpers`)
   - Quick
   - SBCategories
   - SBNag.swift
   - SBTextInputView
   - SQLite.swift (= 0.11.4)
-  - ThryvUXComponents (from `https://github.com/ThryvInc/thryv-ux-components`)
+  - THUXAuth (from `https://github.com/ThryvInc/thux-auth`)
   - ZipArchive
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Crashlytics
+    - Fabric
+    - Google-Mobile-Ads-SDK
+    - ISO8601DateFormatter
+    - MultiModelTableViewDataSource
+    - Nimble
+    - OHHTTPStubs
+    - Prelude
+    - Quick
+    - SBCategories
+    - SBNag.swift
+    - SBTextInputView
+    - SQLite.swift
+    - SSPullToRefresh
+    - SubwayStations
+    - SwiftDate
+    - ZipArchive
+
 EXTERNAL SOURCES:
+  FunNet:
+    :git: https://github.com/schrockblock/funnet
   GTFSStations:
     :branch: develop
     :git: https://github.com/schrockblock/gtfs-stations
   GTFSStationsParis:
     :git: https://github.com/schrockblock/gtfs-stations-paris
-  ThryvUXComponents:
-    :git: https://github.com/ThryvInc/thryv-ux-components
+  LithoOperators:
+    :git: https://github.com/ThryvInc/LithoOperators
+  LUX:
+    :git: https://github.com/ThryvInc/LUX
+  PlaygroundVCHelpers:
+    :git: https://github.com/ThryvInc/playground-vc-helpers
+  THUXAuth:
+    :git: https://github.com/ThryvInc/thux-auth
 
 CHECKOUT OPTIONS:
+  FunNet:
+    :commit: 3e133558ba2f0914e63f812abc94611a03242a75
+    :git: https://github.com/schrockblock/funnet
   GTFSStations:
     :commit: 9753373babea642f2733f531ebb82f4c37a75510
     :git: https://github.com/schrockblock/gtfs-stations
   GTFSStationsParis:
     :commit: 426296b888715bcc9f24de2bd994af6b4f0e9615
     :git: https://github.com/schrockblock/gtfs-stations-paris
-  ThryvUXComponents:
-    :commit: 6b0e276818175620b4ce4dbf5a760d5add1179ec
-    :git: https://github.com/ThryvInc/thryv-ux-components
+  LithoOperators:
+    :commit: b8f5f4916304d6d64e8652b0a5a3297bedb91f48
+    :git: https://github.com/ThryvInc/LithoOperators
+  LUX:
+    :commit: b3e74bb1c97ad294583e2d8fa245d17ab774bbce
+    :git: https://github.com/ThryvInc/LUX
+  PlaygroundVCHelpers:
+    :commit: 1b1f5ed572a1965e1d52bbc1b21f3796a6f144e2
+    :git: https://github.com/ThryvInc/playground-vc-helpers
+  THUXAuth:
+    :commit: 85218d0b78dba3c2fee80409113c7d11c6f985ba
+    :git: https://github.com/ThryvInc/thux-auth
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
-  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  Cloudinary: a13a1b1137dc1ab625aa9d2d0c4b56171bb971a9
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
-  FBSDKCoreKit: ae214474b25033399c131dc81d258e412582a2ba
-  FBSDKLoginKit: 7a1e411d46acc8834588eca437daf34de42e1d52
-  FunkyNetwork: 4473963af524d2fe1bbdb7578df160fb2dbdefe9
+  FunNet: 782eb82ce25a8a0499eef8533edbc192817a0b33
   Google-Mobile-Ads-SDK: fec4a72b71a81302d3fd75454df3417c03c50ed5
   GTFSStations: 49feede7a191bac72c36d16cc1ee39fec7976cac
   GTFSStationsParis: 8ec71e6900c8540fde9cd8e746667255e180cd74
   ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
-  MultiModelTableViewDataSource: cab335fcc0ea4ee6513429908d65677545c5e407
+  LithoOperators: 450ca7e2e49a2d707bb29d56493e80e033fc88c0
+  LUX: 79a25b56a09f272b0491e2197fdc2fbf048ed12f
+  MultiModelTableViewDataSource: 798f682408933a269de09e5c73b54cd5cb86b851
   Nimble: 3b434b1e7d0a92603a13550a82880b0d952f518e
-  OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
+  OHHTTPStubs: 9cbce6364bec557cc3439aa6bb7514670d780881
+  PlaygroundVCHelpers: c7cc8994d2851ebd1590217101b4c6888d1c9cc8
   Prelude: fe4cc0fd961d34edf48fe6b04d05c863449efb0a
   Quick: f4f7f063c524394c73ed93ac70983c609805d481
-  ReactiveSwift: a2bb9ace428a109e9c0209615645d9d286c8c433
-  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SBCategories: a2a126ee06eeacaac02d5e68533cd9de1b9bf1cc
   SBNag.swift: 57ae1aa7799765e2452aaa02f97ee1aca0ed396d
   SBTextInputView: 5123a3992aea198a13a514d1721c70a2a3bd57ac
@@ -129,9 +155,9 @@ SPEC CHECKSUMS:
   SSPullToRefresh: 3a47e116692b60e7da5a8c60418488133bcc9550
   SubwayStations: c902ac2c33734c71d24eb8f994d45406c3475602
   SwiftDate: 6329e58969a2de31cea7f1ee1143b247693196e7
-  ThryvUXComponents: 8a95f74e9702a5cff0c91adccf7fc9f28834bb41
+  THUXAuth: 3d5cfdca13a9c7d1093bb8a5663d96c6a9ce3179
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
 
-PODFILE CHECKSUM: 2690f7ecd7fb101372410554536edf1848741464
+PODFILE CHECKSUM: 80a2102d4e0a6e68bbdcd684788810ab2b16c5e5
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.7.2

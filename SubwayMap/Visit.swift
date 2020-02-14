@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Visit: NSObject, Codable {
+public class Visit: Codable {
     var stationId: String?
     var routeId: String?
     var directionId: Int? = 2
@@ -17,20 +17,8 @@ class Visit: NSObject, Codable {
     var isAuto: Bool? = false
     var platform: String? = "ios"
     var time: String? = DateFormatter.iso8601Seconds.string(from: Date().addingTimeInterval(TimeInterval(TimeZone.current.secondsFromGMT())))
-    var uuidIdentifier: String? = UuidProvider.fetch()
+    var identifier: String? = UuidProvider.fetch()
     var numberOfStopsBetween: Int64? = -1
-    
-    enum CodingKeys: String, CodingKey {
-        case latitude
-        case uuidIdentifier = "identifier"
-        case routeId = "route_id"
-        case isAuto = "is_auto"
-        case platform
-        case directionId = "direction_id"
-        case longitude
-        case time
-        case stationId = "station_id"
-    }
 }
 
 extension Visit {
