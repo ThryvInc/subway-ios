@@ -1,45 +1,93 @@
 PODS:
-  - Crashlytics (3.12.0):
-    - Fabric (~> 1.9.0)
-  - Fabric (1.9.0)
-  - FunNet (0.0.1):
+  - Crashlytics (3.14.0):
+    - Fabric (~> 1.10.2)
+  - Fabric (1.10.2)
+  - FlexDataSource (0.1.0)
+  - FunNet/Combine (0.0.1):
+    - FunNet/Core
     - LithoOperators
-    - OHHTTPStubs/Swift
-  - Google-Mobile-Ads-SDK (7.38.0)
+  - FunNet/Core (0.0.1):
+    - LithoOperators
+  - Google-Mobile-Ads-SDK (7.58.0):
+    - GoogleAppMeasurement (~> 6.0)
+  - GoogleAppMeasurement (6.4.1):
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
+    - nanopb (= 0.3.9011)
+  - GoogleUtilities/AppDelegateSwizzler (6.5.2):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (6.5.2)
+  - GoogleUtilities/Logger (6.5.2):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (6.5.2):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (6.5.2):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (6.5.2)"
+  - GoogleUtilities/Reachability (6.5.2):
+    - GoogleUtilities/Logger
   - GTFSStations (0.4.0):
     - SQLite.swift
     - SubwayStations
   - GTFSStationsParis (0.0.3):
     - SQLite.swift
     - SubwayStations
-  - ISO8601DateFormatter (0.8)
-  - LithoOperators (0.0.8):
+  - LithoOperators (0.0.11):
     - Prelude
-  - LUX (0.0.3):
-    - FunNet
-    - ISO8601DateFormatter
-    - MultiModelTableViewDataSource
+  - LUX (0.1.1):
+    - LUX/AppOpenFlow (= 0.1.1)
+    - LUX/Auth (= 0.1.1)
+    - LUX/Base (= 0.1.1)
+    - LUX/BaseAppOpenFlow (= 0.1.1)
+    - LUX/BaseFunctional (= 0.1.1)
+    - LUX/BaseNetworking (= 0.1.1)
+    - LUX/BaseTableViews (= 0.1.1)
+    - LUX/Networking (= 0.1.1)
+    - LUX/Search (= 0.1.1)
+    - LUX/TableViews (= 0.1.1)
+    - LUX/Utilities (= 0.1.1)
+  - LUX/AppOpenFlow (0.1.1):
+    - LUX/Auth
+    - LUX/Networking
+  - LUX/Auth (0.1.1)
+  - LUX/Base (0.1.1):
+    - FlexDataSource
+    - FunNet/Core
+    - LithoOperators
     - Prelude (~> 3.0)
-    - SSPullToRefresh
-    - THUXAuth
-  - MultiModelTableViewDataSource (0.0.8)
-  - Nimble (7.3.3)
-  - OHHTTPStubs/Core (8.0.0)
-  - OHHTTPStubs/Default (8.0.0):
-    - OHHTTPStubs/Core
-    - OHHTTPStubs/JSON
-    - OHHTTPStubs/NSURLSession
-    - OHHTTPStubs/OHPathHelpers
-  - OHHTTPStubs/JSON (8.0.0):
-    - OHHTTPStubs/Core
-  - OHHTTPStubs/NSURLSession (8.0.0):
-    - OHHTTPStubs/Core
-  - OHHTTPStubs/OHPathHelpers (8.0.0)
-  - OHHTTPStubs/Swift (8.0.0):
-    - OHHTTPStubs/Default
+  - LUX/BaseAppOpenFlow (0.1.1):
+    - LUX/BaseFunctional
+  - LUX/BaseFunctional (0.1.1)
+  - LUX/BaseNetworking (0.1.1):
+    - FunNet/Core
+    - LUX/Auth
+  - LUX/BaseTableViews (0.1.1):
+    - FlexDataSource
+    - LUX/BaseFunctional
+  - LUX/Networking (0.1.1):
+    - FunNet/Combine
+    - LUX/BaseNetworking
+  - LUX/Search (0.1.1):
+    - LUX/TableViews
+  - LUX/TableViews (0.1.1):
+    - LUX/BaseTableViews
+  - LUX/Utilities (0.1.1):
+    - Prelude (~> 3.0)
+  - nanopb (0.3.9011):
+    - nanopb/decode (= 0.3.9011)
+    - nanopb/encode (= 0.3.9011)
+  - nanopb/decode (0.3.9011)
+  - nanopb/encode (0.3.9011)
+  - Nimble (8.0.7)
   - PlaygroundVCHelpers (0.0.2)
   - Prelude (3.0.0)
-  - Quick (1.3.4)
+  - Quick (2.2.0)
   - SBCategories (0.1.1)
   - SBNag.swift (0.0.2):
     - SwiftDate
@@ -47,16 +95,15 @@ PODS:
   - SQLite.swift (0.11.4):
     - SQLite.swift/standard (= 0.11.4)
   - SQLite.swift/standard (0.11.4)
-  - SSPullToRefresh (1.3.0)
   - SubwayStations (0.2.2)
-  - SwiftDate (5.1.0)
-  - THUXAuth (0.1.0)
+  - SwiftDate (6.1.0)
   - ZipArchive (1.4.0)
 
 DEPENDENCIES:
   - Crashlytics
   - Fabric
-  - FunNet (from `https://github.com/schrockblock/funnet`)
+  - FlexDataSource (from `https://github.com/ThryvInc/flex-data-source`)
+  - FunNet/Combine (from `https://github.com/schrockblock/funnet`)
   - Google-Mobile-Ads-SDK
   - GTFSStations (from `https://github.com/schrockblock/gtfs-stations`, branch `develop`)
   - GTFSStationsParis (from `https://github.com/schrockblock/gtfs-stations-paris`)
@@ -69,30 +116,30 @@ DEPENDENCIES:
   - SBNag.swift
   - SBTextInputView
   - SQLite.swift (= 0.11.4)
-  - THUXAuth (from `https://github.com/ThryvInc/thux-auth`)
   - ZipArchive
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Crashlytics
     - Fabric
     - Google-Mobile-Ads-SDK
-    - ISO8601DateFormatter
-    - MultiModelTableViewDataSource
+    - GoogleAppMeasurement
+    - GoogleUtilities
+    - nanopb
     - Nimble
-    - OHHTTPStubs
     - Prelude
     - Quick
     - SBCategories
     - SBNag.swift
     - SBTextInputView
     - SQLite.swift
-    - SSPullToRefresh
     - SubwayStations
     - SwiftDate
     - ZipArchive
 
 EXTERNAL SOURCES:
+  FlexDataSource:
+    :git: https://github.com/ThryvInc/flex-data-source
   FunNet:
     :git: https://github.com/schrockblock/funnet
   GTFSStations:
@@ -106,58 +153,55 @@ EXTERNAL SOURCES:
     :git: https://github.com/ThryvInc/LUX
   PlaygroundVCHelpers:
     :git: https://github.com/ThryvInc/playground-vc-helpers
-  THUXAuth:
-    :git: https://github.com/ThryvInc/thux-auth
 
 CHECKOUT OPTIONS:
+  FlexDataSource:
+    :commit: 327c48129a20906c978b9420473cd35779fccf7e
+    :git: https://github.com/ThryvInc/flex-data-source
   FunNet:
-    :commit: 3e133558ba2f0914e63f812abc94611a03242a75
+    :commit: 421395a64a5e70853dde6c1c9f59ea762a4ad1cf
     :git: https://github.com/schrockblock/funnet
   GTFSStations:
-    :commit: 9753373babea642f2733f531ebb82f4c37a75510
+    :commit: 10a91b178cc3e5594072a025733d040316b9cd63
     :git: https://github.com/schrockblock/gtfs-stations
   GTFSStationsParis:
     :commit: 426296b888715bcc9f24de2bd994af6b4f0e9615
     :git: https://github.com/schrockblock/gtfs-stations-paris
   LithoOperators:
-    :commit: b8f5f4916304d6d64e8652b0a5a3297bedb91f48
+    :commit: 25fe2f11b4ee42a0046b4c68857b30d513647124
     :git: https://github.com/ThryvInc/LithoOperators
   LUX:
-    :commit: b3e74bb1c97ad294583e2d8fa245d17ab774bbce
+    :commit: a53a546da693e0e439c00e55834b3e26a7267c4b
     :git: https://github.com/ThryvInc/LUX
   PlaygroundVCHelpers:
     :commit: 1b1f5ed572a1965e1d52bbc1b21f3796a6f144e2
     :git: https://github.com/ThryvInc/playground-vc-helpers
-  THUXAuth:
-    :commit: 85218d0b78dba3c2fee80409113c7d11c6f985ba
-    :git: https://github.com/ThryvInc/thux-auth
 
 SPEC CHECKSUMS:
-  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
-  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
-  FunNet: 782eb82ce25a8a0499eef8533edbc192817a0b33
-  Google-Mobile-Ads-SDK: fec4a72b71a81302d3fd75454df3417c03c50ed5
-  GTFSStations: 49feede7a191bac72c36d16cc1ee39fec7976cac
-  GTFSStationsParis: 8ec71e6900c8540fde9cd8e746667255e180cd74
-  ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
-  LithoOperators: 450ca7e2e49a2d707bb29d56493e80e033fc88c0
-  LUX: 79a25b56a09f272b0491e2197fdc2fbf048ed12f
-  MultiModelTableViewDataSource: 798f682408933a269de09e5c73b54cd5cb86b851
-  Nimble: 3b434b1e7d0a92603a13550a82880b0d952f518e
-  OHHTTPStubs: 9cbce6364bec557cc3439aa6bb7514670d780881
+  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
+  FlexDataSource: 77c91077c71a09624a3999054bf1d2ad7745ca0b
+  FunNet: 08de074e98b1bc00a6340f1316e4deb07056462c
+  Google-Mobile-Ads-SDK: 7052557293c75c676db55feb707ace9b790f32c1
+  GoogleAppMeasurement: e49be3954045b17d046f271b9cc1ec052bad9702
+  GoogleUtilities: ad0f3b691c67909d03a3327cc205222ab8f42e0e
+  GTFSStations: f1c49d647bb51c8d2abbd9b3c758a4985d0ea990
+  GTFSStationsParis: 499523f95504f2da0d999d61896b19233aa26524
+  LithoOperators: 4c48d2951a4999d9c3ac194d44933782710c5201
+  LUX: caefe0c5fe1e6a7c53d344196ba0d0ba3e5eae60
+  nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  Nimble: a73af6ecd4c9106f434f3d55fc54570be3739e0b
   PlaygroundVCHelpers: c7cc8994d2851ebd1590217101b4c6888d1c9cc8
   Prelude: fe4cc0fd961d34edf48fe6b04d05c863449efb0a
-  Quick: f4f7f063c524394c73ed93ac70983c609805d481
+  Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
   SBCategories: a2a126ee06eeacaac02d5e68533cd9de1b9bf1cc
   SBNag.swift: 57ae1aa7799765e2452aaa02f97ee1aca0ed396d
   SBTextInputView: 5123a3992aea198a13a514d1721c70a2a3bd57ac
   SQLite.swift: 3e3bee21da701b5b9f87c4a672cb54f233505692
-  SSPullToRefresh: 3a47e116692b60e7da5a8c60418488133bcc9550
   SubwayStations: c902ac2c33734c71d24eb8f994d45406c3475602
-  SwiftDate: 6329e58969a2de31cea7f1ee1143b247693196e7
-  THUXAuth: 3d5cfdca13a9c7d1093bb8a5663d96c6a9ce3179
+  SwiftDate: fa2bb3962056bb44047b4b85a30044e5eae30b03
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
 
-PODFILE CHECKSUM: 80a2102d4e0a6e68bbdcd684788810ab2b16c5e5
+PODFILE CHECKSUM: a5058ad96c06f1feceac4d91a645515c0276eed7
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.9.0
