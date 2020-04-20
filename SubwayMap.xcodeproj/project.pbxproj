@@ -156,6 +156,8 @@
 		49BD7C322075D7BA00BC7343 /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 49BD7C302075D7B900BC7343 /* gtfs.db.zip */; };
 		49BD7C332075D7BA00BC7343 /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 49BD7C302075D7B900BC7343 /* gtfs.db.zip */; };
 		49BD7C352077087500BC7343 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49BD7C342077087500BC7343 /* Launch Screen.storyboard */; };
+		49CB117D23F7245C00A151B0 /* Swipable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB117C23F7245C00A151B0 /* Swipable.swift */; };
+		49CB117F23F72A6800A151B0 /* DeleteVisitCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CB117E23F72A6800A151B0 /* DeleteVisitCall.swift */; };
 		49D5359E1B69C44C0087D368 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5359C1B69C44C0087D368 /* MapViewController.swift */; };
 		49D5359F1B69C44C0087D368 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D5359C1B69C44C0087D368 /* MapViewController.swift */; };
 		49D535A01B69C44C0087D368 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D5359D1B69C44C0087D368 /* MapViewController.xib */; };
@@ -316,6 +318,8 @@
 		49BD7C2C2075D75300BC7343 /* subway.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = subway.pdf; sourceTree = "<group>"; };
 		49BD7C302075D7B900BC7343 /* gtfs.db.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = gtfs.db.zip; sourceTree = "<group>"; };
 		49BD7C342077087500BC7343 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		49CB117C23F7245C00A151B0 /* Swipable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swipable.swift; sourceTree = "<group>"; };
+		49CB117E23F72A6800A151B0 /* DeleteVisitCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteVisitCall.swift; sourceTree = "<group>"; };
 		49D5359C1B69C44C0087D368 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		49D5359D1B69C44C0087D368 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		49E7C9921CADC7E3006A03F1 /* LondonMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LondonMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -498,6 +502,7 @@
 				4933849F21FB88A4006C179E /* RouteItem.swift */,
 				493384A821FB99C3006C179E /* StationItem.swift */,
 				494B67B423E3378D001BEAA2 /* VisitItem.swift */,
+				49CB117C23F7245C00A151B0 /* Swipable.swift */,
 			);
 			name = Items;
 			sourceTree = "<group>";
@@ -564,6 +569,7 @@
 				494B67B023E22FE1001BEAA2 /* UserVisitsCall.swift */,
 				4954BA4220D6CFBE00D5F5A7 /* ReportVisitCall.swift */,
 				4954BA4420D748E700D5F5A7 /* NYCServerConfiguration.swift */,
+				49CB117E23F72A6800A151B0 /* DeleteVisitCall.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -1439,6 +1445,7 @@
 				491831D21B69A61700EB8328 /* PredictionTableViewCell.swift in Sources */,
 				49BD7C192075CF8A00BC7343 /* UIColor+Hex.swift in Sources */,
 				4952BC3220D83BBA00426179 /* VisitsResponse.swift in Sources */,
+				49CB117D23F7245C00A151B0 /* Swipable.swift in Sources */,
 				494B67AF23E22708001BEAA2 /* Emojis.swift in Sources */,
 				493384B821FBA467006C179E /* StationSearchViewController.swift in Sources */,
 				4954BA4720D7521600D5F5A7 /* Visit.swift in Sources */,
@@ -1447,6 +1454,7 @@
 				493318F520939875006A7151 /* VersionChecker.swift in Sources */,
 				494B67A923E1E9D7001BEAA2 /* World.swift in Sources */,
 				494B67B123E22FE1001BEAA2 /* UserVisitsCall.swift in Sources */,
+				49CB117F23F72A6800A151B0 /* DeleteVisitCall.swift in Sources */,
 				494B67A623E1E32F001BEAA2 /* UserReportsViewController.swift in Sources */,
 				499EC99A1BEABE7F004A1553 /* LineViewModel.swift in Sources */,
 				49184D9D20D2C9B600D65C16 /* ChooseDirectionViewController.swift in Sources */,

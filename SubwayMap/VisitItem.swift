@@ -8,35 +8,35 @@
 
 import MultiModelTableViewDataSource
 import SubwayStations
+import LithoOperators
 
-class VisitItem: ConcreteMultiModelTableViewDataSourceItem<VisitTableViewCell> {
+class VisitItem: SwipableItem<VisitTableViewCell> {
     let visit: Visit
-    let stationManager: StationManager
     
-    init(_ visit: Visit, _ stationManager: StationManager) {
+    init(_ visit: Visit, _ stationManager: StationManager, _ onSwipe: @escaping () -> Void) {
         self.visit = visit
-        self.stationManager = stationManager
-        super.init(identifier: "visitCell")
+        super.init(identifier: "visitCell", visit >||> (stationManager >|||> VisitItem.configureCell(_:_:_:)), onSwipe)
     }
-    override func configureCell(_ cell: UITableViewCell) {
+
+    static func configureCell(_ cell: UITableViewCell, _ visit: Visit, _ stationManager: StationManager) {
         if let cell = cell as? VisitTableViewCell {
-            configureVisit(cell)
+            configureVisit(cell, visit, stationManager)
         }
     }
     
-    func configureVisit(_ cell: VisitTableViewCell) {
+    static func configureVisit(_ cell: VisitTableViewCell, _ visit: Visit, _ stationManager: StationManager) {
         if false == visit.isAuto {
-            configureManual(cell)
+            configureManual(cell, visit, stationManager)
         } else {
-            configureAuto(cell)
+            configureAuto(cell, visit, stationManager)
         }
     }
     
-    func configureAuto(_ cell: VisitTableViewCell) {
+    static func configureAuto(_ cell: VisitTableViewCell, _ visit: Visit, _ stationManager: StationManager) {
         
     }
     
-    func configureManual(_ cell: VisitTableViewCell) {
+    static func configureManual(_ cell: VisitTableViewCell, _ visit: Visit, _ stationManager: StationManager) {
         cell.routeLabel.layer.cornerRadius = 18
         cell.routeLabel.clipsToBounds = true
         if let routeId = visit.routeId {

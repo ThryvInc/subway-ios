@@ -9,6 +9,7 @@
 import UIKit
 
 public class Visit: Codable {
+    var id: Int?
     var stationId: String?
     var routeId: String?
     var directionId: Int? = 2

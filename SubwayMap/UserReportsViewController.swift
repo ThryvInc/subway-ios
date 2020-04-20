@@ -12,12 +12,15 @@ import LithoOperators
 import Prelude
 import Combine
 import SubwayStations
+import MultiModelTableViewDataSource
 
-class UserReportsViewController: LUXMultiModelTableViewController<LUXModelListViewModel<Visit>> {
+class UserReportsViewController: LUXMultiModelTableViewController<UserReportsViewModel<Visit>> {
     @IBOutlet weak var userSwitch: UISwitch?
     @IBOutlet weak var autoSwitch: UISwitch?
     
     var onFilter: ((Bool, Bool) -> Void)?
+    var deleteCall: CombineNetCall?
+    private var cancelBag = Set<AnyCancellable?>()
     
     var stationManager: StationManager?
     
@@ -36,6 +39,18 @@ class UserReportsViewController: LUXMultiModelTableViewController<LUXModelListVi
     @IBAction func filterAuto() {
         if let byUser = userSwitch?.isOn, let auto = autoSwitch?.isOn {
             onFilter?(byUser, auto)
+        }
+    }
+    
+    func swiped(visit: inout Visit) {
+        if let id = visit.id {
+            let call = deleteVisitCall(id: "\(id)")
+            cancelBag.insert(call.responder?.$data.sink { _ in
+                self.deleteCall = nil
+                self.refresh()
+            })
+            deleteCall = call
+            call.fire()
         }
     }
 }
@@ -65,12 +80,35 @@ extension UserReportsViewController {
         let manager = LUXPageCallModelsManager(call, visitsPub, firstPageValue: 0)
         refreshableModelManager = manager
         
-        let vm = LUXModelListViewModel<Visit>.init(modelsPublisher: manager.$models.eraseToAnyPublisher(), modelToItem: stationManager! >||> VisitItem.init)
+        let vm = UserReportsViewModel<Visit>(modelsPublisher: manager.$models.eraseToAnyPublisher(), modelToItem: visitItemFactory(stationManager!, swiped(visit:)))
         viewModel = vm
 
         let delegate = LUXPageableTableViewDelegate(manager, vm.dataSource)
         delegate.pageSize = 25
         self.tableViewDelegate = delegate
+    }
+}
+
+open class UserReportsViewModel<T>: LUXModelTableViewModel<T>, LUXDataSourceProvider {
+    public let dataSource: MultiModelTableViewDataSource
+    
+    public override init(modelsPublisher: AnyPublisher<[T], Never>, modelToItem: @escaping (T) -> MultiModelTableViewDataSourceItem) {
+        dataSource = SwipableFlexDataSource()
+        super.init(modelsPublisher: modelsPublisher, modelToItem: modelToItem)
+        
+        cancelBag.insert(self.sectionsPublisher.sink {
+            self.dataSource.sections = $0
+            self.dataSource.tableView?.reloadData()
+        })
+    }
+}
+
+func visitItemFactory(_ stationManager: StationManager, _ onSwipe: @escaping (inout Visit) -> Void) -> (Visit) -> MultiModelTableViewDataSourceItem {
+    return { visit in
+        VisitItem(visit, stationManager, {
+            var v = visit
+            onSwipe(&v)
+        })
     }
 }
 
@@ -80,9 +118,6 @@ extension String {
         for val in Array(self) {
             let char = Character(String(val))
             sum += char.unicodeScalars.first.hashValue % 255
-//            if let intVal = Character(String(val)).asciiValue as? Int {
-//                sum += intVal
-//            }
         }
         return sum
     }
