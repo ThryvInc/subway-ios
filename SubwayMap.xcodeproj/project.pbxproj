@@ -21,6 +21,7 @@
 		4943C5081CE12067004AAED5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4943C5071CE12067004AAED5 /* AppDelegate.swift */; };
 		4943C50A1CE121BB004AAED5 /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 4943C4E11CE11969004AAED5 /* gtfs.db.zip */; };
 		4959FCAE244E228B006FDD00 /* SubwayMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959FCAD244E228B006FDD00 /* SubwayMapTests.swift */; };
+		4959FCB2244F1ECA006FDD00 /* TimeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959FCB1244F1ECA006FDD00 /* TimeProvider.swift */; };
 		4974F219244DFE3000129EEB /* NYCSubwayLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4974F210244DFE3000129EEB /* NYCSubwayLib.framework */; };
 		4974F222244DFE3000129EEB /* NYCSubwayLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 4974F212244DFE3000129EEB /* NYCSubwayLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4974F225244DFE3000129EEB /* NYCSubwayLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4974F210244DFE3000129EEB /* NYCSubwayLib.framework */; };
@@ -196,6 +197,7 @@
 		493DC1871B9CD10500515F4B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		493DC18C1B9CE01B00515F4B /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		493DC18E1B9CEF9200515F4B /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
+		493E9048244F2DA900F0BD14 /* PDFMap.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PDFMap.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4943C4C11CE117ED004AAED5 /* ParisMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParisMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4943C4CA1CE117ED004AAED5 /* ParisAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ParisAssets.xcassets; sourceTree = "<group>"; };
 		4943C4CD1CE117ED004AAED5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -207,6 +209,8 @@
 		4943C5071CE12067004AAED5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		494B67A823E1E9D7001BEAA2 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		4959FCAD244E228B006FDD00 /* SubwayMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayMapTests.swift; sourceTree = "<group>"; };
+		4959FCB1244F1ECA006FDD00 /* TimeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeProvider.swift; sourceTree = "<group>"; };
+		4959FCB3244F2655006FDD00 /* Station.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Station.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4974F210244DFE3000129EEB /* NYCSubwayLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NYCSubwayLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4974F212244DFE3000129EEB /* NYCSubwayLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYCSubwayLib.h; sourceTree = "<group>"; };
 		4974F213244DFE3000129EEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -460,6 +464,7 @@
 			isa = PBXGroup;
 			children = (
 				491831211B672B6900EB8328 /* AppDelegate.swift */,
+				4959FCB0244F1B4A006FDD00 /* Playgrounds */,
 				4918311F1B672B6900EB8328 /* Supporting Files */,
 			);
 			path = SubwayMap;
@@ -510,6 +515,15 @@
 				4943C4DA1CE117ED004AAED5 /* Info.plist */,
 			);
 			path = ParisMapTests;
+			sourceTree = "<group>";
+		};
+		4959FCB0244F1B4A006FDD00 /* Playgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				493E9048244F2DA900F0BD14 /* PDFMap.playground */,
+				4959FCB3244F2655006FDD00 /* Station.playground */,
+			);
+			path = Playgrounds;
 			sourceTree = "<group>";
 		};
 		4974F211244DFE3000129EEB /* NYCSubwayLib */ = {
@@ -607,6 +621,7 @@
 				4974F25B244DFF1F00129EEB /* Two.swift */,
 				4974F26D244DFF2100129EEB /* UuidProvider.swift */,
 				4974F258244DFF1F00129EEB /* VersionChecker.swift */,
+				4959FCB1244F1ECA006FDD00 /* TimeProvider.swift */,
 				4974F2B6244DFF6D00129EEB /* ViewModels */,
 			);
 			path = Models;
@@ -1705,6 +1720,7 @@
 				4974F27F244DFF2100129EEB /* RouteTableViewCell.swift in Sources */,
 				4974F22E244DFE6C00129EEB /* World.swift in Sources */,
 				4974F297244DFF2100129EEB /* VersionChecker.swift in Sources */,
+				4959FCB2244F1ECA006FDD00 /* TimeProvider.swift in Sources */,
 				4974F287244DFF2100129EEB /* Styles.swift in Sources */,
 				4974F2A3244DFF2100129EEB /* StationViewController.swift in Sources */,
 				4974F2B1244DFF2100129EEB /* UserVisitsCall.swift in Sources */,

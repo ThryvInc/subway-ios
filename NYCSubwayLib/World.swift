@@ -27,6 +27,7 @@ let paid = World().configure {
 let testing = World().configure {
     $0.serverConfig = NYCServerConfiguration.testing
     $0.adsEnabled = false
+    $0.timeProvider = mockTime
     LUXJsonProvider.jsonDecoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Seconds)
 }
 
@@ -34,6 +35,7 @@ public struct World {
     public var serverConfig = NYCServerConfiguration.production
     public var colorManager: RouteColorManager = NYCRouteColorManager()
     public var adsEnabled: Bool = false
+    public var timeProvider: () -> Date = currentTime
 }
 extension World: Configure {}
 
