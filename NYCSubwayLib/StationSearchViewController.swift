@@ -41,7 +41,7 @@ public class StationSearchViewController: UIViewController, UISearchBarDelegate 
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         tableView.isHidden = false
         if let stations = stationManager.stationsForSearchString(searchText) {
-            let stationToItem: (Station) -> StationItem = stationManager >||> StationItem.item
+            let stationToItem: (Station) -> FlexDataSourceItem = configureCellLines >||> LUXModelItem.init
             dataSource.sections = stations |> ((stationToItem >||> map) >>> (itemsToSection >>> arrayOfSingleObject))
             tableView.reloadData()
             self.stations = stations

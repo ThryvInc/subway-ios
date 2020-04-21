@@ -198,6 +198,7 @@
 		493DC18C1B9CE01B00515F4B /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		493DC18E1B9CEF9200515F4B /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		493E9048244F2DA900F0BD14 /* PDFMap.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PDFMap.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		493E9049244F6BAA00F0BD14 /* UserReports.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = UserReports.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4943C4C11CE117ED004AAED5 /* ParisMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParisMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4943C4CA1CE117ED004AAED5 /* ParisAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ParisAssets.xcassets; sourceTree = "<group>"; };
 		4943C4CD1CE117ED004AAED5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -522,6 +523,7 @@
 			children = (
 				493E9048244F2DA900F0BD14 /* PDFMap.playground */,
 				4959FCB3244F2655006FDD00 /* Station.playground */,
+				493E9049244F6BAA00F0BD14 /* UserReports.playground */,
 			);
 			path = Playgrounds;
 			sourceTree = "<group>";

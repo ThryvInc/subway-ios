@@ -23,13 +23,10 @@ class RouteItem: ConcreteFlexDataSourceItem<RouteTableViewCell> {
     var position: ItemPosition
     var isTransfer = false
     
-    var colorManager: RouteColorManager
-    
-    init(identifier: String = "routeCell", station: Station, route: Route, position: ItemPosition = .middle, colorManager: RouteColorManager) {
+    init(identifier: String = "routeCell", station: Station, route: Route, position: ItemPosition = .middle) {
         self.station = station
         self.route = route
         self.position = position
-        self.colorManager = colorManager
         super.init(identifier: identifier)
     }
     
@@ -42,7 +39,19 @@ class RouteItem: ConcreteFlexDataSourceItem<RouteTableViewCell> {
     func configureCell(_ cell: RouteTableViewCell) {
         cell |> (configureStation <> configureLines <> configureCircle <> configureRoute <> configureColors)
     }
+}
+
+extension RouteItem {
+    func isFirst() -> Bool {
+        return position == .first
+    }
     
+    func isLast() -> Bool {
+        return position == .last
+    }
+}
+
+extension RouteItem {
     func configureStation(_ cell: RouteTableViewCell) {
         cell.stationLabel.text = isTransfer ? "Transfer @ \(station.name ?? "")" : station.name
     }
@@ -70,16 +79,8 @@ class RouteItem: ConcreteFlexDataSourceItem<RouteTableViewCell> {
     }
     
     func configureColors(_ cell: RouteTableViewCell) {
-        cell.topLineView.backgroundColor = colorManager.colorForRouteId(route.objectId)
-        cell.bottomLineView.backgroundColor = colorManager.colorForRouteId(route.objectId)
-        cell.circleView.backgroundColor = colorManager.colorForRouteId(route.objectId)
-    }
-    
-    func isFirst() -> Bool {
-        return position == .first
-    }
-    
-    func isLast() -> Bool {
-        return position == .last
+        cell.topLineView.backgroundColor = Current.colorManager.colorForRouteId(route.objectId)
+        cell.bottomLineView.backgroundColor = Current.colorManager.colorForRouteId(route.objectId)
+        cell.circleView.backgroundColor = Current.colorManager.colorForRouteId(route.objectId)
     }
 }

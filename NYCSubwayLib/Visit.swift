@@ -18,7 +18,7 @@ public class Visit: Codable {
     var isAuto: Bool? = false
     var platform: String? = "ios"
     var time: String? = DateFormatter.iso8601Seconds.string(from: Current.timeProvider().addingTimeInterval(TimeInterval(TimeZone.current.secondsFromGMT())))
-    var identifier: String? = UuidProvider.fetch()
+    var identifier: String? = Current.uuidProvider()
     var numberOfStopsBetween: Int64? = -1
 }
 

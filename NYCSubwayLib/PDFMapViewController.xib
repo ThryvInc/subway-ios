@@ -9,8 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PDFMapViewController" customModule="NYCSubwayLib" customModuleProvider="target">
             <connections>
+                <outlet property="buttonBottomConstaint" destination="fiZ-JN-QCb" id="jue-Ok-XWU"/>
                 <outlet property="loadingImageView" destination="1dQ-NZ-ANS" id="86T-XQ-TXx"/>
-                <outlet property="mapBottomConstaint" destination="i4X-IX-4YT" id="Isl-Ld-jeC"/>
                 <outlet property="pdfView" destination="C1H-67-ZAA" id="GCR-d5-jYW"/>
                 <outlet property="searchBar" destination="Pmk-4Z-KnF" id="x35-Sv-xjD"/>
                 <outlet property="tableView" destination="TdE-IK-MD5" id="gDN-6J-ztG"/>
@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C1H-67-ZAA" customClass="PDFView">
-                    <rect key="frame" x="0.0" y="44" width="375" height="573"/>
+                    <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Stations" translatesAutoresizingMaskIntoConstraints="NO" id="Pmk-4Z-KnF">
@@ -71,11 +71,11 @@
                 <constraint firstItem="TdE-IK-MD5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="PiY-TW-yh0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="TdE-IK-MD5" secondAttribute="bottom" id="TRZ-8b-kFz"/>
                 <constraint firstItem="Pmk-4Z-KnF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cwa-tY-xOz"/>
-                <constraint firstItem="C1H-67-ZAA" firstAttribute="bottom" secondItem="m77-tC-P1u" secondAttribute="bottom" constant="8" id="fiZ-JN-QCb"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="C1H-67-ZAA" secondAttribute="bottom" constant="50" id="i4X-IX-4YT"/>
+                <constraint firstAttribute="bottom" secondItem="m77-tC-P1u" secondAttribute="bottom" constant="58" id="fiZ-JN-QCb"/>
+                <constraint firstAttribute="bottom" secondItem="C1H-67-ZAA" secondAttribute="bottom" id="i4X-IX-4YT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="m77-tC-P1u" secondAttribute="trailing" constant="16" id="kaH-m8-rMU"/>
-                <constraint firstItem="C1H-67-ZAA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ke2-B7-qT3"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="C1H-67-ZAA" secondAttribute="trailing" id="lFe-fd-s0P"/>
+                <constraint firstItem="C1H-67-ZAA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ke2-B7-qT3"/>
+                <constraint firstAttribute="trailing" secondItem="C1H-67-ZAA" secondAttribute="trailing" id="lFe-fd-s0P"/>
                 <constraint firstItem="C1H-67-ZAA" firstAttribute="top" secondItem="Pmk-4Z-KnF" secondAttribute="bottom" id="rEo-MG-o2f"/>
                 <constraint firstItem="1dQ-NZ-ANS" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="tRh-S0-bJp"/>
             </constraints>
