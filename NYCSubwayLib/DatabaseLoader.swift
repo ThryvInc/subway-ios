@@ -28,15 +28,14 @@ public class DatabaseLoader: NSObject {
     
     public class func loadDb() {
         unzipDBToDocDirectoryIfNeeded()
-        do {
-            stationManager = try NYCStationManager(sourceFilePath: destinationPath)
-            navManager = try NYCStationManager(sourceFilePath: navDbDestinationPath)
-            DispatchQueue.main.async (execute: { () -> Void in
+        if let stationManager = try? NYCStationManager(sourceFilePath: destinationPath) {
+            self.stationManager = stationManager
+            navManager = try? NYCStationManager(sourceFilePath: navDbDestinationPath)
+            DispatchQueue.main.async {
+                Current.stationManager = self.stationManager
                 self.isDatabaseReady = true
                 NotificationCenter.default.post(name: Notification.Name(rawValue: self.NYCDatabaseLoadedNotification), object: nil)
-            })
-        }catch let error as NSError {
-            print(error.debugDescription)
+            }
         }
     }
     

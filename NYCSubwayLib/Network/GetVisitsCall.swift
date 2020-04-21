@@ -11,30 +11,52 @@ import FunNet
 import Combine
 import LithoOperators
 import Prelude
+import SwiftDate
 
-func getVisitsCall(_ serverConfig: ServerConfigurationProtocol = Current.serverConfig, filters: String) -> CombineNetCall {
+func getVisitsCall(_ serverConfig: ServerConfigurationProtocol = Current.serverConfig) -> CombineNetCall {
     var endpoint = Endpoint()
-    endpoint.path = "visits?\(filters)"
+    endpoint.path = "visits"
     endpoint /> addJsonHeaders
-    return CombineNetCall(configuration: serverConfig, endpoint)
+    let call = CombineNetCall(configuration: serverConfig, endpoint)
+    if serverConfig.shouldStub {
+        call.firingFunc = { $0.responder?.data = visitsJson().data(using: .utf8) }
+    }
+    return call
 }
 
-//class GetVisitsCall: JsonNetworkCall {
-//    lazy var visitsSignal = self.dataSignal.skipNil().map(GetVisitsCall.parse).skipNil()
-//
-//    init(configuration: ServerConfigurationProtocol = NYCServerConfiguration.current, stubHolder: StubHolderProtocol? = nil, filters: String) {
-//        super.init(configuration: configuration, httpMethod: "GET", endpoint: "visits?\(filters)", postData: nil, stubHolder: stubHolder)
-//    }
-//
-//    static func parse(data: Data) -> [Visit]? {
-//        do {
-//            let decoder = JSONDecoder()
-//            decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Seconds)
-//            let result = try decoder.decode(VisitsResponse.self, from: data)
-//            return result.visits
-//        } catch {
-//            print("\(error)")
-//            return nil
-//        }
-//    }
-//}
+func visitsJson() -> String {
+    return """
+    { "visits": [
+    {"route_id":"3","station_id":"128","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 2.minutes))","direction_id":1},
+    {"route_id":"3","station_id":"132","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 2.minutes))","direction_id":0,"stops_away":2},
+    {"route_id":"2","station_id":"120","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 3.minutes))","direction_id":0},
+    {"route_id":"1","station_id":"129","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 2.minutes))","direction_id":0,"stops_away":2},
+    {"route_id":"1","station_id":"125","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 2.minutes))","direction_id":0},
+    {"route_id":"1","station_id":"132","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 3.minutes))","direction_id":1},
+    {"route_id":"3","station_id":"120","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 2.minutes))","direction_id":1,"stops_away":2},
+    {"route_id":"3","station_id":"128","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 2.minutes))","direction_id":1},
+    {"route_id":"3","station_id":"132","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 2.minutes))","direction_id":0,"stops_away":2},
+    {"route_id":"2","station_id":"128","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 2.minutes))","direction_id":0,"stops_away":1},
+    {"route_id":"2","station_id":"123","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 2.minutes))","direction_id":1,"stops_away":1},
+    {"route_id":"2","station_id":"120","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 2.minutes))","direction_id":0},
+    {"route_id":"2","station_id":"132","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 2.minutes))","direction_id":1},
+    {"route_id":"1","station_id":"129","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 2.minutes))","direction_id":0,"stops_away":2},
+    {"route_id":"1","station_id":"125","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 2.minutes))","direction_id":0},
+    {"route_id":"1","station_id":"132","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 4.minutes))","direction_id":1},
+    {"route_id":"7","station_id":"723","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 3.minutes))","direction_id":0},
+    {"route_id":"E","station_id":"A31","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 3.minutes))","direction_id":0,"stops_away":2},
+    {"route_id":"E","station_id":"A28","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 3.minutes))","direction_id":1},
+    {"route_id":"A","station_id":"A31","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 3.minutes))","direction_id":1},
+    {"route_id":"A","station_id":"A30","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 3.minutes))","direction_id":0,"stops_away":2},
+    {"route_id":"A","station_id":"A24","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 3.minutes))","direction_id":0},
+    {"route_id":"A","station_id":"A31","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 3.minutes))","direction_id":0,"stops_away":2},
+    {"route_id":"R","station_id":"R17","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 4.minutes))","direction_id":1},
+    {"route_id":"R","station_id":"R15","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 4.minutes))","direction_id":0},
+    {"route_id":"Q","station_id":"R14","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 3.minutes))","direction_id":1,"stops_away":2},
+    {"route_id":"Q","station_id":"R20","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 4.minutes))","direction_id":0,"stops_away":2},
+    {"route_id":"Q","station_id":"B08","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 4.minutes))","direction_id":0},
+    {"route_id":"N","station_id":"R20","time":"\(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 4.minutes))","direction_id":0,"stops_away":2}
+    ]
+    }
+    """
+}

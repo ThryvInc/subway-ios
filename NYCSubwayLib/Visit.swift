@@ -17,8 +17,8 @@ public class Visit: Codable {
     var longitude: Double?
     var isAuto: Bool? = false
     var platform: String? = "ios"
-    var time: String? = DateFormatter.iso8601Seconds.string(from: Date().addingTimeInterval(TimeInterval(TimeZone.current.secondsFromGMT())))
-    var identifier: String? = UuidProvider.fetch()
+    var time: String? = DateFormatter.iso8601Seconds.string(from: Current.timeProvider().addingTimeInterval(TimeInterval(TimeZone.current.secondsFromGMT())))
+    var identifier: String? = Current.uuidProvider()
     var numberOfStopsBetween: Int64? = -1
 }
 
@@ -28,7 +28,7 @@ extension Visit {
     }
     
     func timeAgoSeconds() -> Int {
-        return Int((Date().timeIntervalSince1970 - timeAgoDate().timeIntervalSince1970) / 60)
+        return Int((Current.timeProvider().timeIntervalSince1970 - timeAgoDate().timeIntervalSince1970) / 60)
     }
 }
 

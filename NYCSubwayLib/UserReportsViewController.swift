@@ -15,8 +15,11 @@ import SubwayStations
 import FlexDataSource
 
 class UserReportsViewController: LUXFlexViewController<UserReportsViewModel<Visit>> {
+    @IBOutlet weak var userLabel: UILabel?
+    @IBOutlet weak var autoLabel: UILabel?
     @IBOutlet weak var userSwitch: UISwitch?
     @IBOutlet weak var autoSwitch: UISwitch?
+    @IBOutlet weak var tableTopConstraint: NSLayoutConstraint?
     
     var onFilter: ((Bool, Bool) -> Void)?
     var deleteCall: CombineNetCall?
@@ -28,6 +31,16 @@ class UserReportsViewController: LUXFlexViewController<UserReportsViewModel<Visi
         super.viewDidLoad()
 
         title = "Reports"
+        
+        if Current.isAdmin {
+            tableTopConstraint?.constant = 54
+        } else {
+            tableTopConstraint?.constant = 0
+            userSwitch?.isHidden = true
+            autoSwitch?.isHidden = true
+            userLabel?.isHidden = true
+            autoLabel?.isHidden = true
+        }
     }
     
     @IBAction func filterByUser() {
@@ -57,7 +70,6 @@ class UserReportsViewController: LUXFlexViewController<UserReportsViewModel<Visi
 
 func userReportsVC(_ stationManager: StationManager) -> UserReportsViewController {
     let vc = UserReportsViewController.makeFromXIB()
-    vc.stationManager = stationManager
     vc.configure()
     vc.onViewDidLoad = { _ in
         vc.onFilter = vc.configure >>> vc.refresh
@@ -67,7 +79,7 @@ func userReportsVC(_ stationManager: StationManager) -> UserReportsViewControlle
 
 extension UserReportsViewController {
     func configure(thisUserOnly: Bool = true, allowAuto: Bool = false) {
-        let call = getUserVisitsCall(userId: (thisUserOnly ? UuidProvider.fetch() : nil))
+        let call = getUserVisitsCall(userId: (thisUserOnly ? Current.uuidProvider() : nil))
         if allowAuto {
             call.endpoint.getParams.removeValue(forKey: "is_auto")
         } else {
@@ -80,7 +92,7 @@ extension UserReportsViewController {
         let manager = LUXPageCallModelsManager(call, visitsPub, firstPageValue: 0)
         refreshableModelManager = manager
         
-        let vm = UserReportsViewModel<Visit>(modelsPublisher: manager.$models.eraseToAnyPublisher(), modelToItem: visitItemFactory(stationManager!, swiped(visit:)))
+        let vm = UserReportsViewModel<Visit>(modelsPublisher: manager.$models.eraseToAnyPublisher(), modelToItem: visitItemFactory(swiped(visit:)))
         viewModel = vm
 
         let delegate = LUXFunctionalTableDelegate(onSelect: vm.dataSource.tappableOnSelect, onWillDisplay: manager.willDisplayFunction(pageSize: 25))
@@ -102,12 +114,12 @@ open class UserReportsViewModel<T>: LUXModelTableViewModel<T>, LUXDataSourceProv
     }
 }
 
-func visitItemFactory(_ stationManager: StationManager, _ onSwipe: @escaping (inout Visit) -> Void) -> (Visit) -> FlexDataSourceItem {
+func visitItemFactory(_ onSwipe: @escaping (inout Visit) -> Void) -> (Visit) -> FlexDataSourceItem {
     return { visit in
-        VisitItem(visit, stationManager, {
+        VisitItem(visit) {
             var v = visit
             onSwipe(&v)
-        })
+        }
     }
 }
 

@@ -14,11 +14,28 @@ import FlexDataSource
 import Prelude
 import PlaygroundVCHelpers
 
+public func pdfMapVC() -> PDFMapViewController {
+    let vc = PDFMapViewController.makeFromXIB()
+    vc.onDatabaseLoaded = onDatabaseLoaded(vc:)
+    return vc
+}
+
+func onDatabaseLoaded(vc: PDFMapViewController) {
+    vc.stationManager = DatabaseLoader.stationManager
+    
+    vc.loading = false
+    UIView.animate(withDuration: 0.5, animations: { () -> Void in
+        vc.searchBar?.alpha = 1
+        vc.loadingImageView.alpha = 0
+    })
+}
+
 public class PDFMapViewController: StationSearchViewController, UITableViewDelegate {
     @IBOutlet weak var pdfView: PDFView!
     @IBOutlet weak var loadingImageView: UIImageView!
-    @IBOutlet weak var mapBottomConstaint: NSLayoutConstraint!
+    @IBOutlet weak var buttonBottomConstaint: NSLayoutConstraint!
     var loading = false
+    var onDatabaseLoaded: ((PDFMapViewController) -> Void)?
     var documentsDirectory: String {
         return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
     }
@@ -65,7 +82,7 @@ public class PDFMapViewController: StationSearchViewController, UITableViewDeleg
         
         if !DatabaseLoader.isDatabaseReady {
             NotificationCenter.default.addObserver(self,
-                                                   selector: #selector(MapViewController.databaseLoaded),
+                                                   selector: #selector(PDFMapViewController.databaseLoaded),
                                                    name: NSNotification.Name(rawValue: DatabaseLoader.NYCDatabaseLoadedNotification),
                                                    object: nil)
             searchBar?.alpha = 0
@@ -79,9 +96,9 @@ public class PDFMapViewController: StationSearchViewController, UITableViewDeleg
         super.viewWillAppear(animated)
         
         if Current.adsEnabled {
-            mapBottomConstaint.constant = 50
+            buttonBottomConstaint.constant = 50
         } else {
-            mapBottomConstaint.constant = 0
+            buttonBottomConstaint.constant = 0
         }
         view.updateConstraints()
     }
@@ -89,7 +106,15 @@ public class PDFMapViewController: StationSearchViewController, UITableViewDeleg
     @objc func zoomIn(_ recognizer: UITapGestureRecognizer) {
         let touch = recognizer.location(in: pdfView.documentView)
         pdfView.scaleFactor = isZoomedOut ? pdfView.maxScaleFactor : pdfView.scaleFactorForSizeToFit
-        pdfView.go(to: CGRect(x: touch.x, y: (pdfView.documentView?.bounds.size.height ?? 0) - touch.y, width: 1, height: 1), on: pdfView.currentPage!)
+        
+        let scaledWindowWidth = pdfView.bounds.size.width * pdfView.scaleFactorForSizeToFit / 2
+        let x = touch.x - scaledWindowWidth
+        
+        let scaledWindowHeight = pdfView.bounds.size.height * pdfView.scaleFactorForSizeToFit / 2
+        let centeredY = touch.y - scaledWindowHeight
+        let pdfYCoord = (pdfView.documentView?.bounds.size.height ?? 0) - centeredY
+        
+        pdfView.go(to: CGRect(x: x, y: pdfYCoord, width: 1, height: 1), on: pdfView.currentPage!)
     }
     
     @objc func openStationAt(_ recognizer: UITapGestureRecognizer) {
@@ -127,7 +152,6 @@ public class PDFMapViewController: StationSearchViewController, UITableViewDeleg
         navigationItem.backBarButtonItem = barButton
         
         let visitsVC = userReportsVC(stationManager)
-//        visits.stationManager = stationManager
         navigationController?.pushViewController(visitsVC, animated: true)
     }
     
@@ -158,13 +182,7 @@ public class PDFMapViewController: StationSearchViewController, UITableViewDeleg
     }
     
     @objc func databaseLoaded() {
-        stationManager = DatabaseLoader.stationManager
-        
-        loading = false
-        UIView.animate(withDuration: 0.5, animations: { () -> Void in
-            self.searchBar?.alpha = 1
-            self.loadingImageView.alpha = 0
-        })
+        onDatabaseLoaded?(self)
     }
     
     func startLoading() {
@@ -192,7 +210,7 @@ public class PDFMapViewController: StationSearchViewController, UITableViewDeleg
     func openStation(_ station: Station?) {
         if let station = station {
             let barButton = UIBarButtonItem()
-            barButton.title = ""
+            barButton.title = " "
             navigationItem.backBarButtonItem = barButton
             
             let stationVC = StationViewController.makeFromXIB()

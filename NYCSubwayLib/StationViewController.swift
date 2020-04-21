@@ -14,6 +14,7 @@ import GTFSStations
 import CoreGraphics
 import Combine
 import PlaygroundVCHelpers
+import SwiftDate
 
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
@@ -85,16 +86,18 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let routeIds = nycStationManager?.routeIdsForStation(station)
-        let filters = "current_station_ids=\(station.stops.map{ $0.objectId }.joined(separator: ","))&route_ids=\(routeIds!.joined(separator: ","))&after=\(DateFormatter.iso8601Full.string(from: Calendar.current.date(byAdding: .minute, value: -5, to: Date())!.addingTimeInterval(TimeInterval(TimeZone.current.secondsFromGMT()))))"
-        visitsCall = getVisitsCall(filters: filters)
+        var filterParams: [String: String] = [:]
+        filterParams["current_station_ids"] = station.stops.map{ $0.objectId }.joined(separator: ",")
+        filterParams["after"] = DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 5.minutes)
+        if let routeIds = nycStationManager?.routeIdsForStation(station) {
+            filterParams["route_ids"] = routeIds.joined(separator: ",")
+        }
+        visitsCall = getVisitsCall()
+        visitsCall?.endpoint.addGetParams(params: filterParams)
         let visitsPub: AnyPublisher<[Visit], Never>? = unwrappedModelPublisher(from: visitsCall?.responder?.$data.eraseToAnyPublisher(), ^\VisitsResponse.visits)
         cancelBag.insert(visitsPub?.sink { (visits) in
             self.visits = visits
         })
-//        visitsCall?.visitsSignal.observeValues { visits in
-//            self.visits = visits
-//        }
         visitsCall?.fire()
         
         view.backgroundColor = UIColor.primaryDark()
@@ -219,7 +222,7 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func refreshSynchronous() {
-        predictions = stationManager.predictions(station, time: Date())//timeIntervalSince1970: 1438215977))
+        predictions = stationManager.predictions(station, time: Current.timeProvider())//timeIntervalSince1970: 1438215977))
         predictions!.sort(by: { $0.secondsToArrival < $1.secondsToArrival })
         
         let uptown = predictions!.filter({ (prediction) -> Bool in
@@ -289,7 +292,7 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
     func configurePredictionCell(_ cell: PredictionTableViewCell, indexPath: IndexPath) {
         let model = filteredPredictionModels![indexPath.row]
         if let prediction = model.prediction {
-            cell.deltaLabel.text = "\((prediction.secondsToArrival!) / 60)m"
+            cell.deltaLabel.text = "\((Int(prediction.timeOfArrival!.timeIntervalSince(Current.timeProvider()))) / 60)m"
             if let route = prediction.route {
                 cell.routeLabel.text = route.objectId
                 cell.routeLabel.backgroundColor = Current.colorManager.colorForRouteId(route.objectId)

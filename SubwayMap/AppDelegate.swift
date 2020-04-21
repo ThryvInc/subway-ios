@@ -26,13 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font : UIFont(name: "AvenirNext-Regular", size: 20)!, NSAttributedString.Key.foregroundColor : UIColor(red: 248.0/255.0, green: 248.0/255.0, blue: 248.0/255.0, alpha: 1)]
         UISearchBar.appearance().tintColor = UIColor.accent()
         
-        DispatchQueue.global( priority: DispatchQueue.GlobalQueuePriority.default).async(execute: { () -> Void in
+        DispatchQueue.global(qos: .background).async {
             DatabaseLoader.loadDb()
-        })
+        }
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let mapVC = PDFMapViewController.makeFromXIB()
+        let mapVC = pdfMapVC()
         
         let navVC = AdNavigationController(rootViewController: mapVC)
         window?.rootViewController = navVC;

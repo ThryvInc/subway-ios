@@ -24,8 +24,7 @@ class RouteViewController: UIViewController, UITableViewDelegate {
         let routeIds = trips.map { $0.routeId }
         
         if let routeId = routeIds.first as? String, let route = stationManager.routeForRouteId(routeId) {
-            let routeColorManager = NYCRouteColorManager()
-            let items = stations.map { RouteItem(station: $0, route: route, colorManager: routeColorManager) }
+            let items = stations.map { RouteItem(station: $0, route: route) }
             items.first?.position = .first
             items.last?.position = .last
             
