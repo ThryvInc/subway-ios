@@ -68,7 +68,7 @@ class UserReportsViewController: LUXFlexViewController<UserReportsViewModel<Visi
     }
 }
 
-func userReportsVC(_ stationManager: StationManager) -> UserReportsViewController {
+func userReportsVC() -> UserReportsViewController {
     let vc = UserReportsViewController.makeFromXIB()
     vc.configure()
     vc.onViewDidLoad = { _ in

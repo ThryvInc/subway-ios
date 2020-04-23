@@ -11,6 +11,12 @@ import SubwayStations
 import GTFSStations
 import PlaygroundVCHelpers
 
+func routesVC(_ station: Station?) -> RoutesViewController {
+    let routesVC = RoutesViewController.makeFromXIB()
+    routesVC.fromStation = station
+    return routesVC
+}
+
 class RoutesViewController: StationSearchViewController, UITableViewDelegate {
     @IBOutlet weak var fromSearchBar: UISearchBar!
     @IBOutlet weak var toSearchBar: UISearchBar!
@@ -41,27 +47,18 @@ class RoutesViewController: StationSearchViewController, UITableViewDelegate {
         tableView.tableFooterView = UIView() //removes cell separators between empty cells
     }
     
-    //MARK: search delegate
-    
-    override func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(true, animated: true)
-        self.searchBar = searchBar
-        tableView.isHidden = false
+    func gotoRoute(_ stations: [Station], _ trips: [Trip]) {
+        let routeVC = RouteViewController.makeFromXIB()
+        routeVC.stations = stations
+        routeVC.trips = trips
+        navigationController?.pushViewController(routeVC, animated: true)
     }
     
-    override func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        dismissKeyboard()
-        if searchBar == fromSearchBar {
-            fromStation = nil
-        }
-        if searchBar == toSearchBar {
-            toStation = nil
-        }
-    }
+    // MARK: - IBActions
     
     @IBAction func goPressed() {
         let nav: NYCNavigator = NYCNavigator()
-        nav.transferStations = (stationManager as! NYCStationManager).transferStations
+        nav.transferStations = (Current.stationManager as! NYCStationManager).transferStations
         
         goButtonWidthConstraint.constant = goButton.bounds.height
         UIView.animate(withDuration: 0.5) {
@@ -87,12 +84,22 @@ class RoutesViewController: StationSearchViewController, UITableViewDelegate {
         })
     }
     
-    func gotoRoute(_ stations: [Station], _ trips: [Trip]) {
-        let routeVC = RouteViewController.makeFromXIB()
-        routeVC.stationManager = stationManager as! NYCStationManager
-        routeVC.stations = stations
-        routeVC.trips = trips
-        navigationController?.pushViewController(routeVC, animated: true)
+    //MARK: search delegate
+    
+    override func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+        self.searchBar = searchBar
+        tableView.isHidden = false
+    }
+    
+    override func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        dismissKeyboard()
+        if searchBar == fromSearchBar {
+            fromStation = nil
+        }
+        if searchBar == toSearchBar {
+            toStation = nil
+        }
     }
     
     //MARK: table delegate

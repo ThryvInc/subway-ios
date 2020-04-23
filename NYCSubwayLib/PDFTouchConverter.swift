@@ -14,11 +14,32 @@ func ^^ (radix: Int, power: Int) -> Int {
     return Int(pow(Double(radix), Double(power)))
 }
 
-class PDFTouchConverter: NSObject {
+public protocol PDFTouchConverter {
+    var fuzzyRadius: CGFloat { get set }
+    var verticalScaleFactor: CGFloat { get set }
+    var horizontalScaleFactor: CGFloat { get set }
+    var verticalAdjustment: CGFloat { get set }
+    var horizontalAdjustment: CGFloat { get set }
+    var coordToIdMap: [Two<Int, Int>: String] { get }
+    func fuzzyCoordToId(coord: (Int, Int), fuzziness: Int) -> String?
+}
+
+extension PDFTouchConverter {
+    func distance(a: (Int, Int), b: (Int, Int)) -> Double {
+        return sqrt(Double((a.0 - b.0) ^^ 2 + (a.1 - b.1) ^^ 2))
+    }
+}
+
+class NYCPDFTouchConverter: PDFTouchConverter {
+    public var fuzzyRadius: CGFloat = 30
+    public var verticalScaleFactor: CGFloat = 5964
+    public var horizontalScaleFactor: CGFloat = 4811
+    public var verticalAdjustment: CGFloat = 44//12.0
+    public var horizontalAdjustment: CGFloat = 22//7.0
     
-    static func fuzzyCoordToId(coord: (Int, Int), fuzziness: Int) -> String? {
+    public func fuzzyCoordToId(coord: (Int, Int), fuzziness: Int) -> String? {
         var keys: [Two<Int, Int>] = coordToIdMap.keys
-            .filter({ abs($0.values.0 - coord.0) < fuzziness && abs($0.values.1 - coord.1) < fuzziness })
+            .filter({ distance(a: $0.values, b: coord) < Double(fuzziness) })
         keys = keys.sorted(by: {
             return distance(a: $0.values, b: coord) > distance(a: $1.values, b: coord)
         })
@@ -29,11 +50,7 @@ class PDFTouchConverter: NSObject {
         }
     }
     
-    static func distance(a: (Int, Int), b: (Int, Int)) -> Double {
-        return sqrt(Double((a.0 - b.0) ^^ 2 + (a.1 - b.1) ^^ 2))
-    }
-    
-    static let coordToIdMap: [Two<Int, Int>: String] = [
+    public let coordToIdMap: [Two<Int, Int>: String] = [
         Two(values: (752, 410)): "101",
         Two(values: (782, 548)): "103",
         Two(values: (776, 622)): "104",

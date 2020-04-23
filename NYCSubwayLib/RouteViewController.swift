@@ -14,7 +14,6 @@ import GTFSStations
 class RouteViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     let dataSource = FlexDataSource()
-    var stationManager: NYCStationManager!
     var stations: [Station]!
     var trips: [Trip]!
     
@@ -23,7 +22,7 @@ class RouteViewController: UIViewController, UITableViewDelegate {
         
         let routeIds = trips.map { $0.routeId }
         
-        if let routeId = routeIds.first as? String, let route = stationManager.routeForRouteId(routeId) {
+        if let routeId = routeIds.first as? String, let route = Current.stationManager.routeForRouteId(routeId) {
             let items = stations.map { RouteItem(station: $0, route: route) }
             items.first?.position = .first
             items.last?.position = .last
@@ -36,7 +35,7 @@ class RouteViewController: UIViewController, UITableViewDelegate {
                     routeIdIndex += 1
                     item.isTransfer = true
                 }
-                if let route = stationManager.routes.filter({ $0.objectId == routeIds[routeIdIndex] }).first {
+                if let route = Current.stationManager.routes.filter({ $0.objectId == routeIds[routeIdIndex] }).first {
                     item.route = route
                 }
             }

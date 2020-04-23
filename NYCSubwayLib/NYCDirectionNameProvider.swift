@@ -12,9 +12,13 @@ public enum ImageDirection: Int {
     case left, right, up, down
 }
 
-open class NYCDirectionNameProvider: NSObject {
+public protocol DirectionProvider {
+    func directionName(for direction: Int, routeId: String) -> String
+    func directionEnum(for direction: Int, routeId: String) -> ImageDirection
+}
 
-    public static func directionName(for direction: Int, routeId: String) -> String {
+open class NYCDirectionNameProvider: DirectionProvider {
+    public func directionName(for direction: Int, routeId: String) -> String {
         var directionName = direction == 0 ? "Uptown" : "Downtown"
         
         if routeId == "7" || routeId == "7X" {
@@ -33,7 +37,7 @@ open class NYCDirectionNameProvider: NSObject {
         return directionName
     }
     
-    public static func directionEnum(for direction: Int, routeId: String) -> ImageDirection {
+    public func directionEnum(for direction: Int, routeId: String) -> ImageDirection {
         var directionEnum = direction == 0 ? ImageDirection.up : ImageDirection.down
         
         if routeId == "7" || routeId == "7X" {

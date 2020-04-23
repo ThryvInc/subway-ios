@@ -8,10 +8,10 @@
 
 import UIKit
 
-struct Two<T:Hashable,U:Hashable> : Hashable {
+public struct Two<T:Hashable,U:Hashable> : Hashable {
     let values : (T, U)
     
-    var hashValue : Int {
+    public var hashValue : Int {
         get {
             let (a,b) = values
             return a.hashValue &* 31 &+ b.hashValue
@@ -19,6 +19,6 @@ struct Two<T:Hashable,U:Hashable> : Hashable {
     }
 }
 
-func ==<T, U>(lhs: Two<T,U>, rhs: Two<T,U>) -> Bool {
+public func ==<T, U>(lhs: Two<T,U>, rhs: Two<T,U>) -> Bool {
     return lhs.values == rhs.values
 }

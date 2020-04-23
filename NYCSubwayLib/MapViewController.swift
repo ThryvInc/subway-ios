@@ -43,8 +43,7 @@ class MapViewController: StationSearchViewController, UIScrollViewDelegate, UITa
     func setupFavoritesButton() {
         let favButton = UIButton()
         favButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        favButton.setImage(UIImage(named: "STARgrey")?.withRenderingMode(.alwaysOriginal), for: UIControl.State())
-        favButton.setImage(UIImage(named: "STARyellow")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.selected.union(.highlighted))
+        favButton.setImage(UIImage(named: "star_white_24pt")?.withRenderingMode(.alwaysOriginal), for: UIControl.State())
         favButton.addTarget(self, action: #selector(MapViewController.openFavorites), for: .touchUpInside)
         
         let favBarButton = UIBarButtonItem()
@@ -58,7 +57,6 @@ class MapViewController: StationSearchViewController, UIScrollViewDelegate, UITa
         navigationItem.backBarButtonItem = barButton
         
         let favoritesVC = FavoritesViewController.makeFromXIB()
-        favoritesVC.stationManager = stationManager
         navigationController?.pushViewController(favoritesVC, animated: true)
     }
     
@@ -67,8 +65,6 @@ class MapViewController: StationSearchViewController, UIScrollViewDelegate, UITa
     }
     
     @objc func databaseLoaded() {
-        stationManager = DatabaseLoader.stationManager
-        
         loading = false
         UIView.animate(withDuration: 0.5, animations: { () -> Void in
             self.searchBar?.alpha = 1
@@ -112,10 +108,7 @@ class MapViewController: StationSearchViewController, UIScrollViewDelegate, UITa
             barButton.title = ""
             navigationItem.backBarButtonItem = barButton
             
-            let stationVC = StationViewController.makeFromXIB()
-            stationVC.stationManager = stationManager
-            stationVC.station = stationArray[indexPath.row]
-            navigationController?.pushViewController(stationVC, animated: true)
+            pushAnimated(stationVC(for: stationArray[indexPath.row]))
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

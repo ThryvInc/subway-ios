@@ -28,6 +28,7 @@ class PredictionViewModel: NSObject {
     var onDeckPrediction: Prediction?
     var inTheHolePrediction: Prediction?
     var visits: [Visit]?
+    var estimates: [Estimate]?
    
     init(routeId: String!, direction: Direction!) {
         self.routeId = routeId

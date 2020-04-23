@@ -20,7 +20,7 @@ UISearchBar.appearance().tintColor = UIColor.accent()
 let mapVC = pdfMapVC()
 if let onDbLoad = mapVC.onDatabaseLoaded {
     mapVC.onDatabaseLoaded = union(onDbLoad, {
-        let station = $0.stationManager.stationsForSearchString("Times")?.first
+        let station = Current.stationManager.stationsForSearchString("Times")?.first
         $0.openStation(station)
     })
 }

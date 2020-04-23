@@ -35,22 +35,24 @@ class LineViewModel: NSObject {
 
 extension StationManager {
     func linesForStation(_ station: Station) -> [LineViewModel]? {
-        var lineModels = [LineViewModel]()
-        let routeIds = routeIdsForStation(station)
-        
-        for routeId in routeIds {
-            let lineModel = LineViewModel()
-            lineModel.routeIds = [routeId]
-            lineModel.color = Current.colorManager.colorForRouteId(routeId)
-            let lineIndex = lineModels.index(of: lineModel)
-            if let index = lineIndex {
-                if !lineModels[index].routeIds.contains(routeId) {
-                    lineModels[index].routeIds.append(routeId)
-                }
-            }else{
-                lineModels.append(lineModel)
-            }
-        }
-        return lineModels
+        return lines(from: routeIdsForStation(station))
     }
+}
+
+func lines(from routeIds: [String]) -> [LineViewModel] {
+    var lineModels = [LineViewModel]()
+    for routeId in routeIds {
+        let lineModel = LineViewModel()
+        lineModel.routeIds = [routeId]
+        lineModel.color = Current.colorManager.colorForRouteId(routeId)
+        let lineIndex = lineModels.firstIndex(of: lineModel)
+        if let index = lineIndex {
+            if !lineModels[index].routeIds.contains(routeId) {
+                lineModels[index].routeIds.append(routeId)
+            }
+        } else {
+            lineModels.append(lineModel)
+        }
+    }
+    return lineModels
 }

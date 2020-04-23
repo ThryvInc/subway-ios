@@ -97,6 +97,11 @@
 		4974F2E0244E166800129EEB /* Framefile.json in Resources */ = {isa = PBXBuildFile; fileRef = 4974F2DF244E166800129EEB /* Framefile.json */; };
 		4998FB661D281F6B00A990F3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4998FB651D281F6B00A990F3 /* libz.tbd */; };
 		4998FB681D281F8C00A990F3 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4998FB671D281F8C00A990F3 /* libsqlite3.tbd */; };
+		49E32CCC2451EEC4002F8366 /* DBPredictionRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E32CCB2451EEC4002F8366 /* DBPredictionRefresher.swift */; };
+		49E32CCF2451FAC0002F8366 /* EstimateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E32CCD2451FAC0002F8366 /* EstimateTableViewCell.swift */; };
+		49E32CD02451FAC0002F8366 /* EstimateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E32CCE2451FAC0002F8366 /* EstimateTableViewCell.xib */; };
+		49E32CD224523B5E002F8366 /* GetEstimatesCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E32CD124523B5E002F8366 /* GetEstimatesCall.swift */; };
+		49E32CD424523BB6002F8366 /* Estimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E32CD324523BB6002F8366 /* Estimate.swift */; };
 		49E7C9951CADC7E3006A03F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E7C9941CADC7E3006A03F1 /* AppDelegate.swift */; };
 		49E7C99C1CADC7E3006A03F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49E7C99B1CADC7E3006A03F1 /* Assets.xcassets */; };
 		49E7C99F1CADC7E3006A03F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49E7C99D1CADC7E3006A03F1 /* LaunchScreen.storyboard */; };
@@ -296,6 +301,11 @@
 		4974F2E3244E1C2000129EEB /* keyword.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = keyword.strings; path = "screenshots/en-US/keyword.strings"; sourceTree = SOURCE_ROOT; };
 		4998FB651D281F6B00A990F3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		4998FB671D281F8C00A990F3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		49E32CCB2451EEC4002F8366 /* DBPredictionRefresher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBPredictionRefresher.swift; sourceTree = "<group>"; };
+		49E32CCD2451FAC0002F8366 /* EstimateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateTableViewCell.swift; sourceTree = "<group>"; };
+		49E32CCE2451FAC0002F8366 /* EstimateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EstimateTableViewCell.xib; sourceTree = "<group>"; };
+		49E32CD124523B5E002F8366 /* GetEstimatesCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEstimatesCall.swift; sourceTree = "<group>"; };
+		49E32CD324523BB6002F8366 /* Estimate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Estimate.swift; sourceTree = "<group>"; };
 		49E7C9921CADC7E3006A03F1 /* LondonMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LondonMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E7C9941CADC7E3006A03F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49E7C99B1CADC7E3006A03F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -565,6 +575,7 @@
 				4974F265244DFF2000129EEB /* DeleteVisitCall.swift */,
 				4974F24E244DFF1E00129EEB /* ReportVisitCall.swift */,
 				4974F255244DFF1F00129EEB /* GetVisitsCall.swift */,
+				49E32CD124523B5E002F8366 /* GetEstimatesCall.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -625,6 +636,7 @@
 				4974F258244DFF1F00129EEB /* VersionChecker.swift */,
 				4959FCB1244F1ECA006FDD00 /* TimeProvider.swift */,
 				4974F2B6244DFF6D00129EEB /* ViewModels */,
+				49E32CCB2451EEC4002F8366 /* DBPredictionRefresher.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -652,6 +664,8 @@
 				4974F249244DFF1E00129EEB /* VisitTableViewCell.xib */,
 				4974F260244DFF2000129EEB /* PredictionTableViewCell.swift */,
 				4974F254244DFF1F00129EEB /* PredictionTableViewCell.xib */,
+				49E32CCD2451FAC0002F8366 /* EstimateTableViewCell.swift */,
+				49E32CCE2451FAC0002F8366 /* EstimateTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -671,6 +685,7 @@
 			children = (
 				4974F269244DFF2000129EEB /* VisitsResponse.swift */,
 				4974F263244DFF2000129EEB /* Visit.swift */,
+				49E32CD324523BB6002F8366 /* Estimate.swift */,
 			);
 			path = Server;
 			sourceTree = "<group>";
@@ -1099,6 +1114,7 @@
 				4974F2A9244DFF2100129EEB /* subway.pdf in Resources */,
 				4974F29D244DFF2100129EEB /* ChooseDirectionViewController.xib in Resources */,
 				4974F28F244DFF2100129EEB /* RoutesViewController.xib in Resources */,
+				49E32CD02451FAC0002F8366 /* EstimateTableViewCell.xib in Resources */,
 				4974F290244DFF2100129EEB /* RouteCollectionViewCell.xib in Resources */,
 				4974F293244DFF2100129EEB /* PredictionTableViewCell.xib in Resources */,
 				4974F2A5244DFF2100129EEB /* AdNavigationController.xib in Resources */,
@@ -1181,6 +1197,7 @@
 				"${BUILT_PRODUCTS_DIR}/LithoOperators/LithoOperators.framework",
 				"${BUILT_PRODUCTS_DIR}/PlaygroundVCHelpers/PlaygroundVCHelpers.framework",
 				"${BUILT_PRODUCTS_DIR}/Prelude/Prelude.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
 				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
@@ -1198,6 +1215,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LithoOperators.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlaygroundVCHelpers.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prelude.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
@@ -1269,6 +1287,7 @@
 				"${BUILT_PRODUCTS_DIR}/LithoOperators/LithoOperators.framework",
 				"${BUILT_PRODUCTS_DIR}/PlaygroundVCHelpers/PlaygroundVCHelpers.framework",
 				"${BUILT_PRODUCTS_DIR}/Prelude/Prelude.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
 				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
@@ -1286,6 +1305,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LithoOperators.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlaygroundVCHelpers.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prelude.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
@@ -1353,6 +1373,7 @@
 				"${BUILT_PRODUCTS_DIR}/LithoOperators/LithoOperators.framework",
 				"${BUILT_PRODUCTS_DIR}/PlaygroundVCHelpers/PlaygroundVCHelpers.framework",
 				"${BUILT_PRODUCTS_DIR}/Prelude/Prelude.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
 				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
@@ -1370,6 +1391,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LithoOperators.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlaygroundVCHelpers.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prelude.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
@@ -1415,6 +1437,7 @@
 				"${BUILT_PRODUCTS_DIR}/LithoOperators/LithoOperators.framework",
 				"${BUILT_PRODUCTS_DIR}/PlaygroundVCHelpers/PlaygroundVCHelpers.framework",
 				"${BUILT_PRODUCTS_DIR}/Prelude/Prelude.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
 				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
@@ -1436,6 +1459,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LithoOperators.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlaygroundVCHelpers.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prelude.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
@@ -1467,6 +1491,7 @@
 				"${BUILT_PRODUCTS_DIR}/LithoOperators/LithoOperators.framework",
 				"${BUILT_PRODUCTS_DIR}/PlaygroundVCHelpers/PlaygroundVCHelpers.framework",
 				"${BUILT_PRODUCTS_DIR}/Prelude/Prelude.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
 				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
@@ -1486,6 +1511,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LithoOperators.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlaygroundVCHelpers.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prelude.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
@@ -1516,6 +1542,7 @@
 				"${BUILT_PRODUCTS_DIR}/LithoOperators/LithoOperators.framework",
 				"${BUILT_PRODUCTS_DIR}/PlaygroundVCHelpers/PlaygroundVCHelpers.framework",
 				"${BUILT_PRODUCTS_DIR}/Prelude/Prelude.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
 				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
@@ -1535,6 +1562,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LithoOperators.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlaygroundVCHelpers.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prelude.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
@@ -1563,6 +1591,7 @@
 				"${BUILT_PRODUCTS_DIR}/LithoOperators/LithoOperators.framework",
 				"${BUILT_PRODUCTS_DIR}/PlaygroundVCHelpers/PlaygroundVCHelpers.framework",
 				"${BUILT_PRODUCTS_DIR}/Prelude/Prelude.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
 				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
@@ -1582,6 +1611,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LithoOperators.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlaygroundVCHelpers.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prelude.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
@@ -1704,6 +1734,7 @@
 				4974F294244DFF2100129EEB /* GetVisitsCall.swift in Sources */,
 				4974F283244DFF2100129EEB /* FavoritesViewController.swift in Sources */,
 				4974F2AF244DFF2100129EEB /* AdNavigationController.swift in Sources */,
+				49E32CD224523B5E002F8366 /* GetEstimatesCall.swift in Sources */,
 				4974F282244DFF2100129EEB /* StationTableViewCell.swift in Sources */,
 				4974F276244DFF2100129EEB /* VisitTableViewCell.swift in Sources */,
 				4974F280244DFF2100129EEB /* ChooseDirectionViewController.swift in Sources */,
@@ -1711,6 +1742,8 @@
 				4974F296244DFF2100129EEB /* LineChoiceView.swift in Sources */,
 				4974F28D244DFF2100129EEB /* ReportVisitCall.swift in Sources */,
 				4974F273244DFF2100129EEB /* RouteCollectionViewCell.swift in Sources */,
+				49E32CCC2451EEC4002F8366 /* DBPredictionRefresher.swift in Sources */,
+				49E32CCF2451FAC0002F8366 /* EstimateTableViewCell.swift in Sources */,
 				4974F28A244DFF2100129EEB /* UserReportsViewController.swift in Sources */,
 				4974F27C244DFF2100129EEB /* DatabaseLoader.swift in Sources */,
 				4974F29C244DFF2100129EEB /* StationItem.swift in Sources */,
@@ -1721,6 +1754,7 @@
 				4974F2AA244DFF2100129EEB /* NYCDirectionNameProvider.swift in Sources */,
 				4974F27F244DFF2100129EEB /* RouteTableViewCell.swift in Sources */,
 				4974F22E244DFE6C00129EEB /* World.swift in Sources */,
+				49E32CD424523BB6002F8366 /* Estimate.swift in Sources */,
 				4974F297244DFF2100129EEB /* VersionChecker.swift in Sources */,
 				4959FCB2244F1ECA006FDD00 /* TimeProvider.swift in Sources */,
 				4974F287244DFF2100129EEB /* Styles.swift in Sources */,

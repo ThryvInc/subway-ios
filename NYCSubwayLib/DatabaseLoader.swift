@@ -33,6 +33,7 @@ public class DatabaseLoader: NSObject {
             navManager = try? NYCStationManager(sourceFilePath: navDbDestinationPath)
             DispatchQueue.main.async {
                 Current.stationManager = self.stationManager
+                Current.navManager = self.navManager
                 self.isDatabaseReady = true
                 NotificationCenter.default.post(name: Notification.Name(rawValue: self.NYCDatabaseLoadedNotification), object: nil)
             }

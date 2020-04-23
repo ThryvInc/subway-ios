@@ -13,7 +13,6 @@ import PlaygroundVCHelpers
 
 class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
-    var stationManager: StationManager!
     var favManager: FavoritesManager!
     var stations: [Station]?
 
@@ -23,7 +22,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         self.edgesForExtendedLayout = UIRectEdge()
         
         title = "FAVORITES"
-        favManager = FavoritesManager(stationManager: stationManager)
+        favManager = FavoritesManager()
         stations = favManager.favoriteStations()
         
         tableView.register(UINib(nibName: "StationTableViewCell", bundle: Bundle(for: Self.self)), forCellReuseIdentifier: "cell")
@@ -33,7 +32,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        favManager = FavoritesManager(stationManager: stationManager)
+        favManager = FavoritesManager()
         stations = favManager.favoriteStations()
         tableView.reloadData()
     }
@@ -43,9 +42,8 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         for imageView in cell.orderedLineImageViews! {
             imageView.image = nil
         }
-        let priority = DispatchQueue.GlobalQueuePriority.default
-        DispatchQueue.global(priority: priority).async {
-            let optionalLines = self.stationManager.linesForStation(station)
+        DispatchQueue.global(qos: .background).async {
+            let optionalLines = Current.stationManager.linesForStation(station)
             if let lines = optionalLines {
                 DispatchQueue.main.async {
                     for line in lines {
@@ -53,13 +51,13 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
                         if cell.firstLineImageView.image == nil {
                             cell.firstLineImageView.image = image
                             cell.firstLineImageView.tintColor = line.color
-                        }else if cell.secondLineImageView.image == nil {
+                        } else if cell.secondLineImageView.image == nil {
                             cell.secondLineImageView.image = image
                             cell.secondLineImageView.tintColor = line.color
-                        }else if cell.thirdLineImageView.image == nil {
+                        } else if cell.thirdLineImageView.image == nil {
                             cell.thirdLineImageView.image = image
                             cell.thirdLineImageView.tintColor = line.color
-                        }else if cell.fourthLineImageView.image == nil {
+                        } else if cell.fourthLineImageView.image == nil {
                             cell.fourthLineImageView.image = image
                             cell.fourthLineImageView.tintColor = line.color
                         }
@@ -99,10 +97,7 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
         barButton.title = ""
         navigationItem.backBarButtonItem = barButton
         
-        let stationVC = StationViewController.makeFromXIB()
-        stationVC.stationManager = stationManager
-        stationVC.station = station
-        navigationController?.pushViewController(stationVC, animated: true)
+        pushAnimated(stationVC(for: station))
     }
 }
 

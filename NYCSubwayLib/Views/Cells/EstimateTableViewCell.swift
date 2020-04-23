@@ -1,14 +1,14 @@
 //
-//  PredictionTableViewCell.swift
-//  SubwayMap
+//  EstimateTableViewCell.swift
+//  NYCSubwayLib
 //
-//  Created by Elliot Schrock on 7/29/15.
-//  Copyright (c) 2015 Thryv. All rights reserved.
+//  Created by Elliot Schrock on 4/23/20.
+//  Copyright © 2020 Thryv. All rights reserved.
 //
 
 import UIKit
 
-class PredictionTableViewCell: UITableViewCell {
+class EstimateTableViewCell: UITableViewCell {
     @IBOutlet weak var routeImage: UIImageView!
     @IBOutlet weak var routeLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -18,6 +18,7 @@ class PredictionTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        contentView.autoresizingMask = .flexibleHeight
         setupCircleCappedView(routeLabel)
     }
 }

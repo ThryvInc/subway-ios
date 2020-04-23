@@ -21,3 +21,8 @@ public extension UIColor {
         return UIColor(hex: 0xdf03a6)
     }
 }
+
+func setupCircleCappedView(_ view: UIView) {
+    view.layer.cornerRadius = view.bounds.size.width / 2
+    view.clipsToBounds = true
+}
