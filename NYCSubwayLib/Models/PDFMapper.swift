@@ -33,6 +33,14 @@ extension PDFMapper {
         }
     }
     
+    func clearTapGestureRecognizers() {
+        pdfView.documentView?.gestureRecognizers?.forEach {
+            if $0 is UITapGestureRecognizer {
+                pdfView.documentView?.removeGestureRecognizer($0)
+            }
+        }
+    }
+    
     func zoomIn(_ recognizer: UITapGestureRecognizer) {
         let touch = recognizer.location(in: pdfView.documentView)
         pdfView.scaleFactor = isZoomedOut ? pdfView.maxScaleFactor : pdfView.scaleFactorForSizeToFit

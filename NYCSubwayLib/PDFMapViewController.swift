@@ -25,7 +25,11 @@ public func pdfMapVC() -> PDFMapViewController {
 func onDatabaseLoaded(vc: PDFMapViewController) {
     vc.loading = false
     vc.setupBarButtons()
+    
+    vc.clearTapGestureRecognizers()
     vc.setupStationTap()
+    vc.pdfView.documentView?.addTapGestureRecognizer(numberOfTaps: 2, action: vc.zoomIn)
+    
     UIView.animate(withDuration: 0.5, animations: { () -> Void in
         vc.searchBar?.alpha = 1
         vc.loadingImageView.alpha = 0
@@ -55,7 +59,6 @@ public class PDFMapViewController: StationSearchViewController, PDFMapper, UITab
         pdfView.document = pdf
         setupPdfMap()
         disableLongPresses()
-        setupStationTap()
         pdfView.documentView?.addTapGestureRecognizer(numberOfTaps: 2, action: zoomIn)
         
         setupTableView(tableView)
