@@ -52,7 +52,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baseline_remove_red_eye_black_48" translatesAutoresizingMaskIntoConstraints="NO" id="VG3-8a-Hox">
-                        <rect key="frame" x="249" y="54.5" width="25" height="21"/>
+                        <rect key="frame" x="241" y="54.5" width="25" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="25" id="JQJ-tg-h8S"/>
                             <constraint firstAttribute="height" constant="21" id="gwF-e4-Per"/>
@@ -60,7 +60,7 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="w1F-hm-cMs" secondAttribute="trailing" constant="8" id="2d5-3Q-g7P"/>
+                    <constraint firstAttribute="trailing" secondItem="w1F-hm-cMs" secondAttribute="trailing" constant="16" id="2d5-3Q-g7P"/>
                     <constraint firstItem="xfr-Mb-cPA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="4Y2-Dp-phC"/>
                     <constraint firstAttribute="bottom" secondItem="uxI-uR-rgl" secondAttribute="bottom" constant="15" id="Bz9-IY-lVJ"/>
                     <constraint firstItem="xfr-Mb-cPA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="23" id="Gre-T1-JST"/>
