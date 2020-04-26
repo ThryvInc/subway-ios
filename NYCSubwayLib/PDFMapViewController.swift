@@ -73,20 +73,12 @@ public class PDFMapViewController: StationSearchViewController, PDFMapper, UITab
             databaseLoaded()
         }
         
+        buttonBottomConstaint |> setupActionButtonPosition(_:)
+        view.updateConstraints()
+        
         #if targetEnvironment(simulator)
         pdfView.documentView ?> Current.pdfTouchConverter.addStopDots(to:)
         #endif
-    }
-    
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if Current.adsEnabled {
-            buttonBottomConstaint.constant = 50
-        } else {
-            buttonBottomConstaint.constant = 0
-        }
-        view.updateConstraints()
     }
     
     func setupStationTap() {
