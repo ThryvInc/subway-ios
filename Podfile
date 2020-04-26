@@ -4,7 +4,7 @@ use_frameworks!
 
 def import_pods
     pod "SBTextInputView"
-    pod "SBNag.swift"
+    pod "SBNag.swift", git: 'https://github.com/schrockblock/SBNag.swift'
     pod 'SBCategories'
     pod 'ZipArchive'
     pod 'Fabric'

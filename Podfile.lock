@@ -91,7 +91,7 @@ PODS:
   - PromisesObjC (1.2.8)
   - Quick (2.2.0)
   - SBCategories (0.1.1)
-  - SBNag.swift (0.0.2):
+  - SBNag.swift (0.0.4):
     - SwiftDate
   - SBTextInputView (0.2.1)
   - SQLite.swift (0.11.4):
@@ -115,7 +115,7 @@ DEPENDENCIES:
   - PlaygroundVCHelpers (from `https://github.com/ThryvInc/playground-vc-helpers`)
   - Quick
   - SBCategories
-  - SBNag.swift
+  - SBNag.swift (from `https://github.com/schrockblock/SBNag.swift`)
   - SBTextInputView
   - SQLite.swift (= 0.11.4)
   - ZipArchive
@@ -133,7 +133,6 @@ SPEC REPOS:
     - PromisesObjC
     - Quick
     - SBCategories
-    - SBNag.swift
     - SBTextInputView
     - SQLite.swift
     - SubwayStations
@@ -156,6 +155,8 @@ EXTERNAL SOURCES:
     :git: https://github.com/ThryvInc/LUX
   PlaygroundVCHelpers:
     :git: https://github.com/ThryvInc/playground-vc-helpers
+  SBNag.swift:
+    :git: https://github.com/schrockblock/SBNag.swift
 
 CHECKOUT OPTIONS:
   FlexDataSource:
@@ -179,6 +180,9 @@ CHECKOUT OPTIONS:
   PlaygroundVCHelpers:
     :commit: 1b1f5ed572a1965e1d52bbc1b21f3796a6f144e2
     :git: https://github.com/ThryvInc/playground-vc-helpers
+  SBNag.swift:
+    :commit: 3e6d19e30df3de2022d1aae349739411c9e6bc88
+    :git: https://github.com/schrockblock/SBNag.swift
 
 SPEC CHECKSUMS:
   Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
@@ -199,13 +203,13 @@ SPEC CHECKSUMS:
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
   SBCategories: a2a126ee06eeacaac02d5e68533cd9de1b9bf1cc
-  SBNag.swift: 57ae1aa7799765e2452aaa02f97ee1aca0ed396d
+  SBNag.swift: 7ff6ffee2e993bd7c56943d7e1f1a39f0bdac606
   SBTextInputView: 5123a3992aea198a13a514d1721c70a2a3bd57ac
   SQLite.swift: 3e3bee21da701b5b9f87c4a672cb54f233505692
   SubwayStations: c902ac2c33734c71d24eb8f994d45406c3475602
   SwiftDate: fa2bb3962056bb44047b4b85a30044e5eae30b03
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
 
-PODFILE CHECKSUM: a5058ad96c06f1feceac4d91a645515c0276eed7
+PODFILE CHECKSUM: fef8934e6c146212a2eeb0d8b5e17810e6c9abdb
 
 COCOAPODS: 1.9.0
