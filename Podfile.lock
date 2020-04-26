@@ -33,7 +33,7 @@ PODS:
   - "GoogleUtilities/NSData+zlib (6.6.0)"
   - GoogleUtilities/Reachability (6.6.0):
     - GoogleUtilities/Logger
-  - GTFSStations (0.4.0):
+  - GTFSStations (0.4.1):
     - SQLite.swift
     - SubwayStations
   - GTFSStationsParis (0.0.3):
@@ -166,7 +166,7 @@ CHECKOUT OPTIONS:
     :commit: 421395a64a5e70853dde6c1c9f59ea762a4ad1cf
     :git: https://github.com/schrockblock/funnet
   GTFSStations:
-    :commit: 10a91b178cc3e5594072a025733d040316b9cd63
+    :commit: 8e98e1aecb37c0db5e319090e8ef1a47a5292a47
     :git: https://github.com/schrockblock/gtfs-stations
   GTFSStationsParis:
     :commit: 426296b888715bcc9f24de2bd994af6b4f0e9615
@@ -192,7 +192,7 @@ SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 7052557293c75c676db55feb707ace9b790f32c1
   GoogleAppMeasurement: 2253e99c1f22638cf234c059144660c338ad76c3
   GoogleUtilities: 39530bc0ad980530298e9c4af8549e991fd033b1
-  GTFSStations: f1c49d647bb51c8d2abbd9b3c758a4985d0ea990
+  GTFSStations: ad624be03924060c7a2d8be968f6b30b7a425888
   GTFSStationsParis: 499523f95504f2da0d999d61896b19233aa26524
   LithoOperators: 4c48d2951a4999d9c3ac194d44933782710c5201
   LUX: caefe0c5fe1e6a7c53d344196ba0d0ba3e5eae60
