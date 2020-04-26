@@ -8,17 +8,8 @@
 
 import UIKit
 
-class EstimateTableViewCell: UITableViewCell {
-    @IBOutlet weak var routeImage: UIImageView!
-    @IBOutlet weak var routeLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var deltaLabel: UILabel!
-    @IBOutlet weak var visitImageView: UIImageView!
-    @IBOutlet weak var visitLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        contentView.autoresizingMask = .flexibleHeight
-        setupCircleCappedView(routeLabel)
-    }
+class EstimateTableViewCell: PredictionTableViewCell {
+    @IBOutlet weak var deltaPrimeLabel: UILabel!
+    @IBOutlet weak var deltaIconImageView: UIImageView!
+    @IBOutlet weak var deltaPrimeIconImageView: UIImageView!
 }

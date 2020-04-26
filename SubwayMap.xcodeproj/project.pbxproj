@@ -97,6 +97,9 @@
 		4974F2E0244E166800129EEB /* Framefile.json in Resources */ = {isa = PBXBuildFile; fileRef = 4974F2DF244E166800129EEB /* Framefile.json */; };
 		4998FB661D281F6B00A990F3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4998FB651D281F6B00A990F3 /* libz.tbd */; };
 		4998FB681D281F8C00A990F3 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4998FB671D281F8C00A990F3 /* libsqlite3.tbd */; };
+		49D24109245352E900C37962 /* SubwayStationsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D24108245352E900C37962 /* SubwayStationsExtensions.swift */; };
+		49D2410B2453533600C37962 /* CellConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2410A2453533600C37962 /* CellConfig.swift */; };
+		49D2410D24535CE400C37962 /* PredictionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2410C24535CE400C37962 /* PredictionViewModelTests.swift */; };
 		49E32CCC2451EEC4002F8366 /* DBPredictionRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E32CCB2451EEC4002F8366 /* DBPredictionRefresher.swift */; };
 		49E32CCF2451FAC0002F8366 /* EstimateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E32CCD2451FAC0002F8366 /* EstimateTableViewCell.swift */; };
 		49E32CD02451FAC0002F8366 /* EstimateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E32CCE2451FAC0002F8366 /* EstimateTableViewCell.xib */; };
@@ -192,6 +195,7 @@
 		334E54D6EDC1F1BB5885639D /* Pods-NYCSubwayLibTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYCSubwayLibTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NYCSubwayLibTests/Pods-NYCSubwayLibTests.release.xcconfig"; sourceTree = "<group>"; };
 		39ED7011F6131013BA67E31B /* Pods-NYCSubwayLibTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYCSubwayLibTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NYCSubwayLibTests/Pods-NYCSubwayLibTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3C7D7B9C0B1F6563BC57322B /* Pods-ParisMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParisMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParisMap/Pods-ParisMap.debug.xcconfig"; sourceTree = "<group>"; };
+		490FA52D245385740020F554 /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		4918311C1B672B6900EB8328 /* SubwayMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubwayMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		491831201B672B6900EB8328 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		491831211B672B6900EB8328 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -290,7 +294,6 @@
 		4974F2CA244E070F00129EEB /* Matchfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Matchfile; path = ../fastlane/Matchfile; sourceTree = "<group>"; };
 		4974F2CB244E070F00129EEB /* Snapfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Snapfile; path = ../fastlane/Snapfile; sourceTree = "<group>"; };
 		4974F2CC244E070F00129EEB /* Appfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Appfile; path = ../fastlane/Appfile; sourceTree = "<group>"; };
-		4974F2CD244E070F00129EEB /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Gemfile; path = ../fastlane/Gemfile; sourceTree = "<group>"; };
 		4974F2CE244E070F00129EEB /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = ../fastlane/Fastfile; sourceTree = "<group>"; };
 		4974F2D5244E073F00129EEB /* config.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = config.yml; path = .circleci/config.yml; sourceTree = "<group>"; };
 		4974F2D6244E07F000129EEB /* SubwayMapUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SubwayMapUITests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -301,6 +304,9 @@
 		4974F2E3244E1C2000129EEB /* keyword.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = keyword.strings; path = "screenshots/en-US/keyword.strings"; sourceTree = SOURCE_ROOT; };
 		4998FB651D281F6B00A990F3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		4998FB671D281F8C00A990F3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		49D24108245352E900C37962 /* SubwayStationsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayStationsExtensions.swift; sourceTree = "<group>"; };
+		49D2410A2453533600C37962 /* CellConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfig.swift; sourceTree = "<group>"; };
+		49D2410C24535CE400C37962 /* PredictionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionViewModelTests.swift; sourceTree = "<group>"; };
 		49E32CCB2451EEC4002F8366 /* DBPredictionRefresher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBPredictionRefresher.swift; sourceTree = "<group>"; };
 		49E32CCD2451FAC0002F8366 /* EstimateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateTableViewCell.swift; sourceTree = "<group>"; };
 		49E32CCE2451FAC0002F8366 /* EstimateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EstimateTableViewCell.xib; sourceTree = "<group>"; };
@@ -562,6 +568,7 @@
 			isa = PBXGroup;
 			children = (
 				8355AC6E1B94A1C8002F0527 /* FavoritesManagerTests.swift */,
+				49D2410C24535CE400C37962 /* PredictionViewModelTests.swift */,
 				4974F221244DFE3000129EEB /* Info.plist */,
 			);
 			path = NYCSubwayLibTests;
@@ -637,6 +644,7 @@
 				4959FCB1244F1ECA006FDD00 /* TimeProvider.swift */,
 				4974F2B6244DFF6D00129EEB /* ViewModels */,
 				49E32CCB2451EEC4002F8366 /* DBPredictionRefresher.swift */,
+				49D24108245352E900C37962 /* SubwayStationsExtensions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -676,6 +684,7 @@
 				4974F256244DFF1F00129EEB /* RouteItem.swift */,
 				4974F25D244DFF1F00129EEB /* StationItem.swift */,
 				4974F253244DFF1F00129EEB /* VisitItem.swift */,
+				49D2410A2453533600C37962 /* CellConfig.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -704,6 +713,7 @@
 		4974F2D4244E071400129EEB /* Meta */ = {
 			isa = PBXGroup;
 			children = (
+				490FA52D245385740020F554 /* Gemfile */,
 				4974F2DE244E164D00129EEB /* CircleCI */,
 				4974F2DD244E163000129EEB /* FL */,
 			);
@@ -716,7 +726,6 @@
 				4974F2E1244E1BE700129EEB /* snaps */,
 				4974F2CC244E070F00129EEB /* Appfile */,
 				4974F2CE244E070F00129EEB /* Fastfile */,
-				4974F2CD244E070F00129EEB /* Gemfile */,
 				4974F2CA244E070F00129EEB /* Matchfile */,
 				4974F2CB244E070F00129EEB /* Snapfile */,
 			);
@@ -1755,8 +1764,10 @@
 				4974F27F244DFF2100129EEB /* RouteTableViewCell.swift in Sources */,
 				4974F22E244DFE6C00129EEB /* World.swift in Sources */,
 				49E32CD424523BB6002F8366 /* Estimate.swift in Sources */,
+				49D24109245352E900C37962 /* SubwayStationsExtensions.swift in Sources */,
 				4974F297244DFF2100129EEB /* VersionChecker.swift in Sources */,
 				4959FCB2244F1ECA006FDD00 /* TimeProvider.swift in Sources */,
+				49D2410B2453533600C37962 /* CellConfig.swift in Sources */,
 				4974F287244DFF2100129EEB /* Styles.swift in Sources */,
 				4974F2A3244DFF2100129EEB /* StationViewController.swift in Sources */,
 				4974F2B1244DFF2100129EEB /* UserVisitsCall.swift in Sources */,
@@ -1779,6 +1790,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4974F2C9244E03FB00129EEB /* FavoritesManagerTests.swift in Sources */,
+				49D2410D24535CE400C37962 /* PredictionViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

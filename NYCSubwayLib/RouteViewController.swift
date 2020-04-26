@@ -20,6 +20,9 @@ class RouteViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupBackgroundColor(view)
+        setupBackgroundColor(tableView)
+        
         let routeIds = trips.map { $0.routeId }
         
         if let routeId = routeIds.first as? String, let route = Current.stationManager.routeForRouteId(routeId) {

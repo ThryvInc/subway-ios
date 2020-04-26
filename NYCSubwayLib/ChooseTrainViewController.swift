@@ -27,6 +27,9 @@ class ChooseTrainViewController: UIViewController, UICollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupBackgroundColor(view)
+        setupBackgroundColor(collectionView)
+        
         title = "You spotted a train!"
         
         let routeIds = Current.stationManager.routeIdsForStation(station)

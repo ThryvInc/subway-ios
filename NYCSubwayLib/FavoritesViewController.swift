@@ -19,6 +19,9 @@ class FavoritesViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupBackgroundColor(view)
+        setupBackgroundColor(tableView)
+        
         self.edgesForExtendedLayout = UIRectEdge()
         
         title = "FAVORITES"

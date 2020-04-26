@@ -18,6 +18,8 @@ class PredictionTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupPrimaryBackgroundColor(contentView)
+        routeImage.tintColor = UIColor.darkGray
         setupCircleCappedView(routeLabel)
     }
 }

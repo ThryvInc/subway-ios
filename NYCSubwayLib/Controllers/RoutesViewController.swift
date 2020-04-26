@@ -31,6 +31,10 @@ class RoutesViewController: StationSearchViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupBackgroundColor(view)
+        fromSearchBar?.barTintColor = UIColor(named: "backgroundColor")
+        toSearchBar?.barTintColor = UIColor(named: "backgroundColor")
+        
         title = "Navigate to"
         
         spinner.alpha = 0

@@ -50,6 +50,9 @@ public class PDFMapViewController: StationSearchViewController, UITableViewDeleg
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupBackgroundColor(view)
+        setupBackgroundColor(pdfView)
+        
         edgesForExtendedLayout = UIRectEdge()
         
         title = Bundle.main.infoDictionary!["AppTitle"] as? String

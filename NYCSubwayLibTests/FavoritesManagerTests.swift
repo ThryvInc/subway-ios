@@ -23,7 +23,7 @@ class FavoritesSpec: QuickSpec {
                 waitUntil(timeout: 10, action: { (done) -> Void in
                     Thread.sleep(forTimeInterval: 5)
                     self.stationManager = DatabaseLoader.stationManager
-                    self.favoritesManager = FavoritesManager(stationManager: DatabaseLoader.stationManager)
+                    self.favoritesManager = FavoritesManager()
                     done()
                 })
             })
@@ -123,7 +123,7 @@ class FavoritesSpec: QuickSpec {
                 
                 self.favoritesManager.addFavorites(stations!)
                 
-                let newFavoritesManager: FavoritesManager! = FavoritesManager(stationManager: self.stationManager)
+                let newFavoritesManager: FavoritesManager! = FavoritesManager()
                 
 
                 let favorites: [Station]? = newFavoritesManager.findFavorites(stationName)

@@ -25,6 +25,8 @@ class ChooseDirectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupBackgroundColor(view)
+        
         setupChoice(imageView: leftImageView, label: leftLabel, directionId: 0)
         setupChoice(imageView: rightImageView, label: rightLabel, directionId: 1)
     }

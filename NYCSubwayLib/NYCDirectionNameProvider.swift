@@ -50,3 +50,12 @@ open class NYCDirectionNameProvider: DirectionProvider {
         return directionEnum
     }
 }
+
+func image(for direction: ImageDirection) -> UIImage? {
+    switch direction {
+    case .left: return UIImage(named: "ic_arrow_back_black_24dp")
+    case .right: return UIImage(named: "ic_arrow_forward_black_24dp")
+    case .up: return UIImage(named: "ic_arrow_upward_black_24dp")
+    case .down: return UIImage(named: "ic_arrow_downward_black_24dp")
+    }
+}

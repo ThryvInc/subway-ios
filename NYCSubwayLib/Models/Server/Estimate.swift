@@ -18,3 +18,13 @@ struct Estimate: Codable {
 struct EstimatesResponse: Codable {
     var estimates: [Estimate]?
 }
+
+extension Estimate {
+    func timeDate() -> Date {
+        return DateFormatter.iso8601Full.date(from: time!)!.addingTimeInterval(TimeInterval(-TimeZone.current.secondsFromGMT()))
+    }
+    
+    func timeSeconds() -> Int {
+        return Int((timeDate().timeIntervalSince1970 - Current.timeProvider().timeIntervalSince1970) / 60)
+    }
+}

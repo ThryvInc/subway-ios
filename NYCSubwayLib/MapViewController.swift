@@ -20,7 +20,9 @@ class MapViewController: StationSearchViewController, UIScrollViewDelegate, UITa
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupBackgroundColor(view)
+        
         edgesForExtendedLayout = UIRectEdge()
         
         title = Bundle.main.infoDictionary!["AppTitle"] as? String
@@ -81,7 +83,7 @@ class MapViewController: StationSearchViewController, UIScrollViewDelegate, UITa
     
     func spinLoadingImage(_ animOptions: UIView.AnimationOptions) {
         UIView.animate(withDuration: 1.5, delay: 0.0, options: animOptions, animations: {
-            self.loadingImageView.transform = self.loadingImageView.transform.rotated(by: CGFloat(M_PI))
+            self.loadingImageView.transform = self.loadingImageView.transform.rotated(by: CGFloat(Double.pi))
             return
             }, completion: { finished in
                 if finished {

@@ -22,7 +22,10 @@ public class StationSearchViewController: UIViewController, UISearchBarDelegate 
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupBackgroundColor(tableView)
+        
         searchBar?.delegate = self
+        searchBar?.barTintColor = UIColor(named: "backgroundColor")
         
         dataSource.tableView = tableView
         tableView.dataSource = dataSource
