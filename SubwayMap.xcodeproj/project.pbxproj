@@ -100,6 +100,7 @@
 		49D24109245352E900C37962 /* SubwayStationsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D24108245352E900C37962 /* SubwayStationsExtensions.swift */; };
 		49D2410B2453533600C37962 /* CellConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2410A2453533600C37962 /* CellConfig.swift */; };
 		49D2410D24535CE400C37962 /* PredictionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2410C24535CE400C37962 /* PredictionViewModelTests.swift */; };
+		49D67EE124552E9700957DCD /* PDFMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D67EE024552E9700957DCD /* PDFMapper.swift */; };
 		49E32CCC2451EEC4002F8366 /* DBPredictionRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E32CCB2451EEC4002F8366 /* DBPredictionRefresher.swift */; };
 		49E32CCF2451FAC0002F8366 /* EstimateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E32CCD2451FAC0002F8366 /* EstimateTableViewCell.swift */; };
 		49E32CD02451FAC0002F8366 /* EstimateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E32CCE2451FAC0002F8366 /* EstimateTableViewCell.xib */; };
@@ -307,6 +308,7 @@
 		49D24108245352E900C37962 /* SubwayStationsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayStationsExtensions.swift; sourceTree = "<group>"; };
 		49D2410A2453533600C37962 /* CellConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfig.swift; sourceTree = "<group>"; };
 		49D2410C24535CE400C37962 /* PredictionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionViewModelTests.swift; sourceTree = "<group>"; };
+		49D67EE024552E9700957DCD /* PDFMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFMapper.swift; sourceTree = "<group>"; };
 		49E32CCB2451EEC4002F8366 /* DBPredictionRefresher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBPredictionRefresher.swift; sourceTree = "<group>"; };
 		49E32CCD2451FAC0002F8366 /* EstimateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateTableViewCell.swift; sourceTree = "<group>"; };
 		49E32CCE2451FAC0002F8366 /* EstimateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EstimateTableViewCell.xib; sourceTree = "<group>"; };
@@ -632,6 +634,7 @@
 			children = (
 				4974F2B9244E004500129EEB /* Server */,
 				4974F2B8244E001200129EEB /* Items */,
+				4974F2B6244DFF6D00129EEB /* ViewModels */,
 				4974F23D244DFF1D00129EEB /* DatabaseLoader.swift */,
 				4974F242244DFF1D00129EEB /* Emojis.swift */,
 				4974F26E244DFF2100129EEB /* FavoritesManager.swift */,
@@ -642,9 +645,9 @@
 				4974F26D244DFF2100129EEB /* UuidProvider.swift */,
 				4974F258244DFF1F00129EEB /* VersionChecker.swift */,
 				4959FCB1244F1ECA006FDD00 /* TimeProvider.swift */,
-				4974F2B6244DFF6D00129EEB /* ViewModels */,
 				49E32CCB2451EEC4002F8366 /* DBPredictionRefresher.swift */,
 				49D24108245352E900C37962 /* SubwayStationsExtensions.swift */,
+				49D67EE024552E9700957DCD /* PDFMapper.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1763,6 +1766,7 @@
 				4974F2AA244DFF2100129EEB /* NYCDirectionNameProvider.swift in Sources */,
 				4974F27F244DFF2100129EEB /* RouteTableViewCell.swift in Sources */,
 				4974F22E244DFE6C00129EEB /* World.swift in Sources */,
+				49D67EE124552E9700957DCD /* PDFMapper.swift in Sources */,
 				49E32CD424523BB6002F8366 /* Estimate.swift in Sources */,
 				49D24109245352E900C37962 /* SubwayStationsExtensions.swift in Sources */,
 				4974F297244DFF2100129EEB /* VersionChecker.swift in Sources */,

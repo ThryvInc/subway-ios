@@ -34,7 +34,6 @@ func setupCircleCappedView(_ view: UIView) {
 }
 
 func setupTableView(_ tableView: UITableView?) {
-    tableView?.rowHeight = UITableView.automaticDimension
     tableView?.tableFooterView = UIView()
     tableView?.backgroundColor = UIColor(named: "backgroundColor")
 }

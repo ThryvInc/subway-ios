@@ -15,6 +15,7 @@ func ^^ (radix: Int, power: Int) -> Int {
 }
 
 public protocol PDFTouchConverter {
+    var dots: [UIView] { get set }
     var fuzzyRadius: CGFloat { get set }
     var verticalScaleFactor: CGFloat { get set }
     var horizontalScaleFactor: CGFloat { get set }
@@ -28,9 +29,54 @@ extension PDFTouchConverter {
     func distance(a: (Int, Int), b: (Int, Int)) -> Double {
         return sqrt(Double((a.0 - b.0) ^^ 2 + (a.1 - b.1) ^^ 2))
     }
+    
+    mutating func addStopDots(to view: UIView) {
+        dots.forEach { $0.removeFromSuperview() }
+        
+        for coord in Current.pdfTouchConverter.coordToIdMap.keys {
+            let x = view.bounds.size.width * (CGFloat(coord.values.0) + Current.pdfTouchConverter.horizontalAdjustment) / Current.pdfTouchConverter.horizontalScaleFactor
+            let y = view.bounds.size.height * (CGFloat(coord.values.1) + Current.pdfTouchConverter.verticalAdjustment) / Current.pdfTouchConverter.verticalScaleFactor
+            
+            let dot = UIView(frame: CGRect(x: x, y: y, width: 1, height: 1))
+            dot.backgroundColor = .red
+            
+            let radius: CGFloat = 30.0
+            let frame = CGRect(x: Int(x) - Int(radius / 2),
+                               y: Int(y) - Int(radius / 2), width: Int(radius), height: Int(radius))
+            let tapZone = UILabel(frame: frame)
+            tapZone.backgroundColor = UIColor.init(displayP3Red: 1.0, green: 0, blue: 0, alpha: 0.5)
+            tapZone.layer.cornerRadius = tapZone.frame.size.height / 2
+            tapZone.clipsToBounds = true
+            tapZone.font = .systemFont(ofSize: 5)
+            tapZone.text = Current.pdfTouchConverter.coordToIdMap[coord]
+            tapZone.textAlignment = .center
+            
+            view.addSubview(tapZone)
+            view.addConstraints(toSubview: tapZone, given: tapZone.frame)
+            
+            view.addSubview(dot)
+            view.addConstraints(toSubview: dot, given: dot.frame)
+            
+            dots.append(dot)
+            dots.append(tapZone)
+        }
+    }
+}
+
+extension UIView {
+    func addConstraints(toSubview view: UIView, given frame: CGRect) {
+        NSLayoutConstraint.activate([
+            view.topAnchor.constraint(equalTo: self.topAnchor, constant: frame.origin.y),
+            view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: frame.origin.x)
+        ])
+        
+        view.addConstraint(NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: frame.size.width))
+        view.addConstraint(NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: frame.size.height))
+    }
 }
 
 class NYCPDFTouchConverter: PDFTouchConverter {
+    var dots = [UIView]()
     public var fuzzyRadius: CGFloat = 30
     public var verticalScaleFactor: CGFloat = 5964
     public var horizontalScaleFactor: CGFloat = 4811
