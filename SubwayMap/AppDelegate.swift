@@ -9,16 +9,15 @@
 import UIKit
 import Fabric
 import Crashlytics
-import GTFSStations
-import SubwayStations
+import NYCSubwayLib
 import SBNag_swift
+import PlaygroundVCHelpers
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         Fabric.with([Crashlytics()])
         
         UINavigationBar.appearance().isTranslucent = false
@@ -27,13 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font : UIFont(name: "AvenirNext-Regular", size: 20)!, NSAttributedString.Key.foregroundColor : UIColor(red: 248.0/255.0, green: 248.0/255.0, blue: 248.0/255.0, alpha: 1)]
         UISearchBar.appearance().tintColor = UIColor.accent()
         
-        DispatchQueue.global( priority: DispatchQueue.GlobalQueuePriority.default).async(execute: { () -> Void in
+        DispatchQueue.global(qos: .background).async {
             DatabaseLoader.loadDb()
-        })
+        }
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let mapVC = PDFMapViewController(nibName: "PDFMapViewController", bundle: nil)
+        let mapVC = pdfMapVC()
         
         let navVC = AdNavigationController(rootViewController: mapVC)
         window?.rootViewController = navVC;
@@ -73,10 +72,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-    
-    class func colorManager() -> RouteColorManager {
-        return NYCRouteColorManager()
     }
 
 }
