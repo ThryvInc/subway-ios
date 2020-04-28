@@ -9,15 +9,13 @@
 import Foundation
 import SubwayStations
 
-class FavoritesManager: NSObject {
+public class FavoritesManager: NSObject {
     var favoriteIds: [String]!
-    var stationManager: StationManager
     var stations: [Station]?
     
     fileprivate let defaultsKey = "favorite_stations"
     
-    init(stationManager: StationManager) {
-        self.stationManager = stationManager
+    public override init() {
         self.favoriteIds = []
 
         if let names = UserDefaults.standard.stringArray(forKey: defaultsKey) {
@@ -56,9 +54,9 @@ class FavoritesManager: NSObject {
     // find favorites by substring
     func findFavorites(_ name: String?) -> [Station]? {
         if name != nil {
-            return stationManager.stationsForSearchString(name)!.filter({self.favoriteIds.contains($0.name)})
+            return Current.stationManager.stationsForSearchString(name)!.filter({self.favoriteIds.contains($0.name)})
         } else {
-            return stationManager.allStations.filter({self.favoriteIds.contains($0.name)})
+            return Current.stationManager.allStations.filter({self.favoriteIds.contains($0.name)})
         }
     }
     

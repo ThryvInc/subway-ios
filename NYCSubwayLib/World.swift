@@ -48,9 +48,16 @@ public struct World {
     public var colorManager: RouteColorManager = NYCRouteColorManager()
     public var adsEnabled: Bool = false
     public var stationManager: StationManager!
+    public var navManager: StationManager!
+    public var favManager: FavoritesManager = FavoritesManager()
+    public var directionProvider: DirectionProvider = NYCDirectionNameProvider()
+    public var pdfTouchConverter: PDFTouchConverter = NYCPDFTouchConverter()
     public var timeProvider: () -> Date = currentTime
     public var uuidProvider: () -> String = fetchUuid
 }
 extension World: Configure {}
+extension World {
+    var nycStationManager: NYCStationManager? { get { self.navManager as? NYCStationManager }}
+}
 
 extension DateFormatter: Configure {}

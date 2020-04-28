@@ -43,21 +43,8 @@ func configureManual(_ visit: Visit, _ cell: VisitTableViewCell) {
         cell.routeLabel.text = routeId
         cell.routeLabel.backgroundColor = Current.colorManager.colorForRouteId(routeId)
         if let direction = visit.directionId {
-            let directionEnum = NYCDirectionNameProvider.directionEnum(for: direction, routeId: routeId)
-            switch directionEnum {
-            case .left:
-                cell.routeImage.image = UIImage(named: "ic_arrow_back_black_24dp")
-                break
-            case .right:
-                cell.routeImage.image = UIImage(named: "ic_arrow_forward_black_24dp")
-                break
-            case .up:
-                cell.routeImage.image = UIImage(named: "ic_arrow_upward_black_24dp")
-                break
-            case .down:
-                cell.routeImage.image = UIImage(named: "ic_arrow_downward_black_24dp")
-                break
-            }
+            let directionEnum = Current.directionProvider.directionEnum(for: direction, routeId: routeId)
+            cell.routeImage.image = image(for: directionEnum)
         }
     }
     if let stationId = visit.stationId {

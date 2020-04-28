@@ -19,7 +19,7 @@ public class Visit: Codable {
     var platform: String? = "ios"
     var time: String? = DateFormatter.iso8601Seconds.string(from: Current.timeProvider().addingTimeInterval(TimeInterval(TimeZone.current.secondsFromGMT())))
     var identifier: String? = Current.uuidProvider()
-    var numberOfStopsBetween: Int64? = -1
+    var stopsAway: Int64? = -1
 }
 
 extension Visit {

@@ -18,14 +18,8 @@ class PredictionTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        routeLabel.layer.cornerRadius = 18
-        routeLabel.clipsToBounds = true
+        setupPrimaryBackgroundColor(contentView)
+        routeImage.tintColor = UIColor.darkGray
+        setupCircleCappedView(routeLabel)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }

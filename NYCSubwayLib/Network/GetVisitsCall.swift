@@ -12,6 +12,7 @@ import Combine
 import LithoOperators
 import Prelude
 import SwiftDate
+import SubwayStations
 
 func getVisitsCall(_ serverConfig: ServerConfigurationProtocol = Current.serverConfig) -> CombineNetCall {
     var endpoint = Endpoint()
@@ -22,6 +23,16 @@ func getVisitsCall(_ serverConfig: ServerConfigurationProtocol = Current.serverC
         call.firingFunc = { $0.responder?.data = visitsJson().data(using: .utf8) }
     }
     return call
+}
+
+func filterParams(for station: Station) -> [String: String] {
+    var filterParams: [String: String] = [:]
+    filterParams["current_station_ids"] = station.stopIdsFilterString()
+    filterParams["after"] = DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 5.minutes)
+    if let routeIds = Current.nycStationManager?.routeIdsForStation(station) {
+        filterParams["route_ids"] = routeIds.joined(separator: ",")
+    }
+    return filterParams
 }
 
 func visitsJson() -> String {

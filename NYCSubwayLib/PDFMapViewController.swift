@@ -12,7 +12,9 @@ import SubwayStations
 import SBTextInputView
 import FlexDataSource
 import Prelude
+import LithoOperators
 import PlaygroundVCHelpers
+import Combine
 
 public func pdfMapVC() -> PDFMapViewController {
     let vc = PDFMapViewController.makeFromXIB()
@@ -21,32 +23,32 @@ public func pdfMapVC() -> PDFMapViewController {
 }
 
 func onDatabaseLoaded(vc: PDFMapViewController) {
-    vc.stationManager = DatabaseLoader.stationManager
-    
     vc.loading = false
+    vc.setupBarButtons()
+    
+    vc.clearTapGestureRecognizers()
+    vc.setupStationTap()
+    vc.pdfView.documentView?.addTapGestureRecognizer(numberOfTaps: 2, action: vc.zoomIn)
+    
     UIView.animate(withDuration: 0.5, animations: { () -> Void in
         vc.searchBar?.alpha = 1
         vc.loadingImageView.alpha = 0
     })
 }
 
-public class PDFMapViewController: StationSearchViewController, UITableViewDelegate {
-    @IBOutlet weak var pdfView: PDFView!
+public class PDFMapViewController: StationSearchViewController, PDFMapper, UITableViewDelegate {
+    @IBOutlet public weak var pdfView: PDFView!
     @IBOutlet weak var loadingImageView: UIImageView!
     @IBOutlet weak var buttonBottomConstaint: NSLayoutConstraint!
+    
     var loading = false
     var onDatabaseLoaded: ((PDFMapViewController) -> Void)?
-    var documentsDirectory: String {
-        return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-    }
-    var isZoomedOut: Bool {
-        get {
-            return pdfView.scaleFactor <= pdfView.scaleFactorForSizeToFit
-        }
-    }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupBackgroundColor(view)
+        setupBackgroundColor(pdfView)
         
         edgesForExtendedLayout = UIRectEdge()
         
@@ -55,29 +57,12 @@ public class PDFMapViewController: StationSearchViewController, UITableViewDeleg
         
         let pdf = PDFDocument(url: URL(fileURLWithPath: Bundle(for: Self.self).path(forResource: "subway", ofType:"pdf") ?? ""))
         pdfView.document = pdf
-        pdfView.autoScales = true
-        pdfView.maxScaleFactor = 3.0
-        pdfView.minScaleFactor = pdfView.scaleFactorForSizeToFit
+        setupPdfMap()
+        disableLongPresses()
+        pdfView.documentView?.addTapGestureRecognizer(numberOfTaps: 2, action: zoomIn)
         
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(PDFMapViewController.openStationAt))
-        singleTap.numberOfTapsRequired = 1
-        
-        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(PDFMapViewController.zoomIn))
-        doubleTap.numberOfTapsRequired = 2
-        
-        if let recognizers = pdfView.gestureRecognizers {
-            for recognizer in recognizers where recognizer is UILongPressGestureRecognizer {
-                recognizer.isEnabled = false
-            }
-        }
-        pdfView.documentView?.addGestureRecognizer(singleTap)
-        pdfView.documentView?.addGestureRecognizer(doubleTap)
-        
-        setupFavoritesButton()
-        setupVisitsButton()
-        
+        setupTableView(tableView)
         tableView.delegate = self
-        tableView.tableFooterView = UIView() //removes cell separators between empty cells
         tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 216, right: 0)
         
         if !DatabaseLoader.isDatabaseReady {
@@ -90,46 +75,42 @@ public class PDFMapViewController: StationSearchViewController, UITableViewDeleg
         }else{
             databaseLoaded()
         }
-    }
-    
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
-        if Current.adsEnabled {
-            buttonBottomConstaint.constant = 50
-        } else {
-            buttonBottomConstaint.constant = 0
-        }
+        buttonBottomConstaint |> setupActionButtonPosition(_:)
         view.updateConstraints()
+        
+        #if targetEnvironment(simulator)
+        pdfView.documentView ?> Current.pdfTouchConverter.addStopDots(to:)
+        #endif
     }
     
-    @objc func zoomIn(_ recognizer: UITapGestureRecognizer) {
-        let touch = recognizer.location(in: pdfView.documentView)
-        pdfView.scaleFactor = isZoomedOut ? pdfView.maxScaleFactor : pdfView.scaleFactorForSizeToFit
-        
-        let scaledWindowWidth = pdfView.bounds.size.width * pdfView.scaleFactorForSizeToFit / 2
-        let x = touch.x - scaledWindowWidth
-        
-        let scaledWindowHeight = pdfView.bounds.size.height * pdfView.scaleFactorForSizeToFit / 2
-        let centeredY = touch.y - scaledWindowHeight
-        let pdfYCoord = (pdfView.documentView?.bounds.size.height ?? 0) - centeredY
-        
-        pdfView.go(to: CGRect(x: x, y: pdfYCoord, width: 1, height: 1), on: pdfView.currentPage!)
+    func setupStationTap() {
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(PDFMapViewController.openStationAt))
+        singleTap.numberOfTapsRequired = 1
+        pdfView.documentView?.addGestureRecognizer(singleTap)
     }
     
     @objc func openStationAt(_ recognizer: UITapGestureRecognizer) {
         if !isZoomedOut {
             let touch = recognizer.location(in: pdfView.documentView)
             
-            let scaleFactor = 3.34296 as CGFloat
+            let vAdjustment = Current.pdfTouchConverter.verticalAdjustment
+            let hAdjustment = Current.pdfTouchConverter.horizontalAdjustment
+            let vScaleFactor = Current.pdfTouchConverter.verticalScaleFactor
+            let hScaleFactor = Current.pdfTouchConverter.horizontalScaleFactor
             
-            let x = touch.x * scaleFactor
-            let y = touch.y * scaleFactor
+            let x = touch.x * hScaleFactor / pdfView.documentView!.bounds.size.width - hAdjustment
+            let y = touch.y * vScaleFactor / pdfView.documentView!.bounds.size.height - vAdjustment
             
-            if let id = PDFTouchConverter.fuzzyCoordToId(coord: (Int(x), Int(y)), fuzziness: Int(10 * scaleFactor)) {
-                openStation(stationManager.allStations.filter { $0.stops.filter { $0.objectId == id }.count > 0 }.first)
+            if let id = Current.pdfTouchConverter.fuzzyCoordToId(coord: (Int(x), Int(y)), fuzziness: Int(Current.pdfTouchConverter.fuzzyRadius)) {
+                openStation(Current.stationManager.allStations.filter { $0.stops.filter { $0.objectId == id }.count > 0 }.first)
             }
         }
+    }
+    
+    func setupBarButtons() {
+        setupFavoritesButton()
+        setupVisitsButton()
     }
     
     func setupVisitsButton() {
@@ -151,15 +132,14 @@ public class PDFMapViewController: StationSearchViewController, UITableViewDeleg
         barButton.title = ""
         navigationItem.backBarButtonItem = barButton
         
-        let visitsVC = userReportsVC(stationManager)
+        let visitsVC = userReportsVC()
         navigationController?.pushViewController(visitsVC, animated: true)
     }
     
     func setupFavoritesButton() {
         let favButton = UIButton()
         favButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        favButton.setImage(UIImage(named: "STARgrey")?.withRenderingMode(.alwaysOriginal), for: UIControl.State())
-        favButton.setImage(UIImage(named: "STARyellow")?.withRenderingMode(.alwaysOriginal), for: UIControl.State.selected.union(.highlighted))
+        favButton.setImage(UIImage(named: "star_white_24pt")?.withRenderingMode(.alwaysOriginal), for: UIControl.State())
         favButton.addTarget(self, action: #selector(PDFMapViewController.openFavorites), for: .touchUpInside)
         
         let favBarButton = UIBarButtonItem()
@@ -173,7 +153,6 @@ public class PDFMapViewController: StationSearchViewController, UITableViewDeleg
         navigationItem.backBarButtonItem = barButton
         
         let favoritesVC = FavoritesViewController.makeFromXIB()
-        favoritesVC.stationManager = stationManager
         navigationController?.pushViewController(favoritesVC, animated: true)
     }
     
@@ -213,10 +192,8 @@ public class PDFMapViewController: StationSearchViewController, UITableViewDeleg
             barButton.title = " "
             navigationItem.backBarButtonItem = barButton
             
-            let stationVC = StationViewController.makeFromXIB()
-            stationVC.stationManager = stationManager
-            stationVC.station = station
-            navigationController?.pushViewController(stationVC, animated: true)
+            let vc = stationVC(for: station)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -228,5 +205,4 @@ public class PDFMapViewController: StationSearchViewController, UITableViewDeleg
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
 }

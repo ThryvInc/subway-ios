@@ -9,6 +9,9 @@
 import LUX
 import FunNet
 import LithoOperators
+import Prelude
+import LUX
+import FlexDataSource
 import SubwayStations
 import GTFSStations
 import CoreGraphics
@@ -16,189 +19,158 @@ import Combine
 import PlaygroundVCHelpers
 import SwiftDate
 
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
+func stationVC(for station: Station) -> StationViewController {
+    let vc = StationViewController.makeFromXIB()
+    let setStationName = set(\UIViewController.title, station.name)
+    let setupStationVC: (UIViewController) -> Void = optionalCast >>> union(^\StationViewController.tableView >>> setupTableView,
+                                                                            ^\StationViewController.actionButtonBottomConstraint >>> setupActionButtonPosition,
+                                                                            ^\StationViewController.actionButton >?> setupCircleCappedView,
+                                                                            station >||> configure(_:with:),
+                                                                            station >||> setupBarButtons,
+                                                                            initializeStationVC) >||> ifExecute
+    vc.onViewDidLoad = union(setStationName, setupStationVC, setupEdges, set(\UIViewController.view.backgroundColor, .primaryDark()))
+    vc.onOpenRoutes = { $0.pushAnimated(routesVC(station)) }
+    vc.onActionPressed = { $0.pushAnimated(chooseVC($0, station)) }
+    vc.onToggleFavoriteStation = station >||> toggleFavStation
+    
+    return vc
 }
 
-class StationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, LineChoiceViewDelegate {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var lineChoice1: LineChoiceView!
-    @IBOutlet weak var lineChoice2: LineChoiceView!
-    @IBOutlet weak var lineChoice3: LineChoiceView!
-    @IBOutlet weak var lineChoice4: LineChoiceView!
-    @IBOutlet weak var loadingImageView: UIImageView!
-    @IBOutlet weak var actionButton: UIButton!
-    var station: Station!
-    var stationManager: StationManager!
-    var nycStationManager: NYCStationManager? {
-        get {
-            return DatabaseLoader.navManager as? NYCStationManager
-        }
-    }
-    var predictions: [Prediction]?
-    var predictionModels: [PredictionViewModel]? {
-        didSet {
-            if let predictions = predictionModels {
-                for prediction in predictions {
-                    prediction.visits = visits?.filter { $0.routeId == prediction.routeId && $0.directionId == prediction.direction.rawValue }
-                }
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    }
-    var filteredPredictionModels: [PredictionViewModel]?
-    var routes: [Route] = [Route]()
-    var lineModels: [LineViewModel] = [LineViewModel]()
-    var lineViews = [LineChoiceView]()
-    var favManager: FavoritesManager!
-    var loading = false
-    var visitsCall: CombineNetCall?
-    var visits: [Visit]? {
-        didSet {
-            if let visits = visits {
-                for visit in visits {
-                    visit.numberOfStopsBetween = nycStationManager?.numberOfStopsBetween(station, visit.stationId!, visit.routeId!, Int64(visit.directionId!))
-                }
-            }
-            if let predictions = predictionModels {
-                for prediction in predictions {
-                    prediction.visits = visits?.filter { $0.routeId == prediction.routeId && $0.directionId == prediction.direction.rawValue }
-                }
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    }
-    private var cancelBag = Set<AnyCancellable?>()
+let initializeStationVC = { (stationVC: StationViewController) in
+    stationVC.startLoading()
+    stationVC.hideLineViews()
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        var filterParams: [String: String] = [:]
-        filterParams["current_station_ids"] = station.stops.map{ $0.objectId }.joined(separator: ",")
-        filterParams["after"] = DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 5.minutes)
-        if let routeIds = nycStationManager?.routeIdsForStation(station) {
-            filterParams["route_ids"] = routeIds.joined(separator: ",")
-        }
-        visitsCall = getVisitsCall()
-        visitsCall?.endpoint.addGetParams(params: filterParams)
-        let visitsPub: AnyPublisher<[Visit], Never>? = unwrappedModelPublisher(from: visitsCall?.responder?.$data.eraseToAnyPublisher(), ^\VisitsResponse.visits)
-        cancelBag.insert(visitsPub?.sink { (visits) in
-            self.visits = visits
-        })
-        visitsCall?.fire()
-        
-        view.backgroundColor = UIColor.primaryDark()
-        
-        self.edgesForExtendedLayout = UIRectEdge()
-        
-        tableView.register(UINib(nibName: "PredictionTableViewCell", bundle: Bundle(for: Self.self)), forCellReuseIdentifier: "predCell")
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.tableFooterView = UIView() //removes cell separators between empty cells
-        
-        actionButton.layer.cornerRadius = actionButton.bounds.size.width / 2
-        
-        title = station.name
-        favManager = FavoritesManager(stationManager: stationManager)
-        
-        setupBarButtons()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        refresh()
-    }
-    
-    func setupBarButtons() {
-        let items = [favoriteButton(), navButton()]
-        navigationItem.rightBarButtonItems = items
-    }
-    
-    func favoriteButton() -> UIBarButtonItem {
-        let favButton = UIButton()
-        favButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        
-        if favManager.isFavorite(station.name){
-            favButton.setImage(UIImage(named: "STARyellow")?.withRenderingMode(.alwaysOriginal), for: UIControl.State())
-        } else {
-            favButton.setImage(UIImage(named: "STARgrey")?.withRenderingMode(.alwaysOriginal), for: UIControl.State())
-        }
-        
-        favButton.addTarget(self, action: #selector(StationViewController.toggleFavoriteStation), for: .touchUpInside)
-        
-        let favBarButton = UIBarButtonItem()
-        favBarButton.customView = favButton
-        
-        return favBarButton
-    }
-    
-    func navButton() -> UIBarButtonItem {
-        return UIBarButtonItem(image: UIImage(named: "ic_navigation_white_24dp"), style: .plain, target: self, action: #selector(StationViewController.openRoutes))
-    }
+func setupBarButtons(_ stationVC: StationViewController, _ station: Station) {
+    stationVC.navigationItem.rightBarButtonItems = [favoriteButton(stationVC, station), navButton(stationVC, station)]
+}
 
-    @objc func toggleFavoriteStation() {
-        if favManager.isFavorite(station.name) {
-            favManager.removeFavorites([self.station])
-        } else {
-            favManager.addFavorites([station])
-        }
-        setupBarButtons()
-    }
-    
-    @objc func openRoutes() {
-        let routesVC = RoutesViewController.makeFromXIB()
-        routesVC.stationManager = stationManager
-        routesVC.fromStation = station
-        navigationController?.pushViewController(routesVC, animated: true)
-    }
+func favoriteButton(_ stationVC: StationViewController, _ station: Station) -> UIBarButtonItem {
+    let image = Current.favManager.isFavorite(station.name) ? UIImage(named: "star_white_24pt") : UIImage(named: "star_border_white_24pt")
 
-    @IBAction func favoriteThisStation() {
-        favManager.addFavorites([station])
-        setupBarButtons()
-    }
+    let favButton = UIButton()
+    favButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+    favButton.setImage(image, for: .normal)
+    favButton.addTarget(stationVC, action: #selector(StationViewController.toggleFavoriteStation), for: .touchUpInside)
     
-    @IBAction func actionButtonPressed() {
-        let chooseVC = ChooseTrainViewController.makeFromXIB()
-        chooseVC.callingViewController = self
-        chooseVC.station = station
-        chooseVC.stationManager = stationManager
-        navigationController?.pushViewController(chooseVC, animated: true)
+    let buttonItem = UIBarButtonItem()
+    buttonItem.customView = favButton
+    return buttonItem
+}
+
+func navButton(_ stationVC: StationViewController, _ station: Station) -> UIBarButtonItem {
+    let navButton = UIButton()
+    navButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+    navButton.setImage(UIImage(named: "navigation_white_24pt"), for: .normal)
+    navButton.addTarget(stationVC, action: #selector(StationViewController.openRoutes), for: .touchUpInside)
+    
+    let buttonItem = UIBarButtonItem()
+    buttonItem.customView = navButton
+    return buttonItem
+}
+
+func toggleFavStation(_ stationVC: StationViewController, _ station: Station) {
+    Current.favManager.isFavorite(station.name) ? Current.favManager.removeFavorites([station]) : Current.favManager.addFavorites([station])
+    setupBarButtons(stationVC, station)
+}
+
+func configure(_ vc: StationViewController, with station: Station) {
+    let dbRefresher = DBPredictionRefresher(station)
+    let predictionPub = dbRefresher.$predictions.skipNils().map { preds in preds.sorted(by: { $0.secondsToArrival < $1.secondsToArrival }) }.skipNils()
+    
+    let visitsCall = getVisitsCall()
+    let visitsRefresher = LUXRefreshNetCallsManager(visitsCall)
+    visitsCall.endpoint.addGetParams(params: filterParams(for: station))
+    let visitsPub = unwrappedModelPublisher(from: visitsCall.publisher.$data.eraseToAnyPublisher(), ^\VisitsResponse.visits)
+        .skipNils().map(station >|> calcVisitsStopsAway(from:_:))
+    
+    let estimatesCall = getEstimatesCall()
+    let estimatesRefresher = LUXRefreshNetCallsManager(estimatesCall)
+    estimatesCall.endpoint.addGetParams(params: estimateFilterParams(for: station))
+    let estimatesPub = unwrappedModelPublisher(from: estimatesCall.publisher.$data.eraseToAnyPublisher(), ^\EstimatesResponse.estimates)
+        .skipNils()
+    
+    let predictionVMPub = predictionPub.combineLatest(visitsPub, estimatesPub).map(models(from:visits:estimates:))
+    let filteredPVMPub = predictionVMPub.combineLatest(vc.$chosenColor).map(~filter(predictions:by:))
+    
+    let itemsPub = filteredPVMPub.map(item(from:) >||> map)
+    
+    let refresher = LUXMetaRefresher(dbRefresher, visitsRefresher, estimatesRefresher)
+    
+    let vm = LUXItemsTableViewModel(refresher, itemsPublisher: itemsPub.eraseToAnyPublisher())
+    vm.setupEndRefreshing(from: visitsCall)
+    if let ds = vm.dataSource as? FlexDataSource {
+        let delegate = LUXFunctionalTableDelegate()
+        delegate.onSelect = ds.tappableOnSelect
+        vm.tableDelegate = delegate
     }
+    vm.tableView = vc.tableView
+    vm.refresh()
+    
+    predictionVMPub.map(lines(from:)).sink { vc.lineModels = $0 }.store(in: &vc.cancelBag)
+    
+    itemsPub.sink { _ in
+        vc.stopLoading()
+    }.store(in: &vc.cancelBag)
+}
+
+func lines(from predictions: [PredictionViewModel]) -> [LineViewModel] {
+    let routeIds = predictions.compactMap(\PredictionViewModel.routeId) |> Set.init |> [String].init
+    return lines(from: routeIds)
+}
+
+class StationViewController: LUXFunctionalTableViewController, LineChoiceViewDelegate {
+    @IBOutlet weak var lineChoice1: LineChoiceView?
+    @IBOutlet weak var lineChoice2: LineChoiceView?
+    @IBOutlet weak var lineChoice3: LineChoiceView?
+    @IBOutlet weak var lineChoice4: LineChoiceView?
+    @IBOutlet weak var loadingImageView: UIImageView?
+    @IBOutlet weak var actionButton: UIButton?
+    @IBOutlet weak var actionButtonBottomConstraint: NSLayoutConstraint?
+    var lineViews = [LineChoiceView?]()
+    var lineModels: [LineViewModel] = [LineViewModel]() { didSet { setLineViews() }}
+    var cancelBag = Set<AnyCancellable>()
+    
+    var isLoading = false { didSet { toggleLoadingAnimations() }}
+    @Published var chosenColor: UIColor?
+    
+    var onToggleFavoriteStation: ((StationViewController) -> Void)?
+    var onOpenRoutes: ((StationViewController) -> Void)?
+    var onActionPressed: ((StationViewController) -> Void)?
+
+    @objc func toggleFavoriteStation() { onToggleFavoriteStation?(self) }
+    @objc func openRoutes() { onOpenRoutes?(self) }
+    @IBAction func actionButtonPressed() { onActionPressed?(self) }
     
     func startLoading() {
-        if !loading {
-            loading = true
-            spinLoadingImage(UIView.AnimationOptions.curveLinear)
+        if !isLoading {
+            isLoading = true
         }
     }
     
     func stopLoading() {
-        loading = false
-        UIView.animate(withDuration: 0.5, animations: { () -> Void in
-            self.loadingImageView.alpha = 0
-        })
+        isLoading = false
+    }
+    
+    func toggleLoadingAnimations() {
+        if isLoading {
+            spinLoadingImage(UIView.AnimationOptions.curveLinear)
+        } else {
+            UIView.animate(withDuration: 0.5, animations: { () -> Void in
+                self.loadingImageView?.alpha = 0
+            })
+        }
     }
     
     func spinLoadingImage(_ animOptions: UIView.AnimationOptions) {
-        self.loadingImageView.alpha = 1
+        self.loadingImageView?.alpha = 1
         UIView.animate(withDuration: 1.0, delay: 0.0, options: animOptions, animations: {
-            self.loadingImageView.transform = self.loadingImageView.transform.rotated(by: .pi)
-            return
-            }, completion: { finished in
+            if let imageView = self.loadingImageView {
+                imageView.transform = imageView.transform.rotated(by: .pi)
+            }
+        }, completion: { finished in
                 if finished {
-                    if self.loading {
+                    if self.isLoading {
                         self.spinLoadingImage(UIView.AnimationOptions.curveLinear)
                     }else if animOptions != UIView.AnimationOptions.curveEaseOut{
                         self.spinLoadingImage(UIView.AnimationOptions.curveEaseOut)
@@ -208,166 +180,107 @@ class StationViewController: UIViewController, UITableViewDataSource, UITableVie
         })
     }
     
-    func refresh() {
-        startLoading()
-        hideLineViews()
-        DispatchQueue.global( priority: DispatchQueue.GlobalQueuePriority.default).async(execute: { () -> Void in
-            self.refreshSynchronous()
-            DispatchQueue.main.async(execute: { () -> Void in
-                self.stopLoading()
-                self.setLines()
-                self.tableView.reloadData()
-            })
-        })
-    }
-    
-    func refreshSynchronous() {
-        predictions = stationManager.predictions(station, time: Current.timeProvider())//timeIntervalSince1970: 1438215977))
-        predictions!.sort(by: { $0.secondsToArrival < $1.secondsToArrival })
-        
-        let uptown = predictions!.filter({ (prediction) -> Bool in
-            return prediction.direction == .uptown
-        })
-        let downtown = predictions!.filter({ (prediction) -> Bool in
-            return prediction.direction == .downtown
-        })
-        
-        predictionModels = [PredictionViewModel]()
-        
-        for prediction in uptown {
-            let model = PredictionViewModel(routeId: prediction.route?.objectId, direction: prediction.direction!)
-            if !predictionModels!.contains(model) {
-                model.setupWithPredictions(predictions)
-                predictionModels?.append(model)
-            }
-        }
-        
-        for prediction in downtown {
-            let model = PredictionViewModel(routeId: prediction.route?.objectId, direction: prediction.direction!)
-            if !predictionModels!.contains(model) {
-                model.setupWithPredictions(predictions)
-                predictionModels?.append(model)
-            }
-        }
-        
-        predictionModels?.sort {$0.prediction.secondsToArrival < $1.prediction.secondsToArrival}
-        
-        filteredPredictionModels = predictionModels
-    }
-    
-    func setLines() {
-        lineModels = stationManager.linesForStation(station)!
-        setLineViews()
-    }
-    
     func setLineViews(){
         lineViews = [lineChoice1, lineChoice2, lineChoice3, lineChoice4]
         var count = 0
         while count < lineViews.count {
-            let lineView = lineViews[count]
-            if count < lineModels.count {
-                lineView.isHidden = false
-                lineView.lineLabel.text = lineModels[count].routesString()
-                let image = UIImage(named: "Grey")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-                lineView.dotImageView.image = image
-                lineView.dotImageView.tintColor = lineModels[count].color
-            }else{
-                lineView.isHidden = true
+            if let lineView = lineViews[count] {
+                if count < lineModels.count {
+                    lineView.isHidden = false
+                    lineView.lineLabel.text = lineModels[count].routesString()
+                    let image = UIImage(named: "Grey")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                    lineView.dotImageView.image = image
+                    lineView.dotImageView.tintColor = lineModels[count].color
+                } else {
+                    lineView.isHidden = true
+                }
+                lineView.delegate = self
+                lineView.updateConstraints()
+                lineView.setNeedsLayout()
+                lineView.layoutIfNeeded()
+                count += 1
             }
-            lineView.delegate = self
-            lineView.updateConstraints()
-            lineView.setNeedsLayout()
-            lineView.layoutIfNeeded()
-            count += 1
         }
     }
     
     func hideLineViews() {
         lineViews = [lineChoice1, lineChoice2, lineChoice3, lineChoice4]
         for lineChoice in lineViews {
-            lineChoice.isHidden = true
+            lineChoice?.isHidden = true
         }
-    }
-    
-    func configurePredictionCell(_ cell: PredictionTableViewCell, indexPath: IndexPath) {
-        let model = filteredPredictionModels![indexPath.row]
-        if let prediction = model.prediction {
-            cell.deltaLabel.text = "\((Int(prediction.timeOfArrival!.timeIntervalSince(Current.timeProvider()))) / 60)m"
-            if let route = prediction.route {
-                cell.routeLabel.text = route.objectId
-                cell.routeLabel.backgroundColor = Current.colorManager.colorForRouteId(route.objectId)
-                cell.timeLabel.text = NYCDirectionNameProvider.directionName(for: prediction.direction!.rawValue, routeId: route.objectId)
-                let directionEnum = NYCDirectionNameProvider.directionEnum(for: prediction.direction!.rawValue, routeId: route.objectId)
-                switch directionEnum {
-                case .left:
-                    cell.routeImage.image = UIImage(named: "ic_arrow_back_black_24dp")
-                    break
-                case .right:
-                    cell.routeImage.image = UIImage(named: "ic_arrow_forward_black_24dp")
-                    break
-                case .up:
-                    cell.routeImage.image = UIImage(named: "ic_arrow_upward_black_24dp")
-                    break
-                case .down:
-                    cell.routeImage.image = UIImage(named: "ic_arrow_downward_black_24dp")
-                    break
-                }
-            }
-            cell.visitImageView.isHidden = true
-            cell.visitLabel.isHidden = true
-            if let visits = model.visits, visits.filter({ ($0.numberOfStopsBetween ?? -1) > 0 }).count > 0 {
-                let image = UIImage(named: "baseline_remove_red_eye_black_48")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-                cell.visitImageView.image = image
-                cell.visitImageView.tintColor = UIColor.accent()
-                if let visit = visits.filter({ ($0.numberOfStopsBetween ?? -1) > 0 && $0.timeAgoSeconds() > 0 }).first {
-                    cell.visitImageView.isHidden = false
-                    cell.visitLabel.isHidden = false
-                    let stopString = visit.numberOfStopsBetween == 1 ? "stop" : "stops"
-                    let timeAgo: Int = visit.timeAgoSeconds()
-                    cell.visitLabel.text = "\(visit.numberOfStopsBetween!) \(stopString) away as of \(timeAgo)m ago"
-                }
-            }
-        }
-        
-        cell.contentView.updateConstraints();
     }
     
     //MARK: line choice delegate
     
     func didSelectLineWithColor(_ color: UIColor) {
         for lineView in lineViews {
-            if lineView.dotImageView.tintColor != color {
-                lineView.isSelected = false
+            if lineView?.dotImageView.tintColor != color {
+                lineView?.isSelected = false
             }
         }
         
-        filteredPredictionModels = predictionModels?.filter({Current.colorManager.colorForRouteId($0.routeId) == color})
-        tableView.reloadData()
+        chosenColor = color
     }
     
-    func didDeselectLineWithColor(_ color: UIColor) {
-        filteredPredictionModels = predictionModels
-        tableView.reloadData()
-    }
-    
-    //MARK: table data source
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (filteredPredictionModels ?? [PredictionViewModel]()).count
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "predCell") as! PredictionTableViewCell
-        configurePredictionCell(cell, indexPath: indexPath)
-        return cell
-    }
+    func didDeselectLineWithColor(_ color: UIColor) { chosenColor = nil }
+}
 
+func filter(predictions: [PredictionViewModel], by color: UIColor?) -> [PredictionViewModel] {
+    return predictions.filter { color == nil || Current.colorManager.colorForRouteId($0.routeId) == color }
+}
+
+func calcVisitsStopsAway(from station: Station, _ visits: [Visit]) -> [Visit] {
+    for visit in visits {
+        if visit.stopsAway == -1 {
+            visit.stopsAway = Current.nycStationManager?.numberOfStopsBetween(station, visit.stationId!, visit.routeId!, Int64(visit.directionId!))
+        }
+    }
+    return visits
+}
+
+func item(from model: PredictionViewModel) -> FlexDataSourceItem {
+    return (model.estimates?.filter { $0.timeSeconds() > -1 }.count ?? 0) > 0 ? LUXModelItem(model, configureEstimateCell) : LUXModelItem(model, configurePredictionCell)
+}
+
+func models(from predictions: [Prediction], visits: [Visit], estimates: [Estimate]) -> [PredictionViewModel] {
+    let uptown = predictions.filter { $0.direction == .uptown }
+    let downtown = predictions.filter { $0.direction == .downtown }
+    
+    var predictionModels = [PredictionViewModel]()
+    
+    for prediction in uptown {
+        let model = PredictionViewModel(routeId: prediction.route?.objectId, direction: prediction.direction!)
+        if !predictionModels.contains(model) {
+            model.setupWithPredictions(predictions)
+            predictionModels.append(model)
+        }
+    }
+    
+    for prediction in downtown {
+        let model = PredictionViewModel(routeId: prediction.route?.objectId, direction: prediction.direction!)
+        if !predictionModels.contains(model) {
+            model.setupWithPredictions(predictions)
+            predictionModels.append(model)
+        }
+    }
+    
+    predictionModels.sort { $0.prediction.secondsToArrival < $1.prediction.secondsToArrival }
+    
+    for prediction in predictionModels {
+        prediction.visits = visits.filter { $0.routeId == prediction.routeId && $0.directionId == prediction.direction.rawValue }
+        prediction.estimates = estimates.filter  { $0.routeId == prediction.routeId && $0.directionId == prediction.direction.rawValue && $0.timeSeconds() > -1 }
+    }
+    
+    return predictionModels
+}
+
+func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
 }

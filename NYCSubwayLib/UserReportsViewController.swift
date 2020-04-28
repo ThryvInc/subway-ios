@@ -29,6 +29,9 @@ class UserReportsViewController: LUXFlexViewController<UserReportsViewModel<Visi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupBackgroundColor(view)
+        tableView ?> setupBackgroundColor
 
         title = "Reports"
         
@@ -68,7 +71,7 @@ class UserReportsViewController: LUXFlexViewController<UserReportsViewModel<Visi
     }
 }
 
-func userReportsVC(_ stationManager: StationManager) -> UserReportsViewController {
+func userReportsVC() -> UserReportsViewController {
     let vc = UserReportsViewController.makeFromXIB()
     vc.configure()
     vc.onViewDidLoad = { _ in
@@ -87,12 +90,17 @@ extension UserReportsViewController {
             call.endpoint.getParams.updateValue(25, forKey: "per")
         }
         
-        let visitsPub: AnyPublisher<[Visit], Never> = unwrappedModelPublisher(from: call.responder!.$data.eraseToAnyPublisher(), ^\VisitsResponse.visits)
+        let visitsPub = unwrappedModelPublisher(from: call.responder!.$data.eraseToAnyPublisher(), ^\VisitsResponse.visits)
         
         let manager = LUXPageCallModelsManager(call, visitsPub, firstPageValue: 0)
         refreshableModelManager = manager
         
-        let vm = UserReportsViewModel<Visit>(modelsPublisher: manager.$models.eraseToAnyPublisher(), modelToItem: visitItemFactory(swiped(visit:)))
+        let pagedVisitsPub: AnyPublisher<[Visit], Never> = manager.$models.map { visits in
+            if thisUserOnly { visits.forEach(set(\Visit.identifier, nil)) }
+            return visits
+        }.eraseToAnyPublisher()
+        
+        let vm = UserReportsViewModel<Visit>(modelsPublisher: pagedVisitsPub, modelToItem: visitItemFactory(swiped(visit:)))
         viewModel = vm
 
         let delegate = LUXFunctionalTableDelegate(onSelect: vm.dataSource.tappableOnSelect, onWillDisplay: manager.willDisplayFunction(pageSize: 25))

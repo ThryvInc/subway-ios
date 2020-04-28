@@ -17,6 +17,7 @@ class RouteTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupBackgroundColor(contentView)
         circleView.layer.cornerRadius = circleView.bounds.width / 2
         circleView.clipsToBounds = true
     }

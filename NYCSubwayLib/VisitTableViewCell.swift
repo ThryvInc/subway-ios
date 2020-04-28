@@ -17,7 +17,7 @@ class VisitTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupBackgroundColor(contentView)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

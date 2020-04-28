@@ -8,18 +8,6 @@
 
 import UIKit
 import SubwayStations
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
 
 class PredictionViewModel: NSObject {
     var routeId: String!
@@ -28,6 +16,7 @@ class PredictionViewModel: NSObject {
     var onDeckPrediction: Prediction?
     var inTheHolePrediction: Prediction?
     var visits: [Visit]?
+    var estimates: [Estimate]?
    
     init(routeId: String!, direction: Direction!) {
         self.routeId = routeId

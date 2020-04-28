@@ -18,7 +18,6 @@ class ChooseDirectionViewController: UIViewController {
     @IBOutlet weak var rightLabel: UILabel!
     var callingViewController: UIViewController?
     var station: Station!
-    var stationManager: StationManager!
     var routeId: String!
     var reportCall: CombineNetCall?
     private var cancelBag = Set<AnyCancellable?>()
@@ -26,27 +25,16 @@ class ChooseDirectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupBackgroundColor(view)
+        
         setupChoice(imageView: leftImageView, label: leftLabel, directionId: 0)
         setupChoice(imageView: rightImageView, label: rightLabel, directionId: 1)
     }
     
     func setupChoice(imageView: UIImageView, label: UILabel, directionId: Int) {
-        label.text = NYCDirectionNameProvider.directionName(for: directionId, routeId: routeId)
-        let directionEnum = NYCDirectionNameProvider.directionEnum(for: directionId, routeId: routeId)
-        switch directionEnum {
-        case .left:
-            imageView.image = UIImage(named: "ic_arrow_back_black_24dp")
-            break
-        case .right:
-            imageView.image = UIImage(named: "ic_arrow_forward_black_24dp")
-            break
-        case .up:
-            imageView.image = UIImage(named: "ic_arrow_upward_black_24dp")
-            break
-        case .down:
-            imageView.image = UIImage(named: "ic_arrow_downward_black_24dp")
-            break
-        }
+        label.text = Current.directionProvider.directionName(for: directionId, routeId: routeId)
+        let directionEnum = Current.directionProvider.directionEnum(for: directionId, routeId: routeId)
+        imageView.image = image(for: directionEnum)
     }
     
     @IBAction func leftButtonPressed() {

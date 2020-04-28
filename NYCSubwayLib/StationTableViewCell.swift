@@ -18,6 +18,7 @@ class StationTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupBackgroundColor(contentView)
         orderedLineImageViews = [firstLineImageView, secondLineImageView, thirdLineImageView, fourthLineImageView]
     }
 
