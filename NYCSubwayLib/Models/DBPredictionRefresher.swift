@@ -9,6 +9,7 @@
 import LUX
 import Combine
 import SubwayStations
+import Slippers
 
 class DBPredictionRefresher: Refreshable {
     @Published var predictions: [Prediction]?

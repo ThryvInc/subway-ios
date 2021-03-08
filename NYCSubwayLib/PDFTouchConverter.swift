@@ -13,9 +13,13 @@ infix operator ^^ : PowerPrecedence
 func ^^ (radix: Int, power: Int) -> Int {
     return Int(pow(Double(radix), Double(power)))
 }
+func ^^ (radix: Double, power: Double) -> Double {
+    return pow(radix, power)
+}
 
 public protocol PDFTouchConverter {
     var dots: [UIView] { get set }
+    var distanceMetric: ((Int, Int), (Int, Int)) -> Double { get set }
     var fuzzyRadius: CGFloat { get set }
     var verticalScaleFactor: CGFloat { get set }
     var horizontalScaleFactor: CGFloat { get set }
@@ -25,17 +29,22 @@ public protocol PDFTouchConverter {
     func fuzzyCoordToId(coord: (Int, Int), fuzziness: Int) -> String?
 }
 
+func euclideanDistance(_ a: (Int, Int), _ b: (Int, Int)) -> Double {
+    return sqrt(Double((a.0 - b.0) ^^ 2 + (a.1 - b.1) ^^ 2))
+}
+
+func euclideanDistance(_ a: (Double, Double), _ b: (Double, Double)) -> Double {
+    return sqrt((a.0 - b.0) ^^ 2 + (a.1 - b.1) ^^ 2)
+}
+
 extension PDFTouchConverter {
-    func distance(a: (Int, Int), b: (Int, Int)) -> Double {
-        return sqrt(Double((a.0 - b.0) ^^ 2 + (a.1 - b.1) ^^ 2))
-    }
-    
-    mutating func addStopDots(to view: UIView) {
+    func addStopDots(to view: UIView, dots: inout [UIView]) {
         dots.forEach { $0.removeFromSuperview() }
         
-        for coord in Current.pdfTouchConverter.coordToIdMap.keys {
-            let x = view.bounds.size.width * (CGFloat(coord.values.0) + Current.pdfTouchConverter.horizontalAdjustment) / Current.pdfTouchConverter.horizontalScaleFactor
-            let y = view.bounds.size.height * (CGFloat(coord.values.1) + Current.pdfTouchConverter.verticalAdjustment) / Current.pdfTouchConverter.verticalScaleFactor
+        dots = []
+        for coord in coordToIdMap.keys {
+            let x = view.bounds.size.width * (CGFloat(coord.values.0) + horizontalAdjustment) / horizontalScaleFactor
+            let y = view.bounds.size.height * (CGFloat(coord.values.1) + verticalAdjustment) / verticalScaleFactor
             
             let dot = UIView(frame: CGRect(x: x, y: y, width: 1, height: 1))
             dot.backgroundColor = .red
@@ -48,7 +57,7 @@ extension PDFTouchConverter {
             tapZone.layer.cornerRadius = tapZone.frame.size.height / 2
             tapZone.clipsToBounds = true
             tapZone.font = .systemFont(ofSize: 5)
-            tapZone.text = Current.pdfTouchConverter.coordToIdMap[coord]
+            tapZone.text = coordToIdMap[coord]
             tapZone.textAlignment = .center
             
             view.addSubview(tapZone)
@@ -77,6 +86,7 @@ extension UIView {
 
 class NYCPDFTouchConverter: PDFTouchConverter {
     var dots = [UIView]()
+    var distanceMetric: ((Int, Int), (Int, Int)) -> Double = euclideanDistance
     public var fuzzyRadius: CGFloat = 30
     public var verticalScaleFactor: CGFloat = 5964
     public var horizontalScaleFactor: CGFloat = 4811
@@ -85,9 +95,9 @@ class NYCPDFTouchConverter: PDFTouchConverter {
     
     public func fuzzyCoordToId(coord: (Int, Int), fuzziness: Int) -> String? {
         var keys: [Two<Int, Int>] = coordToIdMap.keys
-            .filter({ distance(a: $0.values, b: coord) < Double(fuzziness) })
+            .filter({ distanceMetric($0.values, coord) < Double(fuzziness) })
         keys = keys.sorted(by: {
-            return distance(a: $0.values, b: coord) > distance(a: $1.values, b: coord)
+            return distanceMetric($0.values, coord) > distanceMetric($1.values, coord)
         })
         if (!keys.isEmpty) {
             return coordToIdMap[keys.first!]

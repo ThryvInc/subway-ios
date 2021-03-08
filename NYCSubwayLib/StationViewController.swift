@@ -10,7 +10,8 @@ import LUX
 import FunNet
 import LithoOperators
 import Prelude
-import LUX
+import fuikit
+import Slippers
 import FlexDataSource
 import SubwayStations
 import GTFSStations
@@ -22,17 +23,16 @@ import SwiftDate
 func stationVC(for station: Station) -> StationViewController {
     let vc = StationViewController.makeFromXIB()
     let setStationName = set(\UIViewController.title, station.name)
-    let setupStationVC: (UIViewController) -> Void = optionalCast >>> union(^\StationViewController.tableView >>> setupTableView,
-                                                                            ^\StationViewController.actionButtonBottomConstraint >>> setupActionButtonPosition,
-                                                                            ^\StationViewController.actionButton >?> setupCircleCappedView,
-                                                                            station >||> configure(_:with:),
-                                                                            station >||> setupBarButtons,
-                                                                            initializeStationVC) >||> ifExecute
-    vc.onViewDidLoad = union(setStationName, setupStationVC, setupEdges, set(\UIViewController.view.backgroundColor, .primaryDark()))
+    let setupStationVC: (StationViewController) -> Void = union(^\.tableView >>> setupTableView,
+                                                                ^\.actionButtonBottomConstraint >>> setupActionButtonPosition,
+                                                                ^\StationViewController.actionButton >?> setupCircleCappedView,
+                                                                station >||> configure(_:with:),
+                                                                station >||> setupBarButtons,
+                                                                initializeStationVC)
+    vc.onViewDidLoad = union(setStationName, ~>setupStationVC, setupEdges, set(\UIViewController.view.backgroundColor, .primaryDark()))
     vc.onOpenRoutes = { $0.pushAnimated(routesVC(station)) }
     vc.onActionPressed = { $0.pushAnimated(chooseVC($0, station)) }
     vc.onToggleFavoriteStation = station >||> toggleFavStation
-    
     return vc
 }
 
@@ -46,27 +46,12 @@ func setupBarButtons(_ stationVC: StationViewController, _ station: Station) {
 }
 
 func favoriteButton(_ stationVC: StationViewController, _ station: Station) -> UIBarButtonItem {
-    let image = Current.favManager.isFavorite(station.name) ? UIImage(named: "star_white_24pt") : UIImage(named: "star_border_white_24pt")
-
-    let favButton = UIButton()
-    favButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-    favButton.setImage(image, for: .normal)
-    favButton.addTarget(stationVC, action: #selector(StationViewController.toggleFavoriteStation), for: .touchUpInside)
-    
-    let buttonItem = UIBarButtonItem()
-    buttonItem.customView = favButton
-    return buttonItem
+    let imageName = Current.favManager.isFavorite(station.name) ? "star_white_24pt" : "star_border_white_24pt"
+    return stationVC.barButtonItem(for: imageName, selector: #selector(StationViewController.toggleFavoriteStation))
 }
 
 func navButton(_ stationVC: StationViewController, _ station: Station) -> UIBarButtonItem {
-    let navButton = UIButton()
-    navButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-    navButton.setImage(UIImage(named: "navigation_white_24pt"), for: .normal)
-    navButton.addTarget(stationVC, action: #selector(StationViewController.openRoutes), for: .touchUpInside)
-    
-    let buttonItem = UIBarButtonItem()
-    buttonItem.customView = navButton
-    return buttonItem
+    return stationVC.barButtonItem(for: "navigation_white_24pt", selector: #selector(StationViewController.openRoutes))
 }
 
 func toggleFavStation(_ stationVC: StationViewController, _ station: Station) {
@@ -79,28 +64,32 @@ func configure(_ vc: StationViewController, with station: Station) {
     let predictionPub = dbRefresher.$predictions.skipNils().map { preds in preds.sorted(by: { $0.secondsToArrival < $1.secondsToArrival }) }.skipNils()
     
     let visitsCall = getVisitsCall()
-    let visitsRefresher = LUXRefreshNetCallsManager(visitsCall)
+    let visitsRefresher = LUXCallRefresher(visitsCall)
     visitsCall.endpoint.addGetParams(params: filterParams(for: station))
     let visitsPub = unwrappedModelPublisher(from: visitsCall.publisher.$data.eraseToAnyPublisher(), ^\VisitsResponse.visits)
         .skipNils().map(station >|> calcVisitsStopsAway(from:_:))
     
     let estimatesCall = getEstimatesCall()
-    let estimatesRefresher = LUXRefreshNetCallsManager(estimatesCall)
+    let estimatesRefresher = LUXCallRefresher(estimatesCall)
     estimatesCall.endpoint.addGetParams(params: estimateFilterParams(for: station))
     let estimatesPub = unwrappedModelPublisher(from: estimatesCall.publisher.$data.eraseToAnyPublisher(), ^\EstimatesResponse.estimates)
         .skipNils()
     
     let predictionVMPub = predictionPub.combineLatest(visitsPub, estimatesPub).map(models(from:visits:estimates:))
-    let filteredPVMPub = predictionVMPub.combineLatest(vc.$chosenColor).map(~filter(predictions:by:))
+    let filteredPVMPub = predictionVMPub
+        .combineLatest(vc.$chosenColor).map(~filter(predictions:byColor:))
+        .combineLatest(vc.$chosenDirection).map(~filter(predictions:byDirection:))
+    
+    vc.$chosenDirection.skipNils().sink(receiveValue: vc.chooseDirection).store(in: &vc.cancelBag)
     
     let itemsPub = filteredPVMPub.map(item(from:) >||> map)
     
-    let refresher = LUXMetaRefresher(dbRefresher, visitsRefresher, estimatesRefresher)
+    let refresher = MetaRefresher(dbRefresher, visitsRefresher, estimatesRefresher)
     
     let vm = LUXItemsTableViewModel(refresher, itemsPublisher: itemsPub.eraseToAnyPublisher())
     vm.setupEndRefreshing(from: visitsCall)
     if let ds = vm.dataSource as? FlexDataSource {
-        let delegate = LUXFunctionalTableDelegate()
+        let delegate = FUITableViewDelegate()
         delegate.onSelect = ds.tappableOnSelect
         vm.tableDelegate = delegate
     }
@@ -108,10 +97,9 @@ func configure(_ vc: StationViewController, with station: Station) {
     vm.refresh()
     
     predictionVMPub.map(lines(from:)).sink { vc.lineModels = $0 }.store(in: &vc.cancelBag)
+    predictionVMPub.map(directions(from:)).sink { vc.setDirectionViews($0) }.store(in: &vc.cancelBag)
     
-    itemsPub.sink { _ in
-        vc.stopLoading()
-    }.store(in: &vc.cancelBag)
+    itemsPub.sink(receiveValue: ignoreArg(vc.stopLoading)).store(in: &vc.cancelBag)
 }
 
 func lines(from predictions: [PredictionViewModel]) -> [LineViewModel] {
@@ -119,20 +107,31 @@ func lines(from predictions: [PredictionViewModel]) -> [LineViewModel] {
     return lines(from: routeIds)
 }
 
-class StationViewController: LUXFunctionalTableViewController, LineChoiceViewDelegate {
-    @IBOutlet weak var lineChoice1: LineChoiceView?
-    @IBOutlet weak var lineChoice2: LineChoiceView?
-    @IBOutlet weak var lineChoice3: LineChoiceView?
-    @IBOutlet weak var lineChoice4: LineChoiceView?
+func directions(from predictions: [PredictionViewModel]) -> [ImageDirection] {
+    return predictions
+        .filter { $0.direction != nil }
+        .map(fzip(^\PredictionViewModel.direction!.rawValue, ^\.routeId) >>> Current.directionProvider.directionEnum(for:routeId:))
+        |> Set.init
+        |> [ImageDirection].init
+}
+
+class StationViewController: FUITableViewViewController, LineChoiceViewDelegate {
+    @IBOutlet var directionChoices: [UIImageView]!
+    @IBOutlet var dirWidths: [NSLayoutConstraint]!
+    @IBOutlet var dirLeadings: [NSLayoutConstraint]!
+    
+    @IBOutlet  var lineChoices: [LineChoiceView]!
+    
     @IBOutlet weak var loadingImageView: UIImageView?
     @IBOutlet weak var actionButton: UIButton?
     @IBOutlet weak var actionButtonBottomConstraint: NSLayoutConstraint?
-    var lineViews = [LineChoiceView?]()
     var lineModels: [LineViewModel] = [LineViewModel]() { didSet { setLineViews() }}
     var cancelBag = Set<AnyCancellable>()
     
     var isLoading = false { didSet { toggleLoadingAnimations() }}
+    var directions: [ImageDirection]?
     @Published var chosenColor: UIColor?
+    @Published var chosenDirection: ImageDirection?
     
     var onToggleFavoriteStation: ((StationViewController) -> Void)?
     var onOpenRoutes: ((StationViewController) -> Void)?
@@ -147,10 +146,7 @@ class StationViewController: LUXFunctionalTableViewController, LineChoiceViewDel
             isLoading = true
         }
     }
-    
-    func stopLoading() {
-        isLoading = false
-    }
+    func stopLoading() { isLoading = false }
     
     func toggleLoadingAnimations() {
         if isLoading {
@@ -172,7 +168,7 @@ class StationViewController: LUXFunctionalTableViewController, LineChoiceViewDel
                 if finished {
                     if self.isLoading {
                         self.spinLoadingImage(UIView.AnimationOptions.curveLinear)
-                    }else if animOptions != UIView.AnimationOptions.curveEaseOut{
+                    } else if animOptions != UIView.AnimationOptions.curveEaseOut {
                         self.spinLoadingImage(UIView.AnimationOptions.curveEaseOut)
                         self.stopLoading()
                     }
@@ -180,42 +176,102 @@ class StationViewController: LUXFunctionalTableViewController, LineChoiceViewDel
         })
     }
     
-    func setLineViews(){
-        lineViews = [lineChoice1, lineChoice2, lineChoice3, lineChoice4]
-        var count = 0
-        while count < lineViews.count {
-            if let lineView = lineViews[count] {
-                if count < lineModels.count {
-                    lineView.isHidden = false
-                    lineView.lineLabel.text = lineModels[count].routesString()
-                    let image = UIImage(named: "Grey")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-                    lineView.dotImageView.image = image
-                    lineView.dotImageView.tintColor = lineModels[count].color
-                } else {
-                    lineView.isHidden = true
-                }
-                lineView.delegate = self
-                lineView.updateConstraints()
-                lineView.setNeedsLayout()
-                lineView.layoutIfNeeded()
-                count += 1
+    func setDirectionViews(_ directions: [ImageDirection]) {
+        self.directions = directions
+        for i in 0..<directionChoices.count {
+            if i < directions.count {
+                let img = image(for: directions[i])
+                setupDirectionChoice(i, with: img)
+            } else {
+                hideDirectionChoice(i)
             }
         }
     }
     
+    func setupDirectionChoice(_ i: Int, with img: UIImage?) {
+        directionChoices[i].isHidden = false
+        directionChoices[i] |> setupCircleCappedView(_:)
+        directionChoices[i].image = img
+        directionChoices[i].layer.borderWidth = 1.0
+        unhighlightDirection(i)
+        directionChoices[i].addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(directionPressed(_:))))
+        directionChoices[i].isUserInteractionEnabled = true
+        dirWidths[i].constant = 30
+        dirLeadings[i].constant = 8
+        view.setNeedsUpdateConstraints()
+        view.updateConstraints()
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
+    }
+    
+    func hideDirectionChoice(_ i: Int) {
+        directionChoices[i].isHidden = true
+        dirWidths[i].constant = 0
+        dirLeadings[i].constant = 0
+        view.setNeedsUpdateConstraints()
+        view.updateConstraints()
+    }
+    
+    func highlightDirection(_ i: Int) {
+        directionChoices[i].image = directionChoices[i].image?.withTintColor(.primaryDark())
+        directionChoices[i].layer.borderColor = UIColor.white.cgColor
+        directionChoices[i].backgroundColor = UIColor.white
+    }
+    
+    func unhighlightDirection(_ i: Int) {
+        directionChoices[i].image = directionChoices[i].image?.withTintColor(.white)
+        directionChoices[i].layer.borderColor = UIColor.white.cgColor
+        directionChoices[i].backgroundColor = UIColor.clear
+    }
+    
+    @objc func directionPressed(_ recognizer: UIGestureRecognizer) {
+        if let i = directionChoices.firstIndex(of: recognizer.view as! UIImageView) {
+            chosenDirection = directions?[i]
+        }
+    }
+    
+    func chooseDirection(_ direction: ImageDirection) {
+        if let dirs = directions {
+            setDirectionViews(dirs)
+        }
+        if let i = directions?.firstIndex(of: direction) {
+            highlightDirection(i)
+        }
+    }
+    
+    func setLineViews(){
+        var count = 0
+        while count < lineChoices.count {
+            let lineView = lineChoices[count]
+            if count < lineModels.count {
+                lineView.isHidden = false
+                lineView.lineLabel.text = lineModels[count].routesString()
+                let image = UIImage(named: "Grey")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                lineView.dotImageView.image = image
+                lineView.dotImageView.tintColor = lineModels[count].color
+            } else {
+                lineView.isHidden = true
+            }
+            lineView.delegate = self
+            lineView.updateConstraints()
+            lineView.setNeedsLayout()
+            lineView.layoutIfNeeded()
+            count += 1
+        }
+    }
+    
     func hideLineViews() {
-        lineViews = [lineChoice1, lineChoice2, lineChoice3, lineChoice4]
-        for lineChoice in lineViews {
-            lineChoice?.isHidden = true
+        for lineChoice in lineChoices {
+            lineChoice.isHidden = true
         }
     }
     
     //MARK: line choice delegate
     
     func didSelectLineWithColor(_ color: UIColor) {
-        for lineView in lineViews {
-            if lineView?.dotImageView.tintColor != color {
-                lineView?.isSelected = false
+        for lineView in lineChoices {
+            if lineView.dotImageView.tintColor != color {
+                lineView.isSelected = false
             }
         }
         
@@ -225,8 +281,12 @@ class StationViewController: LUXFunctionalTableViewController, LineChoiceViewDel
     func didDeselectLineWithColor(_ color: UIColor) { chosenColor = nil }
 }
 
-func filter(predictions: [PredictionViewModel], by color: UIColor?) -> [PredictionViewModel] {
+func filter(predictions: [PredictionViewModel], byColor color: UIColor?) -> [PredictionViewModel] {
     return predictions.filter { color == nil || Current.colorManager.colorForRouteId($0.routeId) == color }
+}
+
+func filter(predictions: [PredictionViewModel], byDirection direction: ImageDirection?) -> [PredictionViewModel] {
+    return predictions.filter { direction == nil || Current.directionProvider.directionEnum(for: $0.direction!.rawValue, routeId: $0.routeId) == direction! }
 }
 
 func calcVisitsStopsAway(from station: Station, _ visits: [Visit]) -> [Visit] {

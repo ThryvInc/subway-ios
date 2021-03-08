@@ -11,6 +11,10 @@ import SubwayStations
 import CoreGraphics
 import PlaygroundVCHelpers
 
+let favsVC: () -> UIViewController = {
+    return FavoritesViewController.makeFromXIB()
+}
+
 class FavoritesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     var favManager: FavoritesManager!

@@ -12,6 +12,7 @@ import Crashlytics
 import NYCSubwayLib
 import SBNag_swift
 import PlaygroundVCHelpers
+import StoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -35,7 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mapVC = pdfMapVC()
         
         let navVC = AdNavigationController(rootViewController: mapVC)
-        window?.rootViewController = navVC;
+        navVC.navigationBar.barStyle = UIBarStyle.black
+        window?.rootViewController = navVC
         window?.makeKeyAndVisible()
         return true
     }
@@ -63,7 +65,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         rateNagtion.message = "...but would you mind rating this app?"
         rateNagtion.noText = "Nope, I'll never rate this app"
         rateNagtion.yesAction = { () in
-            UIApplication.shared.openURL(URL(string: "https://itunes.apple.com/us/app/subway-map-nyc/id1025535484?ls=1&mt=8")!)
+            SKStoreReviewController.requestReview()
+//            UIApplication.shared.open(URL(string: "https://itunes.apple.com/us/app/subway-map-nyc/id1025535484?ls=1&mt=8")!)
         }
         
         nag.nagtions.append(rateNagtion)

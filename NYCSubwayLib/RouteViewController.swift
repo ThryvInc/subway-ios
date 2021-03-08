@@ -10,18 +10,25 @@ import UIKit
 import FlexDataSource
 import SubwayStations
 import GTFSStations
+import fuikit
+import LithoOperators
+import Prelude
 
-class RouteViewController: UIViewController, UITableViewDelegate {
-    @IBOutlet weak var tableView: UITableView!
+func routeViewController(_ stations: [Station], _ trips: [Trip]) -> RouteViewController {
+    let routeVC = RouteViewController.makeFromXIB()
+    routeVC.stations = stations
+    routeVC.trips = trips
+    routeVC.onViewDidLoad = ~>(^\RouteViewController.tableView >?> setupBackgroundColor <> ^\RouteViewController.view >?> setupBackgroundColor)
+    return routeVC
+}
+
+class RouteViewController: FUITableViewViewController {
     let dataSource = FlexDataSource()
     var stations: [Station]!
     var trips: [Trip]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupBackgroundColor(view)
-        setupBackgroundColor(tableView)
         
         let routeIds = trips.map { $0.routeId }
         
@@ -38,7 +45,7 @@ class RouteViewController: UIViewController, UITableViewDelegate {
                     routeIdIndex += 1
                     item.isTransfer = true
                 }
-                if let route = Current.stationManager.routes.filter({ $0.objectId == routeIds[routeIdIndex] }).first {
+                if let routeId = routeIds[routeIdIndex], let route = Current.stationManager.routeForRouteId(routeId) {
                     item.route = route
                 }
             }
@@ -49,12 +56,7 @@ class RouteViewController: UIViewController, UITableViewDelegate {
         }
         
         dataSource.tableView = tableView
-        tableView.dataSource = dataSource
-        tableView.delegate = self
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        tableView?.dataSource = dataSource
     }
 }
 

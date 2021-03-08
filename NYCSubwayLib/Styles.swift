@@ -8,6 +8,8 @@
 
 import LUX
 import LithoOperators
+import Prelude
+import fuikit
 
 public extension UIColor {
     static func primary() -> UIColor {
@@ -21,21 +23,40 @@ public extension UIColor {
     static func accent() -> UIColor {
         return UIColor(hex: 0xdf03a6)
     }
+    
+    static func background() -> UIColor? {
+        return UIColor(named: "backgroundColor")
+    }
+    
+    static func primaryBg() -> UIColor? {
+        return UIColor(named: "primaryBgColor")
+    }
 }
+
+let setupVCBG = ^\UIViewController.view >>> setupBackgroundColor
+let setupPDFBG = ^\PDFMapper.pdfView >>> setupBackgroundColor
+let setEdges = set(\UIViewController.edgesForExtendedLayout, UIRectEdge())
+let setAppTitle = set(\UIViewController.title, Bundle.main.infoDictionary!["AppTitle"] as? String)
+let setupPDFMap = union(setupPDFBG, setupPdfMap(for:), disableLongPresses(for:))
+let setupVCTableView = ^\FUITableViewViewController.tableView >?> setupTableView(_:)
+let setupBottomButton = ^\PDFMapViewController.buttonBottomConstaint >?> setupActionButtonPosition
 
 let setupEdges = set(\UIViewController.edgesForExtendedLayout, UIRectEdge())
 
-let setupBackgroundColor = set(\UIView.backgroundColor, UIColor(named: "backgroundColor"))
-let setupPrimaryBackgroundColor = set(\UIView.backgroundColor, UIColor(named: "primaryBgColor"))
+let setupBackgroundColor = set(\UIView.backgroundColor, .background())
+let setupPrimaryBackgroundColor = set(\UIView.backgroundColor, .primaryBg())
+
+let setupBarColor = set(\UISearchBar.barTintColor, .background())
 
 func setupCircleCappedView(_ view: UIView) {
-    view.layer.cornerRadius = view.bounds.size.width / 2
+    view.layer.cornerRadius = view.bounds.size.height / 2
     view.clipsToBounds = true
 }
 
 func setupTableView(_ tableView: UITableView?) {
     tableView?.tableFooterView = UIView()
     tableView?.backgroundColor = UIColor(named: "backgroundColor")
+    tableView?.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 216, right: 0)
 }
 
 func setupActionButtonPosition(_ actionButtonBottomConstraint: NSLayoutConstraint?) { actionButtonBottomConstraint?.constant = Current.adsEnabled ? 62 : 12 }

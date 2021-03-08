@@ -44,7 +44,7 @@
                         <constraint firstAttribute="width" constant="28" id="6QU-OK-wkS"/>
                     </constraints>
                 </imageView>
-                <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m77-tC-P1u">
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m77-tC-P1u">
                     <rect key="frame" x="319" y="569" width="40" height="40"/>
                     <color key="backgroundColor" red="0.87450980392156863" green="0.011764705882352941" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -53,12 +53,15 @@
                     </constraints>
                     <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                     <size key="titleShadowOffset" width="3" height="3"/>
-                    <state key="normal" image="ic_navigation_white_24dp"/>
+                    <state key="normal" image="baseline_my_location_white_48"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <integer key="value" value="20"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="actionButtonPressed" destination="-1" eventType="touchUpInside" id="AM3-uD-iqm"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -71,7 +74,7 @@
                 <constraint firstItem="TdE-IK-MD5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="PiY-TW-yh0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="TdE-IK-MD5" secondAttribute="bottom" id="TRZ-8b-kFz"/>
                 <constraint firstItem="Pmk-4Z-KnF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cwa-tY-xOz"/>
-                <constraint firstAttribute="bottom" secondItem="m77-tC-P1u" secondAttribute="bottom" constant="58" id="fiZ-JN-QCb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="m77-tC-P1u" secondAttribute="bottom" constant="58" id="fiZ-JN-QCb"/>
                 <constraint firstAttribute="bottom" secondItem="C1H-67-ZAA" secondAttribute="bottom" id="i4X-IX-4YT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="m77-tC-P1u" secondAttribute="trailing" constant="16" id="kaH-m8-rMU"/>
                 <constraint firstItem="C1H-67-ZAA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ke2-B7-qT3"/>
@@ -85,6 +88,6 @@
     </objects>
     <resources>
         <image name="Loading" width="60" height="60"/>
-        <image name="ic_navigation_white_24dp" width="32" height="32"/>
+        <image name="baseline_my_location_white_48" width="192" height="192"/>
     </resources>
 </document>

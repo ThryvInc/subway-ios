@@ -29,15 +29,15 @@ class MapViewController: StationSearchViewController, UIScrollViewDelegate, UITa
         navigationController?.navigationBar.barStyle = UIBarStyle.black
         setupFavoritesButton()
         
-        tableView.delegate = self
-        tableView.tableFooterView = UIView() //removes cell separators between empty cells
-        tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 216, right: 0)
+        tableView?.delegate = self
+        tableView?.tableFooterView = UIView() //removes cell separators between empty cells
+        tableView?.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 216, right: 0)
         
         if !DatabaseLoader.isDatabaseReady {
             NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.databaseLoaded), name: NSNotification.Name(rawValue: DatabaseLoader.NYCDatabaseLoadedNotification), object: nil)
             searchBar?.alpha = 0
             startLoading()
-        }else{
+        } else {
             databaseLoaded()
         }
     }

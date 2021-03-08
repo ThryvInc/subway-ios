@@ -11,13 +11,14 @@ import FunNet
 import Combine
 import LithoOperators
 import Prelude
+import Slippers
 
 func reportVisitCall(_ serverConfig: ServerConfigurationProtocol = Current.serverConfig, visit: Visit) -> CombineNetCall {
     var endpoint = Endpoint()
     endpoint.path = "visits"
     endpoint /> setToPost
     endpoint /> addJsonHeaders
-    endpoint.postData = LUXJsonProvider.encode(VisitWrapper(visit: visit))
+    endpoint.postData = JsonProvider.encode(VisitWrapper(visit: visit))
     return CombineNetCall(configuration: serverConfig, endpoint)
 }
 

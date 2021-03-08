@@ -12,50 +12,39 @@ import FlexDataSource
 import Prelude
 import LithoOperators
 import LUX
+import fuikit
+import Combine
 
-public class StationSearchViewController: UIViewController, UISearchBarDelegate {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar?
-    var stations: [Station]?
-    var dataSource = FlexDataSource()
+let styleStationSearch: (StationSearchViewController) -> Void = union(^\.tableView >?> setupTableView, ^\.searchBar >?> setupBarColor)
 
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setupBackgroundColor(tableView)
-        
-        searchBar?.delegate = self
-        searchBar?.barTintColor = UIColor(named: "backgroundColor")
-        
-        dataSource.tableView = tableView
-        tableView.dataSource = dataSource
+func configureSearch(_ vc: StationSearchViewController) {
+    if DatabaseLoader.isDatabaseReady {
+        vc.stations = Current.stationManager.allStations
     }
     
-    func dismissKeyboard() {
-        searchBar?.resignFirstResponder()
-        searchBar?.text = ""
-        searchBar?.setShowsCancelButton(false, animated: true)
-        tableView.isHidden = true
-    }
+    let searcher = LUXSearcher<Station>(^\Station.name, .noneMatchNilNoneMatchEmpty, .wordPrefixes)
     
-    //MARK: search bar delegate
+    let stationsPub = searcher.filteredIncrementalPublisher(from: vc.$stations.skipNils().eraseToAnyPublisher())
+    let viewModel = LUXModelListViewModel(modelsPublisher: stationsPub, modelToItem: configureCellLines >||> LUXModelItem.init)
+    vc.viewModel = viewModel
     
-    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        tableView.isHidden = false
-        if let stations = Current.stationManager.stationsForSearchString(searchText) {
-            let stationToItem: (Station) -> FlexDataSourceItem = configureCellLines >||> LUXModelItem.init
-            dataSource.sections = stations |> ((stationToItem >||> map) >>> (itemsToSection >>> arrayOfSingleObject))
-            tableView.reloadData()
-            self.stations = stations
-        }
-    }
-    
-    public func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    let showTable: () -> Void = { [weak vc] in vc?.tableView?.isHidden = false }
+    vc.searchViewModel?.onIncrementalSearch = union(searcher.updateIncrementalSearch, ignoreArg(showTable))
+    vc.searchViewModel?.searchBarDelegate.onSearchBarTextDidBeginEditing = { searchBar in
         searchBar.setShowsCancelButton(true, animated: true)
     }
-    
-    public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        dismissKeyboard()
+    vc.searchViewModel?.searchBarDelegate.onSearchBarCancelButtonClicked = { [weak vc] _ in
+        vc?.dismissKeyboardAndHideTable()
     }
+}
 
+public class StationSearchViewController: LUXSearchViewController<LUXModelListViewModel<Station>, Station>, UISearchBarDelegate {
+    @Published var stations: [Station]?
+    
+    open func dismissKeyboardAndHideTable() {
+        searchBar?.resignFirstResponder()
+        clearSearchBar()
+        searchBar?.setShowsCancelButton(false, animated: true)
+        tableView?.isHidden = true
+    }
 }

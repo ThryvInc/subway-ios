@@ -13,6 +13,8 @@ import Prelude
 import Combine
 import SubwayStations
 import FlexDataSource
+import fuikit
+import Slippers
 
 class UserReportsViewController: LUXFlexViewController<UserReportsViewModel<Visit>> {
     @IBOutlet weak var userLabel: UILabel?
@@ -92,32 +94,46 @@ extension UserReportsViewController {
         
         let visitsPub = unwrappedModelPublisher(from: call.responder!.$data.eraseToAnyPublisher(), ^\VisitsResponse.visits)
         
-        let manager = LUXPageCallModelsManager(call, visitsPub, firstPageValue: 0)
-        refreshableModelManager = manager
+        let manager = LUXPageCallModelsManager(firstPageValue: 0, call, visitsPub)
+        refreshableModelManager = manager as? CallManager & Refreshable
         
         let pagedVisitsPub: AnyPublisher<[Visit], Never> = manager.$models.map { visits in
             if thisUserOnly { visits.forEach(set(\Visit.identifier, nil)) }
             return visits
         }.eraseToAnyPublisher()
         
-        let vm = UserReportsViewModel<Visit>(modelsPublisher: pagedVisitsPub, modelToItem: visitItemFactory(swiped(visit:)))
+        let vm = UserReportsViewModel<Visit>(modelsPublisher: pagedVisitsPub,
+                                             modelToItem: visitItemFactory(swiped(visit:)),
+                                             EmptyItem(identifier: "empty"))
         viewModel = vm
 
-        let delegate = LUXFunctionalTableDelegate(onSelect: vm.dataSource.tappableOnSelect, onWillDisplay: manager.willDisplayFunction(pageSize: 25))
+        let delegate = FUITableViewDelegate(onSelect: vm.flexDataSource.tappableOnSelect, onWillDisplay: manager.willDisplayFunction(pageSize: 25))
         self.tableViewDelegate = delegate
     }
 }
 
+class EmptyItem: ConcreteFlexDataSourceItem<EmptyReportsTableViewCell> {
+    override func configureCell(_ cell: UITableViewCell) {
+        cell.backgroundColor = .background()
+    }
+}
+
 open class UserReportsViewModel<T>: LUXModelTableViewModel<T>, LUXDataSourceProvider {
-    public let dataSource: FlexDataSource
+    public var flexDataSource: FlexDataSource
     
-    public override init(modelsPublisher: AnyPublisher<[T], Never>, modelToItem: @escaping (T) -> FlexDataSourceItem) {
-        dataSource = SwipableFlexDataSource()
+    public init(modelsPublisher: AnyPublisher<[T], Never>, modelToItem: @escaping (T) -> FlexDataSourceItem, _ emptyItem: FlexDataSourceItem) {
+        flexDataSource = FlexDataSource()
         super.init(modelsPublisher: modelsPublisher, modelToItem: modelToItem)
         
         cancelBag.insert(self.sectionsPublisher.sink {
-            self.dataSource.sections = $0
-            self.dataSource.tableView?.reloadData()
+            if $0.first?.items?.isEmpty != true {
+                self.flexDataSource.sections = $0
+                self.flexDataSource.tableView?.separatorStyle = .singleLine
+            } else {
+                self.flexDataSource.sections = emptyItem |> (arrayOfSingleObject >>> itemsToSection >>> arrayOfSingleObject)
+                self.flexDataSource.tableView?.separatorStyle = .none
+            }
+            self.flexDataSource.tableView?.reloadData()
         })
     }
 }

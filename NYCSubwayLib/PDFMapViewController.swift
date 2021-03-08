@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 import PDFKit
 import SubwayStations
 import SBTextInputView
@@ -15,25 +16,53 @@ import Prelude
 import LithoOperators
 import PlaygroundVCHelpers
 import Combine
+import fuikit
+import LUX
 
 public func pdfMapVC() -> PDFMapViewController {
     let vc = PDFMapViewController.makeFromXIB()
+    configureSearch(vc)
+    vc.onViewDidLoad = union(setupVCBG, setAppTitle, setEdges, ~>styleStationSearch, ~>setupBottomButton)
+    vc.onViewWillAppear = ignoreSecondArg(f: ~>setupPDFMap)
     vc.onDatabaseLoaded = onDatabaseLoaded(vc:)
+    vc.onOpenStation = ~>stationVC(for:) >?> vc.emptyBackClosure()
+    vc.onOpenFavorites = favsVC >>> vc.emptyBackClosure()
+    vc.onOpenVisits = userReportsVC >>> vc.emptyBackClosure()
+    vc.onNearestStation = onNearestStationPressed(_:)
     return vc
 }
 
 func onDatabaseLoaded(vc: PDFMapViewController) {
-    vc.loading = false
+    vc.isLoading = false
     vc.setupBarButtons()
+    
+    vc.stations = Current.stationManager.allStations
     
     vc.clearTapGestureRecognizers()
     vc.setupStationTap()
     vc.pdfView.documentView?.addTapGestureRecognizer(numberOfTaps: 2, action: vc.zoomIn)
     
-    UIView.animate(withDuration: 0.5, animations: { () -> Void in
+    UIView.animate(withDuration: 0.5, animations: {
         vc.searchBar?.alpha = 1
         vc.loadingImageView.alpha = 0
     })
+}
+
+func isSortedByDistance(to loc: (CLLocationDegrees, CLLocationDegrees)) -> (Station, Station) -> Bool {
+    return {
+        $0.distance(to: loc, euclideanDistance) < $1.distance(to: loc, euclideanDistance)
+    }
+}
+
+func onNearestStationPressed(_ vc: PDFMapViewController) {
+    let stationsSortedBy: ((Station, Station) -> Bool) -> [Station] = { Current.stationManager.allStations.sorted(by: $0) }
+    let closestStationToLoc = fzip(^\CLLocation.coordinate.latitude, ^\CLLocation.coordinate.longitude) >>> isSortedByDistance(to:)
+        >>> stationsSortedBy >>> ^\[Station].first
+    let pushStation = stationVC(for:) >?> vc.emptyBackClosure()
+    vc.locationDelegate.onDidUpdateLocations = ignoreFirstArg(f: ^\[CLLocation].last >?> ifThen(vc.isNotPushing, closestStationToLoc >?> union(pushStation, ignoreArg(vc.locationManager.stopUpdatingLocation), ignoreArg({ [weak vc] in vc?._isPushing = true })), else: { [weak vc] in vc?._isPushing = false }))
+    vc.locationManager.delegate = vc.locationDelegate
+    vc.locationManager.requestWhenInUseAuthorization()
+    vc.locationManager.startUpdatingLocation()
 }
 
 public class PDFMapViewController: StationSearchViewController, PDFMapper, UITableViewDelegate {
@@ -41,29 +70,31 @@ public class PDFMapViewController: StationSearchViewController, PDFMapper, UITab
     @IBOutlet weak var loadingImageView: UIImageView!
     @IBOutlet weak var buttonBottomConstaint: NSLayoutConstraint!
     
-    var loading = false
+    var _isPushing = false
+    
+    var isLoading = false
+    let locationManager = CLLocationManager()
+    let locationDelegate = FCLLocationManagerDelegate()
+    
     var onDatabaseLoaded: ((PDFMapViewController) -> Void)?
+    var onOpenStation: ((Station?) -> Void)?
+    var onOpenVisits: () -> Void = {}
+    var onOpenFavorites: () -> Void = {}
+    var onNearestStation: ((PDFMapViewController) -> Void)?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupBackgroundColor(view)
-        setupBackgroundColor(pdfView)
-        
-        edgesForExtendedLayout = UIRectEdge()
-        
-        title = Bundle.main.infoDictionary!["AppTitle"] as? String
-        navigationController?.navigationBar.barStyle = UIBarStyle.black
-        
         let pdf = PDFDocument(url: URL(fileURLWithPath: Bundle(for: Self.self).path(forResource: "subway", ofType:"pdf") ?? ""))
         pdfView.document = pdf
-        setupPdfMap()
-        disableLongPresses()
         pdfView.documentView?.addTapGestureRecognizer(numberOfTaps: 2, action: zoomIn)
         
-        setupTableView(tableView)
-        tableView.delegate = self
-        tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 216, right: 0)
+        tableViewDelegate = FUITableViewDelegate()
+        if let onOpenStation = onOpenStation, let dataSource = viewModel?.flexDataSource {
+            let openStation = ^\LUXModelItem<Station, StationTableViewCell>.model >?> onOpenStation
+            tableViewDelegate?.onSelect = union(dataSource.itemTapOnSelect(onTap: ~>openStation), ignoreArgs(dismissKeyboardAndHideTable))
+        }
+        tableView?.delegate = tableViewDelegate
         
         if !DatabaseLoader.isDatabaseReady {
             NotificationCenter.default.addObserver(self,
@@ -72,16 +103,17 @@ public class PDFMapViewController: StationSearchViewController, PDFMapper, UITab
                                                    object: nil)
             searchBar?.alpha = 0
             startLoading()
-        }else{
+        } else {
             databaseLoaded()
         }
         
-        buttonBottomConstaint |> setupActionButtonPosition(_:)
-        view.updateConstraints()
-        
-        #if targetEnvironment(simulator)
-        pdfView.documentView ?> Current.pdfTouchConverter.addStopDots(to:)
-        #endif
+        ifSimulator {
+            Current.pdfTouchConverter.addStopDots(to: self.pdfView.documentView!, dots: &Current.pdfTouchConverter.dots)
+        }
+    }
+    
+    func isNotPushing() -> Bool {
+        return !_isPushing
     }
     
     func setupStationTap() {
@@ -103,7 +135,7 @@ public class PDFMapViewController: StationSearchViewController, PDFMapper, UITab
             let y = touch.y * vScaleFactor / pdfView.documentView!.bounds.size.height - vAdjustment
             
             if let id = Current.pdfTouchConverter.fuzzyCoordToId(coord: (Int(x), Int(y)), fuzziness: Int(Current.pdfTouchConverter.fuzzyRadius)) {
-                openStation(Current.stationManager.allStations.filter { $0.stops.filter { $0.objectId == id }.count > 0 }.first)
+                onOpenStation?(Current.stationManager.allStations.filter { $0.stops.filter { $0.objectId == id }.count > 0 }.first)
             }
         }
     }
@@ -114,59 +146,21 @@ public class PDFMapViewController: StationSearchViewController, PDFMapper, UITab
     }
     
     func setupVisitsButton() {
-        let visitsButton = UIButton()
-        visitsButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        visitsButton.setImage(UIImage(named: "eye_white")?.withRenderingMode(.alwaysOriginal), for: UIControl.State())
-        visitsButton.addTarget(self, action: #selector(PDFMapViewController.openVisits), for: .touchUpInside)
-        
-        let visitsBarButton = UIBarButtonItem()
-        visitsBarButton.customView = visitsButton
+        let visitsBarButton = barButtonItem(for: "eye_white", selector: #selector(PDFMapViewController.openVisits))
         if var items = self.navigationItem.rightBarButtonItems {
             items.append(visitsBarButton)
             self.navigationItem.rightBarButtonItems = items
         }
     }
     
-    @objc func openVisits() {
-        let barButton = UIBarButtonItem()
-        barButton.title = ""
-        navigationItem.backBarButtonItem = barButton
-        
-        let visitsVC = userReportsVC()
-        navigationController?.pushViewController(visitsVC, animated: true)
-    }
-    
     func setupFavoritesButton() {
-        let favButton = UIButton()
-        favButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        favButton.setImage(UIImage(named: "star_white_24pt")?.withRenderingMode(.alwaysOriginal), for: UIControl.State())
-        favButton.addTarget(self, action: #selector(PDFMapViewController.openFavorites), for: .touchUpInside)
-        
-        let favBarButton = UIBarButtonItem()
-        favBarButton.customView = favButton
+        let favBarButton = barButtonItem(for: "star_white_24pt", selector: #selector(PDFMapViewController.openFavorites))
         self.navigationItem.rightBarButtonItems = [favBarButton]
     }
     
-    @objc func openFavorites() {
-        let barButton = UIBarButtonItem()
-        barButton.title = ""
-        navigationItem.backBarButtonItem = barButton
-        
-        let favoritesVC = FavoritesViewController.makeFromXIB()
-        navigationController?.pushViewController(favoritesVC, animated: true)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    @objc func databaseLoaded() {
-        onDatabaseLoaded?(self)
-    }
-    
     func startLoading() {
-        if !loading {
-            loading = true
+        if !isLoading {
+            isLoading = true
             spinLoadingImage(UIView.AnimationOptions.curveLinear)
         }
     }
@@ -177,7 +171,7 @@ public class PDFMapViewController: StationSearchViewController, PDFMapper, UITab
             return
         }, completion: { finished in
             if finished {
-                if self.loading {
+                if self.isLoading {
                     self.spinLoadingImage(UIView.AnimationOptions.curveLinear)
                 }else if animOptions != UIView.AnimationOptions.curveEaseOut{
                     self.spinLoadingImage(UIView.AnimationOptions.curveEaseOut)
@@ -186,23 +180,9 @@ public class PDFMapViewController: StationSearchViewController, PDFMapper, UITab
         })
     }
     
-    func openStation(_ station: Station?) {
-        if let station = station {
-            let barButton = UIBarButtonItem()
-            barButton.title = " "
-            navigationItem.backBarButtonItem = barButton
-            
-            let vc = stationVC(for: station)
-            navigationController?.pushViewController(vc, animated: true)
-        }
-    }
-    
-    //MARK: table delegate
-    
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let stationArray = stations {
-            openStation(stationArray[indexPath.row])
-        }
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
+    @objc func openVisits() { onOpenVisits() }
+    @objc func openFavorites() { onOpenFavorites() }
+    @objc func databaseLoaded() { onDatabaseLoaded?(self) }
+    @IBAction func actionButtonPressed() { onNearestStation?(self) }
+    deinit { NotificationCenter.default.removeObserver(self) }
 }

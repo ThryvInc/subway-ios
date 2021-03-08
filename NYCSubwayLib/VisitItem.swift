@@ -16,7 +16,7 @@ class VisitItem: SwipableItem<VisitTableViewCell> {
     
     init(_ visit: Visit, _ onSwipe: @escaping () -> Void) {
         self.visit = visit
-        super.init(identifier: "visitCell", visit >|> configureVisitCell(_:_:), onSwipe)
+        super.init(identifier: "visitCell", visit >|> configureVisitCell(_:_:), {}, onSwipe)
     }
 }
 

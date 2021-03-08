@@ -67,8 +67,8 @@ class LineChoiceView: UIView {
         }else{
             lineLabel.textColor = UIColor.white
             
-            backgroundView.layer.borderColor = UIColor.lightGray.cgColor
-            backgroundView.layer.borderWidth = 2
+            backgroundView.layer.borderColor = UIColor.white.cgColor
+            backgroundView.layer.borderWidth = 1
             backgroundView.layer.cornerRadius = view.bounds.size.height / 2
             backgroundView.backgroundColor = UIColor.clear
         }

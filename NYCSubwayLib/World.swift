@@ -9,29 +9,22 @@
 import LUX
 import SubwayStations
 import GTFSStations
+import Slippers
 
 public var Current = paid
 
-let free = World().configure {
-    #if targetEnvironment(simulator)
-    $0.isAdmin = true
-    #else
-    $0.isAdmin = false
-    #endif
-    $0.serverConfig = NYCServerConfiguration.production
-    $0.adsEnabled = true
-    LUXJsonProvider.jsonDecoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Seconds)
+let free = World().configure { world in
+    ifSimulator { world.isAdmin = true }
+    world.serverConfig = NYCServerConfiguration.production
+    world.adsEnabled = true
+    JsonProvider.jsonDecoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Seconds)
 }
 
-let paid = World().configure {
-    #if targetEnvironment(simulator)
-    $0.isAdmin = true
-    #else
-    $0.isAdmin = false
-    #endif
-    $0.serverConfig = NYCServerConfiguration.production
-    $0.adsEnabled = false
-    LUXJsonProvider.jsonDecoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Seconds)
+let paid = World().configure { world in
+    ifSimulator { world.isAdmin = true }
+    world.serverConfig = NYCServerConfiguration.production
+    world.adsEnabled = false
+    JsonProvider.jsonDecoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Seconds)
 }
 
 let testing = World().configure {
@@ -39,7 +32,7 @@ let testing = World().configure {
     $0.adsEnabled = false
     $0.timeProvider = mockTime
     $0.uuidProvider = mockUuid
-    LUXJsonProvider.jsonDecoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Seconds)
+    JsonProvider.jsonDecoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Seconds)
 }
 
 public struct World {
@@ -55,9 +48,9 @@ public struct World {
     public var timeProvider: () -> Date = currentTime
     public var uuidProvider: () -> String = fetchUuid
 }
-extension World: Configure {}
+extension World: Configurable {}
 extension World {
     var nycStationManager: NYCStationManager? { get { self.navManager as? NYCStationManager }}
 }
 
-extension DateFormatter: Configure {}
+extension DateFormatter: Configurable {}

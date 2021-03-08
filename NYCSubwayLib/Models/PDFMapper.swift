@@ -8,10 +8,16 @@
 
 import UIKit
 import PDFKit
+import LithoOperators
 
 public protocol PDFMapper {
     var pdfView: PDFView! { get set }
 }
+func setupPdfMap(for mapper: PDFMapper) { mapper.setupPdfMap() }
+func zoomFunction(for mapper: PDFMapper) -> (UITapGestureRecognizer) -> Void { return mapper.zoomIn(_:) }
+func disableLongPresses(for mapper: PDFMapper) { mapper.disableLongPresses() }
+func clearTapGestureRecognizers(on mapper: PDFMapper) { mapper.clearTapGestureRecognizers() }
+
 extension PDFMapper {
     var isZoomedOut: Bool {
         get {
@@ -34,11 +40,7 @@ extension PDFMapper {
     }
     
     func clearTapGestureRecognizers() {
-        pdfView.documentView?.gestureRecognizers?.forEach {
-            if $0 is UITapGestureRecognizer {
-                pdfView.documentView?.removeGestureRecognizer($0)
-            }
-        }
+        pdfView.documentView?.gestureRecognizers?.forEach(~>pdfView.documentView!.removeGestureRecognizer)
     }
     
     func zoomIn(_ recognizer: UITapGestureRecognizer) {

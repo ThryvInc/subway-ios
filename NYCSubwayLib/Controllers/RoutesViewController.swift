@@ -10,11 +10,47 @@ import UIKit
 import SubwayStations
 import GTFSStations
 import PlaygroundVCHelpers
+import fuikit
+import LithoOperators
+import Prelude
+import LUX
+import FlexDataSource
 
 func routesVC(_ station: Station?) -> RoutesViewController {
     let routesVC = RoutesViewController.makeFromXIB()
+    configureSearch(routesVC)
+    let setStation: (RoutesViewController) -> Void = { routesVC in routesVC.fromStation = station }
+    routesVC.onViewDidLoad = union(setupVCBG, set(\UIViewController.title, "Navigate to"), ~>(routesViewLoaded <> setStation <> setupSearchBars <> setupRoutesTable))
+    routesVC.onGoToRoute = routeViewController >>> routesVC.emptyBackClosure()
     routesVC.fromStation = station
     return routesVC
+}
+
+let routesViewLoaded: (RoutesViewController) -> Void = ^\.tableView >?> setupTableView
+    <> ^\.fromSearchBar >?> setupBarColor
+    <> ^\.toSearchBar >?> setupBarColor
+    <> ^\.goButton >?> setupCircleCappedView
+    <> ^\.spinner >?> set(\UIView.alpha, 0)
+func setupSearchBars(_ routesVC: RoutesViewController) {
+    routesVC.handleStationChoice = ifThen(routesVC.isFrom, routesVC.setFromStation) <> ifThen(routesVC.isTo, routesVC.setToStation)
+    routesVC.fromSearchBar.text = routesVC.fromStation?.name
+    
+    let delegate = routesVC.searchViewModel?.searchBarDelegate
+    routesVC.fromSearchBar.delegate = delegate
+    routesVC.toSearchBar.delegate = delegate
+    
+    delegate?.onSearchBarTextDidBeginEditing = { [weak routesVC] searchBar in
+        routesVC?.searchBar?.setShowsCancelButton(true, animated: true)
+        routesVC?.searchBar = searchBar
+        routesVC?.tableView?.isHidden = false
+    }
+    delegate?.onSearchBarCancelButtonClicked = ignoreArg(union(routesVC.dismissKeyboardAndHideTable, nil *> routesVC.handleStationChoice))
+}
+
+func setupRoutesTable(_ routesVC: RoutesViewController) {
+    routesVC.tableViewDelegate = FUITableViewDelegate()
+    routesVC.tableViewDelegate?.onSelect = union(deselectRow, ignoreFirstArg(f: ^\IndexPath.row >>> routesVC.station(for:) >?> routesVC.handleStationChoice))
+    routesVC.tableView?.delegate = routesVC.tableViewDelegate
 }
 
 class RoutesViewController: StationSearchViewController, UITableViewDelegate {
@@ -24,39 +60,26 @@ class RoutesViewController: StationSearchViewController, UITableViewDelegate {
     @IBOutlet weak var goButton: UIButton!
     @IBOutlet weak var goButtonWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
-    
-    var fromStation: Station?
-    var toStation: Station?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setupBackgroundColor(view)
-        fromSearchBar?.barTintColor = UIColor(named: "backgroundColor")
-        toSearchBar?.barTintColor = UIColor(named: "backgroundColor")
-        
-        title = "Navigate to"
-        
-        spinner.alpha = 0
-        
-        goButton.layer.cornerRadius = goButton.bounds.height / 2
-        goButton.clipsToBounds = true
-        
-        fromSearchBar.text = fromStation?.name
-        
-        fromSearchBar.delegate = self
-        toSearchBar.delegate = self
-        
-        tableView.delegate = self
-        tableView.tableFooterView = UIView() //removes cell separators between empty cells
+    var handleStationChoice: (Station?) -> Void = { _ in }
+    var onGoToRoute: (([Station], [Trip]) -> Void)?
+    var fromStation: Station? { didSet {
+            fromSearchBar?.text = fromStation?.name
+            toSearchBar?.becomeFirstResponder()
+            searchBar = toSearchBar
+        }
+    }
+    var toStation: Station? { didSet {
+            toSearchBar.text = toStation?.name
+            toSearchBar?.resignFirstResponder()
+            tableView?.isHidden = true
+        }
     }
     
-    func gotoRoute(_ stations: [Station], _ trips: [Trip]) {
-        let routeVC = RouteViewController.makeFromXIB()
-        routeVC.stations = stations
-        routeVC.trips = trips
-        navigationController?.pushViewController(routeVC, animated: true)
-    }
+    func isFrom() -> Bool { return searchBar == fromSearchBar }
+    func isTo() -> Bool { return searchBar == toSearchBar }
+    func station(for index: Int) -> Station? { return (viewModel?.flexDataSource.sections?[0].items as? [LUXModelItem<Station, StationTableViewCell>])?[index].model }
+    func setFromStation(_ station: Station?) { fromStation = station }
+    func setToStation(_ station: Station?) { toStation = station }
     
     // MARK: - IBActions
     
@@ -82,46 +105,19 @@ class RoutesViewController: StationSearchViewController, UITableViewDelegate {
                         self.view.updateConstraints()
                         self.view.layoutIfNeeded()
                     }
-                    self.gotoRoute(stations, trips)
+                    self.onGoToRoute?(stations, trips)
                 }
             }
         })
     }
-    
-    //MARK: search delegate
-    
-    override func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(true, animated: true)
-        self.searchBar = searchBar
-        tableView.isHidden = false
-    }
-    
-    override func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        dismissKeyboard()
-        if searchBar == fromSearchBar {
-            fromStation = nil
+}
+
+public func ifThen<T>(_ condition: @escaping () -> Bool, _ f: @escaping (T) -> Void, else g: (() -> Void)? = nil) -> (T) -> Void {
+    return { t in
+        if condition() {
+            return f(t)
+        } else {
+            g?()
         }
-        if searchBar == toSearchBar {
-            toStation = nil
-        }
-    }
-    
-    //MARK: table delegate
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let station = stations?[indexPath.row] {
-            searchBar?.text = station.name
-            if searchBar == fromSearchBar {
-                fromStation = station
-                toSearchBar.becomeFirstResponder()
-                searchBar = toSearchBar
-            }
-            if searchBar == toSearchBar {
-                toStation = station
-                toSearchBar.resignFirstResponder()
-                tableView.isHidden = true
-            }
-        }
-        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
