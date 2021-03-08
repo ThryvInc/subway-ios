@@ -20,7 +20,7 @@ class FavoritesSpec: QuickSpec {
             
             beforeSuite({ () -> () in
                 DatabaseLoader.loadDb()
-                waitUntil(timeout: 10, action: { (done) -> Void in
+                waitUntil(timeout: .seconds(10), action: { (done) -> Void in
                     Thread.sleep(forTimeInterval: 5)
                     self.stationManager = DatabaseLoader.stationManager
                     self.favoritesManager = FavoritesManager()

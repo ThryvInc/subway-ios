@@ -10,20 +10,6 @@ import XCTest
 @testable import NYCSubwayLib
 
 class SubwayMapUITests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func testScreens() throws {
         let app = XCUIApplication()
         setupSnapshot(app)
@@ -48,7 +34,7 @@ class SubwayMapUITests: XCTestCase {
         
 
         let timesSq42StNavigationBar = app.navigationBars["Times Sq - 42 St"]
-        timesSq42StNavigationBar.buttons["ic navigation white 24dp"].tap()
+        timesSq42StNavigationBar.buttons["navigation white 24pt"].tap()
         app.searchFields["To station"].tap()
         app/*@START_MENU_TOKEN@*/.keys["L"]/*[[".keyboards.keys[\"L\"]",".keys[\"L\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         app/*@START_MENU_TOKEN@*/.keys["o"]/*[[".keyboards.keys[\"o\"]",".keys[\"o\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
