@@ -4,18 +4,31 @@ use_frameworks!
 
 def import_pods
     pod "SBTextInputView"
-    pod "SBNag.swift"
+    pod "SBNag.swift", git: 'https://github.com/schrockblock/SBNag.swift'
     pod 'SBCategories'
     pod 'ZipArchive'
     pod 'Fabric'
-    pod 'Google-Mobile-Ads-SDK'
+    pod 'Google-Mobile-Ads-SDK', '~> 7.58.0'
     pod 'Crashlytics'
     pod 'SQLite.swift', '0.11.4'
+    pod 'fuikit'
     pod 'LUX', git: 'https://github.com/ThryvInc/LUX'
+    pod 'FlexDataSource', git: 'https://github.com/ThryvInc/flex-data-source'
     pod 'LithoOperators', git: 'https://github.com/ThryvInc/LithoOperators'
-    pod 'THUXAuth', git: 'https://github.com/ThryvInc/thux-auth'
-    pod 'FunNet', git: 'https://github.com/schrockblock/funnet'
+    pod 'FunNet/Combine', git: 'https://github.com/schrockblock/funnet'
     pod 'PlaygroundVCHelpers', git: 'https://github.com/ThryvInc/playground-vc-helpers'
+end
+
+target 'NYCSubwayLib' do
+    pod "GTFSStations", :git => 'https://github.com/schrockblock/gtfs-stations', branch: 'develop'
+    import_pods
+end
+
+target 'NYCSubwayLibTests' do
+    import_pods
+    
+    pod 'Quick'
+    pod 'Nimble'
 end
 
 target 'SubwayMap' do
