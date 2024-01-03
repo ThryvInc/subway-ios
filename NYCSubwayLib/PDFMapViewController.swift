@@ -18,6 +18,7 @@ import PlaygroundVCHelpers
 import Combine
 import fuikit
 import LUX
+import SwiftDate
 
 public func pdfMapVC() -> PDFMapViewController {
     let vc = PDFMapViewController.makeFromXIB()
@@ -29,12 +30,15 @@ public func pdfMapVC() -> PDFMapViewController {
     vc.onOpenFavorites = favsVC >>> vc.emptyBackClosure()
     vc.onOpenVisits = userReportsVC >>> vc.emptyBackClosure()
     vc.onNearestStation = onNearestStationPressed(_:)
+    vc.onWifi = ignoreArg(followRedirect)
     return vc
 }
 
 func onDatabaseLoaded(vc: PDFMapViewController) {
     vc.isLoading = false
     vc.setupBarButtons()
+    
+    vc.wifiTracker.trackWifi()
     
     vc.stations = Current.stationManager.allStations
     
@@ -54,21 +58,30 @@ func isSortedByDistance(to loc: (CLLocationDegrees, CLLocationDegrees)) -> (Stat
     }
 }
 
+let stationsSortedBy: ((Station, Station) -> Bool) -> [Station] = { Current.stationManager.allStations.sorted(by: $0) }
+let closestStationToLoc: (CLLocation) -> Station? = fzip(^\CLLocation.coordinate.latitude, ^\CLLocation.coordinate.longitude) >>> isSortedByDistance(to:)
+    >>> stationsSortedBy >>> ^\[Station].first
 func onNearestStationPressed(_ vc: PDFMapViewController) {
-    let stationsSortedBy: ((Station, Station) -> Bool) -> [Station] = { Current.stationManager.allStations.sorted(by: $0) }
-    let closestStationToLoc = fzip(^\CLLocation.coordinate.latitude, ^\CLLocation.coordinate.longitude) >>> isSortedByDistance(to:)
-        >>> stationsSortedBy >>> ^\[Station].first
     let pushStation = stationVC(for:) >?> vc.emptyBackClosure()
-    vc.locationDelegate.onDidUpdateLocations = ignoreFirstArg(f: ^\[CLLocation].last >?> ifThen(vc.isNotPushing, closestStationToLoc >?> union(pushStation, ignoreArg(vc.locationManager.stopUpdatingLocation), ignoreArg({ [weak vc] in vc?._isPushing = true })), else: { [weak vc] in vc?._isPushing = false }))
+    let updateIsPushingTrue: () -> Void = { [weak vc] in
+        vc?._isPushing = true
+        vc?.nearestLoadingIndicator.isHidden = true
+    }
+    let updateIsPushingFalse: () -> Void = { [weak vc] in
+        vc?._isPushing = false
+    }
+    vc.locationDelegate.onDidUpdateLocations = ignoreFirstArg(f: ^\[CLLocation].last >?> ifThen(vc.isNotPushing, closestStationToLoc >?> union(runOnMain(pushStation), ignoreArg(vc.locationManager.stopUpdatingLocation), ignoreArg(updateIsPushingTrue)), else: updateIsPushingFalse))
     vc.locationManager.delegate = vc.locationDelegate
-    vc.locationManager.requestWhenInUseAuthorization()
+    vc.locationManager.requestAlwaysAuthorization()
     vc.locationManager.startUpdatingLocation()
+    vc.nearestLoadingIndicator.isHidden = false
 }
 
 public class PDFMapViewController: StationSearchViewController, PDFMapper, UITableViewDelegate {
     @IBOutlet public weak var pdfView: PDFView!
     @IBOutlet weak var loadingImageView: UIImageView!
     @IBOutlet weak var buttonBottomConstaint: NSLayoutConstraint!
+    @IBOutlet weak var nearestLoadingIndicator: UIActivityIndicatorView!
     
     var _isPushing = false
     
@@ -81,11 +94,23 @@ public class PDFMapViewController: StationSearchViewController, PDFMapper, UITab
     var onOpenVisits: () -> Void = {}
     var onOpenFavorites: () -> Void = {}
     var onNearestStation: ((PDFMapViewController) -> Void)?
+    var onWifi: ((PDFMapViewController) -> Void)?
+    
+    public let wifiTracker = WifiTracker()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        let pdf = PDFDocument(url: URL(fileURLWithPath: Bundle(for: Self.self).path(forResource: "subway", ofType:"pdf") ?? ""))
+        setupNotifs()
+        
+        var pdfName = "subway"
+        Current.pdfTouchConverter = NYCPDFTouchConverter()
+        let rNY = Region(calendar: Calendars.gregorian, zone: Zones.americaNewYork, locale: Locales.english)
+        if Date().convertTo(region: rNY).hour < 6 {
+            pdfName = "night"
+            Current.pdfTouchConverter = NYCNightPDFTouchConverter()
+        }
+        let pdf = PDFDocument(url: URL(fileURLWithPath: Bundle(for: Self.self).path(forResource: pdfName, ofType:"pdf") ?? ""))
         pdfView.document = pdf
         pdfView.documentView?.addTapGestureRecognizer(numberOfTaps: 2, action: zoomIn)
         
@@ -109,6 +134,18 @@ public class PDFMapViewController: StationSearchViewController, PDFMapper, UITab
         
         ifSimulator {
             Current.pdfTouchConverter.addStopDots(to: self.pdfView.documentView!, dots: &Current.pdfTouchConverter.dots)
+        }
+    }
+    
+    func setupNotifs() {
+        let center = UNUserNotificationCenter.current()
+
+        center.requestAuthorization(options: [.alert,.sound]) {(accepted, error) in
+            if !accepted {
+                print("Notification access denied")
+            } else {
+                print("yay")
+            }
         }
     }
     
@@ -161,20 +198,20 @@ public class PDFMapViewController: StationSearchViewController, PDFMapper, UITab
     func startLoading() {
         if !isLoading {
             isLoading = true
-            spinLoadingImage(UIView.AnimationOptions.curveLinear)
+            spinLoadingImage()
         }
     }
     
-    func spinLoadingImage(_ animOptions: UIView.AnimationOptions) {
+    func spinLoadingImage(_ animOptions: UIView.AnimationOptions = .curveLinear) {
         UIView.animate(withDuration: 1.5, delay: 0.0, options: animOptions, animations: {
             self.loadingImageView.transform = self.loadingImageView.transform.rotated(by: CGFloat(Double.pi))
             return
         }, completion: { finished in
             if finished {
                 if self.isLoading {
-                    self.spinLoadingImage(UIView.AnimationOptions.curveLinear)
-                }else if animOptions != UIView.AnimationOptions.curveEaseOut{
-                    self.spinLoadingImage(UIView.AnimationOptions.curveEaseOut)
+                    self.spinLoadingImage(.curveLinear)
+                }else if animOptions != .curveEaseOut{
+                    self.spinLoadingImage(.curveEaseOut)
                 }
             }
         })
@@ -184,5 +221,6 @@ public class PDFMapViewController: StationSearchViewController, PDFMapper, UITab
     @objc func openFavorites() { onOpenFavorites() }
     @objc func databaseLoaded() { onDatabaseLoaded?(self) }
     @IBAction func actionButtonPressed() { onNearestStation?(self) }
+    @IBAction func wifiButtonPressed() { onWifi?(self) }
     deinit { NotificationCenter.default.removeObserver(self) }
 }

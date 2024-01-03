@@ -7,19 +7,22 @@
 //
 
 import UIKit
-import Fabric
 import Crashlytics
 import NYCSubwayLib
 import SBNag_swift
 import PlaygroundVCHelpers
 import StoreKit
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     var window: UIWindow?
+    let mapVC = pdfMapVC()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Fabric.with([Crashlytics()])
+//        Fabric.with([Crashlytics()])
+        
+        UNUserNotificationCenter.current().delegate = self
         
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().barTintColor = UIColor.primary()
@@ -33,13 +36,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let mapVC = pdfMapVC()
-        
         let navVC = AdNavigationController(rootViewController: mapVC)
         navVC.navigationBar.barStyle = UIBarStyle.black
         window?.rootViewController = navVC
         window?.makeKeyAndVisible()
         return true
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler( [.alert])
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -48,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
+//        mapVC.wifiTracker.trackWifi()
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }

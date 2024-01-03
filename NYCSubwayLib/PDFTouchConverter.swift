@@ -25,7 +25,7 @@ public protocol PDFTouchConverter {
     var horizontalScaleFactor: CGFloat { get set }
     var verticalAdjustment: CGFloat { get set }
     var horizontalAdjustment: CGFloat { get set }
-    var coordToIdMap: [Two<Int, Int>: String] { get }
+    static var coordToIdMap: [Two<Int, Int>: String] { get }
     func fuzzyCoordToId(coord: (Int, Int), fuzziness: Int) -> String?
 }
 
@@ -42,7 +42,7 @@ extension PDFTouchConverter {
         dots.forEach { $0.removeFromSuperview() }
         
         dots = []
-        for coord in coordToIdMap.keys {
+        for coord in Self.coordToIdMap.keys {
             let x = view.bounds.size.width * (CGFloat(coord.values.0) + horizontalAdjustment) / horizontalScaleFactor
             let y = view.bounds.size.height * (CGFloat(coord.values.1) + verticalAdjustment) / verticalScaleFactor
             
@@ -57,7 +57,7 @@ extension PDFTouchConverter {
             tapZone.layer.cornerRadius = tapZone.frame.size.height / 2
             tapZone.clipsToBounds = true
             tapZone.font = .systemFont(ofSize: 5)
-            tapZone.text = coordToIdMap[coord]
+            tapZone.text = Self.coordToIdMap[coord]
             tapZone.textAlignment = .center
             
             view.addSubview(tapZone)
@@ -84,6 +84,15 @@ extension UIView {
     }
 }
 
+class NYCNightPDFTouchConverter: NYCPDFTouchConverter {
+    override init() {
+        super.init()
+        verticalAdjustment = 44 - 22
+        horizontalAdjustment = 22 + 40
+        horizontalScaleFactor = 4900
+    }
+}
+
 class NYCPDFTouchConverter: PDFTouchConverter {
     var dots = [UIView]()
     var distanceMetric: ((Int, Int), (Int, Int)) -> Double = euclideanDistance
@@ -94,19 +103,19 @@ class NYCPDFTouchConverter: PDFTouchConverter {
     public var horizontalAdjustment: CGFloat = 22//7.0
     
     public func fuzzyCoordToId(coord: (Int, Int), fuzziness: Int) -> String? {
-        var keys: [Two<Int, Int>] = coordToIdMap.keys
+        var keys: [Two<Int, Int>] = Self.coordToIdMap.keys
             .filter({ distanceMetric($0.values, coord) < Double(fuzziness) })
         keys = keys.sorted(by: {
             return distanceMetric($0.values, coord) > distanceMetric($1.values, coord)
         })
         if (!keys.isEmpty) {
-            return coordToIdMap[keys.first!]
+            return Self.coordToIdMap[keys.first!]
         } else {
             return nil
         }
     }
     
-    public let coordToIdMap: [Two<Int, Int>: String] = [
+    public static let coordToIdMap: [Two<Int, Int>: String] = [
         Two(values: (752, 410)): "101",
         Two(values: (782, 548)): "103",
         Two(values: (776, 622)): "104",

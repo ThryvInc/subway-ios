@@ -15,6 +15,7 @@ import SubwayStations
 import FlexDataSource
 import fuikit
 import Slippers
+import SwiftDate
 
 class UserReportsViewController: LUXFlexViewController<UserReportsViewModel<Visit>> {
     @IBOutlet weak var userLabel: UILabel?
@@ -85,17 +86,20 @@ func userReportsVC() -> UserReportsViewController {
 extension UserReportsViewController {
     func configure(thisUserOnly: Bool = true, allowAuto: Bool = false) {
         let call = getUserVisitsCall(userId: (thisUserOnly ? Current.uuidProvider() : nil))
+        call.endpoint.getParams.updateValue("mta_v1", forKey: "not_identifier")
+        call.endpoint.getParams.updateValue(DateFormatter.iso8601Full.string(from: Current.timeProvider().adjustForTimeZone() - 1.months), forKey: "after")
         if allowAuto {
             call.endpoint.getParams.removeValue(forKey: "is_auto")
         } else {
             call.endpoint.getParams.updateValue(false, forKey: "is_auto")
-            call.endpoint.getParams.updateValue(25, forKey: "per")
         }
+        call.endpoint.getParams.updateValue(25, forKey: "per")
+        call.endpoint.getParams.updateValue(0, forKey: "page")
         
         let visitsPub = unwrappedModelPublisher(from: call.responder!.$data.eraseToAnyPublisher(), ^\VisitsResponse.visits)
         
         let manager = LUXPageCallModelsManager(firstPageValue: 0, call, visitsPub)
-        refreshableModelManager = manager as? CallManager & Refreshable
+        refreshableModelManager = LUXRefreshableNetworkCallManager(call)
         
         let pagedVisitsPub: AnyPublisher<[Visit], Never> = manager.$models.map { visits in
             if thisUserOnly { visits.forEach(set(\Visit.identifier, nil)) }

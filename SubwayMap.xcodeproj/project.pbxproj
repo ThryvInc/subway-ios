@@ -22,6 +22,9 @@
 		4943C50A1CE121BB004AAED5 /* gtfs.db.zip in Resources */ = {isa = PBXBuildFile; fileRef = 4943C4E11CE11969004AAED5 /* gtfs.db.zip */; };
 		4959FCAE244E228B006FDD00 /* SubwayMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959FCAD244E228B006FDD00 /* SubwayMapTests.swift */; };
 		4959FCB2244F1ECA006FDD00 /* TimeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959FCB1244F1ECA006FDD00 /* TimeProvider.swift */; };
+		496269D1265ADB99004B8A16 /* WifiNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496269D0265ADB99004B8A16 /* WifiNotifications.swift */; };
+		496B86C7261D4A43005FEDC3 /* winter.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 496B86C6261D4A43005FEDC3 /* winter.pdf */; };
+		496B86D1261D4A55005FEDC3 /* night.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 496B86D0261D4A55005FEDC3 /* night.pdf */; };
 		4974F219244DFE3000129EEB /* NYCSubwayLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4974F210244DFE3000129EEB /* NYCSubwayLib.framework */; };
 		4974F222244DFE3000129EEB /* NYCSubwayLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 4974F212244DFE3000129EEB /* NYCSubwayLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4974F225244DFE3000129EEB /* NYCSubwayLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4974F210244DFE3000129EEB /* NYCSubwayLib.framework */; };
@@ -97,6 +100,7 @@
 		4974F2E0244E166800129EEB /* Framefile.json in Resources */ = {isa = PBXBuildFile; fileRef = 4974F2DF244E166800129EEB /* Framefile.json */; };
 		4998FB661D281F6B00A990F3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4998FB651D281F6B00A990F3 /* libz.tbd */; };
 		4998FB681D281F8C00A990F3 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4998FB671D281F8C00A990F3 /* libsqlite3.tbd */; };
+		49A53EA526232CC5008621BE /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A53EA426232CC5008621BE /* NetworkExtension.framework */; };
 		49D24109245352E900C37962 /* SubwayStationsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D24108245352E900C37962 /* SubwayStationsExtensions.swift */; };
 		49D2410B2453533600C37962 /* CellConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2410A2453533600C37962 /* CellConfig.swift */; };
 		49D2410D24535CE400C37962 /* PredictionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D2410C24535CE400C37962 /* PredictionViewModelTests.swift */; };
@@ -108,6 +112,9 @@
 		49E32CD02451FAC0002F8366 /* EstimateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E32CCE2451FAC0002F8366 /* EstimateTableViewCell.xib */; };
 		49E32CD224523B5E002F8366 /* GetEstimatesCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E32CD124523B5E002F8366 /* GetEstimatesCall.swift */; };
 		49E32CD424523BB6002F8366 /* Estimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E32CD324523BB6002F8366 /* Estimate.swift */; };
+		49E472B22623B56300E9C2CD /* WifiLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E472B12623B56300E9C2CD /* WifiLocation.swift */; };
+		49E472C42623BD5F00E9C2CD /* WifiDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E472C32623BD5F00E9C2CD /* WifiDetection.swift */; };
+		49E47491262486BF00E9C2CD /* LoginWifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E47490262486BF00E9C2CD /* LoginWifi.swift */; };
 		49E7C9951CADC7E3006A03F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E7C9941CADC7E3006A03F1 /* AppDelegate.swift */; };
 		49E7C99C1CADC7E3006A03F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49E7C99B1CADC7E3006A03F1 /* Assets.xcassets */; };
 		49E7C99F1CADC7E3006A03F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49E7C99D1CADC7E3006A03F1 /* LaunchScreen.storyboard */; };
@@ -224,6 +231,9 @@
 		4959FCAD244E228B006FDD00 /* SubwayMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayMapTests.swift; sourceTree = "<group>"; };
 		4959FCB1244F1ECA006FDD00 /* TimeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeProvider.swift; sourceTree = "<group>"; };
 		4959FCB3244F2655006FDD00 /* Station.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Station.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		496269D0265ADB99004B8A16 /* WifiNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiNotifications.swift; sourceTree = "<group>"; };
+		496B86C6261D4A43005FEDC3 /* winter.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = winter.pdf; sourceTree = "<group>"; };
+		496B86D0261D4A55005FEDC3 /* night.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = night.pdf; sourceTree = "<group>"; };
 		4974F210244DFE3000129EEB /* NYCSubwayLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NYCSubwayLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4974F212244DFE3000129EEB /* NYCSubwayLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYCSubwayLib.h; sourceTree = "<group>"; };
 		4974F213244DFE3000129EEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -307,6 +317,8 @@
 		4974F2E3244E1C2000129EEB /* keyword.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = keyword.strings; path = "screenshots/en-US/keyword.strings"; sourceTree = SOURCE_ROOT; };
 		4998FB651D281F6B00A990F3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		4998FB671D281F8C00A990F3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		49A53E68262329C3008621BE /* SubwayMap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SubwayMap.entitlements; sourceTree = "<group>"; };
+		49A53EA426232CC5008621BE /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		49D24108245352E900C37962 /* SubwayStationsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayStationsExtensions.swift; sourceTree = "<group>"; };
 		49D2410A2453533600C37962 /* CellConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfig.swift; sourceTree = "<group>"; };
 		49D2410C24535CE400C37962 /* PredictionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionViewModelTests.swift; sourceTree = "<group>"; };
@@ -318,6 +330,9 @@
 		49E32CCE2451FAC0002F8366 /* EstimateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EstimateTableViewCell.xib; sourceTree = "<group>"; };
 		49E32CD124523B5E002F8366 /* GetEstimatesCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEstimatesCall.swift; sourceTree = "<group>"; };
 		49E32CD324523BB6002F8366 /* Estimate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Estimate.swift; sourceTree = "<group>"; };
+		49E472B12623B56300E9C2CD /* WifiLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiLocation.swift; sourceTree = "<group>"; };
+		49E472C32623BD5F00E9C2CD /* WifiDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiDetection.swift; sourceTree = "<group>"; };
+		49E47490262486BF00E9C2CD /* LoginWifi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWifi.swift; sourceTree = "<group>"; };
 		49E7C9921CADC7E3006A03F1 /* LondonMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LondonMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E7C9941CADC7E3006A03F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49E7C99B1CADC7E3006A03F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -353,6 +368,7 @@
 				493DC1911B9D0CD700515F4B /* libz.dylib in Frameworks */,
 				491831481B67321A00EB8328 /* libsqlite3.dylib in Frameworks */,
 				4974F225244DFE3000129EEB /* NYCSubwayLib.framework in Frameworks */,
+				49A53EA526232CC5008621BE /* NetworkExtension.framework in Frameworks */,
 				F1705684A31FC01BE37D6D6E /* Pods_SubwayMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,6 +446,7 @@
 		0561CA4C571669088714DF0D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49A53EA426232CC5008621BE /* NetworkExtension.framework */,
 				4998FB671D281F8C00A990F3 /* libsqlite3.tbd */,
 				4998FB651D281F6B00A990F3 /* libz.tbd */,
 				493DC18E1B9CEF9200515F4B /* libz.1.dylib */,
@@ -486,6 +503,7 @@
 		4918311E1B672B6900EB8328 /* SubwayMap */ = {
 			isa = PBXGroup;
 			children = (
+				49A53E68262329C3008621BE /* SubwayMap.entitlements */,
 				491831211B672B6900EB8328 /* AppDelegate.swift */,
 				4959FCB0244F1B4A006FDD00 /* Playgrounds */,
 				4918311F1B672B6900EB8328 /* Supporting Files */,
@@ -554,6 +572,10 @@
 			isa = PBXGroup;
 			children = (
 				494B67A823E1E9D7001BEAA2 /* World.swift */,
+				49E472B12623B56300E9C2CD /* WifiLocation.swift */,
+				49E472C32623BD5F00E9C2CD /* WifiDetection.swift */,
+				496269D0265ADB99004B8A16 /* WifiNotifications.swift */,
+				49E47490262486BF00E9C2CD /* LoginWifi.swift */,
 				4974F2B5244DFF5700129EEB /* Models */,
 				4974F2B4244DFF4A00129EEB /* Controllers */,
 				4974F2B3244DFF4000129EEB /* Views */,
@@ -564,6 +586,8 @@
 				4974F252244DFF1E00129EEB /* Images.xcassets */,
 				4974F25C244DFF1F00129EEB /* nav.db.zip */,
 				4974F26A244DFF2000129EEB /* subway.pdf */,
+				496B86D0261D4A55005FEDC3 /* night.pdf */,
+				496B86C6261D4A43005FEDC3 /* winter.pdf */,
 				4974F212244DFE3000129EEB /* NYCSubwayLib.h */,
 				4974F213244DFE3000129EEB /* Info.plist */,
 			);
@@ -1127,9 +1151,11 @@
 				4974F2A6244DFF2100129EEB /* gtfs.db.zip in Resources */,
 				4974F291244DFF2100129EEB /* Images.xcassets in Resources */,
 				4974F2A0244DFF2100129EEB /* RouteViewController.xib in Resources */,
+				496B86D1261D4A55005FEDC3 /* night.pdf in Resources */,
 				4974F288244DFF2100129EEB /* VisitTableViewCell.xib in Resources */,
 				4974F2B0244DFF2100129EEB /* MapViewController.xib in Resources */,
 				4974F2A9244DFF2100129EEB /* subway.pdf in Resources */,
+				496B86C7261D4A43005FEDC3 /* winter.pdf in Resources */,
 				4974F29D244DFF2100129EEB /* ChooseDirectionViewController.xib in Resources */,
 				4974F28F244DFF2100129EEB /* RoutesViewController.xib in Resources */,
 				49E32CD02451FAC0002F8366 /* EstimateTableViewCell.xib in Resources */,
@@ -1218,7 +1244,6 @@
 				"${BUILT_PRODUCTS_DIR}/Prelude/Prelude.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
-				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
@@ -1239,7 +1264,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prelude.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
@@ -1314,7 +1338,6 @@
 				"${BUILT_PRODUCTS_DIR}/Prelude/Prelude.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
-				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
@@ -1335,7 +1358,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prelude.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
@@ -1406,7 +1428,6 @@
 				"${BUILT_PRODUCTS_DIR}/Prelude/Prelude.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
-				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
@@ -1427,7 +1448,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prelude.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
@@ -1476,7 +1496,6 @@
 				"${BUILT_PRODUCTS_DIR}/Prelude/Prelude.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
-				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
@@ -1501,7 +1520,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prelude.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
@@ -1536,7 +1554,6 @@
 				"${BUILT_PRODUCTS_DIR}/Prelude/Prelude.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
-				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
@@ -1559,7 +1576,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prelude.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
@@ -1583,6 +1599,8 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SubwayMap/Pods-SubwayMap-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/FlexDataSource/FlexDataSource.framework",
 				"${BUILT_PRODUCTS_DIR}/FunNet/FunNet.framework",
 				"${BUILT_PRODUCTS_DIR}/GTFSStations/GTFSStations.framework",
@@ -1593,19 +1611,19 @@
 				"${BUILT_PRODUCTS_DIR}/Prelude/Prelude.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
-				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 				"${BUILT_PRODUCTS_DIR}/Slippers/Slippers.framework",
 				"${BUILT_PRODUCTS_DIR}/SubwayStations/SubwayStations.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 				"${BUILT_PRODUCTS_DIR}/ZipArchive/ZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/fuikit/fuikit.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlexDataSource.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FunNet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTFSStations.framework",
@@ -1616,13 +1634,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prelude.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Slippers.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SubwayStations.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/fuikit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -1639,47 +1655,11 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SubwayMapTests/Pods-SubwayMapTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FlexDataSource/FlexDataSource.framework",
-				"${BUILT_PRODUCTS_DIR}/FunNet/FunNet.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/LUX/LUX.framework",
-				"${BUILT_PRODUCTS_DIR}/LithoOperators/LithoOperators.framework",
-				"${BUILT_PRODUCTS_DIR}/PlaygroundVCHelpers/PlaygroundVCHelpers.framework",
-				"${BUILT_PRODUCTS_DIR}/Prelude/Prelude.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/SBCategories/SBCategories.framework",
-				"${BUILT_PRODUCTS_DIR}/SBNag.swift/SBNag_swift.framework",
-				"${BUILT_PRODUCTS_DIR}/SBTextInputView/SBTextInputView.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
-				"${BUILT_PRODUCTS_DIR}/Slippers/Slippers.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
-				"${BUILT_PRODUCTS_DIR}/ZipArchive/ZipArchive.framework",
-				"${BUILT_PRODUCTS_DIR}/fuikit/fuikit.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlexDataSource.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FunNet.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LUX.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LithoOperators.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlaygroundVCHelpers.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Prelude.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBCategories.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBNag_swift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBTextInputView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Slippers.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZipArchive.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/fuikit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
@@ -1797,13 +1777,16 @@
 				4974F2AF244DFF2100129EEB /* AdNavigationController.swift in Sources */,
 				49E32CD224523B5E002F8366 /* GetEstimatesCall.swift in Sources */,
 				4974F282244DFF2100129EEB /* StationTableViewCell.swift in Sources */,
+				496269D1265ADB99004B8A16 /* WifiNotifications.swift in Sources */,
 				4974F276244DFF2100129EEB /* VisitTableViewCell.swift in Sources */,
 				4974F280244DFF2100129EEB /* ChooseDirectionViewController.swift in Sources */,
 				4974F299244DFF2100129EEB /* RoutesViewController.swift in Sources */,
 				4974F296244DFF2100129EEB /* LineChoiceView.swift in Sources */,
 				4974F28D244DFF2100129EEB /* ReportVisitCall.swift in Sources */,
+				49E472B22623B56300E9C2CD /* WifiLocation.swift in Sources */,
 				4974F273244DFF2100129EEB /* RouteCollectionViewCell.swift in Sources */,
 				49E32CCC2451EEC4002F8366 /* DBPredictionRefresher.swift in Sources */,
+				49E472C42623BD5F00E9C2CD /* WifiDetection.swift in Sources */,
 				49E32CCF2451FAC0002F8366 /* EstimateTableViewCell.swift in Sources */,
 				4974F28A244DFF2100129EEB /* UserReportsViewController.swift in Sources */,
 				4974F27C244DFF2100129EEB /* DatabaseLoader.swift in Sources */,
@@ -1820,6 +1803,7 @@
 				49D24109245352E900C37962 /* SubwayStationsExtensions.swift in Sources */,
 				4974F297244DFF2100129EEB /* VersionChecker.swift in Sources */,
 				4959FCB2244F1ECA006FDD00 /* TimeProvider.swift in Sources */,
+				49E47491262486BF00E9C2CD /* LoginWifi.swift in Sources */,
 				49D2410B2453533600C37962 /* CellConfig.swift in Sources */,
 				4974F287244DFF2100129EEB /* Styles.swift in Sources */,
 				4974F2A3244DFF2100129EEB /* StationViewController.swift in Sources */,
@@ -2045,10 +2029,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SubwayMap/SubwayMap.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3.0.0.1;
+				CURRENT_PROJECT_VERSION = 3.1.0.2;
 				DEVELOPMENT_TEAM = HK6WSAR793;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2063,7 +2048,7 @@
 				INFOPLIST_FILE = SubwayMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.1.0;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thryv.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2085,15 +2070,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SubwayMap/SubwayMap.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3.0.0.1;
+				CURRENT_PROJECT_VERSION = 3.1.0.2;
 				DEVELOPMENT_TEAM = HK6WSAR793;
 				INFOPLIST_FILE = SubwayMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.0.0;
+				MARKETING_VERSION = 3.1.0;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thryv.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

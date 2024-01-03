@@ -24,6 +24,8 @@ let paid = World().configure { world in
     ifSimulator { world.isAdmin = true }
     world.serverConfig = NYCServerConfiguration.production
     world.adsEnabled = false
+    world.pdfTouchConverter = NYCNightPDFTouchConverter()
+    world.isAdmin = true
     JsonProvider.jsonDecoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Seconds)
 }
 
